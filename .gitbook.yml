@@ -1,0 +1,32 @@
+root: ./docs/gitbook/
+
+redirects:
+  # Cloud Security
+  cloud-security/overview: ./cloud-security/setup-cloud-accounts.md
+  cloud-security/setup: ./cloud-security/setup-cloud-accounts.md
+  cloud-security/policies: ./cloud-security/policies/README.md
+  cloud-security/resources: ./cloud-security/resources/README.md
+  cloud-security/automatic-remediation: ./cloud-security/automatic-remediation/README.md
+  # Enterprise
+  enterprise/custom-log-types: ./log-analysis/custom-log-types.md
+  enterprise/data-analytics/alert-summaries: ./analysis/alert-summaries.md
+  enterprise/data-analytics/data-explorer: ./data-analytics/data-explorer.md
+  enterprise/data-analytics/example-queries: ./data-analytics/example-queries.md
+  enterprise/data-analytics/indicator-search: ./data-analytics/indicator-search.md
+  enterprise/data-analytics/log-compaction: data-analytics/backends/log-compaction.md
+  enterprise/data-analytics: ./data-analytics/README.md
+  enterprise/saas-logs/box: ./data-onboarding/saas-logs/box.md
+  enterprise/saas-logs/crowdstrike: ./data-onboarding/saas-logs/crowdstrike.md
+  enterprise/saas-logs/duo: ./data-onboarding/saas-logs/duo.md
+  enterprise/saas-logs/gsuite: ./data-onboarding/saas-logs/gsuite.md
+  enterprise/saas-logs/okta: ./data-onboarding/saas-logs/okta.md
+  enterprise/saas-logs/salesforce: ./data-onboarding/saas-logs/salesforce.md
+  enterprise/saas-logs/slack: ./data-onboarding/saas-logs/slack.md
+  enterprise/snowflake: ./system-configuration/snowflake-setup.md
+  # Log Analysis
+  log-analysis/supported-logs: ./log-analysis/log-processing/supported-logs/README.md
+  log-analysis/panther-fields: ./data-analytics/panther-fields.md
+  log-analysis/rules: ./log-analysis/rules/README.md
+  log-analysis/overview: ./log-analysis/rules/README.md
+  # User Guide
+  user-guide/destinations: ./destinations/README.md
