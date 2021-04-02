@@ -1,0 +1,206 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Panther log schema",
+  "$id": "https://runpanther.io/schemas/logspec/v0",
+  "$ref": "#/definitions/schemaSpec",
+  "definitions": {
+    "schemaSpec": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 0
+        },
+        "schema": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^[A-Z][A-Za-z0-9]+$"
+        },
+        "description": {
+          "type": "string"
+        },
+        "referenceURL": {
+          "type": "string",
+          "format": "uri"
+        },
+        "fields": {
+          "$ref": "#/definitions/objectFields"
+        },
+        "definitions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z][A-Za-z0-9]+$": {
+              "$ref": "#/definitions/valueSpec"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": ["version", "fields"],
+      "additionalProperties": false
+    },
+    "objectFields": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/fieldSpec"
+      }
+    },
+    "fieldSpec": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "type": {
+              "$ref": "#/definitions/typeScec"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": ["name", "type"]
+        },
+        {
+          "$ref": "#/definitions/valueSpec"
+        }
+      ]
+    },
+    "valueSpec": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/stringSpec"
+        },
+        {
+          "$ref": "#/definitions/objectSpec"
+        },
+        {
+          "$ref": "#/definitions/arraySpec"
+        },
+        {
+          "$ref": "#/definitions/scalarSpec"
+        },
+        {
+          "$ref": "#/definitions/timeSpec"
+        },
+        {
+          "$ref": "#/definitions/refSpec"
+        }
+      ]
+    },
+    "typeScec": {
+      "type": "string",
+      "enum": [
+        "string",
+        "object",
+        "array",
+        "json",
+        "int",
+        "float",
+        "smallint",
+        "bigint",
+        "boolean",
+        "timestamp",
+        "ref"
+      ]
+    },
+    "objectSpec": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "object"
+        },
+        "fields": {
+          "$ref": "#/definitions/objectFields"
+        }
+      },
+      "required": ["type", "fields"]
+    },
+    "arraySpec": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "array"
+        },
+        "element": {
+          "$ref": "#/definitions/valueSpec"
+        }
+      },
+      "required": ["type", "element"]
+    },
+    "scalarSpec": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["int", "float", "bigint", "smallint", "json", "boolean"]
+        }
+      },
+      "required": ["type"]
+    },
+    "stringSpec": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "string"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/indicator"
+          }
+        }
+      },
+      "required": ["type"]
+    },
+    "indicator": {
+      "type": "string",
+      "enum": ["ip", "domain", "md5", "sha1", "sha256", "hostname", "url", "trace_id", "net_addr"]
+    },
+    "timeSpec": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "timestamp"
+        },
+        "isEventTime": {
+          "type": "boolean"
+        },
+        "timeFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "title": "Built-in timestamp format",
+              "description": "Common timestamp formats",
+              "enum": ["rfc3339", "unix", "unix_ms", "unix_us", "unix_ns"]
+            },
+            {
+              "type": "string",
+              "title": "Custom timestamp format",
+              "description": "A custom time format in strftime notation",
+              "pattern": "%[aAbBcCdfHIjmMpSUwWxyYzZ]"
+            }
+          ]
+        }
+      },
+      "required": ["type", "timeFormat"]
+    },
+    "refSpec": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ref"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": ["target", "type"]
+    }
+  }
+}
