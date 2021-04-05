@@ -4,7 +4,7 @@ This page will walk you through configuring OpsGenie as a Destination for your P
 
 The OpsGenie Destination requires an `Opsgenie API key`. When an alert is forwarded to an OpsGenie Destination, it creates an incident using the specified API key:
 
-![](../.gitbook/assets/opsegenie-panther%20%287%29.png)
+![](../.gitbook/assets/opsegenie-panther%20%287%29%20%287%29%20%286%29.png)
 
 To configure an OpsGenie Destination, start by navigating to your team's dashboard by going to the Teams tab and selecting the team to receive the alert:
 
@@ -12,11 +12,11 @@ To configure an OpsGenie Destination, start by navigating to your team's dashboa
 
 After selecting the team you to which you wish to send alerts, select the integrations tab on the left, and then the `Add integration` button:
 
-![](../.gitbook/assets/opsgenie2%20%282%29.png)
+![](../.gitbook/assets/opsgenie2%20%282%29%20%281%29%20%289%29.png)
 
 Next select the `API` integration type from the integration list:
 
-![](../.gitbook/assets/opsgenie3%20%283%29.png)
+![](../.gitbook/assets/opsgenie3%20%283%29%20%281%29%20%281%29.png)
 
 After selecting the API integration type, you will be prompted to configure the name, settings, permissions, etc. of the integration. Be sure to leave the `Enabled` and `Create and Update Access` check boxes checked:
 

@@ -14,7 +14,7 @@ When an alert is forwarded to a Jira Destination, a bug, story, or task is creat
 
 ## Example
 
-![](../.gitbook/assets/jira-issue%20%282%29.png)
+![](../.gitbook/assets/jira-issue%20%282%29%20%282%29%20%283%29.png)
 
 ### Integration fields
 
@@ -32,7 +32,7 @@ The `Assignee ID` is optional. If specified, issues created will automatically b
 
 The `Issue Type` is the label to tag for Jira issues.
 
-![](../.gitbook/assets/jira1%20%289%29.png)
+![](../.gitbook/assets/jira1%20%289%29%20%285%29%20%284%29.png)
 
 ### Create a Jira API key
 
@@ -54,7 +54,7 @@ This field accepts the unique string ID called the user's `accountID`. You need 
 
 `https://example.atlassian.net/jira/people/search`
 
-Click on a desired user: ![](../.gitbook/assets/jira-user1%20%282%29.png)
+Click on a desired user: ![](../.gitbook/assets/jira-user1%20%282%29%20%282%29%20%282%29.png)
 
 Inspect the URL and copy the trailing string. This is the `accountId`. For example, in the following URL, `5f8f26dabd138600693d7fb8` would be the `accountId`:
 
@@ -64,7 +64,7 @@ Inspect the URL and copy the trailing string. This is the `accountId`. For examp
 
 Navigate back to the onboarding process and paste this into the `Assignee ID` field.
 
-Once you've filled out the form, click `Add Destination`. You may optionally send a test alert: ![](../.gitbook/assets/jira2%20%289%29.png) ![](../.gitbook/assets/jira3.png)
+Once you've filled out the form, click `Add Destination`. You may optionally send a test alert: ![](../.gitbook/assets/jira2%20%289%29%20%286%29%20%281%29.png) ![](../.gitbook/assets/jira3.png)
 
 Click `Finish Setup` to finalize the destination configuration. This destination is now ready to receive alerts!
 

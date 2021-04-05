@@ -4,7 +4,7 @@
 
 To configure a PagerDuty Destination, Panther requires an `Integration Key`. When an alert is forwarded to a PagerDuty Destination, it creates an incident:
 
-![](../.gitbook/assets/pagerduty-panther%20%287%29.png)
+![](../.gitbook/assets/pagerduty-panther%20%287%29%20%287%29%20%282%29.png)
 
 The PagerDuty Destination allows you to page an on-call team. We typically only recommend this Destination for `High` and `Critical` severity issues that need to be addressed immediately.
 

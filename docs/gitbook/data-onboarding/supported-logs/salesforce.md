@@ -33,7 +33,7 @@ Reference: [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforc
 | `USER_ID_DERIVED` | `string` | The 18-character case insensitive ID of the user who’s using Salesforce services through the UI or the API. For example: 00590000000I1SNIA0. |
 | `CLIENT_IP` | `string` | The IP address of the client that’s using Salesforce services. A Salesforce internal IP \(such as a login from Salesforce Workbench or AppExchange\) is shown as "Salesforce.com IP". For example: 10.0.0.1. |
 | `URI_ID_DERIVED` | `string` | The 18-character case insensitive ID of the URI of the page that’s receiving the request. |
-| `LOGIN_STATUS` | `string` | The status of the login attempt. For successful logins, the value is LOGIN\_NO\_ERROR. All other values indicate errors or authentication issues. For details, see https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce\_api\_objects\_eventlogfile\_login\_status.htm |
+| `LOGIN_STATUS` | `string` | The status of the login attempt. For successful logins, the value is LOGIN\_NO\_ERROR. All other values indicate errors or authentication issues. For details, see [https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce\_api\_objects\_eventlogfile\_login\_status.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_objects_eventlogfile_login_status.htm) |
 | `SOURCE_IP` | `string` | The source IP of the login request. |
 | **`p_event_time`** | `timestamp` | Panther added standardized event time \(UTC\) |
 | **`p_parse_time`** | `timestamp` | Panther added standardized log parse time \(UTC\) |

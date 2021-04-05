@@ -30,23 +30,23 @@ AWS destinations require IAM configurations to grant permissions for Panther to 
 
 To create a destination, navigate to `Settings` &gt; `Destinations` and select `Add Destination`.
 
-![](../.gitbook/assets/readme-add-destination%20%288%29.png)
+![](../.gitbook/assets/readme-add-destination%20%288%29%20%288%29.png)
 
 You will then be prompted to select a destination type.
 
 Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine grained control of destination routing.
 
-![](../.gitbook/assets/readme-destination-types%20%288%29.png)
+![](../.gitbook/assets/readme-destination-types%20%288%29%20%282%29%20%283%29.png)
 
 Next, add a `Display Name` to distinguish the destination from others in the Panther UI and optionally select the associated severities for this destination.
 
 Each destination type will have specific configuration options based on the system's API. See the destination specific setup instructions in the following pages for more details.
 
-![](../.gitbook/assets/readme-settings-example%20%288%29.png)
+![](../.gitbook/assets/readme-settings-example%20%288%29%20%282%29%20%288%29.png)
 
 Finally, click the `Add Destination` button to save the configuration. You will be prompted to optionally send a test alert to check if everything was set up correctly.
 
-![](../.gitbook/assets/readme-test%20%283%29.png)
+![](../.gitbook/assets/readme-test%20%283%29%20%283%29%20%283%29.png)
 
 Let's send a test to make sure everything is working as expected.
 

@@ -17,7 +17,7 @@ From **Log Analysis**, click **Sources** &gt; **Add Source** &gt; **Amazon SQS**
 | `Allowed Principal ARNs` | `No` | The ARNs of the AWS principals that will be allowed to publish messages to the SQS queue e.g. `arn:aws:iam::012345678912:root` or `arn:aws:iam::012345678912:role/Test-*` |
 | `Allowed Source ARNs` | `No` | The ARNs of the AWS resources \(S3 buckets, SNS topics, etc\) that can publish messages to that SQS queue e.g. `arn:aws:sns:us-east-1:012345678912:my-topic` or `arn:aws:s3:::my-bucket*` |
 
-![](../../.gitbook/assets/sqs-page2%20%285%29.png)
+![](../../.gitbook/assets/sqs-page2%20%285%29%20%285%29%20%284%29.png)
 
 Note that if none of **Allowed Principal ARNs** and **Allowed Source ARNs** properties are set, only Principals of the AWS account where Panther is deployed will be able to publish messages to the queue. Click **Continue Setup**.
 
@@ -25,7 +25,7 @@ Note that if none of **Allowed Principal ARNs** and **Allowed Source ARNs** prop
 
 Click **Save Source**. Panther will create an SQS queue and will allow the ARNs specified above to publish messages to it. The SQS queue URL will be display in the next page
 
-![](../../.gitbook/assets/sqs-page3%20%285%29.png)
+![](../../.gitbook/assets/sqs-page3%20%285%29%20%285%29.png)
 
 You are all done! You can now start sending messages to the SQS queue.
 

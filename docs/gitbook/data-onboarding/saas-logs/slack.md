@@ -2,15 +2,15 @@
 
 Panther has the ability to pull the following logs from Slack:
 
-* **Audit logs**, by querying the [Audit Logs API](https://api.slack.com/admins/audit-logs). The Audit Logs API is  
+* **Audit logs**, by querying the [Audit Logs API](https://api.slack.com/admins/audit-logs). The Audit Logs API is
 
   available to **Slack Enterprise Grid** customers **only**.
 
-* **Access logs**, by querying the [team.accessLogs API](https://api.slack.com/methods/team.accessLogs). This API is 
+* **Access logs**, by querying the [team.accessLogs API](https://api.slack.com/methods/team.accessLogs). This API is
 
   available in all Slack paid plans. Note: Due to Slack's rate limits, Panther pulls only the events where the user or the access location or the access device is new.
 
-* **Integration logs**, by querying the [team.integrationLogs API](https://api.slack.com/methods/team.integrationLogs). This API is 
+* **Integration logs**, by querying the [team.integrationLogs API](https://api.slack.com/methods/team.integrationLogs). This API is
 
   available in all Slack paid plans.
 
@@ -126,9 +126,9 @@ The App will be created in the selected workspace but later you will be able to 
 
 ![](../../.gitbook/assets/slack-setup-page10.png)
 
-1. Click **Authorize**. You will be redirected to a Slack page to install your app. 
+1. Click **Authorize**. You will be redirected to a Slack page to install your app.
 
-   For Audit Logs, make sure you install it to the **Enterprise Organization** and **not** to a specific workspace!  
+   For Audit Logs, make sure you install it to the **Enterprise Organization** and **not** to a specific workspace!
 
 2. Click **Allow**
 3. Your new Slack Source should be healthy and ready to fetch audit logs from Slack!

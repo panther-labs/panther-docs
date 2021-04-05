@@ -11,11 +11,11 @@ Azure Active Directory audit events. Reference: [https://docs.microsoft.com/en-u
 | Column | Type | Description |
 | :--- | :--- | :--- |
 | **`Id`** | `string` | Unique identifier of an audit record. |
-| **`RecordType`** | `int` | The type of operation indicated by the record. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype for details on the types of audit log records. |
+| **`RecordType`** | `int` | The type of operation indicated by the record. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) for details on the types of audit log records. |
 | **`CreationTime`** | `timestamp` | The date and time in Coordinated Universal Time \(UTC\) when the user performed the activity. |
 | **`Operation`** | `string` | The name of the user or admin activity. |
 | **`OrganizationId`** | `string` | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| **`UserType`** | `int` | The type of user that performed the operation. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type for details on the types of users. |
+| **`UserType`** | `int` | The type of user that performed the operation. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#user-type) for details on the types of users. |
 | **`UserKey`** | `string` | An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID \(PUID\) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts. |
 | `Workload` | `string` | The Office 365 service where the activity occurred. |
 | `ResultStatus` | `string` | Indicates whether the action \(specified in the Operation property\) was successful or not. Possible values are Succeeded, PartiallySucceeded, or Failed. For Exchange admin activity, the value is either True or False. |
@@ -57,11 +57,11 @@ Microsoft Exchange audit events. Reference: [https://docs.microsoft.com/en-us/of
 | Column | Type | Description |
 | :--- | :--- | :--- |
 | **`Id`** | `string` | Unique identifier of an audit record. |
-| **`RecordType`** | `int` | The type of operation indicated by the record. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype for details on the types of audit log records. |
+| **`RecordType`** | `int` | The type of operation indicated by the record. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) for details on the types of audit log records. |
 | **`CreationTime`** | `timestamp` | The date and time in Coordinated Universal Time \(UTC\) when the user performed the activity. |
 | **`Operation`** | `string` | The name of the user or admin activity. |
 | **`OrganizationId`** | `string` | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| **`UserType`** | `int` | The type of user that performed the operation. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type for details on the types of users. |
+| **`UserType`** | `int` | The type of user that performed the operation. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#user-type) for details on the types of users. |
 | **`UserKey`** | `string` | An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID \(PUID\) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts. |
 | `Workload` | `string` | The Office 365 service where the activity occurred. |
 | `ResultStatus` | `string` | Indicates whether the action \(specified in the Operation property\) was successful or not. Possible values are Succeeded, PartiallySucceeded, or Failed. For Exchange admin activity, the value is either True or False. |
@@ -118,11 +118,11 @@ General audit events not included in the other log types. Reference: [https://do
 | Column | Type | Description |
 | :--- | :--- | :--- |
 | **`Id`** | `string` | Unique identifier of an audit record. |
-| **`RecordType`** | `int` | The type of operation indicated by the record. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype for details on the types of audit log records. |
+| **`RecordType`** | `int` | The type of operation indicated by the record. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) for details on the types of audit log records. |
 | **`CreationTime`** | `timestamp` | The date and time in Coordinated Universal Time \(UTC\) when the user performed the activity. |
 | **`Operation`** | `string` | The name of the user or admin activity. |
 | **`OrganizationId`** | `string` | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| **`UserType`** | `int` | The type of user that performed the operation. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type for details on the types of users. |
+| **`UserType`** | `int` | The type of user that performed the operation. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#user-type) for details on the types of users. |
 | **`UserKey`** | `string` | An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID \(PUID\) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts. |
 | `Workload` | `string` | The Office 365 service where the activity occurred. |
 | `ResultStatus` | `string` | Indicates whether the action \(specified in the Operation property\) was successful or not. Possible values are Succeeded, PartiallySucceeded, or Failed. For Exchange admin activity, the value is either True or False. |
@@ -147,11 +147,11 @@ Microsoft SharePoint audit events. Reference: [https://docs.microsoft.com/en-us/
 | Column | Type | Description |
 | :--- | :--- | :--- |
 | **`Id`** | `string` | Unique identifier of an audit record. |
-| **`RecordType`** | `int` | The type of operation indicated by the record. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype for details on the types of audit log records. |
+| **`RecordType`** | `int` | The type of operation indicated by the record. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) for details on the types of audit log records. |
 | **`CreationTime`** | `timestamp` | The date and time in Coordinated Universal Time \(UTC\) when the user performed the activity. |
 | **`Operation`** | `string` | The name of the user or admin activity. |
 | **`OrganizationId`** | `string` | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| **`UserType`** | `int` | The type of user that performed the operation. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type for details on the types of users. |
+| **`UserType`** | `int` | The type of user that performed the operation. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#user-type) for details on the types of users. |
 | **`UserKey`** | `string` | An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID \(PUID\) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts. |
 | `Workload` | `string` | The Office 365 service where the activity occurred. |
 | `ResultStatus` | `string` | Indicates whether the action \(specified in the Operation property\) was successful or not. Possible values are Succeeded, PartiallySucceeded, or Failed. For Exchange admin activity, the value is either True or False. |
@@ -196,11 +196,11 @@ DLP events for all workloads. Reference: [https://docs.microsoft.com/en-us/offic
 | Column | Type | Description |
 | :--- | :--- | :--- |
 | **`Id`** | `string` | Unique identifier of an audit record. |
-| **`RecordType`** | `int` | The type of operation indicated by the record. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype for details on the types of audit log records. |
+| **`RecordType`** | `int` | The type of operation indicated by the record. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#auditlogrecordtype](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) for details on the types of audit log records. |
 | **`CreationTime`** | `timestamp` | The date and time in Coordinated Universal Time \(UTC\) when the user performed the activity. |
 | **`Operation`** | `string` | The name of the user or admin activity. |
 | **`OrganizationId`** | `string` | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| **`UserType`** | `int` | The type of user that performed the operation. See https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type for details on the types of users. |
+| **`UserType`** | `int` | The type of user that performed the operation. See [https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema\#user-type](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#user-type) for details on the types of users. |
 | **`UserKey`** | `string` | An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID \(PUID\) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts. |
 | `Workload` | `string` | The Office 365 service where the activity occurred. |
 | `ResultStatus` | `string` | Indicates whether the action \(specified in the Operation property\) was successful or not. Possible values are Succeeded, PartiallySucceeded, or Failed. For Exchange admin activity, the value is either True or False. |

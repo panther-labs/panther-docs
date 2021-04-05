@@ -398,11 +398,11 @@ _**NOTE**_: Check to make sure that all 6 fields \(_account, host, password, por
 
 * You will be presented with a screen asking for the name and description of the secret. Fill these in and click `Next`.
 
-![](../.gitbook/assets/snowflake-secrets-page2%20%288%29.png)
+![](../.gitbook/assets/snowflake-secrets-page2%20%288%29%20%281%29%20%285%29.png)
 
 * The next screen concerns autorotation, just click the `Next` button.
 
-![](../.gitbook/assets/snowflake-secrets-page3%20%288%29.png)
+![](../.gitbook/assets/snowflake-secrets-page3%20%288%29%20%282%29%20%285%29.png)
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 

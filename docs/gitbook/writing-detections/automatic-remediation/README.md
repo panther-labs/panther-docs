@@ -19,7 +19,7 @@ Enabling automatic remediation for a Cloud Security source is simple.
 
 The only requirement is to check the `AWS Automatic Remediations` checkbox while onboarding a Cloud Security source and the prerequisite role will be deployed as part of the onboarding stack.
 
-![enable remediations checkbox](../../.gitbook/assets/readme-setup%20%287%29.png)
+![enable remediations checkbox](../../.gitbook/assets/readme-setup%20%287%29%20%286%29%20%283%29.png)
 
 To enable automatic remediation on an existing source, edit the source and check the "enable automatic remediation" box.
 

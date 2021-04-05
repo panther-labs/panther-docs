@@ -156,7 +156,7 @@ $ ./pantherlog infer sample_logs.jsonl > schema.yml
 >
 >   and identify fields that should be of type `timestamp` instead.
 >
-> * It will not mark any timestamp field as `isEventTime:true`. Make sure to select the appropriate `timestamp` field and mark it as `isEventTime:true`. 
+> * It will not mark any timestamp field as `isEventTime:true`. Make sure to select the appropriate `timestamp` field and mark it as `isEventTime:true`.
 >
 >   For more information regarding `isEventTime:true` see [timestamp](reference.md#timestamps).
 >
