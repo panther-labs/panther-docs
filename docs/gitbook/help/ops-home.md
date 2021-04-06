@@ -121,7 +121,7 @@ Opstools are found at `https://panther-community-us-east-1.s3-us-east-1.amazonaw
 
 * `darwin-amd64`
 * `linux-amd64`
-* `arm`
+* `linux-arm`
 * `windows-amd64.exe`
 * `windows-arm.exe`
 
