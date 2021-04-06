@@ -97,7 +97,7 @@ These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-f
 
 Running these commands with a `-h` flag will explain usage.
 
-Opstools are found at `https://panther-community-us-east-1/{version}/tools/ops/{tool-name}-{architecture}`
+Opstools are found at `https://panther-community-us-east-1.s3-us-east-1.amazonaws.com/{version}/tools/ops/{tool-name}-{architecture}`
 
 `{version}` is latest Panther version, e.g. v1.17.0-RC
 
@@ -123,7 +123,7 @@ Opstools are found at `https://panther-community-us-east-1/{version}/tools/ops/{
 * `linux-amd64`
 * `arm`
 * `windows-amd64.exe`
-* `windows-arm`
+* `windows-arm.exe`
 
 Devtools are found at `https://panther-community-us-east-1.s3-us-east-1.amazonaws.com/{version}/tools/dev/{tool-name}-{architecture}`
 
