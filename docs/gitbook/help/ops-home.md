@@ -125,7 +125,7 @@ Opstools are found at `https://panther-community-us-east-1/{version}/tools/ops/{
 * `windows-amd64.exe`
 * `windows-arm`
 
-Devtools are found at `https://panther-community-us-east-1/{version}/tools/dev/{tool-name}-{architecture}`
+Devtools are found at `https://panther-community-us-east-1.s3-us-east-1.amazonaws.com/{version}/tools/dev/{tool-name}-{architecture}`
 
 `{version}` and `{architecture}` are shared with opstools.
 
@@ -135,5 +135,5 @@ Devtools are found at `https://panther-community-us-east-1/{version}/tools/dev/{
 * logprocessor
 * pantherlog
 
-An example of a full link to a devtool would be [https://panther-community-us-east-1/v1.17.0/tools/dev/pantherlog-darwin-amd64](https://panther-community-us-east-1/v1.17.0/tools/dev/pantherlog-darwin-amd64)
+An example of a full link to a devtool would be [https://panther-community-us-east.s3-us-east-1.amazonaws.com/1/v1.17.0/tools/dev/pantherlog-darwin-amd64](https://panther-community-us-east.s3-us-east-1.amazonaws.com/1/v1.17.0/tools/dev/pantherlog-darwin-amd64)
 
