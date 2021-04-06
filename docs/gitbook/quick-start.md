@@ -5,7 +5,7 @@ description: Get started with Panther in 15 minutes
 # Quick Start
 
 {% hint style="info" %}
-Before installing Panther, make sure to have an AWS account and the proper permissions to setup the various components.
+Before installing Panther, make sure to have an AWS account and the proper permissions to set up the various components.
 
 We recommend deploying Panther into its own dedicated AWS account.
 {% endhint %}

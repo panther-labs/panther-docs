@@ -31,14 +31,5 @@ And alerting your team when suspicious activity happens:
 
 Follow the [quick start](quick-start.md) guide to deploy Panther!
 
-### Enterprise
-
-Panther [Enterprise](help/overview.md) offers additional features for teams, such as:
-
-* Data Explorer: Search your collected data, generated alerts, and threat hunt with SQL
-* SaaS Logs: Automatically load popular SaaS logs into Panther such as Okta, G Suite, and more.
-* Role-based Access Control: Assign roles to your Panther users
-* Single Sign-on: Integrate solutions such as Okta to streamline and manage identities.
-
 [Sign up for a demo of Panther Enterprise](https://runpanther.io/request-a-demo/)!
 

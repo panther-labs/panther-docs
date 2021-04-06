@@ -248,5 +248,4 @@
   * [Cost](help/cost.md)
   * [FAQ](help/faqs.md)
   * [Glossary](help/glossary.md)
-  * [Panther Enterprise](help/overview.md)
 
