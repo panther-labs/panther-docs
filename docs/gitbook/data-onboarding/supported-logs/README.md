@@ -28,7 +28,7 @@ Panther currently supports 80 security log types across 26 different categories:
   * [Firewall](cloudflare.md#cloudflare-firewall)
   * [HttpRequest](cloudflare.md#cloudflare-httprequest)
   * [Spectrum](cloudflare.md#cloudflare-spectrum)
-* [Crowdstrike](crowdstrike.md)
+* [CrowdStrike](crowdstrike.md)
   * [AIDMaster](crowdstrike.md#crowdstrike-aidmaster)
   * [ActivityAudit](crowdstrike.md#crowdstrike-activityaudit)
   * [AppInfo](crowdstrike.md#crowdstrike-appinfo)

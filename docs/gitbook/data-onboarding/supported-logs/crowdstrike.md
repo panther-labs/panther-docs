@@ -1,4 +1,4 @@
-# Crowdstrike
+# CrowdStrike
 
 {% hint style="info" %}
 Required fields are in **bold**.
