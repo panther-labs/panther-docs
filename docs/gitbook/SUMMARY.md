@@ -24,7 +24,7 @@
     * [Box](data-onboarding/supported-logs/box.md)
     * [Cisco Umbrella](data-onboarding/supported-logs/ciscoumbrella.md)
     * [Cloudflare](data-onboarding/supported-logs/cloudflare.md)
-    * [Crowdstrike](data-onboarding/supported-logs/crowdstrike.md)
+    * [CrowdStrike](data-onboarding/supported-logs/crowdstrike.md)
     * [Duo](data-onboarding/supported-logs/duo.md)
     * [Fastly](data-onboarding/supported-logs/fastly.md)
     * [Fluentd](data-onboarding/supported-logs/fluentd.md)
