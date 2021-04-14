@@ -1,5 +1,5 @@
 ---
-description: Integrating OneLogin with Panther Enterprise
+description: Integrating OneLogin with Panther
 title: OneLogin SAML Integration
 ---
 

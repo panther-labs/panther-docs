@@ -1,9 +1,5 @@
 # Box
 
-{% hint style="info" %}
-This feature is only available in Panther Enterprise
-{% endhint %}
-
 Panther can pull audit events from the [Box Events API](https://developer.box.com/reference/get-events/) every 1 minute intervals for real-time detection.
 
 In order for Panther to access the API you will need to create a new Box App and provide its credentials to Panther.

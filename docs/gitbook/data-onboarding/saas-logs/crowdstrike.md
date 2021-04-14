@@ -1,9 +1,5 @@
 # CrowdStrike
 
-{% hint style="info" %}
-This feature is only available in Panther Enterprise
-{% endhint %}
-
 Panther has the ability to fetch CrowdStrike events by integrating with the [CrowdStrike Falcon Data Replicator](https://developer.crowdstrike.com/crowdstrike/docs/falcon-data-replicator-guide).
 
 {% hint style="info" %}

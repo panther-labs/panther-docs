@@ -1,9 +1,5 @@
 # Duo
 
-{% hint style="info" %}
-This feature is only available in Panther Enterprise
-{% endhint %}
-
 Panther can collect the following Duo logs via the [Duo API](https://duo.com/docs/adminapi#logs):
 
 * [Authentication Logs \(v2\)](https://duo.com/docs/adminapi#authentication-logs)

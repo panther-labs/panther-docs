@@ -1,9 +1,5 @@
 # OneLogin
 
-{% hint style="info" %}
-This feature is only available in Panther Enterprise
-{% endhint %}
-
 Panther is able to process OneLogin events through [OneLogin's integration](https://www.onelogin.com/blog/aws-eventbridge-integration) with Amazon EventBridge. This allows Panther to process OneLogin logs in a scalable and reliable, low latency manner.
 
 In order for Panther to process your OneLogin logs, you need to configure your OneLogin account to send data to Amazon EventBridge in Panther AWS account.

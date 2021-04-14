@@ -1,6 +1,6 @@
 # SaaS Logs
 
-Panther Enterprise supports pulling logs directly from SaaS platforms such as Okta, OneLogin, and more.
+Panther supports pulling logs directly from SaaS platforms such as Okta, OneLogin, and more.
 
 The two mechanisms used are direct integrations \(by querying APIs\) and AWS EventBridge.
 

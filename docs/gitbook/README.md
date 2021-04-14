@@ -31,5 +31,5 @@ And alerting your team when suspicious activity happens:
 
 Follow the [quick start](quick-start.md) guide to deploy Panther!
 
-[Sign up for a demo of Panther Enterprise](https://runpanther.io/request-a-demo/)!
+[Sign up for a demo of Panther](https://runpanther.io/request-a-demo/)!
 

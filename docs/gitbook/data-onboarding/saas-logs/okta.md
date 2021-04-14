@@ -1,9 +1,5 @@
 # Okta
 
-{% hint style="info" %}
-This feature is only available in Panther Enterprise
-{% endhint %}
-
 Panther has the ability to fetch Okta events by querying the [Okta System Log API](https://developer.okta.com/docs/reference/api/system-log/). Panther will query the System Log API every 1' minute.
 
 In order for Panther to access the API you need to create a new API token or use an existing one.

@@ -1,13 +1,13 @@
 ---
-description: Integrating SAML with Panther Enterprise
+description: Integrating SAML with Panther
 title: Generic SAML Integration
 ---
 
 # Generic
 
-Integrate any SAML Identity Provider \(IdP\) with Panther Enterprise in three easy steps:
+Integrate any SAML Identity Provider \(IdP\) with Panther in three easy steps:
 
-1. [Deploy](../../quick-start.md) Panther Enterprise and navigate to the General Settings page. Note the values shown for "Audience" and "ACS URL":
+1. [Deploy](../../quick-start.md) Panther and navigate to the General Settings page. Note the values shown for "Audience" and "ACS URL":
 
    ![](../../.gitbook/assets/panther-saml-parameters%20%285%29%20%281%29%20%286%29.png)
 
