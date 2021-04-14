@@ -1,11 +1,11 @@
 ---
-description: Integrating Okta with Panther Enterprise
+description: Integrating Okta with Panther
 title: Okta SAML Integration
 ---
 
 # Okta
 
-First, [deploy](../../quick-start.md) Panther Enterprise and go to the General Settings page. Note the values for "Audience" and "ACS URL":
+First, [deploy](../../quick-start.md) Panther and go to the General Settings page. Note the values for "Audience" and "ACS URL":
 
 ![](../../.gitbook/assets/panther-saml-parameters%20%285%29%20%281%29%20%2822%29.png)
 

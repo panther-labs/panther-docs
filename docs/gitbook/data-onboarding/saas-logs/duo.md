@@ -20,7 +20,7 @@ In order for Panther to access the Duo API you need to create a new 'Duo App' an
 ## Create a new Duo Source in Panther
 
 1. Login to your Panther deployment
-2. Go to **Log analysis** &gt; **Sources** from the sidebar menu
+2. Go to **Integrations &gt; Log Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **Duo** from the list of available types
 5. Add a friendly name for the source

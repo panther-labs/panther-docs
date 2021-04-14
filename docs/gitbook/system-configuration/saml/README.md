@@ -1,6 +1,6 @@
 # SAML/SSO Integration
 
-Panther Enterprise offers SAML integration, which allows users to login via SSO providers like OneLogin, Okta, or others.
+Panther offers SAML integration, which allows users to login via SSO providers like OneLogin, Okta, or others.
 
 ## Guides
 

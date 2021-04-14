@@ -1,6 +1,6 @@
 # Automatic Log Compaction
 
-Searching in Panther Enterprise is currently 10 times faster and uses 60% less storage compared to the community edition. This means you get more done for less money.
+Searching in Panther is currently 10 times faster and uses 60% less storage compared to the community edition. This means you get more done for less money.
 
 The community edition of Panther stores all log data as gzipped compressed JSON files in S3. While JSON is a flexible file format, it requires complex parsing \(slow to search\) and takes up considerable space relative to binary file formats \(expensive to store\).
 

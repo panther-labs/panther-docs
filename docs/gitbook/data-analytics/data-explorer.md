@@ -1,6 +1,6 @@
 # Data Explorer
 
-Data explorer gives Panther Enterprise deployments access to a panel where they can perform SQL queries on their Panther data. It adds a clean UI powered by a robust backend, with persistence and autocomplete goodies that will enhance your querying experience.
+Data explorer gives Panther deployments access to a panel where they can perform SQL queries on their Panther data. It adds a clean UI powered by a robust backend, with persistence and autocomplete goodies that will enhance your querying experience.
 
 With Panther Data Explorer, you are able to:
 

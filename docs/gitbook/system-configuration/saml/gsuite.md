@@ -1,11 +1,11 @@
 ---
-description: Integrating GSuite with Panther Enterprise
+description: Integrating GSuite with Panther
 title: GSuite SAML Integration
 ---
 
 # GSuite
 
-First, [deploy](../../quick-start.md) Panther Enterprise and go to the General Settings page. Note the values for "Audience" and "ACS URL":
+First, [deploy](../../quick-start.md) Panther and go to the General Settings page. Note the values for "Audience" and "ACS URL":
 
 ![](../../.gitbook/assets/panther-saml-parameters%20%285%29%20%281%29%20%2819%29.png)
 

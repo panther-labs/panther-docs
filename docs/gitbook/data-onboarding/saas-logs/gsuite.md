@@ -55,7 +55,7 @@ The steps below can only be performed if your G Suite user has permissions to se
 ## Create a new G Suite source in Panther
 
 1. Login to your Panther account
-2. Go to **Log analysis** &gt; **Sources** from the sidebar menu
+2. Go to **Integrations** &gt; **Log** **Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **G Suite** from the list of available types
 5. In the next screen enter the following: 1. Friendly name for the source e.g. `My GSuite logs` 2. Select the GSuite applications you want to monitor

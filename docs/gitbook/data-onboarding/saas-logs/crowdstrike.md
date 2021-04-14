@@ -18,7 +18,7 @@ CrowdStrike customers must have the [Falcon Data Replicator](https://developer.c
 ## Create a New CrowdStrike Source in Panther
 
 1. Login to your Panther deployment
-2. Go to **Log analysis** &gt; **Sources** from the sidebar menu
+2. Go to **Integrations &gt; Log Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **CrowdStrike** from the list of available types
 5. Fill in the fields below:

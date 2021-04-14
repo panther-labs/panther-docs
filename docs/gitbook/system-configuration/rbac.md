@@ -1,10 +1,10 @@
 # Role-Based Access Control
 
-Role-Based Access Control \(RBAC\) gives Panther Enterprise deployments fine-grained access control for their user accounts. A _role_ is a configurable set of permissions and every user is assigned to exactly one role.
+Role-Based Access Control \(RBAC\) gives Panther deployments fine-grained access control for their user accounts. A _role_ is a configurable set of permissions and every user is assigned to exactly one role.
 
 ## Default Roles
 
-When you first deploy Panther Enterprise, the following three roles are automatically created for you:
+When you first deploy Panther, the following three roles are automatically created for you:
 
 ![Default Roles](../.gitbook/assets/rbac-default-roles%20%284%29.png)
 

@@ -19,14 +19,15 @@ First of all, you need to keep note of the AWS Account and AWS region where Pant
 
 ## Create a new OneLogin source in Panther
 
-1. Login to your Panther account
-2. Go to **Log analysis** &gt; **Sources** from the sidebar menu
-3. Click **Add Source**
-4. Select **Amazon EventBridge** from the list of available types
-5. In the following form, fill in the following fields:
+1. Log in to your Panther account.
+2. Go to **Integrations** &gt; **Log** **Sources** from the sidebar menu.
+3. Click **Add Source**.
+4. Select **OneLogin**.
+5. Select **Amazon EventBridge** from the list of available Data Transports if you would like to pull logs directly from OneLogin. You can also select S3 or SNS if you would like to retrieve logs from those sources.
+6. In the following form, fill in the following fields:
    1. **Name**: A friendly name for the source e.g. `My OneLogin events`
    2. **Log Type**: Select `OneLogin`
    3. **Bus Name**: The field you noted in the previous text \(in the form `aws.partner/onelogin.com/US-123456/ffffffffff`\)
-6. Click on **Next** and then **Save Source**
-7. You are done! You can now start writing detections and exploring your OneLogin data.
+7. Click on **Next** and then **Save Source**
+8. You are done! You can now start writing detections and exploring your OneLogin data.
 

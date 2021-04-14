@@ -20,14 +20,11 @@ In order for Panther to access the Slack API you need to create a new Slack sour
 
 ## Create a new Slack Source in Panther
 
-1. Login to your Panther account.
-2. Go to **Log analysis** &gt; **Sources** from the sidebar menu.
+1. Log in to your Panther account.
+2. Go to **Integrations** &gt; **Log** **Sources** from the sidebar menu.
 3. Click **Add Source**.
 4. Select **Slack** from the list of available types.
-
-![](../../.gitbook/assets/slack-setup-page1.png)
-
-1. Enter a name for the source \(e.g. `My Slack logs`\) and then select your Slack plan. The available log types for you depend on that plan. Then click **Next**.
+5. Enter a name for the source \(e.g. `My Slack logs`\) and then select your Slack plan. The available log types for you depend on that plan. Then click **Next**.
 
 {% hint style="info" %}
 To find your Slack plan, click the name of your Slack workspace at the top left of the Slack app
