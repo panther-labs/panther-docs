@@ -148,6 +148,7 @@
   * [Runtime Environment](system-configuration/run-time.md)
   * [Snowflake Integration](system-configuration/snowflake-setup.md)
   * [Configuring a Custom Domain](system-configuration/configuring-custom-domains.md)
+  * [System Health Notifications](system-configuration/system-health-notifications.md)
 * [Alert Runbooks](alert-runbooks/README.md)
   * [Built-in Policies](alert-runbooks/built-in-policies/README.md)
     * [AWS CloudTrail Is Enabled In All Regions](alert-runbooks/built-in-policies/aws-cloudtrail-enabled-in-all-regions.md)
