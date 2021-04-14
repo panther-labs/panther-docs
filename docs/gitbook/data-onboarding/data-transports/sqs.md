@@ -4,9 +4,9 @@ The steps below will setup an SQS queue and will give you permissions to send da
 
 ## Step 1: Choose SQS source
 
-From **Log Analysis**, click **Sources** &gt; **Add Source** &gt; **Amazon SQS**
+From **Integrations**, click **Log Sources** &gt; **Add Source** &gt; **Data Transport** &gt; **SQS Queue**
 
-![](../../.gitbook/assets/sqs-page1%20%2859%29.png)
+![](../../.gitbook/assets/image%20%284%29.png)
 
 ### Step 2: Enter the source details
 
