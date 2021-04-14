@@ -725,7 +725,7 @@ WITH actor_baseline AS (
   FROM
     panther_logs.public.okta_systemlog
   WHERE
-    p_event_occurs_since('30 days') 
+    p_occurs_since('30 days') 
   GROUP BY 1
   HAVING
     COUNT(DISTINCT date(p_event_time)) > 5 -- at least 5 days of history
@@ -736,7 +736,7 @@ SELECT
 FROM
   panther_logs.public.okta_systemlog logs JOIN actor_baseline bl ON (actor:id = bl.actor_id)
 WHERE
-  p_event_occurs_since('1 day') 
+  p_occurs_since('1 day') 
   AND
   NOT ARRAY_CONTAINS(logs.client:id::variant, bl.client_id_list)
   AND
