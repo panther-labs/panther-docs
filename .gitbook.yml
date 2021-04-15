@@ -1,8 +1,8 @@
 root: ./docs/gitbook/
 
 redirects:
-  # Old master branch
-  v/master: ''
+  # Old 'master' branch links on google
+  v/master/writing-detections/data-models: ./writing-detections/data-models.md
   # Cloud Security
   cloud-security/overview: ./cloud-security/setup-cloud-accounts.md
   cloud-security/setup: ./cloud-security/setup-cloud-accounts.md
