@@ -4,21 +4,23 @@ description: Get started with Panther in 15 minutes
 
 # Quick Start
 
-
-
 {% hint style="info" %}
-Get started with Panther by scheduleding a [demo](https://runpanther.io/request-a-demo/)!
+Get started with Panther by scheduling a [demo](https://runpanther.io/request-a-demo/)!
 {% endhint %}
 
-## First Login
+Welcome to Panther!
+
+First things first, let's make sure you get logged in. See the guidelines below to get credentials and set up your Panther account. The first recommended step after initial login is to configure [destinations](destinations/README.md) to receive alerts in notification systems such as Slack, PagerDuty, or automation platforms like Tines.
+
+Then, depending on the desired use case, follow the onboarding paths below:
+
+### First Login
 
 Once your account has been provisioned, you will get an invitation email from `no-reply@verificationemail.com` with your temporary login credentials. If you don't see it, be sure to check your spam folder.
 
 You can use these temporary credentials to login and setup MFA:
 
 ![Login Screen](.gitbook/assets/quick-start-login.png)
-
-### Certificate Warning
 
 {% hint style="warning" %}
 By default, Panther generates a self-signed certificate for the web UI, which will cause most browsers to present a warning page:
@@ -28,19 +30,33 @@ By default, Panther generates a self-signed certificate for the web UI, which wi
 Your connection _is_ encrypted, and it's generally safe to continue. However, the warning exists because self-signed certificates do not protect you from man-in-the-middle attacks; for this reason production deployments should provide their own `CertificateArn` parameter value.
 {% endhint %}
 
-## Data Onboarding
+### Alert Destinations
 
-Congratulations! You are now ready to use Panther. Follow the steps below to start analyzing data:
+The first recommended step after initial login is to configure [destinations](destinations/README.md) to receive alerts in notification systems such as Slack, PagerDuty, or automation platforms like Tines. You can quickly set up a destination by following the steps below:
 
-1. Invite your team in `Settings` &gt; `Users` &gt; `Invite User`
-2. Configure [destinations]() to receive generated alerts
-3. Onboard data for real-time log analysis from [S3]() or [SQS]()
-4. Write custom [rules]() based on internal business logic
-5. Onboard AWS accounts for [cloud security scans]()
-6. Write custom [policies]() for supported [AWS resources]()
-7. Enterprise Only: Query collected logs with [data explorer]()
+1. Go to  `Integrations` &gt; `Alert Destinations` &gt; `Add New Destination`
+2. Select a destination you would like to push alert to
+3. Follow the onboarding experience, use Panther Docs to correctly configure the destination
 
-## Supported AWS Regions
+### Data Onboarding
+
+For data normalization, real-time analytics, and storage into the data lake, start by onboarding data through one \(or multiple\) of the transport methods below:
+
+* [Amazon S3](log-analysis/setup/s3.md)
+* [AWS SQS](log-analysis/setup/sqs.md)
+* Directly pulled from various [SaaS Services](data-onboarding/saas-logs)
+
+After onboarding, your data will be searchable with SQL via the [Data Explorer](data-analytics/indicator-search) and can be correlated with the [Indicator Search](data-analytics/data-explorer). These tools can help provide samples for [custom rule](logs-analysis/rules/README.md) writing.
+
+### Set Up Detections & Cloud Compliance
+
+Panther comes with build-in detections that alert against common security events and monitoring of cloud infrastructure. Building on these built-on detections is easy; use Panther to create custom detections that address your organizational needs. Use the documentation below to guide you through setting up detections and cloud compliance:
+
+1. Onboard AWS accounts for [cloud security scans](cloud-security/setup-cloud-accounts.md)
+2. Write [rules](log-analysis/rules/README.md) based on internal business logic or monitoring needs
+3. Write [policies](cloud-security/policies/README.md) for supported [AWS resource types](cloud-security/resources/README.md)
+
+### Supported AWS Regions
 
 Panther can be deployed to any of the following regions:
 
@@ -66,5 +82,5 @@ Panther also has limited support for AWS China:
 * `cn-north-1` \(Beijing\)
 * `cn-northwest-1` \(Ningxia\)
 
-At this time, only the backend processing can be deployed to China \(no web app\). See our [China docs]() for more details.
+At this time, only the backend processing can be deployed to China \(no web app\). See our [China docs](https://docs.runpanther.io/help/china) for more details.
 
