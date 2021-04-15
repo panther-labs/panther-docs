@@ -25,7 +25,7 @@ You can use these temporary credentials to login and setup MFA:
 {% hint style="warning" %}
 By default, Panther generates a self-signed certificate for the web UI, which will cause most browsers to present a warning page:
 
-![Self-Signed Certificate Warning](.gitbook/assets/quick-start-cert-warning%20%289%29%20%284%29%20%285%29.png)
+![Self-Signed Certificate Warning](.gitbook/assets/quick-start-cert-warning%20%289%29%20%284%29%20%281%29%20%286%29.png)
 
 Your connection _is_ encrypted, and it's generally safe to continue. However, the warning exists because self-signed certificates do not protect you from man-in-the-middle attacks; for this reason production deployments should provide their own `CertificateArn` parameter value.
 {% endhint %}

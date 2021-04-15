@@ -22,7 +22,7 @@ In this step, you will configure your SNS topic to forward messages to the SQS q
 * Select **Enable raw message delivery**
 * Click on **Enable subscription**
 
-  ![](../../.gitbook/assets/sns-page1%20%285%29%20%285%29.png)
+  ![](../../.gitbook/assets/sns-page1%20%285%29%20%285%29%20%287%29.png)
 
 You are done! Panther will start processing any message sent to the SNS topic
 

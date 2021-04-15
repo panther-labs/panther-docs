@@ -43,7 +43,7 @@ https://panther-<EDITION>-<REGION>.s3.amazonaws.com/<VERSION>/panther.yml
 Be sure the template region matches your deployment region
 {% endhint %}
 
-![CloudFormation Console](../.gitbook/assets/quick-start-cfn-deploy-1%20%286%29.png)
+![CloudFormation Console](../.gitbook/assets/quick-start-cfn-deploy-1%20%286%29%20%281%29%20%281%29.png)
 
 On the next page, choose a stack name \(e.g. "panther"\) and configure the name and email for the first Panther admin user:
 
@@ -51,11 +51,11 @@ On the next page, choose a stack name \(e.g. "panther"\) and configure the name 
 You can invite additional users after the deployment is complete.
 {% endhint %}
 
-![CloudFormation Parameters](../.gitbook/assets/quick-start-cfn-deploy-2%20%287%29.png)
+![CloudFormation Parameters](../.gitbook/assets/quick-start-cfn-deploy-2%20%287%29%20%281%29%20%288%29.png)
 
 Acknowledge the Capabilities and deploy the stack:
 
-![CloudFormation Capabilities](../.gitbook/assets/quick-start-cfn-deploy-3%20%288%29.png)
+![CloudFormation Capabilities](../.gitbook/assets/quick-start-cfn-deploy-3%20%288%29%20%281%29%20%285%29.png)
 
 You may also deploy Panther using CICD workflows such as nested CloudFormation stacks, Terraform templates, or by building and deploying from [source]().
 
@@ -125,7 +125,7 @@ You can use these temporary credentials to login and setup MFA:
 {% hint style="warning" %}
 By default, Panther generates a self-signed certificate for the web UI, which will cause most browsers to present a warning page:
 
-![Self-Signed Certificate Warning](../.gitbook/assets/quick-start-cert-warning%20%289%29.png)
+![Self-Signed Certificate Warning](../.gitbook/assets/quick-start-cert-warning%20%289%29%20%284%29%20%281%29%20%281%29.png)
 
 Your connection _is_ encrypted, and it's generally safe to continue. However, the warning exists because self-signed certificates do not protect you from man-in-the-middle attacks; for this reason production deployments should provide their own `CertificateArn` parameter value.
 {% endhint %}

@@ -4,7 +4,7 @@ This page will walk you through configuring SNS as a Destination for your Panthe
 
 The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS Destination, it publishes a JSON string to that topic:
 
-![](../.gitbook/assets/sns-panther%20%287%29%20%287%29%20%288%29.png)
+![](../.gitbook/assets/sns-panther%20%287%29%20%287%29%20%287%29%20%288%29.png)
 
 From the AWS [SNS console](https://us-west-2.console.aws.amazon.com/sns/v3/home#/topics), create a new Topic or navigate to the topic you wish to add as a destination. Copy the ARN out and into the Panther Destinations configuration, then select the topic. We will be editing its permissions so Panther can publish messages to it:
 

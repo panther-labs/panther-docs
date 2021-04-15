@@ -142,11 +142,11 @@ Your source must be [configured to allow automatic remediation](automatic-remedi
 
 From the `Remediation` dropdown, select the remediation you wish to enable for this policy. Some remediations may support or require configurations to be set. On the following pages, you will find more detailed descriptions of each available remediation and their configuration settings.
 
-![Remediation Settings](../.gitbook/assets/policy-creation5%20%287%29%20%283%29%20%287%29.png)
+![Remediation Settings](../.gitbook/assets/policy-creation5%20%287%29%20%283%29%20%288%29.png)
 
 To apply the remediation manually to fix a policy failure on an individual resource, select the "Remeidate" option on a failing resource when viewing the resources for the policy.
 
-![Manual Remediation](../.gitbook/assets/policy-creation6%20%287%29%20%284%29%20%284%29.png)
+![Manual Remediation](../.gitbook/assets/policy-creation6%20%287%29%20%284%29%20%281%29%20%285%29.png)
 
 To apply the remediation to _all_ currently failing resources, simply disable the policy then re-enable the policy to re-evaluate all resources immediately. Panther doesn't do this automatically for safety reasons.
 

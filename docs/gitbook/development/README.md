@@ -8,13 +8,13 @@ The sections below cover how Panther works under the hood: an architectural over
 
 This diagram provides an overview of the core components of Panther, and how they are connected.
 
-![High level architecture diagram](../.gitbook/assets/development-arch-diagram%20%288%29%20%288%29.png)
+![High level architecture diagram](../.gitbook/assets/development-arch-diagram%20%288%29%20%288%29%20%289%29%20%281%29.png)
 
 ### Data Flow Diagram
 
 This diagram shows where and how your data is stored and processed:
 
-![Data flow diagram](../.gitbook/assets/development-data-flow-diagram%20%288%29%20%288%29%20%286%29.png)
+![Data flow diagram](../.gitbook/assets/development-data-flow-diagram%20%288%29%20%288%29%20%281%29%20%286%29.png)
 
 The above arrows indicate the direction in which data is transferred, as opposed to the previous diagrams where arrows are indicating the direction that communication is being initiated.
 

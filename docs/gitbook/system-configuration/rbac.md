@@ -23,7 +23,7 @@ All roles \(including the default ones above\) are fully customizable by any use
 
 When you create or edit a role, you are shown the following screen:
 
-![Role Edit](../.gitbook/assets/rbac-role-edit%20%287%29%20%287%29%20%286%29.png)
+![Role Edit](../.gitbook/assets/rbac-role-edit%20%287%29%20%287%29%20%288%29%20%287%29.png)
 
 \(There are more available permissions than the ones shown here.\)
 

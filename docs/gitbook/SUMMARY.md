@@ -139,6 +139,7 @@
     * [Snowflake](data-analytics/backend/snowflake.md)
   * [Example Queries](data-analytics/example-queries.md)
 * [System Configuration](system-configuration/README.md)
+  * [Self Hosted Deployments](system-configuration/self-hosted-deployments.md)
   * [Role-Based Access Control](system-configuration/rbac.md)
   * [SAML/SSO Integration](system-configuration/saml/README.md)
     * [GSuite](system-configuration/saml/gsuite.md)

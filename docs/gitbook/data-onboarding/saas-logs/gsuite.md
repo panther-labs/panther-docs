@@ -14,16 +14,16 @@ The steps below can only be performed if your G Suite user has permissions to se
 2. Click **Create Project**
 3. Enter a project name e.g. `Panther Integration`. Make sure that the organization you want to monitor is selected under **Organization**. Click on **Create**
 
-![](../../.gitbook/assets/gsuite-new-app-page1%20%285%29%20%285%29%20%283%29.png)
+![](../../.gitbook/assets/gsuite-new-app-page1%20%285%29%20%285%29%20%287%29%20%284%29.png)
 
 1. It will take a few seconds to create the project. Once created, you will get an on-screen notification.
 2. Go again to [Google API Console](https://console.developers.google.com). Select the project you just created
 
-![](../../.gitbook/assets/gsuite-new-app-page2%20%285%29%20%285%29%20%286%29.png)
+![](../../.gitbook/assets/gsuite-new-app-page2%20%285%29%20%285%29%20%287%29%20%287%29.png)
 
 1. Click on **OAuth consent screen**
 
-![](../../.gitbook/assets/gsuite-new-app-page3%20%285%29%20%285%29%20%282%29.png)
+![](../../.gitbook/assets/gsuite-new-app-page3%20%285%29%20%285%29%20%287%29%20%283%29.png)
 
 1. Select **Internal** as **User Type** and click on **Create**
 2. In the next page fill the following information
@@ -38,7 +38,7 @@ The steps below can only be performed if your G Suite user has permissions to se
 7. You will be navigated back to the dashboard of your new application. Click **Dashboard**
 8. Click on **Enable APIs and Services**
 
-![](../../.gitbook/assets/gsuite-new-app-page4%20%289%29%20%2811%29%20%282%29.png)
+![](../../.gitbook/assets/gsuite-new-app-page4%20%289%29%20%2811%29%20%283%29%20%282%29.png)
 
 1. In the search bar type `Admin SDK API`
 2. Click on **Admin SDK API**, then click **Enable**
@@ -46,7 +46,7 @@ The steps below can only be performed if your G Suite user has permissions to se
 4. Click on **Create Credentials**
 5. Click on **OAuth client ID**
 
-![](../../.gitbook/assets/gsuite-new-app-page5%20%285%29%20%285%29%20%287%29.png)
+![](../../.gitbook/assets/gsuite-new-app-page5%20%285%29%20%285%29%20%287%29%20%288%29.png)
 
 1. In the new screen select as **Application Type** **Desktop App** and type in a friendly name e.g. `Panther`
 2. Click on **Create**

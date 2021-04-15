@@ -402,7 +402,7 @@ _**NOTE**_: Check to make sure that all 6 fields \(_account, host, password, por
 
 * The next screen concerns autorotation, just click the `Next` button.
 
-![](../.gitbook/assets/snowflake-secrets-page3%20%288%29%20%282%29%20%285%29.png)
+![](../.gitbook/assets/snowflake-secrets-page3%20%288%29%20%282%29%20%286%29.png)
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 

@@ -10,15 +10,15 @@ Slack can be connected to Panther by creating a custom Slack app with a webhook:
 
 Navigate to [Your Slack Apps](https://api.slack.com/apps), and select `Create New App` to create a custom app
 
-![](../.gitbook/assets/slack1%20%289%29%20%287%29%20%2810%29.png)
+![](../.gitbook/assets/slack1%20%289%29%20%287%29%20%281%29%20%2811%29.png)
 
 After creating the app, an administrator will need to authorize its access and enable it to the appropriate channel.
 
-![](../.gitbook/assets/slack2%20%2813%29%20%287%29.png)
+![](../.gitbook/assets/slack2%20%2813%29%20%287%29%20%281%29.png)
 
 Click `Incoming Webhooks`, then enable `Activate Incoming Webhooks`
 
-![](../.gitbook/assets/slack3%20%2813%29%20%286%29%20%285%29.png)
+![](../.gitbook/assets/slack3%20%2813%29%20%286%29%20%281%29%20%285%29.png)
 
 Scroll down and click `Add New Webhook to Workspace`
 

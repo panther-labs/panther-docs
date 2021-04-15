@@ -31,7 +31,7 @@ If you want to enable real-time scans or automatic remediation, make sure to tic
 
 Click `Next`, then download the generated template or click directly into the CloudFormation Console:
 
-![](../.gitbook/assets/setup3%20%284%29%20%281%29%20%289%29.png)
+![](../.gitbook/assets/setup3%20%284%29%20%281%29%20%2810%29.png)
 
 Clicking the `Launch Stack` button will open [CloudFormation](https://aws.amazon.com/cloudformation/) in the AWS account you are currently logged into with pre-populated stack variables:
 
@@ -41,7 +41,7 @@ Clicking the `Launch Stack` button will open [CloudFormation](https://aws.amazon
 Make sure to check the acknowledgement in the `Capabilities`box
 {% endhint %}
 
-![](../.gitbook/assets/setup-cfn-2%20%289%29%20%282%29%20%2813%29.png)
+![](../.gitbook/assets/setup-cfn-2%20%289%29%20%282%29%20%281%29%20%2814%29.png)
 
 Click the `Create stack` button. After about 15 seconds, the stack's `Status` should change to `CREATE_COMPLETE`. If there is an error creating the stack, then an IAM role with the same name may already exist in your account.
 
@@ -112,7 +112,7 @@ In order for target accounts to be onboarded, you must have checked the "Real-Ti
 
 Login to the `Administrator` account's AWS Console, and open the [CloudFormation StackSets](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacksets) page:
 
-![](../.gitbook/assets/setup-stacksets-1%20%2812%29%20%281%29%20%2813%29.png)
+![](../.gitbook/assets/setup-stacksets-1%20%2812%29%20%281%29%20%2814%29.png)
 
 Click the `Create StackSet` button on the top right, select `Template is ready`, and enter the following `Amazon S3 URL`:
 
@@ -160,7 +160,7 @@ Click `Submit` at the bottom of the page to create the StackSet.
 
 To check on the status of the StackSet, check the `Operations` tab:
 
-![](../.gitbook/assets/setup-stacksets-4%20%289%29%20%2813%29%20%284%29.png)
+![](../.gitbook/assets/setup-stacksets-4%20%289%29%20%2813%29%20%285%29%20%284%29.png)
 
 {% hint style="success" %}
 Awesome! You should now have real-time CloudWatch events sending to Panther.
