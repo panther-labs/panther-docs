@@ -9,6 +9,7 @@ redirects:
   cloud-security/policies: ./cloud-security/policies/README.md
   cloud-security/resources: ./cloud-security/resources/README.md
   cloud-security/automatic-remediation: ./cloud-security/automatic-remediation/README.md
+  cloud-security/*: ./cloud-security/setup-cloud-accounts.md
   # Enterprise
   enterprise/custom-log-types: ./log-analysis/custom-log-types.md
   enterprise/data-analytics/alert-summaries: ./analysis/alert-summaries.md
@@ -30,5 +31,6 @@ redirects:
   log-analysis/panther-fields: ./data-analytics/panther-fields.md
   log-analysis/rules: ./writing-detections/rules.md
   log-analysis/overview: ./data-onboarding/README.md
+  log-analysis/*: ./data-onboarding/README.md
   # User Guide
   user-guide/destinations: ./destinations/README.md
