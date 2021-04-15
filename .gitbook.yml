@@ -24,9 +24,9 @@ redirects:
   enterprise/saas-logs/slack: ./data-onboarding/saas-logs/slack.md
   enterprise/snowflake: ./system-configuration/snowflake-setup.md
   # Log Analysis
-  log-analysis/supported-logs: ./log-analysis/log-processing/supported-logs/README.md
+  log-analysis/supported-logs: ./data-onboarding/supported-logs/README.md
   log-analysis/panther-fields: ./data-analytics/panther-fields.md
-  log-analysis/rules: ./log-analysis/rules/README.md
-  log-analysis/overview: ./log-analysis/rules/README.md
+  log-analysis/rules: ./writing-detections/rules.md
+  log-analysis/overview: ./data-onboarding/README.md
   # User Guide
   user-guide/destinations: ./destinations/README.md
