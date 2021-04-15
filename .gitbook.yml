@@ -1,6 +1,8 @@
 root: ./docs/gitbook/
 
 redirects:
+  # Old master branch
+  v/master: ''
   # Cloud Security
   cloud-security/overview: ./cloud-security/setup-cloud-accounts.md
   cloud-security/setup: ./cloud-security/setup-cloud-accounts.md
