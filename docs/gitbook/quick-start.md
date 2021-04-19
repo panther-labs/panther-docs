@@ -76,3 +76,7 @@ Panther also has limited support for AWS China:
 
 At this time, only the backend processing can be deployed to China \(no web app\). See our [China docs](https://docs.runpanther.io/help/china) for more details.
 
+{% hint style="info" %}
+For customers hosting Panther on their own cloud instance, you can find more information on deploying, upgrading, and removing Panther [here](https://docs.runpanther.io/help/self-hosted).
+{% endhint %}
+
