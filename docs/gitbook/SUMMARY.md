@@ -57,6 +57,7 @@
   * [Alert Field Overrides](writing-detections/alert-field-overrides.md)
   * [Alert Summaries](writing-detections/alert-summaries.md)
   * [Built-in Detections](writing-detections/built-in-detections.md)
+  * [Unit Test Mocking](writing-detections/unit-test-mocking.md)
   * [Detection Packs](writing-detections/detection-packs.md)
   * [Caching](writing-detections/caching.md)
   * [Data Models](writing-detections/data-models.md)
