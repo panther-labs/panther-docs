@@ -58,6 +58,10 @@ fields:
 
 ## CSV logs with header
 
+{% hint style="info" %}
+Avoid using such schemas in combination with others. Use a separate source or S3 prefix.
+{% endhint %}
+
 To parse CSV logs that starts with a header row, Panther has two options:
 
 * Use the names defined in the header as the names for the JSON fields or,
