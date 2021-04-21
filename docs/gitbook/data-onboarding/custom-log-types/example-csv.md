@@ -58,7 +58,7 @@ fields:
 
 ## CSV logs with header
 
-{% hint style="info" %}
+{% hint style="danger" %}
 Avoid using such schemas in combination with others. Use a separate source or S3 prefix.
 {% endhint %}
 
