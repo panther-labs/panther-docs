@@ -128,7 +128,7 @@ The panther-auditlog-processing topic is used to send s3 notifications to log pr
 
 ## panther-aws-event-processor
 
-This lambda reads events from the `panther-aws-events-queue` sqs queue and determines if the infrastructure referenced in the event has changed. If so, it writes events to the `panther-shapshot-queue` to be scanned for the nature of the changes.
+This lambda reads events from the `panther-aws-events-queue` sqs queue and determines if the infrastructure referenced in the event has changed. If so, it writes events to the `panther-snapshot-queue` to be scanned for the nature of the changes.
 
 Failure Impact
 
