@@ -8,5 +8,5 @@ If you don't see what you're looking for, let us help! Reach out to the Panther 
 * [Chat with us on Slack](https://panther-labs-oss-slackin.herokuapp.com/)
 * [Contact Sales for Enterprise Support](https://runpanther.io/request-a-demo/)
 
-Our team operates in the US and in Europe and is generally responsive during EST/PST/EEST working hours.
+Our team operates in the US and in Europe and is generally responsive during EST/PST/EEST working hours
 
