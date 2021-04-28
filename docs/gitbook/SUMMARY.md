@@ -251,5 +251,4 @@
   * [Cost](help/cost.md)
   * [FAQ](help/faqs.md)
   * [Glossary](help/glossary.md)
-  * [Self-Hosted](help/self-hosted.md)
 
