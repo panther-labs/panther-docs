@@ -16,7 +16,28 @@ For IAM Policies, the resource ID is the ARN.
 
 ## Background
 
-This resource represents an IAM policy, which is an entity that, when attached to an identity or resource, defines their permissions.
+This resource represents an IAM Policy, which is an entity that, when attached to an identity or resource, defines their permissions.  
+Entities that can have an IAM Policy attached are linked below:
+
+{% page-ref page="iam-user.md" %}
+
+{% page-ref page="iam-group.md" %}
+
+{% page-ref page="iam-role.md" %}
+
+### AWS Managed Policies
+
+Default in AWS are IAM Policies managed by AWS, which are distinct from a customer managed policy and inline policy. Generally, these policies are overly-permissive in nature and for that same reason, should generally be avoided.   
+Panther will only store an AWS managed policy if it is attached to an IAM entity.  
+Since IAM Policies exist within a globally-unique namespace, Panther preserves the stored ARN but modifies the Resource ID as follows:
+
+```go
+// Original AWS Managed Policy ARN
+arn:aws:iam::aws:policy/example-policy
+
+// Stored Resource ID
+arn:aws:iam::{ACCOUNT-ID}:policy/example-policy
+```
 
 ## Fields
 
