@@ -1,5 +1,9 @@
 # Microsoft 365
 
+{% hint style="info" %}
+This is feature will be made available in version 1.17
+{% endhint %}
+
 Panther has the ability to pull logs from Microsoft's [Office 365 Management Activity API](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference). Panther will query the API every 5 minutes.
 
 ## Prerequisites

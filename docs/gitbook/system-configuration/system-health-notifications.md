@@ -1,5 +1,9 @@
 # System Health Notifications
 
+{% hint style="info" %}
+This feature is available in Panther version 1.17
+{% endhint %}
+
 Panther System Health notification system alerts users when a part of the Panther platform is not functioning correctly. Currently, that includes the following system health errors:
 
 * Log sources turning unhealthy as a result of a failed health check

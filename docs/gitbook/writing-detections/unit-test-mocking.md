@@ -1,5 +1,9 @@
 # Unit Test Mocking
 
+{% hint style="info" %}
+This feature is available in Panther version 1.17
+{% endhint %}
+
 Panther features a simple framework to allow basic mocking for unit tests. 
 
 When writing a detection that requires an external API call, mocks can be utilized to mimic the server response in the unit tests without having to actually execute an API call. 
