@@ -171,13 +171,13 @@ You can use the tool to validate a schema file and use it to parse log files. No
 For example, to parse logs in `sample_logs.jsonl` with the log schema in `schema.yml`, use:
 
 ```text
-$ ./pantherlog parse --path schema.yml sample_logs.jsonl
+$ ./pantherlog parse --path schema.yml --schemas Schema.Name sample_logs.jsonl
 ```
 
 The tool can also accept input via `stdin` so it can be used in a pipeline:
 
 ```text
-$ cat sample_logs.jsonl | ./pantherlog parse -path schema.yml
+$ cat sample_logs.jsonl | ./pantherlog parse --path schema.yml
 ```
 
 ### Running tests for a Schema
