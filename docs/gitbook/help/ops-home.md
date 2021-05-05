@@ -92,6 +92,7 @@ Panther comes with some operational tools useful for managing the Panther infras
 * **requeue**: copy messages from a dead letter queue back to the originating queue for reprocessing
 * **s3queue**: list files under an S3 path and send to the log processor input queue for processing \(useful for back fill of data\)
 * **snowpipe**: generate a ddl file to configure Snowflake to ingest Panther data
+* **pantherlog**: Parse logs using built-in or custom schemas
 
 These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html) be set in the environment. We recommend a tool to manage these securely such as [AWS Vault](https://github.com/99designs/aws-vault).
 
@@ -116,6 +117,7 @@ Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{ver
 * s3sns
 * snowconfig
 * snowpipe
+* pantherlog
 
 `{architecture}` is one of:
 
