@@ -557,7 +557,7 @@ The `panther-rules-engine` lambda function processes S3 files from notifications
 Failure Impact
 
 * Failure of this lambda will impact alerts generated for rule matches against log data.
-* Failed events will go into the `panther-rules-engine-dlq`. When the system has recovered they should be re-queued to the `panther-rules-engine` using the Panther tool `requeue`.
+* Failed events will go into the `panther-rules-engine-queue-dlq`. When the system has recovered they should be re-queued to the `panther-rules-engine` using the Panther tool `requeue`.
 
 ## panther-rules-engine-queue
 
