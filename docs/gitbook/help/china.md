@@ -18,20 +18,20 @@ You must provide your own AWS accounts: you will be responsible for copying rele
 First, you have to "publish" the latest Panther release to an S3 bucket in China.
 
 1. Download the appropriate release copy script for your architecture:
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-darwin-amd64](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-darwin-amd64)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-linux-amd64](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-linux-amd64)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-linux-arm](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-linux-arm)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-windows-amd64.exe](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-windows-amd64.exe)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-windows-arm.exe](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.1/tools/ops/releasecopy-windows-arm.exe)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-darwin-amd64](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-darwin-amd64)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-linux-amd64](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-linux-amd64)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-linux-arm](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-linux-arm)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-windows-amd64.exe](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-windows-amd64.exe)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-windows-arm.exe](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.2/tools/ops/releasecopy-windows-arm.exe)
 2. Using _standard_ AWS credentials, download the latest Panther release assets to your device. For example:
 
-   `AWS_REGION=us-west-1 ./releasecopy-darwin-amd64 -type download -bucket panther-enterprise-us-west-1 -release v1.17.1`
+   `AWS_REGION=us-west-1 ./releasecopy-darwin-amd64 -type download -bucket panther-enterprise-us-west-1 -release v1.17.2`
 
    You can download these from any [published Panther region](../quick-start.md#supported-aws-regions).
 
 3. Using _AWS China_ credentials, upload the Panther release assets from your device to an S3 bucket in Beijing or Ningxia:
 
-   `AWS_REGION=cn-north-1 ./releasecopy-darwin-amd64 -type upload -bucket your-china-bucket-here -release v1.17.1`
+   `AWS_REGION=cn-north-1 ./releasecopy-darwin-amd64 -type upload -bucket your-china-bucket-here -release v1.17.2`
 
    Before uploading, this will transform the templates, removing resources not supported in China and changing our S3 asset references to your China bucket.
 
