@@ -38,17 +38,17 @@ You can set up an alarm in two ways. You can add an alarm to an existing log sou
 
 1.  Go to **Integrations**&gt;**Log Sources**
 2. Find a log source that you would like to configure an alarm for and click on the three-dotted **more options** icon on the far right of the tile
-3. Select **Add Alarm**
-4. Choose a time interval after which you would like to receive a "System Error" alert
+3. Select **Alarm Configuration**
+4. Turn the alarm off or on and view which destinations a "System Error" alert will be sent to
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 You can also add an alarm when onboarding a new log source, see below:
 
 1. In the Log Source page, click **Add Source** at the top of the page
 2. Complete the onboarding experience
 3. At the end of the experience, select **Yes** when asked to configure an alarm
-4. Choose a time interval after which you would like to receive a "System Error" alert
+4. Turn the alarm off or on and view which destinations a "System Error" alert will be sent to
 
 Once you have alarms configured and alert destinations updated, you should be receiving health alerts!
 
