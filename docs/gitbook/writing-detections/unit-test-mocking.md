@@ -1,7 +1,7 @@
 # Unit Test Mocking
 
 {% hint style="info" %}
-This feature is available in Panther version 1.17
+This feature is available in Panther version 1.18
 {% endhint %}
 
 Panther features a simple framework to allow basic mocking for unit tests. 
