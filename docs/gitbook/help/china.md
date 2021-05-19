@@ -8,7 +8,7 @@ However, it _is_ possible to split the infrastructure - you can deploy just the 
 
 You will need at least 2 AWS accounts:
 
-* A standard AWS account, with access to deploy the Panther web stack to `ap-southeast-1`. This account also needs to be authorized for Panther asset downloads.
+* A standard AWS account, with access to deploy the Panther web stack to `ap-southeast-1`or `ap-southeast-2` This account also needs to be authorized for Panther asset downloads.
 * An AWS China account, with an S3 bucket for storing release assets and access to deploy the Panther backend
 
 You must provide your own AWS accounts: you will be responsible for copying release assets into China and you will manage your own Panther deployment.
@@ -72,7 +72,7 @@ The key should be rotated periodically - we recommend rotating the key each time
 
 ## Proxy Web App \(Outside China\)
 
-Currently, the proxy web app must be deployed in `ap-southeast-1` \(Singapore\). If you need a different region, just let us know.
+Currently, the proxy web app must be deployed in `ap-southeast-1` \(Singapore\) or `ap-southeast-2` \(Sydney\). If you need a different region, just let us know.
 
 ### AWS Secrets Manager
 
@@ -97,9 +97,10 @@ To change the API key, simply generate a new key in the API gateway in China, th
 
 ### Deploy Web App
 
-Now, you can deploy the web app to Singapore. This process is essentially the same as a normal Panther deployment \(and will need to be repeated for each release\). Create a new CloudFormation stack in `ap-southeast-1` from the following CloudFormation template:
+Now, you can deploy the web app to Singapore. This process is essentially the same as a normal Panther deployment \(and will need to be repeated for each release\). Create a new CloudFormation stack in from the appropriate CloudFormation template depending on your region:
 
-[https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.17.1/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.17.1/proxy_panther.yml)
+* [https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.17.2/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.17.1/proxy_panther.yml)
+* [https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.17.2/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.17.1/proxy_panther.yml)
 
 You will need to set the following stack parameters:
 
