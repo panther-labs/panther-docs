@@ -1,5 +1,7 @@
 # Indicator Search
 
+Use Indicator Search to run quick investigations on common indicators across various data sources. Indicator Search eliminates the need to run SQL searches to answer quick questions about suspicious activity and presents results in a simple visualization.
+
 The Indicator Search is designed to be simple and easy to use:
 
 * Start your investigation with one or more known indicators.
@@ -17,4 +19,16 @@ The Indicator Search is designed to be simple and easy to use:
 ![Indicator Search](../.gitbook/assets/indicator-search%20%285%29%20%285%29%20%287%29%20%287%29.png)
 
 As with all of our enterprise features, access to the Indicator Search can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
+
+#### Pivoting
+
+Indicator Search can also be accessed via the "Events" tab of an alert details page. This makes it easy to quickly pivot off an interesting indicator When hovering over a "p\_any" field in the JSON view of an alert details page, you'll see a search icon appear next to the field. 
+
+![](../.gitbook/assets/image%20%2811%29.png)
+
+Click on the icon and select the date range you would like to search against. 
+
+![](../.gitbook/assets/image%20%2810%29.png)
+
+Run the search and see indicator search results!
 
