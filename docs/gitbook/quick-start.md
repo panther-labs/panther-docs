@@ -53,28 +53,16 @@ Panther comes with build-in detections that alert against common security events
 Panther can be deployed to any of the following regions:
 
 * `ap-northeast-1` \(Tokyo\)
-* `ap-northeast-2` \(Seoul\)
 * `ap-south-1` \(Mumbai\)
 * `ap-southeast-1` \(Singapore\)
 * `ap-southeast-2` \(Sydney\)
 * `ca-central-1` \(Canada\)
 * `eu-central-1` \(Frankfurt\)
-* `eu-north-1` \(Stockholm\)
 * `eu-west-1` \(Ireland\)
 * `eu-west-2` \(London\)
-* `eu-west-3` \(Paris\)
-* `sa-east-1` \(São Paulo\)
 * `us-east-1` \(N. Virginia\)
 * `us-east-2` \(Ohio\)
-* `us-west-1` \(N. California\)
 * `us-west-2` \(Oregon\)
-
-Panther also has limited support for AWS China:
-
-* `cn-north-1` \(Beijing\)
-* `cn-northwest-1` \(Ningxia\)
-
-At this time, only the backend processing can be deployed to China \(no web app\). See our [China docs](https://docs.runpanther.io/help/china) for more details.
 
 {% hint style="info" %}
 For customers hosting Panther on their own cloud instance, you can find more information on deploying, upgrading, and removing Panther [here](https://docs.runpanther.io/help/self-hosted).
