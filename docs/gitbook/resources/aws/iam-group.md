@@ -24,6 +24,7 @@ An IAM group is a collection of IAM users. Groups let you specify permissions fo
 | :--- | :--- | :--- |
 | `Users` | `List` | The IAM User members of the group |
 | `InlinePolicies` | `Map` | A mapping of inline policies keyed by PolicyName to the Policy Document |
+| `ManagedPolicyARNs` | List | The AWS Managed Policy ARNs attached to the group |
 | `ManagedPolicyNames` | `List` | The AWS Managed Policy names attached to the group |
 | `Path` | `String` | The path to the group |
 
