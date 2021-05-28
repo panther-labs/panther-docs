@@ -176,7 +176,7 @@ When beginning your rule writing/editing journey, your team should decide betwee
 Then, configure the built in rules by searching for the `Configuration Required` tag. These rules are designed to be modified by you, the security professional, based on your organization's internal business logic.
 
 {% hint style="info" %}
-The [alert field overrides](alert-field-overrides.md) page has more details on programmatically tailoring detections.
+See [Alert Field Overrides](alert-field-overrides.md) for more advanced detection functionality
 {% endhint %}
 
 ## Writing Rules with the Panther Analysis Tool

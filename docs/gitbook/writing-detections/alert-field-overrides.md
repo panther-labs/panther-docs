@@ -10,29 +10,87 @@ Similarly, these functions take an argument of the currently processed `event`.
 
 Any optional functions listed below left undefined will default to the rule metadata.
 
-| Function Name | Details | Expected Return Values |
-| :---: | :---: | :---: |
-| `severity` | Used to \(de\)escalate the `severity` and routing of the generated alert  This field is case insensitive | str  \["INFO", "LOW", "MEDIUM', "HIGH", "CRITICAL"\] |
-| `description` | Used to tailor the `description` included in the generated alert | str |
-| `reference` | Used to tailor the reference included in the generated alert | str |
-| `runbook` | Used to tailor the runbook included in the generated alert | str |
-| `destinations` | Used to override all other fields used for alert routing.  Returning an empty list effectively suppresses the alert routing. | List\[str\]  UUIDs of destinations |
-
 {% hint style="info" %}
-`destinations` currently requires a list of strings \(the unique UUID of the destination\)
+Referencing `destinations` was made available in v1.16 and newer versions.
+{% endhint %}
 
+{% tabs %}
+{% tab title="Overrides" %}
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center">Function</th>
+      <th style="text-align:center">Details</th>
+      <th style="text-align:center">Expected Return</th>
+      <th style="text-align:center">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><code>severity</code>
+      </td>
+      <td style="text-align:center">
+        <p>Generates a tailored <code>severity</code> in the alert
+          <br />Used to contextualize the detection to (de)escalate severity</p>
+        <p>Note that <code>severity</code> affects alert routing</p>
+      </td>
+      <td style="text-align:center">
+        <p>String (ENUM)</p>
+        <p>INFO LOW MEDIUM HIGH CRITICAL</p>
+      </td>
+      <td style="text-align:center">&quot;Info&quot;</td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><code>description</code>
+      </td>
+      <td style="text-align:center">Generates a tailored <code>description</code> in the alert</td>
+      <td style="text-align:center">String</td>
+      <td style="text-align:center">&quot;Description&quot;</td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><code>reference</code>
+      </td>
+      <td style="text-align:center">Generates a tailored <code>reference</code> in the alert</td>
+      <td style="text-align:center">String</td>
+      <td style="text-align:center">&quot;Reference&quot;</td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><code>runbook</code>
+      </td>
+      <td style="text-align:center">Generates a tailored <code>runbook</code> in the alert</td>
+      <td style="text-align:center">String</td>
+      <td style="text-align:center">&quot;Runbook&quot;</td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><code>destinations</code>
+      </td>
+      <td style="text-align:center">Used to override all other fields used for alert routing.
+        <br />Empty lists are used for alert suppression.</td>
+      <td style="text-align:center">
+        <p>List [String]</p>
+        <p>Destination Name</p>
+      </td>
+      <td style="text-align:center">[&quot;Main Slack&quot;]</td>
+    </tr>
+  </tbody>
+</table>
+{% endtab %}
+
+{% tab title="Finding Destination UUID" %}
+{% hint style="info" %}
+Versions prior to v1.16 require `destinations` to return the destinations  
 To get the UUID of a detection:
 
 * Navigate to Settings &gt; Destinations
 * Click on the name of the target destination
 * Extract the UUID from the current page URL 
 
-e.g. [https://\*.AWS\_REGION.elb.amazonaws.com/settings/destinations/01234567-1edf-4edb-8f5b-0123456789a/edit/](https://*.AWS_REGION.elb.amazonaws.com/settings/destinations/01234567-1edf-4edb-8f5b-0123456789a/edit/)
-
+e.g.   
+`https[:]//XX.AWS_REGION.elb.amazonaws.com/settings/destinations/01234567-1edf-4edb-8f5b-0123456789a/edit/`  
 Result UUID: `01234567-1edf-4edb-8f5b-0123456789a`
-
-Support for referencing destinations by the destination name will be added at a future point in time.
 {% endhint %}
+{% endtab %}
+{% endtabs %}
 
 For example, the functions below can be used to fine-tune a detection:
 
@@ -88,7 +146,7 @@ def destinations(event):
 
 ## Routing Order of Precedence
 
-Alert routing will honor the following order of precedence \(from lowest precedence to highest\):
+Alert routing is based on the following order of precedence \(from lowest precedence to highest\):
 
 1. Static Severity - Default alert routing based on the severity metadata field set for the detection.
 2. Generated Severity - Destinations associated with returned `severity` function defined in the Python body.
