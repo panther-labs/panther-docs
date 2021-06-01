@@ -42,3 +42,13 @@ Enter this account ID as part of the `principal`:
 
 1. Select the `Save changes` button to confirm your changes, and your SNS Topic will now be able to receive Panther alerts
 
+If your goal is to set up email notifications with this topic, continue below:
+
+1. Click `Create Subscription` on the topic you just created
+2. The topic ARN should match the topic you created
+3. Select `Email` in the protocol dropdown menu and enter the email address you would like to receive alerts to
+4. Click `Create subscription`
+5. You must confirm the subscription sent to your email before receiving alerts from this topic
+
+![](../.gitbook/assets/image%20%2812%29.png)
+
