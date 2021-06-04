@@ -66,7 +66,7 @@ Pack source fields are described in the following table.
 
 ### Accessing Private Repositories
 
-In order for panther to have access to poll a private repository, you must configure the pack source with a personal access token. See the [github documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for further details on creating a token.
+In order for panther to have access to poll a private repository, you must configure the pack source with a personal access token. See the [Github documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for further details on creating a token.
 
 A personal access token will grant access to all the repositories where the account owner has access. Therefore, we recommend creating a ["machine user"](https://docs.github.com/en/developers/overview/managing-deploy-keys#machine-users) that you can add as an outside collaborator to the repository containing the detection packs. This way, the access token can be scoped for a particular use and repository.
 
@@ -139,7 +139,7 @@ optional arguments:
   --skip-tests
 ```
 
-To automatically create a draft release in your github repository, frist set the `GITHUB_TOKEN` environment variable to a personal access token with appropriate permissions to access the target repository. Then, use the `publish` command.
+To automatically create a draft release in your Github repository, first set the `GITHUB_TOKEN` environment variable to a personal access token with appropriate permissions to access the target repository. Then, use the `publish` command.
 
 ```bash
 % panther_analysis_tool publish --help
