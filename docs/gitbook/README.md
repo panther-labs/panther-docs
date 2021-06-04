@@ -1,6 +1,6 @@
 # Home
 
-_Panther is a security analytics platform designed to alleviate the problems of traditional SIEMs_
+_Panther is a security analytics platform designed to alleviate the problems of traditional SIEMs._
 
 ![Architecture](.gitbook/assets/e2e-diagram.png)
 
