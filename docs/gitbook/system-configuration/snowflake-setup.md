@@ -92,6 +92,18 @@ CREATE database IF NOT EXISTS panther_stored_procedures;
 
 ## 4. Create a read only role and an administrative role in Snowflake
 
+{% hint style="warning" %}
+_**For customers with self-hosted Snowflake deployments who are upgrading to 1.18**_ 
+
+Self-hosted customers using Snowflake data cloud should have their Database Administrator add the following permission set, or update their automation scripts to reflect the latest version of the setup instructions:
+{% endhint %}
+
+```yaml
+USE ROLE SECURITYADMIN;
+GRANT CREATE STAGE, CREATE PIPE ON ALL SCHEMAS IN DATABASE PANTHER_MONITOR 
+  TO ROLE panther_admin_role;
+```
+
 _**NOTE**_: be sure to update `<your warehouse>` in the first line of the SQL block below to the desired Snowflake warehouse name that you wish Panther to use.
 
 We recommend you create a dedicated Panther warehouse \(e.g., PANTHER\_WH\), so that you can easily track costs and resize capacity independently of other Snowflake resources.
