@@ -190,3 +190,29 @@ $ ./pantherlog test schema.yml schema_tests.yml
 
 The first argument is a file or directory containing schema YAML files. The rest of the arguments are test files to run. If you don't specify any test files arguments, and the first argument is a directory, the tool will look for tests in YAML files with a `_tests.yml` suffix.
 
+## Uploading Log Schemas with the Panther Analysis Tool
+
+If you choose to maintain your log schemas outside of Panther, for example in order to keep them under version control and review changes before updating, you can upload the YAML files programmatically with the [Panther Analysis Tool](../../writing-detections/panther-analysis-tool.md).
+
+The uploader command receives a base path as an argument and then proceeds to recursively discover all files with extensions `.yml` and `.yaml`.
+
+{% hint style="warning" %}
+It is recommended to keep schema files separately from other unrelated files, otherwise you may notice several unrelated errors for attempting to upload invalid schema files.
+{% endhint %}
+
+```text
+panther_analysis_tool update-custom-schemas --path ./schemas
+```
+
+The uploader will check if an existing schema exists and proceed with the update or create a new one if no matching schema name is found.
+
+{% hint style="danger" %}
+The `schema`field must always be defined in the YAML file and be consistent with the existing schema name for an update to succeed. For an example see [here](https://github.com/panther-labs/panther_analysis_tool/blob/42084578fb128f79d191e17f8259c12990f94801/tests/fixtures/custom-schemas/valid/schema-1.yml#L1).
+{% endhint %}
+
+{% hint style="info" %}
+The uploaded files are validated with the same criteria as Web UI updates.
+{% endhint %}
+
+##  
+
