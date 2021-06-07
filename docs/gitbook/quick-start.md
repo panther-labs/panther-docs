@@ -64,7 +64,3 @@ Panther can be deployed to any of the following regions:
 * `us-east-2` \(Ohio\)
 * `us-west-2` \(Oregon\)
 
-{% hint style="info" %}
-For customers hosting Panther on their own cloud instance, you can find more information on deploying, upgrading, and removing Panther [here](https://docs.runpanther.io/help/self-hosted).
-{% endhint %}
-
