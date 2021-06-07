@@ -32,5 +32,5 @@ The following Attributes are common across all resources and can be referenced i
 
 ## Adding New Resources
 
-Panther supports scanning many AWS resources types. To request a new one, please submit a [Github Issue](https://www.github.com/panther-labs/panther-enterprise/issues).
+Panther supports scanning many AWS resource types. To request support for a new resource, please contact Support.
 
