@@ -248,7 +248,6 @@
   * [AWS China](help/china.md)
   * [Troubleshooting](help/troubleshooting.md)
   * [Security and Privacy](help/security-privacy.md)
-  * [Cost](help/cost.md)
   * [FAQ](help/faqs.md)
   * [Glossary](help/glossary.md)
 
