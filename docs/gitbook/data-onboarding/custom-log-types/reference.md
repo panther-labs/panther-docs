@@ -165,8 +165,6 @@ each event will be stored as:
 
 ## Using JSON Schema in an IDE
 
-If your editor/IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://github.com/panther-labs/panther-enterprise/tree/dc8e7b710c651475b15301c46b8fef69b66ed93c/docs/gitbook/.gitbook/assets/enterprise/schema.json) for validation and autocompletion.
-
 ### JetBrains
 
 You can find instruction on how to configure JetBrains IDEs to use custom JSON Schemas [here](https://www.jetbrains.com/help/phpstorm/json.html#ws_json_schema_add_custom)
