@@ -126,8 +126,9 @@ Opstools:
 * s3queue
 * s3sns
 * snowconfig
-* snowpipe
-* pantherlog
+* snowcreate
+* snowrepair
+* snowrotate
 
 Devtools
 
