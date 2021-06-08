@@ -98,11 +98,21 @@ These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-f
 
 Running these commands with a `-h` flag will explain usage.
 
-Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/ops/{tool-name}-{architecture}`
+Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{architecture}.zip`
 
-`{version}` is latest Panther version, e.g. v1.17.4
+`{version}` is latest Panther version, e.g. v1.18.0
 
-`{tool-name}` is one of:
+`{architecture}` is one of:
+
+* `darwin-amd64`
+* `linux-amd64`
+* `linux-arm`
+* `windows-amd64`
+* `windows-arm`
+
+#### Each zip archive will contain both Ops and Dev tools
+
+Opstools:
 
 * compact
 * cost
@@ -119,23 +129,11 @@ Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{ver
 * snowpipe
 * pantherlog
 
-`{architecture}` is one of:
-
-* `darwin-amd64`
-* `linux-amd64`
-* `linux-arm`
-* `windows-amd64.exe`
-* `windows-arm.exe`
-
-Devtools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/dev/{tool-name}-{architecture}`
-
-`{version}` and `{architecture}` are shared with opstools.
-
-`{tool-name}` is one of:
+Devtools
 
 * filegen
 * logprocessor
 * pantherlog
 
-An example of a full link to a devtool would be [https://panther-community-us-east-1.s3.amazonaws.com/v1.17.4/tools/dev/pantherlog-darwin-amd64](https://panther-community-us-east-1.s3.amazonaws.com/v1.17.4/tools/dev/pantherlog-darwin-amd64)
+An example of a full link to the set of tools would be [https://panther-community-us-east-1.s3.amazonaws.com/v1.18.0/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.18.0/tools/darwin-amd64.zip)
 
