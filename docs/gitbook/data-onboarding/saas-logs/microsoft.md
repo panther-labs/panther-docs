@@ -8,7 +8,13 @@ Panther has the ability to pull logs from Microsoft's [Office 365 Management Act
 
 ## Prerequisites
 
-These are the steps required to enable Panther ingest Office 365 activity logs. 1. Enable [audit log search](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) for your Microsoft365 tenancy, done through the Security and Compliance Center in the Office 365 Admin Portal. 2. Register an application in Azure Active Directory. See below for steps on how to create an application. 3. Create a Microsoft source integration in Panther.
+These are the steps required to enable Panther ingest Office 365 activity logs.
+
+1. Enable [audit log search](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) for your Microsoft365 tenancy, done through the Security and Compliance Center in the Office 365 Admin Portal.
+
+2. Register an application in Azure Active Directory. See below for steps on how to create an application.
+
+3. Create a Microsoft source integration in Panther.
 
 ## Registering an application in Azure AD
 
