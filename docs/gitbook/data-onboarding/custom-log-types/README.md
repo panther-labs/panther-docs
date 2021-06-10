@@ -11,9 +11,9 @@ Panther allows users to define their own log types by adding a _Custom Log Type_
 
 ## Adding a Custom Log Type
 
-You can add a _Custom Log Type_ by navigating to _Log Analysis_ -&gt; _Custom Logs_ and clicking on the 'New Schema' button in the upper right corner.
+You can add a _Custom Log Type_ by navigating to _Analysis_ -&gt; _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
-![Create custom logs screen](../../.gitbook/assets/custom-logs-create.png)
+![](../../.gitbook/assets/image%20%2822%29.png)
 
 Here you must enter a name for the _Custom Log Type_ \(ie `Custom.SampleAPI`\) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
 
