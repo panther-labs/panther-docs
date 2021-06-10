@@ -100,7 +100,7 @@ Running these commands with a `-h` flag will explain usage.
 
 Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{architecture}.zip`
 
-`{version}` is latest Panther version, e.g. v1.18.0
+`{version}` is latest Panther version, e.g. v1.18.1
 
 `{architecture}` is one of:
 
@@ -136,5 +136,5 @@ Devtools
 * logprocessor
 * pantherlog
 
-An example of a full link to the set of tools would be [https://panther-community-us-east-1.s3.amazonaws.com/v1.18.0/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.18.0/tools/darwin-amd64.zip)
+An example of a full link to the set of tools would be [https://panther-community-us-east-1.s3.amazonaws.com/v1.18.1/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.18.1/tools/darwin-amd64.zip)
 
