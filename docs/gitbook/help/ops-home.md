@@ -91,7 +91,10 @@ Panther comes with some operational tools useful for managing the Panther infras
 * **invite**: invite the initial user to Panther \(if you did not get an invitation during deployment or need to resend it for an existing user\)
 * **requeue**: copy messages from a dead letter queue back to the originating queue for reprocessing
 * **s3queue**: list files under an S3 path and send to the log processor input queue for processing \(useful for back fill of data\)
-* **snowpipe**: generate a ddl file to configure Snowflake to ingest Panther data
+* **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
+* **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
+* **snowrepair**: generates a ddl file to configure Snowflake to ingest Panther data
+* **snowrotate**: uses an account-admin enabled SF user to rotate the credentials for the two Panther users
 * **pantherlog**: Parse logs using built-in or custom schemas
 
 These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html) be set in the environment. We recommend a tool to manage these securely such as [AWS Vault](https://github.com/99designs/aws-vault).
