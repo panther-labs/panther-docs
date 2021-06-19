@@ -42,22 +42,14 @@ Now that you have a domain registered, you need to generate a certificate for it
 
 The next step is to configure Panther to use your new certificate and domain. This can be completed with either an active Panther or a new Panther deployment.
 
-For pre-packaged deployments:
+Navigate to the [CloudFormation](https://console.aws.amazon.com/cloudformation/home) console.
 
-1. Navigate to the [CloudFormation](https://console.aws.amazon.com/cloudformation/home) console.
-2. Find the Panther master stack \(called `panther` by default\), select this stack, and click the `Update` button.
-3. Select the `Use current template` option is selected and click `Next`.
-4. Find the `Parameters` section and update the following two parameters:
-5. `CertificateArn` - in this field, put the full ARN of the ACM certificate created in step two. This can be retrieved from the ACM console.
-6. `CustomDomain` - in this field, put the domain name you registered in step one.
-7. Click the `Next` button until you reach the final `Review` step. Double check that the fields entered above are correct, then click the `Update stack` button. You will need to check the `I acknowledge that AWS CloudFormation might...` check boxes. After clicking `Update stack`, panther will update with your new certificate. An update should only take a few minutes.
-
-For from source deployments, navigate to your Panther directory and open the `deployments/panther_config.yml` file in your preferred text editor, then edit the following two configuration options:
-
-* `CertificateArn` - in this field, put the full ARN of the ACM certificate created in step two. This can be retrieved from the ACM console.
-* `CustomDomain` - in this field, put the domain name you registered in step one.
-
-Now simply run the `mage deploy` command \(in the container if needed\) and the update/installation will start. An update should only take a few minutes to finish.
+1. Find the Panther master stack \(called `panther` by default\), select this stack, and click the `Update` button.
+2. Select the `Use current template` option is selected and click `Next`.
+3. Find the `Parameters` section and update the following two parameters:
+4. `CertificateArn` - in this field, put the full ARN of the ACM certificate created in step two. This can be retrieved from the ACM console.
+5. `CustomDomain` - in this field, put the domain name you registered in step one.
+6. Click the `Next` button until you reach the final `Review` step. Double check that the fields entered above are correct, then click the `Update stack` button. You will need to check the `I acknowledge that AWS CloudFormation might...` check boxes. After clicking `Update stack`, panther will update with your new certificate. An update should only take a few minutes.
 
 ### Create an alias
 

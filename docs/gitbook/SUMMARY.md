@@ -241,7 +241,6 @@
     * [AWS Unauthorized API Call](alert-runbooks/built-in-rules/aws-unauthorized-api-call.md)
 * [Development](development/README.md)
   * [Parsers](development/writing-parsers.md)
-  * [Custom Remediations](development/writing-custom-remediations.md)
 * [Help](help/README.md)
   * [Operations](help/ops-home.md)
   * [Runbooks](help/runbooks.md)
