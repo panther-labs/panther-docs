@@ -51,6 +51,48 @@ When the initial deployment fails, the all resources will be deleted besides the
 
 Once you've navigated to the stack that caused the deployment failure, go to the events tab in the CloudFormation console and scroll down to the first error you can find. This will show you why the deployment failed. You can either begin troubleshooting yourself or share this info with your Panther rep and we can assist the troubleshooting process.
 
+### Upgrades
+
+When Panther publishes a new release, we will notify our self hosted customers so that they can coordinate upgrades on their schedule. Upgrades should generally be straightforward, but there are a few steps to follow before and during upgrades to make sure everything goes smoothly.
+
+#### Before you upgrade
+
+Before you begin an upgrade, make sure you know what version of Panther to upgrade to. We use semantic versioning, and highly recommend not skipping minor release. So if for example you're on version `1.10.X`  and want to upgrade to version `1.13.X`, we recommend first upgrading to the highest patch version of `1.11.X`, then `1.12.X`, and then finally `1.13.X`. This ensures there are no migration issues.
+
+Additionally, if you are using our `PantherDeploymentRole` to deploy Panther, make sure you update the `PantherDeploymentRole` to the correct version for the version of Panther you are deploying. If you are on version `1.13.X` and wish to upgrade to version  `1.14.X`,  make sure the `PantherDeploymentRole`  is also on version `1.14.X` before upgrading. Here is the `PantherDeploymentRole` template URL:
+
+```text
+https://panther-public-cloudformation-templates.s3.amazonaws.com/panther-deployment-role/{version}/template.yml
+```
+
+#### While you upgrade
+
+In order to perform the upgrade, simply find the root Panther stack in the CloudFormation console, click the `Update` button, select `Replace template URL`, and insert the `TemplateURL` for the desired version of Panther you wish to deploy. The  template URL should be in this format:
+
+```
+https://panther-enterprise-{region}.s3.amazonaws.com/{version}/panther.yml
+```
+
+You will be prompted to click through a few pages verifying your CloudFormation parameters are correct and that CloudFormation can create IAM resources and nested CloudFormation resources on your behalf.
+
+#### Available versions of Panther
+
+We recommend not skipping minor versions of Panther while upgrading, but upgrading to the most recent patch version instead. Here are the most recent patch versions of Panther that we recommend upgrading to:
+
+* `v1.18.4`
+* `v1.17.4`
+* `v1.16.4`
+* `v1.15.3`
+* `v1.14.3`
+* `v1.13.0`
+* `v1.12.1`
+* `v1.11.0`
+* `v1.10.1`
+
+If you plan to upgrade from a version older than `v1.10.X`,  please contact  Panther support first for guidance.
+
+#### 
+
 
 
 
