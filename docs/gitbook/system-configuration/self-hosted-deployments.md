@@ -1,6 +1,6 @@
 # Self Hosted Deployments
 
-In most cases, Panther strongly recommends using the SaaS deployment model. In some rare cases though self hosted makes the most sense. If you're preparing a self hosted deployment, please follow the steps on this page to make sure the deployment goes as smoothly as possible.
+In most cases, Panther strongly recommends using the SaaS deployment model. In some rare cases though self-hosted makes the most sense. If you're preparing a self-hosted deployment, please follow the steps on this page to make sure the deployment goes as smoothly as possible.
 
 ### Before you deploy
 
@@ -12,7 +12,7 @@ Before you can deploy Panther, you will need to provide Panther with the account
 
 Deploying Panther into your own account requires creating a number of AWS resources, including the provisioning of IAM resources. To ensure you have adequate permissions to perform those actions, make sure you're using a privileged user or role when creating the panther root stack.
 
-We provide a `PantherDeploymentRole` template [here](https://github.com/panther-labs/panther/blob/master/deployments/auxiliary/cloudformation/panther-deployment-role.yml) that creates an IAM role with relatively least privilege access configured for deploying Panther. Note that this role has the ability to create arbitrary IAM entities, so privilege escalation is trivial. Panther needs this permission to create the least privilege roles used by the Panther application itself, but the `PantherDeploymentRole` should be treated as a sensitive administrator role.
+We provide a `PantherDeploymentRole` template [here](https://github.com/panther-labs/panther/blob/master/deployments/auxiliary/cloudformation/panther-deployment-role.yml) that creates an IAM role with relatively least privilege access configured for deploying Panther. Note that this role has the ability to create arbitrary IAM entities, so privilege escalation is trivial. Panther needs this permission to create the least-privilege roles used by the Panther application itself, but the `PantherDeploymentRole` should be treated as a sensitive administrator role.
 
 #### Check organization SCPs
 
@@ -22,13 +22,13 @@ Before deploying Panther, do a review of your organization SCPs for anything tha
 
 #### Remove old Panther infrastructure
 
-Often a self hosted deployment starts after a self hosted POC. Be sure that any Panther infrastructure \(including auxiliary infra like the `PantherAuditRole`\) has been removed from the account before deploying Panther, as namespace conflicts may cause deployments to fail.
+Often a self-hosted deployment starts after a self-hosted POC. Be sure that any Panther infrastructure \(including auxiliary infra like the `PantherAuditRole`\) has been removed from the account before deploying Panther, as namespace conflicts may cause deployments to fail.
 
 ### While you deploy
 
 #### Naming the root stack
 
-When deploying Panther, you will be provided with a template URL to a root panther stack to deploy. If you're using the `PantherDeploymentRole` to deploy Panther, be sure to name the root stack something  with a `panther-` prefix. The name of the root stack will be pre-pended to any resources created by the stack, and the `PantherDeploymentRole` limits its access in part by restricting its permissions to only affect resources that start with the name `panther-`.
+When deploying Panther, you will be provided with a template URL to a root panther stack to deploy. If you're using the `PantherDeploymentRole` to deploy Panther, be sure to name the root stack something with a `panther-` prefix. The name of the root stack will be pre-pended to any resources created by the stack, and the `PantherDeploymentRole` limits its access in part by restricting its permissions to only affect resources that start with the name `panther-`.
 
 #### Configure deployment parameters
 
@@ -45,7 +45,7 @@ Panther has a number of other configuration options besides the ones listed abov
 
 #### Find the failed stack
 
-When the initial deployment fails, the all resources will be deleted besides the root stack. To start troubleshooting the cause of the deployment failure, go to the root stack and find which nested resource failed first. That will tell you which stack caused the failure. You can then find this stack by searching for it in the CloudFormation console. Since the stack has been deleted, you will need to filter for deleted stacks when searching.
+When the initial deployment fails, all resources will be deleted besides the root stack. To start troubleshooting the cause of the deployment failure, go to the root stack and find which nested resource failed first. That will tell you which stack caused the failure. You can then find this stack by searching for it in the CloudFormation console. Since the stack has been deleted, you will need to filter for deleted stacks when searching.
 
 #### Find the stack failure reason
 
@@ -53,11 +53,11 @@ Once you've navigated to the stack that caused the deployment failure, go to the
 
 ### Upgrades
 
-When Panther publishes a new release, we will notify our self hosted customers so that they can coordinate upgrades on their schedule. Upgrades should generally be straightforward, but there are a few steps to follow before and during upgrades to make sure everything goes smoothly.
+When Panther publishes a new release, we will notify our self-hosted customers so that they can coordinate upgrades on their schedule. Upgrades should generally be straightforward, but there are a few steps to follow before and during upgrades to make sure everything goes smoothly.
 
 #### Before you upgrade
 
-Before you begin an upgrade, make sure you know what version of Panther to upgrade to. We use semantic versioning, and highly recommend not skipping minor release. So if for example you're on version `1.10.X`  and want to upgrade to version `1.13.X`, we recommend first upgrading to the highest patch version of `1.11.X`, then `1.12.X`, and then finally `1.13.X`. This ensures there are no migration issues.
+Before you begin an upgrade, make sure you know what version of Panther to upgrade to. We use semantic versioning, and highly recommend not skipping minor releases. So if for example, you're on version `1.10.X`  and want to upgrade to version `1.13.X`, we recommend first upgrading to the highest patch version of `1.11.X`, then `1.12.X`, and then finally `1.13.X`. This ensures there are no migration issues.
 
 Additionally, if you are using our `PantherDeploymentRole` to deploy Panther, make sure you update the `PantherDeploymentRole` to the correct version for the version of Panther you are deploying. If you are on version `1.13.X` and wish to upgrade to version  `1.14.X`,  make sure the `PantherDeploymentRole`  is also on version `1.14.X` before upgrading. Here is the `PantherDeploymentRole` template URL:
 
@@ -90,6 +90,20 @@ We recommend not skipping minor versions of Panther while upgrading, but upgradi
 * `v1.10.1`
 
 If you plan to upgrade from a version older than `v1.10.X`,  please contact  Panther support first for guidance.
+
+### Migration Notes
+
+In addition to upgrading the `PantherDeploymentRole`, some upgrades may require modifications to the CloudFormation parameters.
+
+#### Migraging from 1.17.x -&gt; 1.18.x:
+
+Change the `PipLibraries` parameter to remove the following libraries as they are now included by default \(you may keep any 3rd party libraries\):
+
+* `jsonpath-ng`
+* `policyuniverse`
+* `requests`
+
+
 
 #### 
 
