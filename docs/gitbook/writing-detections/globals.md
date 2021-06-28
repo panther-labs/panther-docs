@@ -1,4 +1,4 @@
-# Globals
+# Global Helper Functions
 
 A common pattern in programming is to extract repeated code into helper functions, and Panther supports this pattern with the `global` analysis type.
 

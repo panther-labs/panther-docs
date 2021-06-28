@@ -1,4 +1,4 @@
-# SNS
+# Amazon SNS
 
 This page will walk you through configuring SNS as a Destination for your Panther alerts. This is a simple way to send notifications to email addresses, multiple queues, and more.
 

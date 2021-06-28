@@ -4,7 +4,7 @@ The `panther_analysis_tool` is an [open source](https://github.com/panther-labs/
 
 It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
 
-For more information on tailoring detections with dynamic alert fields, see [alert field overrides](alert-field-overrides.md)
+For more information on tailoring detections with dynamic alert fields, see [alert field overrides]()
 
 ## Installation
 

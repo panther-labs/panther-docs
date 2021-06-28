@@ -1,12 +1,10 @@
 # Destinations
 
-Destinations are used to deliver alerts to your team.
+Destinations are integrations that receive alerts from rules and policies.
 
-When a policy fails or a rule triggers, an alert is generated with basic context and sent to the configured destination.
+Alerts are routed based on severity \(by default\) and can dispatch to multiple destinations simultaneously, such as creating a Jira ticket, sending an email, and creating a PagerDuty Incident.
 
-Alerts are routed based on severity and a single alert can dispatch to multiple destinations simultaneously, such as creating a Jira ticket, sending an email, and creating a PagerDuty Incident.
-
-Destinations can also be overridden on a per-rule or per-policy basis.
+Destinations can be overridden on a per-rule or per-policy basis by using the detection metadata or overrides.
 
 {% hint style="info" %}
 AWS destinations require IAM configurations to grant permissions for Panther to publish notifications
@@ -16,15 +14,25 @@ AWS destinations require IAM configurations to grant permissions for Panther to 
 
 | Name | Homepage |
 | :---: | :--- |
-| Amazon SNS \(Email\) | [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/) |
+| Amazon SNS | [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/) |
 | Amazon SQS | [https://aws.amazon.com/sqs/](https://aws.amazon.com/sqs/) |
+| Asana | [https://developers.asana.com/docs](https://developers.asana.com/docs) |
+| Custom Webhook | [https://docs.runpanther.io](custom_webhook.md) |
 | Github | [https://github.com/](https://github.com/) |
 | Jira | [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira) |
 | Microsoft Teams | [https://products.office.com/en-us/microsoft-teams/group-chat-software](https://products.office.com/en-us/microsoft-teams/group-chat-software) |
 | OpsGenie | [https://www.atlassian.com/software/opsgenie/what-is-opsgenie](https://www.atlassian.com/software/opsgenie/what-is-opsgenie) |
 | PagerDuty | [https://www.pagerduty.com/](https://www.pagerduty.com/) |
 | Slack | [https://slack.com/](https://slack.com/) |
-| Custom Webhook | [docs.runpanther.io](custom_webhook.md) |
+
+## Routing Order Precedence
+
+Alert routing is based on the following order of precedence, from lowest precedence to highest:
+
+1. **Static Severity** - Default alert routing based on the severity metadata field set for the detection.
+2. **Generated Severity** - Destinations associated with the returned `severity` function defined in the Python body.
+3. **Static Destination List** - Destinations based on the Destination Override metadata field set for the detection.
+4. **Generated Destination List** - Destinations returned by the `destinations` function defined in the Python body.
 
 ## Creating a New Destination
 
@@ -34,13 +42,13 @@ To create a destination, navigate to `Settings` &gt; `Destinations` and select `
 
 You will then be prompted to select a destination type.
 
-Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine grained control of destination routing.
+Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine-grained control of destination routing.
 
 ![](../.gitbook/assets/readme-destination-types%20%288%29%20%282%29%20%283%29.png)
 
 Next, add a `Display Name` to distinguish the destination from others in the Panther UI and optionally select the associated severities for this destination.
 
-Each destination type will have specific configuration options based on the system's API. See the destination specific setup instructions in the following pages for more details.
+Each destination type will have specific configuration options based on the system's API. See the destination-specific setup instructions in the following pages for more details.
 
 ![](../.gitbook/assets/readme-settings-example%20%288%29%20%282%29%20%289%29.png)
 
@@ -56,7 +64,7 @@ If successful, click `Finish Setup`. You are now ready to receive alerts!
 
 ## Modifying or Deleting Destinations
 
-An existing destination may be modified or deleted by selecting the triple dot button. From here, you can modify the display name, the severities, and the specific configurations. Alternatively, you can also delete the destination.
+An existing destination may be modified or deleted by selecting the triple-dot button. From here, you can modify the display name, the severities, and the specific configurations. Alternatively, you can also delete the destination.
 
 ![](../.gitbook/assets/readme-modify.png)
 
@@ -66,7 +74,7 @@ You may use any of the above destinations for many existing workflows. However, 
 
 ### Alert Schema
 
-A Custom Webhook will deliver an alert with the following shape:
+A Custom Webhook will deliver an alert with the following schema:
 
 ```typescript
 {

@@ -1,4 +1,4 @@
-# SQS
+# Amazon SQS
 
 ## Step 1: SQS Queue Setup
 

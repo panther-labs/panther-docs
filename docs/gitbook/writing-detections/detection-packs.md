@@ -53,7 +53,7 @@ On the other hand, if you would like to revert a pack version, you can select th
 This feature is available in Panther version 1.17
 {% endhint %}
 
-Pack sources provide a way to configure custom Github sources for detection packs. Once a pack source is configured, panther will check for new releases once a day. Custom packs can be managed using the same functionality as panther provided packs.
+Pack Sources provide a way to configure custom Github sources for detection packs. Once a Pack Source is configured, Panther will check for new releases once a day. Custom packs can be managed using the same functionality as Panther-provided packs.
 
 Pack source fields are described in the following table.
 
@@ -66,7 +66,7 @@ Pack source fields are described in the following table.
 
 ### Accessing Private Repositories
 
-In order for panther to have access to poll a private repository, you must configure the pack source with a personal access token. See the [Github documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for further details on creating a token.
+In order for Panther to have access to poll a private repository, you must configure the Pack Source with a personal access token. See the [Github documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for further details on creating a token.
 
 A personal access token will grant access to all the repositories where the account owner has access. Therefore, we recommend creating a ["machine user"](https://docs.github.com/en/developers/overview/managing-deploy-keys#machine-users) that you can add as an outside collaborator to the repository containing the detection packs. This way, the access token can be scoped for a particular use and repository.
 
