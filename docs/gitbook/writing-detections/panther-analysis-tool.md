@@ -163,15 +163,6 @@ A complete list of policy specification fields:
 | `Tags` | No | Tags used to categorize this policy | List of strings |
 | `Tests` | No | Unit tests for this policy. | List of maps |
 
-### Automatic Remediation
-
-Automatic remediations requires two fields to be set in the spec file:
-
-* `AutoRemediationID`: The automatic remediation identifier to enable
-* `AutoRemediationParameters`: The expected configurations for the remediation
-
-For a complete list of remediations and their associated configurations, see the [remediations](automatic-remediation/) page.
-
 ### Policy Tests
 
 In the spec file, add the following `Tests` key:
