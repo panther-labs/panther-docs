@@ -137,7 +137,7 @@ Next, configure test cases to ensure our policy works as expected:
 ### Configure Automatic Remediation
 
 {% hint style="info" %}
-Your source must be [configured to allow automatic remediation](automatic-remediation/#setup) for this setting to work
+Your source must be [configured to allow automatic remediation]() for this setting to work
 {% endhint %}
 
 From the `Remediation` dropdown, select the remediation you wish to enable for this policy. Some remediations may support or require configurations to be set. On the following pages, you will find more detailed descriptions of each available remediation and their configuration settings.

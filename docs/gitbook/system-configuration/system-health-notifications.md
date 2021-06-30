@@ -1,9 +1,5 @@
 # System Health Notifications
 
-{% hint style="info" %}
-This feature is available in Panther version 1.17
-{% endhint %}
-
 Panther System Health notification system alerts users when a part of the Panther platform is not functioning correctly. Currently, that includes the following system health errors:
 
 * Log sources turning unhealthy as a result of a failed health check
@@ -12,6 +8,10 @@ Panther System Health notification system alerts users when a part of the Panthe
 This section covers how users can configure these system health notifications to fit their workflows. Learn more below!
 
 ### Log Source Health Notifications
+
+{% hint style="info" %}
+This feature is available in Panther version 1.17
+{% endhint %}
 
 Panther performs health checks on log sources to ensure that Panther is correctly linked to the source, has the right credentials, and is receiving data from the source consistently. When those health checks fail for a given log source, Panther will send a "System Error" alert to the **Alerts** page and to an alert destination.
 
@@ -51,4 +51,19 @@ You can also add an alarm when onboarding a new log source, see below:
 4. Turn the alarm off or on and view which destinations a "System Error" alert will be sent to
 
 Once you have alarms configured and alert destinations updated, you should be receiving health alerts!
+
+### Log Classification Error Notifications
+
+{% hint style="info" %}
+This feature is available in Panther version 1.19
+{% endhint %}
+
+Log misclassification alerts are generated when logs hit a parsing error and fail to classify when sent to Panther. When this happens, the following actions take place **by default:**
+
+* Misclassified logs are sent to the data lake and are searchable in a table called `classification_failures` in the `panther_monitor` database.
+* An alert is generated immediately after the first log fails to classify. The alert will display all log lines that are failing to classify. 
+
+This type of alert is classified as a "System Error", similar to all other system health alerts referenced on this page. Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors. Additionally, you can view this alert in the "System Errors" sub-tab of the "Alerts & Errors" tab in the Panther UI.
+
+The alert details page will highlight which log lines are failing to parse correctly which should help inform which lines in the log type's respective schemas need to be corrected or added.
 
