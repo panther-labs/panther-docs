@@ -6,7 +6,7 @@
 
 Panther has 5 CloudWatch dashboards to provide visibility into the operation of the system:
 
-* **PantherOverview** An overview all errors and performance of all Panther components.
+* **PantherOverview** An overview of all errors and performance of all Panther components.
 * **PantherCloudSecurity**: Details of the components monitoring infrastructure for CloudSecurity.
 * **PantherAlertProcessing**: Details of the components that relay alerts for CloudSecurity and Log Processing.
 * **PantherLogAnalysis**: Details of the components processing logs and running rules.
