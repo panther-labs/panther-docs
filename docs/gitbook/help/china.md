@@ -18,20 +18,20 @@ You must provide your own AWS accounts: you will be responsible for copying rele
 First, you have to "publish" the latest Panther release to an S3 bucket in China.
 
 1. Download the appropriate release copy script for your architecture:
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/darwin-amd64.zip)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/linux-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/linux-amd64.zip)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/linux-arm.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/linux-arm.zip)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/windows-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/windows-amd64.zip)
-   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/windows-arm.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.1/tools/windows-arm.zip)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/darwin-amd64.zip)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/linux-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/linux-amd64.zip)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/linux-arm.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/linux-arm.zip)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/windows-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/windows-amd64.zip)
+   * [https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/windows-arm.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.19.2/tools/windows-arm.zip)
 2. Using _standard_ AWS credentials, download the latest Panther release assets to your device. For example:
 
-   `AWS_REGION=us-west-1 ./releasecopy-darwin-amd64 -type download -bucket panther-enterprise-us-west-1 -release v1.19.1`
+   `AWS_REGION=us-west-1 ./releasecopy-darwin-amd64 -type download -bucket panther-enterprise-us-west-1 -release v1.19.2`
 
    You can download these from any [published Panther region](../quick-start.md#supported-aws-regions).
 
 3. Using _AWS China_ credentials, upload the Panther release assets from your device to an S3 bucket in Beijing or Ningxia:
 
-   `AWS_REGION=cn-north-1 ./releasecopy-darwin-amd64 -type upload -bucket your-china-bucket-here -release v1.19.1`
+   `AWS_REGION=cn-north-1 ./releasecopy-darwin-amd64 -type upload -bucket your-china-bucket-here -release v1.19.2`
 
    Before uploading, this will transform the templates, removing resources not supported in China and changing our S3 asset references to your China bucket.
 
@@ -99,8 +99,8 @@ To change the API key, simply generate a new key in the API gateway in China, th
 
 Now, you can deploy the web app to Singapore. This process is essentially the same as a normal Panther deployment \(and will need to be repeated for each release\). Create a new CloudFormation stack from the appropriate CloudFormation template depending on your region:
 
-* [https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.1/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.1/proxy_panther.yml)
-* [https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.1/proxy\_panther.yml](https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.1/proxy_panther.yml)
+* [https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.2/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.2/proxy_panther.yml)
+* [https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.2/proxy\_panther.yml](https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.2/proxy_panther.yml)
 
 You will need to set the following stack parameters:
 
