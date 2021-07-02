@@ -49,9 +49,13 @@ To get the gateway URL, navigate to the API gateway console, select `panther-cn-
 
 ![Gateway Stage URL](../.gitbook/assets/china-gateway-url.png)
 
-To get the API key, go to the "API Keys" on the left sidebar, then select the key associated with the `panther-cn-bridge` gateway. Copy the API key - you'll need it in a moment.
+Create a new API key:
 
-![Gateway API Key](../.gitbook/assets/china-gateway-api-key.png)
+![Create API Key \(In China\)](../.gitbook/assets/create-api-key.png)
+
+Then associate that API key with the "usage plan" for the API gateway and copy the secret key:
+
+![Add Usage Plan to API Key](../.gitbook/assets/api-key-usage-plan.png)
 
 Before deploying the web app, you can use `curl` to test the URL and API key directly like so:
 
@@ -62,7 +66,7 @@ curl -H "x-api-key: {GATEWAY_API_KEY}" \
      {INVOKE_URL}/cn/panther-source-api
 ```
 
-Replace `{GATEWAY_API_KEY}` with the api key from the gateway console, and replace `{INVOKE_URL}` with the invocation URL for the prod stage \(it should be an https URL ending in `/prod`\). If you get a JSON response, you're all set!
+Replace `{GATEWAY_API_KEY}` with the api key from the gateway console, and replace `{INVOKE_URL}` with the invocation URL for the prod stage \(it should be an https URL ending in `/prod`\). If the response is a nonempty JSON list, you're all set!
 
 {% hint style="warning" %}
 Be very careful with your API key, since it grants full control over the Panther backend.
@@ -99,8 +103,8 @@ To change the API key, simply generate a new key in the API gateway in China, th
 
 Now, you can deploy the web app to Singapore. This process is essentially the same as a normal Panther deployment \(and will need to be repeated for each release\). Create a new CloudFormation stack from the appropriate CloudFormation template depending on your region:
 
-* [https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.2/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.2/proxy_panther.yml)
-* [https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.2/proxy\_panther.yml](https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.2/proxy_panther.yml)
+* [https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.3/proxy\_panther.yml](https://panther-enterprise-ap-southeast-1.s3-ap-southeast-1.amazonaws.com/v1.19.2/proxy_panther.yml)
+* [https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.3/proxy\_panther.yml](https://panther-enterprise-ap-southeast-2.s3-ap-southeast-2.amazonaws.com/v1.19.2/proxy_panther.yml)
 
 You will need to set the following stack parameters:
 
