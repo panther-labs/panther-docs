@@ -114,12 +114,14 @@ Opstools:
 * **migrate**: utility to do a data migration for the gsuite\_reports table \(log & rule table\)
 * **releasecopy**: copies Panther S3 release assets across regions/partitions
 * **requeue**: copy messages from a dead letter queue back to the originating queue for reprocessing
+* s3list: 
 * **s3queue**: list files under an S3 path and send them to the log processor input queue for processing \(useful for back fill of data\)
 * **s3sns**: lists s3 objects and posts s3 notifications to log processor sns topic
 * **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
 * **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
 * **snowrepair**: generates a ddl file to configure Snowflake to ingest Panther data
 * **snowrotate**: uses an account-admin enabled SF user to rotate the credentials for the two Panther users
+* **sources**: lists all log sources, optionally validates each log processing role can be assumed and data accessed
 
 Devtools:
 
