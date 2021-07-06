@@ -85,21 +85,9 @@ The steps to view the dashboard:
 
 Panther comes with some operational tools useful for managing the Panther infrastructure. These are statically compiled executables for linux, mac \(AKA darwin\) and windows. They can be copied/installed onto operational support hosts.
 
-* **compact**: backfill JSON to Parquet conversion of log data \(used when upgrading to Panther Enterprise\)
-* **flushrsc**: flush delete pending entries from the panther-resource table.
-* **gluesync**: update glue table and partition schemas
-* **invite**: invite the initial user to Panther \(if you did not get an invitation during deployment or need to resend it for an existing user\)
-* **requeue**: copy messages from a dead letter queue back to the originating queue for reprocessing
-* **s3queue**: list files under an S3 path and send to the log processor input queue for processing \(useful for back fill of data\)
-* **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
-* **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
-* **snowrepair**: generates a ddl file to configure Snowflake to ingest Panther data
-* **snowrotate**: uses an account-admin enabled SF user to rotate the credentials for the two Panther users
-* **pantherlog**: Parse logs using built-in or custom schemas
-
 These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html) be set in the environment. We recommend a tool to manage these securely such as [AWS Vault](https://github.com/99designs/aws-vault).
 
-Running these commands with a `-h` flag will explain usage.
+Running these commands with the `-h` flag will explain usage.
 
 Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{architecture}.zip`
 
@@ -117,27 +105,27 @@ Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.
 
 Opstools:
 
-* compact
-* cost
-* flushrsc
-* gluerecover
-* gluesync
-* invite
-* migrate
-* releasecopy
-* requeue
-* s3queue
-* s3sns
-* snowconfig
-* snowcreate
-* snowrepair
-* snowrotate
+* **compact**: backfill JSON to Parquet conversion of log data \(used when upgrading to Panther Enterprise\)
+* **cost**: generates cost reports using the costexplorer api
+* **flushrsc**: flush delete pending entries from the panther-resource table
+* **gluerecover**: scans S3 for missing AWS Glue partitions and recovers them
+* **gluesync**: update glue table and partition schemas
+* **invite**: invite the initial user to Panther \(if you did not get an invitation during deployment or need to resend it for an existing user\)
+* **migrate**: utility to do a data migration for the gsuite\_reports table \(log & rule table\)
+* **releasecopy**: copies Panther S3 release assets across regions/partitions
+* **requeue**: copy messages from a dead letter queue back to the originating queue for reprocessing
+* **s3queue**: list files under an S3 path and send them to the log processor input queue for processing \(useful for back fill of data\)
+* **s3sns**: lists s3 objects and posts s3 notifications to log processor sns topic
+* **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
+* **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
+* **snowrepair**: generates a ddl file to configure Snowflake to ingest Panther data
+* **snowrotate**: uses an account-admin enabled SF user to rotate the credentials for the two Panther users
 
-Devtools
+Devtools:
 
-* filegen
-* logprocessor
-* pantherlog
+* **filegen**: writes synthetic log files to s3 for use in benchmarking
+* **logprocessor**: run log processor locally for profiling purposes using pprof
+* **pantherlog**: Parse logs using built-in or custom schemas
 
 An example of a full link to the set of tools would be[ https://panther-community-us-east-1.s3.amazonaws.com/v1.19.3/tools/darwin-amd64.zip](%20https://panther-community-us-east-1.s3.amazonaws.com/v1.19.3/tools/darwin-amd64.zip)
 
