@@ -8,6 +8,7 @@
     * [CrowdStrike](data-onboarding/saas-logs/crowdstrike.md)
     * [Duo](data-onboarding/saas-logs/duo.md)
     * [G Suite](data-onboarding/saas-logs/gsuite.md)
+    * [Github](data-onboarding/saas-logs/github.md)
     * [Okta](data-onboarding/saas-logs/okta.md)
     * [OneLogin](data-onboarding/saas-logs/onelogin.md)
     * [Salesforce](data-onboarding/saas-logs/salesforce.md)
