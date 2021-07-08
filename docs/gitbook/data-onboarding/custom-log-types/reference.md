@@ -90,6 +90,7 @@ The fields of a `ValueSchema` depend on the value of the `type` field.
 | `timestamp` | **timeFormat** \(required\) | `String` | The format to use for parsing the timestamp. \(see [Timestamps](reference.md#timestamps)\) |
 | `timestamp` | **isEventTime** | `Boolean` | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_. |
 | `string` | **indicators** | `[]String` | Tells Panther to extract indicators from this value \(see [Indicators](reference.md#indicators)\) |
+| `string` | **validate** | [`Validation`](reference.md#validation) | Validation rules for the string value |
 
 ### Timestamps
 
@@ -128,6 +129,24 @@ Values of `string` type can be used as indicators. In order to mark a field as a
   indicators: [ url ]
 ```
 
+### Validation
+
+Values of `string` type can be further restricted by declaring a list of values to `allow` or `deny`. This allows to have different log types that have common overlapping fields but differ on values of those fields.
+
+```yaml
+# Will only allow 'login' and 'logout' event types to match this log type
+- name: event_type
+  type: string
+  validate:
+    allow: [ "login", "logout"]
+    
+# Will match any event type other than 'login' and 'logout'
+- name: event_type
+  type: string
+  validate:
+    deny: [ "login", "logout"]
+```
+
 ### Embedded JSON values
 
 Sometimes JSON values are delivered 'embedded' in a string. For example the input JSON could be of the form:
@@ -162,6 +181,8 @@ each event will be stored as:
   }
 }
 ```
+
+## 
 
 ## Using JSON Schema in an IDE
 
