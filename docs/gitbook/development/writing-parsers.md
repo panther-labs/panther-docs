@@ -147,9 +147,9 @@ String values can be tagged with a `panther:"SCANNER"` to define [indicator fiel
 | `sha1` | Adds a `p_any_sha1_hashes` indicator |
 | `md5` | Adds a `p_any_md5_hashes` indicator |
 | `trace_id` | Adds a `p_any_trace_ids` indicator |
-| `aws_arn` | Adds a `p_any_aws_arns` indicator |
-| `aws_instance_id` | Scans an ARN string and adds any `p_any_aws_arns`, `p_any_aws_account_id` and `p_any_instance_ids` indicators found |
-| `aws_account_id` | Adds a `p_any_aws_arns` indicator |
+| `aws_arn` | Scans an ARN string and adds any `p_any_aws_arns`, `p_any_aws_account_id` and `p_any_instance_ids` indicators found |
+| `aws_instance_id` | Adds a `p_any_aws_instance_ids` indicator |
+| `aws_account_id` | Adds a `p_any_aws_account_ids` indicator |
 | `aws_tag` | Adds a `p_any_aws_tags` indicator |
 | `username` | Adds a `p_any_usernames` indicator |
 | `email` | Adds a `p_any_emails` indicator |
