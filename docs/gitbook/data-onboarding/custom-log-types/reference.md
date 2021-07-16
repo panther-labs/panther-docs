@@ -1,5 +1,7 @@
 # Log Schema Reference
 
+In this guide, you will find common fields used to build YAML-based schemas when onboarding custom log types \(logs that do not have built-in support in Panther\). 
+
 ## LogSchema fields
 
 * **version** \(`0`,`required`\):  The version of the log schema. This field should be set to zero \(`0`\). Its purpose is to allow backwards compatibility with future versions of the log schema.
@@ -182,17 +184,17 @@ each event will be stored as:
 }
 ```
 
-## 
-
 ## Using JSON Schema in an IDE
 
-If your editor/IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion.
+If your editor/IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below as well to create custom JSON schemas:
 
 ### JetBrains
 
-You can find instruction on how to configure JetBrains IDEs to use custom JSON Schemas [here](https://www.jetbrains.com/help/phpstorm/json.html#ws_json_schema_add_custom)
+You can find instructions on how to configure JetBrains IDEs to use custom JSON Schemas [here](https://www.jetbrains.com/help/phpstorm/json.html#ws_json_schema_add_custom).
 
 ### VSCode
 
 You can find instructions on how to configure VSCode to use JSON Schema [here](https://code.visualstudio.com/Docs/languages/json#_json-schemas-and-settings).
+
+
 
