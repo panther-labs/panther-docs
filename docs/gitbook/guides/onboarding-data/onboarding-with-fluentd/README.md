@@ -1,2 +1,0 @@
-# Onboarding with Fluentd
-
