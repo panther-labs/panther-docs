@@ -39,7 +39,7 @@ Your company will incur costs on your database back end every time a scheduled q
 
 ## How to Use the Scheduled Query Crontab
 
-Panther's Scheduled Query Crontab uses the standard crontab notation consisting of five fields: minutes, hours, day of month, month, day of week. Additionally, you will find a query timeout selector \(with a maximum value currently set at 10 minutes\).
+Panther's Scheduled Query Crontab uses the standard crontab notation consisting of five fields: minutes, hours, day of month, month, day of week. Additionally, you will find a query timeout selector \(with a maximum value currently set at 10 minutes\). The expression will run on UTC.
 
 The interpreter uses a subset of the standard crontab notation:
 
