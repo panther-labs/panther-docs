@@ -227,6 +227,36 @@ Tests:
 The value of `Resource` can be a JSON object copied directly from the Policies &gt; Resources explorer.
 {% endhint %}
 
+## Unit Test Mocking
+
+Both policy and rule tests support unit test mocking. In order to configure mocks for a particular test case, add the `Mocks` key to your test case. The `Mocks` key is used to define a list of functions you want to mock, and the value that should be returned when that function is called. Multiple functions can be mocked in a single test. For example, if we have a rule test and want to mock the function `get_counter` to always return a `1` and the function `geoinfo_from_ip` to always return a specific set of geo IP info, we could write our unit test like this:
+
+```text
+Tests:
+  -
+    Name: Test With Mock
+    LogType: LogType.Custom
+    ExpectedResult: true
+    Mock:
+      - objectName: get_counter
+        returnValue: 1
+      - objectName: geoinfo_from_ip
+        returnValue: >-
+                          {
+                          "region": "UnitTestRegion",
+                          "city": "UnitTestCityNew",
+                          "country": "UnitTestCountry"
+                          }
+    Log:
+      {
+        "hostName": "test-01.prod.acme.io",
+        "user": "martin_smith",
+        "eventTime": "June 22 5:50:52 PM"
+      }
+```
+
+Mocking allows us to emulate network calls without requiring API keys or network access in our CI/CD pipeline, and without muddying the state of external tracking systems \(such as the panther KV store\).
+
 ## Running Tests
 
 Use the Panther Analysis Tool to load the defined specification files and evaluate unit tests locally:

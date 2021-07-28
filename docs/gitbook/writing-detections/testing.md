@@ -151,3 +151,7 @@ Once this modification is added, you can now test the detection logic with real 
 
 ![Successful Unit Test Mock](../.gitbook/assets/image%20%2817%29.png)
 
+#### Mocks from the CLI
+
+Unit test mocking is also supported with CLI based workflows for writing detections. For details on adding unit test mocks to a CLI based detection, see the [unit test mocking](panther-analysis-tool.md#unit-test-mocking) section of the Panther Analysis Tool docs.
+
