@@ -97,7 +97,7 @@ If you plan to upgrade from a version older than `v1.10.X`,  please contact  Pan
 
 In addition to upgrading the `PantherDeploymentRole`, some upgrades may require modifications to the CloudFormation parameters.
 
-#### Migraging from 1.17.x -&gt; 1.18.x:
+#### Migrating from 1.17.x -&gt; 1.18.x:
 
 Change the `PipLibraries` parameter to remove the following libraries as they are now included by default \(you may keep any 3rd party libraries\):
 
