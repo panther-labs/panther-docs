@@ -9,15 +9,15 @@ The two mechanisms used are direct integrations \(by querying APIs\) and AWS Eve
 Supported direct SaaS integrations include:
 
 * [Box](box.md)
-* [G Suite](gsuite.md)
-* [Okta](okta.md)
-* [OneLogin](onelogin.md)
-* [Slack](slack.md)
 * [Crowdstrike](crowdstrike.md)
 * [Duo](duo.md)
-* [Salesforce](salesforce.md)
-* [Microsoft Office 365](microsoft.md)
+* [G Suite](gsuite.md)
 * [Github](github.md)
+* [Microsoft Office 365](microsoft.md)
+* [Okta](okta.md)
+* [OneLogin](onelogin.md)
+* [Salesforce](salesforce.md)
+* [Slack](slack.md)
 * More coming soon!
 
 {% hint style="info" %}
