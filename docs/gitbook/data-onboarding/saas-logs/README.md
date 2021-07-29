@@ -17,6 +17,7 @@ Supported direct SaaS integrations include:
 * [Duo](duo.md)
 * [Salesforce](salesforce.md)
 * [Microsoft Office 365](microsoft.md)
+* [Github](github.md)
 * More coming soon!
 
 {% hint style="info" %}
