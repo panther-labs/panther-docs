@@ -4,7 +4,7 @@
 
 This guide provides a method to deliver Windows Event Logs to S3 using Fluentd. There are two different pipeline flows, using an AWS Firehose delivery stream and directly to an AWS S3 bucket.
 
-#### Pre-reqs <a id="Pre-reqs"></a>
+### Pre-reqs
 
 This general guide assumes an S3 bucket or Firehose stream has already been created. If you need to create either of these, please see the [Getting Started with Fluentd](resource-guide.md) guide. If you already have the resources provisioned, you can adapt the guide below to fit your needs. 
 
