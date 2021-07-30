@@ -108,6 +108,7 @@ Now, you can deploy the web app to Singapore. This process is essentially the sa
 
 You will need to set the following stack parameters:
 
+* `CustomDomain`- URL for the webapp \(example: web-123456789.ap-southeast-2.elb.amazonaws.com/\)
 * `FirstUserEmail` - email address for the initial admin invite
 * `SecretID` - the name of the secret in AWS secrets manager
   * Defaults to `panther/china` - you only need to change this value if you chose a different name for the secret
