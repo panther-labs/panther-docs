@@ -8,7 +8,7 @@ The sections below cover how Panther works under the hood: an architectural over
 
 This diagram provides an overview of the core components of Panther, and how they are connected.
 
-![High level architecture diagram](../.gitbook/assets/development-arch-diagram%20%288%29%20%288%29%20%289%29%20%281%29.png)
+![High level architecture diagram](../.gitbook/assets/development-arch-diagram%20%288%29%20%288%29%20%289%29%20%286%29%20%281%29.png)
 
 ### Data Flow Diagram
 

@@ -160,7 +160,7 @@ Click `Submit` at the bottom of the page to create the StackSet.
 
 To check on the status of the StackSet, check the `Operations` tab:
 
-![](../.gitbook/assets/setup-stacksets-4%20%289%29%20%2813%29%20%285%29%20%284%29.png)
+![](../.gitbook/assets/setup-stacksets-4%20%289%29%20%2813%29%20%285%29%20%281%29%20%284%29.png)
 
 {% hint style="success" %}
 Awesome! You should now have real-time CloudWatch events sending to Panther.

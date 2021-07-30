@@ -63,7 +63,7 @@ The steps to view the dashboard:
 * Select `CloudWatch` from the Services menu
 * Select `Dashboards` from the left pane of the CloudWatch console
 
-![](../.gitbook/assets/cloudwatch-dashboards%20%286%29%20%286%29%20%288%29%20%286%29.png)
+![](../.gitbook/assets/cloudwatch-dashboards%20%286%29%20%286%29%20%288%29%20%289%29%20%286%29.png)
 
 * Select the dashboard beginning with `PantherLogAnalysis`
 
@@ -71,15 +71,15 @@ The steps to view the dashboard:
 
 * Select the vertical `...` of the pane entitled `Input MBytes (Uncompressed) by Log Type` and select from the menu `View in CloudWatch Insights`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select%20%286%29%20%286%29%20%288%29%20%281%29.png)
+![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select%20%286%29%20%286%29%20%288%29%20%285%29%20%281%29.png)
 
 * Set the time period for 4 weeks and click `Apply`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select-time%20%286%29%20%286%29%20%288%29%20%283%29.png)
+![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select-time%20%286%29%20%286%29%20%288%29%20%289%29%20%283%29.png)
 
 * Click `Run Query`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-show%20%286%29%20%286%29%20%288%29%20%284%29.png)
+![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-show%20%286%29%20%286%29%20%288%29%20%286%29%20%284%29.png)
 
 ## Tools
 

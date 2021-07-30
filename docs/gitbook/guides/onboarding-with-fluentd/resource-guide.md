@@ -14,7 +14,7 @@ Once the template has been deployed and the resources have been created, return 
 It is generally more performant when ingesting logs to use the Fluentd Firehose plugin vs the Fluentd S3 plugin
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2823%29.png)
+![](../../.gitbook/assets/image%20%2824%29.png)
 
 #### **Resources**:
 

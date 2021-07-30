@@ -127,7 +127,7 @@ Mocks provide a way to leverage real world data to test the detection logic.
 { "AccountId": "012345678910", "Name": "Default", "RecordingGroup": { "AllSupported": true, "IncludeGlobalResourceTypes": true, "ResourceTypes": null }, "Region": "us-east-1", "ResourceId": "012345678910:us-east-1:AWS.Config.Recorder", "ResourceType": "AWS.Config.Recorder", "RoleARN": "arn:aws:iam::012345678910:role/PantherAWSConfig", "Status": { "LastErrorCode": null, "LastErrorMessage": null, "LastStartTime": "2018-10-05T22:45:01.838Z", "LastStatus": "SUCCESS", "LastStatusChangeTime": "2021-05-28T17:45:14.916Z", "LastStopTime": null, "Name": "Default", "Recording": true }, "Tags": null, "TimeCreated": null }
 {% endhint %}
 
-![Missing Mock Case](../.gitbook/assets/image%20%2819%29.png)
+![Missing Mock Case](../.gitbook/assets/image%20%2819%29%20%281%29.png)
 
 While this resource should be compliant, the unit test fails.   
 Detections that do not expect a `string` to be returned requires a small tweak for mocks.

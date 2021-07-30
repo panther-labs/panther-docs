@@ -26,7 +26,7 @@ From the token configuration screen, name the token and select the `repo` permis
 
 Select the `Generate Token` button, and copy the token out into the Panther Destinations configuration. GitHub will not allow you to access this token again, you will need to re-generate it if it is lost:
 
-![](../.gitbook/assets/github3%20%289%29%20%2812%29%20%286%29%20%285%29.png)
+![](../.gitbook/assets/github3%20%289%29%20%2812%29%20%286%29%20%281%29%20%285%29.png)
 
 Now your GitHub destination is configured and ready to create issues when new alerts are received.
 

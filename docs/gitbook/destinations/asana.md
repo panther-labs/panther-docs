@@ -4,7 +4,7 @@ This page will walk you through configuring [Asana](https://asana.com) as a dest
 
 The Asana destination requires an `Access Token` and one or more `Project GID`. When an alert is forwarded to an Asana destination, a new task is created in the specified project\(s\):
 
-![Asana Configuration in Panther](../.gitbook/assets/asana-panther%20%287%29%20%287%29%20%289%29%20%285%29.png)
+![Asana Configuration in Panther](../.gitbook/assets/asana-panther%20%287%29%20%287%29%20%289%29%20%289%29%20%285%29.png)
 
 The Asana Destination requires the use of an Asana user account. To add an Asana destination, first, select a user to be the reporter of the issue. If possible and in order to ensure continuity, a service account should be created specifically for this purpose.
 
@@ -16,7 +16,7 @@ The copied link should look like `https://app.asana.com/0/1160306557000000/board
 
 The `Access Token` is the token of the user that will be creating the issues. This can be acquired by going to [https://app.asana.com/0/developer-console](https://app.asana.com/0/developer-console) while logged in as the user and clicking on `New Access Token`:
 
-![](../.gitbook/assets/asana2%20%289%29%20%2812%29%20%282%29%20%2814%29.png)
+![](../.gitbook/assets/asana2%20%289%29%20%2812%29%20%282%29%20%281%29%20%2814%29.png)
 
 After creating the token, you will have an opportunity to copy it. As Asana warns, this token should be treated just as sensitively as a password and you will not be able to access it again in the future.
 

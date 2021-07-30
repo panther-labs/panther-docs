@@ -54,7 +54,7 @@ Each destination type will have specific configuration options based on the syst
 
 Finally, click the `Add Destination` button to save the configuration. You will be prompted to optionally send a test alert to check if everything was set up correctly.
 
-![](../.gitbook/assets/readme-test%20%283%29%20%283%29%20%285%29%20%284%29.png)
+![](../.gitbook/assets/readme-test%20%283%29%20%283%29%20%285%29%20%286%29%20%284%29.png)
 
 Let's send a test to make sure everything is working as expected.
 

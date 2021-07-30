@@ -14,7 +14,7 @@ When an alert is forwarded to a Jira Destination, a bug, story, or task is creat
 
 ## Example
 
-![](../.gitbook/assets/jira-issue%20%282%29%20%282%29%20%284%29%20%284%29.png)
+![](../.gitbook/assets/jira-issue%20%282%29%20%282%29%20%284%29%20%283%29%20%284%29.png)
 
 ### Integration fields
 
@@ -54,7 +54,7 @@ This field accepts the unique string ID called the user's `accountID`. You need 
 
 `https://example.atlassian.net/jira/people/search`
 
-Click on a desired user: ![](../.gitbook/assets/jira-user1%20%282%29%20%282%29%20%284%29%20%283%29.png)
+Click on a desired user: ![](../.gitbook/assets/jira-user1%20%282%29%20%282%29%20%284%29%20%285%29%20%283%29.png)
 
 Inspect the URL and copy the trailing string. This is the `accountId`. For example, in the following URL, `5f8f26dabd138600693d7fb8` would be the `accountId`:
 

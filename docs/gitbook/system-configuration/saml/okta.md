@@ -17,7 +17,7 @@ From the Okta admin console, navigate to the Applications tab
 
 Click "Add Application"
 
-![](../../.gitbook/assets/okta-new-app%20%288%29%20%288%29%20%289%29%20%284%29.png)
+![](../../.gitbook/assets/okta-new-app%20%288%29%20%288%29%20%289%29%20%288%29%20%284%29.png)
 
 Click "Create New App" and configure "Platform: Web" app and "Sign on method: SAML 2.0"
 
@@ -25,7 +25,7 @@ Click "Create New App" and configure "Platform: Web" app and "Sign on method: SA
 
 Click "Create" and configure the General Settings however you see fit. We recommend:
 
-![](../../.gitbook/assets/okta3%20%288%29%20%288%29%20%286%29%20%281%29.png)
+![](../../.gitbook/assets/okta3%20%288%29%20%288%29%20%286%29%20%281%29%20%281%29.png)
 
 Click "Next" and configure section 2A, "SAML Settings", as follows:
 
@@ -35,7 +35,7 @@ The "Single sign on URL" and "Audience URI" were copied from the Panther General
 
 Copy the "Identity Provider metadata" link shown on the next screen, under the Settings section of the "Sign On" tab:
 
-![](../../.gitbook/assets/okta-metadata%20%288%29%20%288%29%20%289%29%20%286%29.png)
+![](../../.gitbook/assets/okta-metadata%20%288%29%20%288%29%20%289%29%20%287%29%20%286%29.png)
 
 This is the "Identity provider URL" you will need to give to Panther.
 
