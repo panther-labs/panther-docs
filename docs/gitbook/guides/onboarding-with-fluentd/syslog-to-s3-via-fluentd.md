@@ -6,7 +6,7 @@ This guide provides a method to deliver syslog messages to S3 using Fluentd. The
 
 ### Pre-reqs
 
-This general guide assumes an S3 bucket or Firehose has already been created. If you need to create either of these, please see the prepared CloudFormation template guides to assist.
+This general guide assumes an S3 bucket or Firehose has already been created.  If you need to create either of these, please see the [Getting Started with Fluentd](resource-guide.md) guide. If you already have the resources provisioned, you can adapt the guide below to fit your needs. 
 
 ## Setup Fluentd
 
@@ -108,7 +108,7 @@ Edit the Fluentd configuration `/etc/td-agent/td-agent.conf` with the below conf
 </match>
 ```
 
-#### Step 3: Start Fluentd <a id="Step-3:-Start-Fluentd"></a>
+### Step 3: Start Fluentd
 
 After configuring Fluentd, start it by running the below command:
 
