@@ -2,21 +2,21 @@
 
 ## Overview
 
-This guide provides a method to deliver Windows Event Logs to S3 using Fluentd. There are two different pipeline flows, using an AWS Firehose delivery stream and directly to an AWS S3 bucket.
+This guide provides a method to deliver Windows Event Logs to S3 using Fluentd. There are two different pipeline flows: via an AWS Firehose delivery stream and directly to an AWS S3 bucket.
 
-### Pre-reqs
+### Prerequisites
 
-This general guide assumes an S3 bucket or Firehose stream has already been created. If you need to create either of these, please see the [Getting Started with Fluentd](resource-guide.md) guide. If you already have the resources provisioned, you can adapt the guide below to fit your needs. 
+This guide assumes that an S3 bucket or Firehose has already been created. If you need to create either of these resources, please see the [Getting Started with Fluentd](resource-guide.md) guide. If you have already provisioned the resources, you can adapt the guide below to fit your needs.
 
 ## Setup Fluentd
 
 ### Step 1. Install Fluentd
 
-Follow the Fluentd installation [instructions](https://docs.fluentd.org/installation/install-by-msi) for the Windows server you are wanting to collect Windows Event Logs from. See the installation instructions to make sure Fluentd is running as a service.
+Follow the Fluentd installation [instructions](https://docs.fluentd.org/installation/install-by-msi) for the Windows server from which you want to collect Windows Event Logs. See the installation instructions to make sure that Fluentd is running as a service.
 
 ### Step 2. Edit Fluentd Configuration
 
-Edit the Fluentd configuration with the below config. This will configure Fluentd to use the `windows_eventlog2` plugin to read the events and output to S3. Update the `s3_bucket`, `s3_region`, `aws_key_id`, and `aws_sec_key` in the configuration below. 
+Edit the Fluentd configuration with the below configuration. This will configure Fluentd to use the `windows_eventlog2` plugin to read the events and output to S3. Update the `s3_bucket`, `s3_region`, `aws_key_id`, and `aws_sec_key` in the configuration below:
 
 ```text
 C:\opt\td-agent\etc\td-agent\td-agent.conf
@@ -119,9 +119,9 @@ SERVICE_NAME: fluentdwinsvc
         WAIT_HINT          : 0x0
 ```
 
-You can check Fluentd runtime logs under `C:\opt\td-agent\td-agent.log`
+You can check for Fluentd runtime logs under `C:\opt\td-agent\td-agent.log`
 
-To troubleshoot you can also run td-agent from the command line and review the realtime output for issues `C:\opt\td-agent\bin\td-agent -vv`. Stop the Fluentd service before running it manually.
+To troubleshoot, you can also run td-agent from the command line and review the realtime output for issues via `C:\opt\td-agent\bin\td-agent -vv`. Stop the Fluentd service before running it manually.
 
 ### Step 4. Verify Logging
 
@@ -131,10 +131,9 @@ After a few minutes have passed, verify that events are being logged to the S3 b
 
 ### Step 1. Create a Custom Schema
 
-Go to **Log Analysis &gt; Custom Schema &gt; + New Schema** and enter the below values in the schema fields.
+Go to **Log Analysis &gt; Custom Schema &gt; + New Schema** and enter the below values in the schema fields:
 
-**Name:** Custom.WindowsEventLogs2
-
+**Name:** Custom.WindowsEventLogs2  
 **Description:** Windows Event Logs for Application, Security, System
 
 ```yaml

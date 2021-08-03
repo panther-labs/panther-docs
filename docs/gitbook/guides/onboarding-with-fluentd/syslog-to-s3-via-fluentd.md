@@ -2,31 +2,33 @@
 
 ## Overview
 
-This guide provides a method to deliver syslog messages to S3 using Fluentd. There are two different pipeline flows, using an AWS Firehose delivery stream and directly to an AWS S3 bucket.
+This guide provides a method to deliver syslog messages to S3 using Fluentd. There are two different pipeline flows: via an AWS Firehose delivery stream and directly to an AWS S3 bucket.
 
-### Pre-reqs
+### Prerequisites
 
-This general guide assumes an S3 bucket or Firehose has already been created.  If you need to create either of these, please see the [Getting Started with Fluentd](resource-guide.md) guide. If you already have the resources provisioned, you can adapt the guide below to fit your needs. 
+This guide assumes that an S3 bucket or Firehose has already been created. If you need to create either of these resources, please see the [Getting Started with Fluentd](resource-guide.md) guide. If you have already provisioned the resources, you can adapt the guide below to fit your needs. 
 
 ## Setup Fluentd
 
 ### Step 1. Install Fluentd
 
-Follow the [Fluentd install guide](https://docs.fluentd.org/installation) for the environment of the server you are wanting to collect syslog messages from.
+Follow the [Fluentd install guide](https://docs.fluentd.org/installation) for the environment of the server from which you want to collect syslog messages.
 
 ### Step 2. Edit Fluentd Configuration
 
-You have two options in configuring Fluentd: using the Firehouse plugin or S3 plugin. Below are the configuration files for both options. We recommend the Firehose plugin option as it is the more performant of the two. Both will deliver the logs to S3 nonetheless. Two different authentication types are shown in the configuration, assume role and access keys. Use the authentication type that best suits your environment.
+You have two options when configuring Fluentd: using the Firehouse plugin or S3 plugin. Below are the configuration files for both options.
+
+We recommend the Firehose plugin option as it is the more performant of the two, however both will deliver the logs to S3. Two different authentication types are shown in the configuration: assume role and access keys. Use the authentication type that best suits your environment.
 
 #### **Via Firehose Plugin \(recommended\)**
 
-The following Fluentd [plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis#installation) needs to be installed.
+Install the following Fluentd [plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis#installation):
 
 ```text
 td-agent-gem install fluent-plugin-kinesis
 ```
 
-Edit the Fluentd configuration`/etc/td-agent/td-agent.conf` with the below config. This will allow Fluentd to listen for syslog over udp port 5140 and output to Kinesis Firehose. Update the `region`, `delivery_stream_name` and `role_arn` in the configuration below.
+Edit the Fluentd configuration`/etc/td-agent/td-agent.conf` with the below config. This allows Fluentd to listen for syslog events over udp port 5140 and output to Kinesis Firehose. Update the `region`, `delivery_stream_name` and `role_arn` in the configuration below:
 
 ```text
 <source>
@@ -65,7 +67,7 @@ Edit the Fluentd configuration`/etc/td-agent/td-agent.conf` with the below confi
 
 #### **Via S3 Plugin**
 
-Edit the Fluentd configuration `/etc/td-agent/td-agent.conf` with the below config. This will allow Fluentd to listen for syslog over udp port 5140 and output to a S3 bucket. Update the `s3_bucket`, `s3_region`, `aws_key_id`, and `aws_sec_key` in the configuration below.
+Edit the Fluentd configuration `/etc/td-agent/td-agent.conf` with the below config. This will allow Fluentd to listen for syslog events over udp port 5140 and output to a S3 bucket. Update the `s3_bucket`, `s3_region`, `aws_key_id`, and `aws_sec_key` in the configuration below:
 
 ```text
 <source>
@@ -116,7 +118,7 @@ After configuring Fluentd, start it by running the below command:
 $ sudo systemctl start td-agent.service 
 ```
 
-Verify Fluentd is running:
+Verify that Fluentd is running:
 
 ```text
 $ sudo systemctl status td-agent.service
@@ -126,7 +128,7 @@ See the [Fluentd install guide](https://docs.fluentd.org/installation) on starti
 
 ## Configure rsyslog
 
-### Step 1. Configure rsyslog to forward to local Fluentd
+### Configure rsyslog to forward to local Fluentd
 
 Configure `rsyslog` to forward messages to the local Fluentd daemon by adding these two lines to the bottom of `/etc/rsyslog.d/50-default.conf` or `/etc/rsyslog.conf` in some environments:
 
@@ -142,7 +144,7 @@ $ sudo systemctl restart rsyslog.service
 ```
 
 {% hint style="info" %}
-This step can be duplicated for other servers to forward syslog to the Fluentd server that was configured previously in this guide. Just replace the local address `*.* @127.0.0.1:5140` with the IP address of the Fluentd server. You may need to update security groups or host based firewalls to allow sending udp/5140 traffic to the server.
+This step can be duplicated for other servers to forward syslog to the Fluentd server that was previously configured in this guide. Just replace the local address `*.* @127.0.0.1:5140` with the IP address of the Fluentd server. You may need to update security groups or host-based firewalls to allow sending udp/5140 traffic to the server.
 {% endhint %}
 
 ## Verify Logging
