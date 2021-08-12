@@ -67,3 +67,16 @@ This type of alert is classified as a "System Error", similar to all other syste
 
 The alert details page will highlight which log lines are failing to parse correctly which should help inform which lines in the log type's respective schemas need to be corrected or added.
 
+### S3 GetObject Error Notifications
+
+{% hint style="info" %}
+This feature is available in Panther version 1.21
+{% endhint %}
+
+S3 GetObject error alerts are generated when Panther fails to fetch S3 objects. When this happens, the following actions take place by default:
+
+* Panther stores the S3 objects in the data lake which can be queried through the Data Explorer in a table titled `panther_monitor.data_audit`
+* An alert will fire off if Panther fails to fetch any S3 object in the last 24hours. The alert will display the specific S3 objects that are failing.
+
+This type of alert is classified as a "System Error", similar to all other system health alerts referenced on this page. Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors. Additionally, you can view this alert in the "System Errors" sub-tab of the "Alerts & Errors" tab in the Panther UI. 
+
