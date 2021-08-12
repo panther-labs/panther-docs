@@ -30,7 +30,7 @@ def title(event):
 
 New globals can be created from the [Panther Analysis Tool](panther-analysis-tool.md#globals) or in the Panther UI.
 
-To create a new global, navigate to `Settings` &gt; `Global Modules`:
+To create a new global, navigate to `Analysis` &gt; `Helpers`:
 
 ![List Globals](../.gitbook/assets/globals-list%20%287%29%20%283%29%20%286%29.png)
 
