@@ -140,7 +140,7 @@ A complete list of DataModel specification fields:
 
 ### DataModel Mappings
 
-Mappings translate LogType fields to a unified data model fields. Each mapping entry must define a unified data model field name \(`Name`\) and either a Path \(`Path`\) or a method \(`Method`\). The `Path` can be a simple field name or a JSON Path. The method must be implemented in the file listed in the data model specification `Filename` field.
+Mappings translate LogType fields to unified data model fields. Each mapping entry must define a unified data model field name \(`Name`\) and either a Path \(`Path`\) or a method \(`Method`\). The `Path` can be a simple field name or a JSON Path. The method must be implemented in the file listed in the data model specification `Filename` field.
 
 ```text
 Mappings:
@@ -175,7 +175,7 @@ The initial set of supported unified data model fields are described below.
 
 ## Leveraging Existing Data Models
 
-Rules can be upated to use unified data model field names by leveraging the `event.udm()` method. For example:
+Rules can be updated to use unified data model field names by leveraging the `event.udm()` method. For example:
 
 ```python
 def rule(event):
