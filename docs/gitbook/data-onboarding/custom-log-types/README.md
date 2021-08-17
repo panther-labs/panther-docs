@@ -33,15 +33,15 @@ Panther allows limited **editing** of _Custom Log Types_. Specifically:
 
 You can edit a _Custom Log Type_ by clicking on the _Edit_ action in the details page of a _Custom Log Type_. Modify the YAML and click _Update_ to submit your change. _Validate Syntax_ can check the YAML for structural compliance but the rules described above can only be checked on _Update_. The update will be rejected if the rules are not followed.
 
-## Deleting a Custom Log Type
+## Disabling a Custom Log Type
 
-A _Custom Log Type_ can be deleted **if no** _**Source**_ **is using it**.
+A _Custom Log Type_ can be disabled **if no** _**Source**_ **is using it**.
 
-A deleted _Custom Log Type_ is removed from the listing and its tables are hidden from the Data Explorer view.
+A disabled _Custom Log Type_ is removed from the listing and its tables are hidden from the Data Explorer view.
 
-Deleting a _Custom Log Type_ does not affect any data already stored in the data lake. All data is still queryable through _Data Explorer_ or _Indicator Search_. However, this requires reserving the _Custom Log Type_ name, even after it has been deleted. of a _Custom Log Type_ even after it has been deleted. Trying to add a log with the same name at a later time, will result in failure due to the name **conflict**.
+Disabling a _Custom Log Type_ does not affect any data already stored in the data lake. All data is still queryable through _Data Explorer_ or _Indicator Search_. Trying to add a log with the same name at a later time, will result in failure due to the name **conflict**.
 
-You can delete a _Custom Log Type_ by clicking on the _Delete_ action in the details page of a _Custom Log Type_. The action will succeed only if the _Custom Log Type_ is not currently in use by any source.
+You can disable a _Custom Log Type_ by clicking on the _Enable_ toggle in the details page of a _Custom Log Type_. The action will succeed only if the _Custom Log Type_ is not currently in use by any source.
 
 ## Writing a Log Schema for JSON logs
 
