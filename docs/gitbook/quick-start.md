@@ -10,7 +10,7 @@ Get started with Panther by scheduling a [demo](https://runpanther.io/request-a-
 
 Welcome to Panther!
 
-First things first, let's make sure you get logged in. See the guidelines below to get credentials and set up your Panther account. The first recommended step after initial login is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as Slack, PagerDuty, or automation platforms like Tines.
+First things first, let's make sure you get logged in. See the guidelines below to get credentials and set up your Panther account. 
 
 Then, depending on the desired use case, follow the onboarding paths below:
 
