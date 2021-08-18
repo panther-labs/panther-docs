@@ -105,7 +105,21 @@ Change the `PipLibraries` parameter to remove the following libraries as they ar
 * `policyuniverse`
 * `requests`
 
+**Migrating to 1.19.5 , from 1.19.x -&gt; 1.20.x or from 1.20.x -&gt; 1.21x:**
 
+From 1.19.5 and on, we have attached a custom domain to our GraphQL API and require an additional certificate for it. We've also updated our deployment role in order to add a necessary permissions to support an edge-optimized custom domain on API Gateway. The changes can be summed up to:
+
+1. Pull our latest Cloudformation template and update your Panther Deployment Role \(if you're using an Administrative role to deploy Panther, then this step can be omitted\)
+2. Create a certificate for the api subdomain of your domain in **us-east-1** \(e.g. [api.mydomain.com](http://api.mydomain.com/)\), add the necessary CNAME in order to validate it and wait until validation is complete
+3. Use its ARN value in the "ApiCertificateArn" CloudFormation parameter of Panther's template
+4. Create an "A Alias Record"  for the api subdomain you've created the certificate for. You can find the Alias Target and the Alias Hosted zone by inspecting the outputs of the the "Bootstrap" CloudFormation stack that is part of your Panther deployment. The values you'll be needing are:
+
+   ```text
+   PantherApiDistributionDomainName
+   PantherApiDistributionHostedZoneId
+   ```
+
+    
 
 #### 
 
