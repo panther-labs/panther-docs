@@ -1,14 +1,64 @@
 # Snowflake Integration
 
-Panther can be configured to write processed log data to an AWS-based [Snowflake](https://www.snowflake.com) database cluster. This allows you to join Panther processed data with your other data sources in Snowflake.
+Panther can be configured to write processed log data to an AWS-based [Snowflake](https://www.snowflake.com) database cluster. 
 
-Integrating Panther with Snowflake enables Panther data to be used in your Business Intelligence tools to make dashboards tailored to you operations. In addition, you can join Panther data \(e.g., Panther alerts\) to your business data, enabling assessment of your security posture with respect to your organization.
+Integrating Panther with Snowflake enables Panther data to be used with your Business Intelligence tools to make dashboards tailored to you operations. In addition, you can join Panther data \(e.g., Panther alerts\) to your business data, enabling assessment of your security posture with respect to your organization.
 
 For example, you can tally alerts by organizational division \(e.g., Human Resources\) or by infrastructure \(e.g., Development, Test, Production\).
 
 Panther uses [Snowpipe](https://docs.snowflake.com/en/user-guide/data-load-snowpipe-intro.html) to copy the data into your Snowflake cluster.
 
 ## Configuration Overview
+
+### SaaS
+
+For Panther SaaS customers, a Snowflake instance is automatically provisioned and we take care of setup and maintenance for you. You're all set!
+
+For SaaS customers who wish to share data between the Panther SaaS Snowflake account and their own internal Snowflake account, this can be accomplished by contacting your Panther support team.
+
+For SaaS customers who wish to access their SaaS configuration to use the data in BI reporting, but do not have their own corporate Snowflake account, our support team can provision special access roles for your use. 
+
+### Bring Your Own Snowflake
+
+If you already have a Snowflake account and would like processed data stored in your account, Panther can be configured to use your Snowflake account. We call this Bring Your Own Snowflake \(BYOSF\). 
+
+Step 1 is to have your Snowflake DBA create a new Snowflake account. For convenience, we provide an example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
+
+```sql
+CREATE ACCOUNT <YOUR_PANTHER_ACCOUNT_NAME>
+  ADMIN_NAME = <YOUR_ADMIN_NAME>
+  ADMIN_PASSWORD = '<YOUR ADMIN PASSWORD>' # we recommend at least 32 characters
+  EMAIL = '<your sfnowflake DBA email>'
+  MUST_CHANGE_PASSWORD = FALSE
+  EDITION = ENTERPRISE # BUSINESS_CRITICAL edition required for certain features
+  REGION = <your region, i.e. aws_us_west_2>
+  COMMENT =  'Panther Snowflake BYOSF Production Environment'; 
+```
+
+Step 2 is to grant certain administrative privileges to a Panther Account Administrator user in that account. This will allow Panther to use our automated tools to manage integrations, databases, warehouses, and users and roles in the account. Your Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
+
+```sql
+USE ROLE SECURITYADMIN;
+
+CREATE USER IF NOT EXISTS pantheraccountadmin password='<panther_credential>';
+
+GRANT ROLE SYSADMIN
+   TO USER pantheraccountadmin;
+   
+GRANT ROLE SECURITYADMIN
+   TO USER pantheraccountadmin;
+
+GRANT ROLE ACCOUNTADMIN
+   TO USER pantheraccountadmin;
+   
+ALTER USER pantheraccountadmin SET DEFAULT_ROLE = SYSADMIN;
+```
+
+And you are done! Panther will automatically configure and maintain the account for you.
+
+### Legacy Snowflake Configuration \(**Deprecated**\)
+
+> Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the two methods above in the future.
 
 This guide assumes you already have a Snowflake instance in AWS.
 
@@ -31,7 +81,7 @@ There are 9 steps to configuring Panther integration with Snowflake.
 8. AWS Admin: Create a read only user AWS Secret and an administrative user AWS Secret
 9. Panther \(SaaS\) or Customer \(CloudPrem\): Deploy Panther with Snowflake enabled
 
-## 1. Gather configuration information from Panther
+#### 1. Gather configuration information from Panther
 
 Go to the `Settings` page of Panther and select `General Settings`. There you will find:
 
@@ -42,7 +92,7 @@ Go to the `Settings` page of Panther and select `General Settings`. There you wi
 
 Keep these ARNs handy, we will use this later.
 
-## 2. Gather configuration information from Snowflake
+#### 2. Gather configuration information from Snowflake
 
 In order to configure Panther, you need to get the `SNOWFLAKE_IAM_USER` from Snowflake.
 
@@ -73,7 +123,7 @@ You should see a response similar to:
 
 In the above example, the `SNOWFLAKE_IAM_USER` is the `AWS` attribute `arn:aws:iam::87654321XXXX:user/k7m2-s-v2st0722`. Keep this handy, we will use this in a later step.
 
-## 3. Create the Panther databases in Snowflake
+#### 3. Create the Panther databases in Snowflake
 
 Execute in Snowflake SQL shell:
 
@@ -90,7 +140,7 @@ CREATE database IF NOT EXISTS panther_views;
 CREATE database IF NOT EXISTS panther_stored_procedures;
 ```
 
-## 4. Create a read only role and an administrative role in Snowflake
+#### 4. Create a read only role and an administrative role in Snowflake
 
 {% hint style="warning" %}
 _**For customers with self-hosted Snowflake deployments who are upgrading to 1.18**_ 
@@ -306,7 +356,7 @@ GRANT CREATE INTEGRATION ON ACCOUNT TO ROLE panther_admin_role;
 GRANT IMPORTED PRIVILEGES ON DATABASE snowflake TO ROLE panther_readonly_role;
 ```
 
-## 5. Create a read only user and an administrative user in Snowflake
+#### 5. Create a read only user and an administrative user in Snowflake
 
 NOTE: set `<your_readonly_password>` and `<your_admin_password>` below. Execute in Snowflake SQL shell:
 
@@ -335,7 +385,7 @@ ALTER USER PANTHER_ADMIN
    SET TIMEZONE = 'UTC';
 ```
 
-## 6. Create a stored procedure to make creating AWS Secrets easier \(Optional\)
+#### 6. Create a stored procedure to make creating AWS Secrets easier \(Optional\)
 
 Define this stored procedure that will create a JSON document you can use to cut-n-paste into AWS Secret Manger \(saving typing\). Execute in Snowflake SQL shell:
 
@@ -360,7 +410,7 @@ CREATE or replace FUNCTION panther_stored_procedures.public.generate_secret(USN 
   -- SELECT panther_stored_procedures.public.generate_secret('panther_readonly','password123','COMPUTE_WH','<something>.snowflakecomputing.com');
 ```
 
-## 7. Create a KMS key in your AWS account for Panther Snowflake Secrets
+#### 7. Create a KMS key in your AWS account for Panther Snowflake Secrets
 
 You will use this key to encrypt the Snowflake secrets that we will store in your AWS account as part of Step 8.
 
@@ -373,7 +423,7 @@ You will use this key to encrypt the Snowflake secrets that we will store in you
 * Click on `Add another AWS Account` and enter the account id where Panther is installed.
 * Click `Next` and then click `Finish`.
 
-## 8. Create a read only user AWS Secret and an administrative user AWS Secret
+#### 8. Create a read only user AWS Secret and an administrative user AWS Secret
 
 You will use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to store the Snowflake user password. It will be configured to only allow access from a single lambda function in the Panther account.
 
@@ -418,7 +468,7 @@ _**NOTE**_: Check to make sure that all 6 fields \(_account, host, password, por
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 
-### Update Permissions for the Secrets
+#### Update Permissions for the Secrets
 
 We need to configure the permissions for the two Panther AWS secrets such that only the specific Panther lambdas have access to the Snowflake secret.
 
@@ -449,9 +499,9 @@ Then click the `Save` button.
 
 Make a note of the `arn` for the secret. We will use this later.
 
-## 9. Deploy Panther with Snowflake enabled
+#### 9. Deploy Panther with Snowflake enabled
 
-### SaaS Users
+#### SaaS Legacy Deployment Users
 
 Send to your Panther point of contact \(POC\):
 
@@ -461,7 +511,7 @@ Send to your Panther point of contact \(POC\):
 
 Your Panther POC will re-deploy Panther with these settings to enable Snowflake.
 
-### CloudPrem Users
+#### CloudPrem Users
 
 Customers running Panther in their own accounts \(we call that `CloudPrem)` need to first deploy the master template doing an initial setup of Panther. After deploying the master template configure the master stack parameters as below:
 
@@ -471,7 +521,7 @@ Customers running Panther in their own accounts \(we call that `CloudPrem)` need
 
 Execute an update to the Cloudformation stack.
 
-## Validation of Snowpipe Processing
+#### Validation of Snowpipe Processing
 
 Once Panther is configured for Snowflake, you should have seven databases:
 
@@ -495,7 +545,7 @@ SELECT count(1) AS c FROM panther_views.public.all_logs ;
 
 The configuration can be tested from the [Data Explorer](../data-analytics/data-explorer.md). Run some same queries over a table that you know has data \(check via Snowflake console\).
 
-## Rotating Secrets
+#### Rotating Secrets
 
 To rotate secrets, create a NEW user and edit the secret replacing the old user and password with the new user and password. Wait one hour before deleting/disabling the old user in Snowflake.
 
