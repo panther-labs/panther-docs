@@ -20,7 +20,7 @@ For SaaS customers who wish to access their SaaS configuration to use the data i
 
 ### Bring Your Own Snowflake
 
-If you are an existing Snowflake customer Panther can be configured to use one of your own Snowflake account. We call this Bring Your Own Snowflake \(BYOSF\). 
+If you are an existing Snowflake customer, Panther can be configured to use one of your own Snowflake accounts. We call this Bring Your Own Snowflake \(BYOSF\). 
 
 Step 1 is to have your Snowflake DBA create a new Snowflake account. For convenience, we provide an example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
 
