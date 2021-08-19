@@ -1,6 +1,6 @@
 # Snowflake Integration
 
-Panther can be configured to write processed log data to an AWS-based [Snowflake](https://www.snowflake.com) database cluster. 
+Panther is configured to write processed log data to an AWS-based [Snowflake](https://www.snowflake.com) database cluster. 
 
 Integrating Panther with Snowflake enables Panther data to be used with your Business Intelligence tools to make dashboards tailored to you operations. In addition, you can join Panther data \(e.g., Panther alerts\) to your business data, enabling assessment of your security posture with respect to your organization.
 
