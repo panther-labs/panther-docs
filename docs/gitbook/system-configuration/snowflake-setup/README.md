@@ -20,7 +20,7 @@ For SaaS customers who wish to access their SaaS configuration to use the data i
 
 ### Bring Your Own Snowflake
 
-If you already have a Snowflake account and would like processed data stored in your account, Panther can be configured to use your Snowflake account. We call this Bring Your Own Snowflake \(BYOSF\). 
+If you are an existing Snowflake customer Panther can be configured to use one of your own Snowflake account. We call this Bring Your Own Snowflake \(BYOSF\). 
 
 Step 1 is to have your Snowflake DBA create a new Snowflake account. For convenience, we provide an example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
 
@@ -36,7 +36,7 @@ CREATE ACCOUNT <YOUR_PANTHER_ACCOUNT_NAME>
   COMMENT =  'Panther Snowflake BYOSF Production Environment'; 
 ```
 
-Step 2 is to grant certain administrative privileges to a Panther Account Administrator user in that account. This will allow Panther to use our automated tools to manage integrations, databases, warehouses, and users and roles in the new account. Your Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
+Step 2 is to create a Panther Account Administrator user in the new account and grant it certain administrative privileges. This will allow Panther to use our automated tools to manage integrations, databases, warehouses, and users and roles in the new account. The Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
 
 ```sql
 USE ROLE SECURITYADMIN;
