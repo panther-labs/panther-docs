@@ -36,7 +36,7 @@ CREATE ACCOUNT <YOUR_PANTHER_ACCOUNT_NAME>
   COMMENT =  'Panther Snowflake BYOSF Production Environment'; 
 ```
 
-Step 2 is to grant certain administrative privileges to a Panther Account Administrator user in that account. This will allow Panther to use our automated tools to manage integrations, databases, warehouses, and users and roles in the account. Your Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
+Step 2 is to grant certain administrative privileges to a Panther Account Administrator user in that account. This will allow Panther to use our automated tools to manage integrations, databases, warehouses, and users and roles in the new account. Your Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
 
 ```sql
 USE ROLE SECURITYADMIN;
