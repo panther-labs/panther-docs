@@ -25,6 +25,7 @@ If you already have a Snowflake account and would like processed data stored in 
 Step 1 is to have your Snowflake DBA create a new Snowflake account. For convenience, we provide an example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
 
 ```sql
+USE ROLE ORGADMIN;
 CREATE ACCOUNT <YOUR_PANTHER_ACCOUNT_NAME>
   ADMIN_NAME = <YOUR_ADMIN_NAME>
   ADMIN_PASSWORD = '<YOUR ADMIN PASSWORD>' # we recommend at least 32 characters
