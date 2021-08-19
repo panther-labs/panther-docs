@@ -45,7 +45,7 @@ The monitoring tables are implemented in the `panther_monitor` database, and can
 
 ### Upgrading considerations
 
-Customers should run the latest version of the snowflake [setup instructions](../../system-configuration/snowflake-setup.md) before upgrading to a version including snowflake data load monitoring.
+Customers should run the latest version of the snowflake [setup instructions](../../system-configuration/snowflake-setup/) before upgrading to a version including snowflake data load monitoring.
 
 ### Using the load monitors
 
