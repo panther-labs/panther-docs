@@ -20,9 +20,11 @@ For SaaS customers who wish to access their SaaS configuration to use the data i
 
 ### Bring Your Own Snowflake
 
-If you are an existing Snowflake customer, Panther can be configured to use one of your own Snowflake account. We call this Bring Your Own Snowflake \(BYOSF\). 
+If you are an existing Snowflake customer, Panther can be configured to use one of your own Snowflake accounts. We call this Bring Your Own Snowflake \(BYOSF\). 
 
-Step 1 is to have your Snowflake DBA create a new Snowflake account. For convenience, we provide an example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
+#### Step 1: Create a new Snowflake Account 
+
+Create or ask your Snowflake DBA to create a new Snowflake account for Panther. For convenience, you can use the example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
 
 ```sql
 USE ROLE ORGADMIN;
@@ -36,7 +38,11 @@ CREATE ACCOUNT <YOUR_PANTHER_ACCOUNT_NAME>
   COMMENT =  'Panther Snowflake BYOSF Production Environment'; 
 ```
 
-Step 2 is to create a Panther Account Administrator user in the new account and grant it certain administrative privileges. This will allow Panther to use our automated tools to manage integrations, databases, warehouses, and users and roles in the new account. The Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
+#### Step 2: Create a Panther Account Admin
+
+Next, create a Panther Account Administrator user in the new account and grant it administrative privileges. This will allow Panther to use our automated tooling to manage integrations, databases, warehouses, and users and roles in the new account. 
+
+The Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel to use for this account. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
 
 ```sql
 USE ROLE SECURITYADMIN;
@@ -59,5 +65,5 @@ And you are done! Panther will automatically configure and maintain the account 
 
 ### Legacy Snowflake Integration
 
-For legacy connection options see [this page](legacy-snowflake-integration.md).
+For legacy Snowflake connection options see [this page](legacy-snowflake-integration.md).
 
