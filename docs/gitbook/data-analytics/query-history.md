@@ -1,8 +1,6 @@
 # Query History
 
-The Query History page displays the last 30 days of SQL queries run through the Panther UI. 
-
-Clicking on the query name will send you to the data explorer where you can see the results and rerun the query. 
+The Query History page displays the last 30 days of SQL queries run through the Panther UI. Clicking on the query name will send you to the data explorer where you can see the results and rerun the query. 
 
 ![Query history](../.gitbook/assets/query-history.png)
 
