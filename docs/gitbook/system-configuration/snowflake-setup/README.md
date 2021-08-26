@@ -24,7 +24,7 @@ If you are an existing Snowflake customer, Panther can be configured to use one 
 
 #### Step 1: Create a new Snowflake Account 
 
-Create or ask your Snowflake DBA to create a new Snowflake account for Panther. For convenience, you can use the example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
+Create a new dedicated Snowflake account for Panther using the example template below. To minimize latency, your Panther deployment and Snowflake instance should reside in the same AWS region.
 
 ```sql
 USE ROLE ORGADMIN;
@@ -40,9 +40,7 @@ CREATE ACCOUNT <YOUR_PANTHER_ACCOUNT_NAME>
 
 #### Step 2: Create a Panther Account Admin
 
-Next, create a Panther Account Administrator user in the new account and grant it administrative privileges. This will allow Panther to use our automated tooling to manage integrations, databases, warehouses, and users and roles in the new account. 
-
-The Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel to use for this account. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs. 
+Next, in the new account, create a Panther Account Administrator user and grant it administrative privileges using the following commands: 
 
 ```sql
 USE ROLE SECURITYADMIN;
@@ -61,7 +59,9 @@ GRANT ROLE ACCOUNTADMIN
 ALTER USER pantheraccountadmin SET DEFAULT_ROLE = SYSADMIN;
 ```
 
-And you are done! Panther will automatically configure and maintain the account for you.
+The Panther customer support team will _**provide**_ you with a unique one-time credential over a secure channel to use for this account. Panther will regularly rotate this credential in the future, so you are advised to maintain a separate administrative user for your own administrative needs.
+
+And you're done! Panther will automatically configure and maintain the account for you using our automated tooling. We'll manage integrations, databases, warehouses, and users and roles in the new account. 
 
 ### Legacy Snowflake Integration
 
