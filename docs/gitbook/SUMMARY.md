@@ -14,6 +14,7 @@
     * [Salesforce](data-onboarding/saas-logs/salesforce.md)
     * [Slack](data-onboarding/saas-logs/slack.md)
     * [Microsoft 365](data-onboarding/saas-logs/microsoft.md)
+    * [Zendesk](data-onboarding/saas-logs/zendesk.md)
   * [Cloud Accounts](data-onboarding/setup-cloud-accounts.md)
   * [Data Transports](data-onboarding/data-transports/README.md)
     * [S3 source](data-onboarding/data-transports/s3.md)
