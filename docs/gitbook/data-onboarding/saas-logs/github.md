@@ -1,7 +1,7 @@
 # Github
 
 {% hint style="info" %}
-This feature will be available in version 1.20
+This feature is available in versions 1.20 and above.
 {% endhint %}
 
 Panther has the ability to fetch Github audit logs by querying the [Github API](https://docs.github.com/en/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization). Panther will query the Github API for new events every 1' minute. 
