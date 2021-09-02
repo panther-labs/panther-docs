@@ -91,7 +91,7 @@ Running these commands with the `-h` flag will explain usage.
 
 Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{architecture}.zip`
 
-`{version}` is latest Panther version, e.g. v1.21.0
+`{version}` is latest Panther version, e.g. v1.21.3
 
 `{architecture}` is one of:
 
@@ -129,5 +129,5 @@ Devtools:
 * **logprocessor**: run log processor locally for profiling purposes using pprof
 * **pantherlog**: Parse logs using built-in or custom schemas
 
-An example of a full link to the set of tools would be: [https://panther-community-us-east-1.s3.amazonaws.com/v1.21.0/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.21.0/tools/darwin-amd64.zip)
+An example of a full link to the set of tools would be: [https://panther-community-us-east-1.s3.amazonaws.com/v1.21.3/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.21.3/tools/darwin-amd64.zip)
 
