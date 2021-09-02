@@ -106,9 +106,9 @@ Change the `PipLibraries` parameter to remove the following libraries as they ar
 * `policyuniverse`
 * `requests`
 
-**Migrating to 1.19.5 , from 1.19.x -&gt; 1.20.x or from 1.20.x -&gt; 1.21x:**
+**Migrating to 1.19.5, from 1.19.x -&gt; 1.20.x or from 1.20.x -&gt; 1.21x:**
 
-From 1.19.5 and on, we have attached a custom domain to our GraphQL API and require an additional certificate for it. We've also updated our deployment role in order to add a necessary permissions to support an edge-optimized custom domain on API Gateway. The changes can be summed up to:
+From 1.19.5 and on, we have attached a custom domain to our GraphQL API and require an additional certificate for it. We've also updated our deployment role in order to add the necessary permissions to support an edge-optimized custom domain on API Gateway. The changes can be summed up to:
 
 1. Pull our latest Cloudformation template and update your Panther Deployment Role \(if you're using an Administrative role to deploy Panther, then this step can be omitted\).
 2. Create a certificate for the the _**api.**_ ****subdomain of your existing panther domain in **us-east-1** \(e.g. if your panther domain is [panther.mydomain.com](http://api.mydomain.com/), then you should create a certificate for [api.panther.mydomain.com](http://api.panther.mydomain.com)\), add the necessary CNAME in order to validate it and wait until validation is complete.
