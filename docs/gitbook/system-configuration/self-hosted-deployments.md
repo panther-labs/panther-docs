@@ -81,7 +81,7 @@ We recommend not skipping minor versions of Panther while upgrading, but upgradi
 
 * `v1.21.3`
 * `v1.20.3`
-* `v1.19.4`
+* `v1.19.5`
 * `v1.18.8`
 * `v1.17.4`
 * `v1.16.4`
