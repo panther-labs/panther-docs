@@ -120,11 +120,35 @@ From 1.19.5 and on, we have attached a custom domain to our GraphQL API and requ
    PantherApiDistributionHostedZoneId
    ```
 
-    
+   To add this "A Alias Record ", you'll need to use Cloudformation. The AWS Console is not an option since this Cloudfront Distribution is internal to AWS and is not going to be exposed in the Console's Distributions dropdown. The stack you'll need to deploy is the following:
 
-#### 
+   ```text
+   AWSTemplateFormatVersion: 2010-09-09
+   Parameters:
+     PantherDomainName:
+       Type: String
+       Description: The domain name which Panther runs in (i.e. `panther.mydomain.com`).
+     PantherHostedZoneName:
+       Type: String
+       Description: The name of the hosted zone of your Panther domain in Route53 (i.e. `mydomain.com`).
+     PantherApiDistributionHostedZoneId:
+       Type: String
+       Description: The hosted zone ID of the cloudfront distribution of the custom API GW domain
+     PantherApiDistributionDomainName:
+       Type: String
+       Description: The domain name of the cloudfront distribution of the custom API GW domain
 
-
-
-
+   Resources:
+     PantherApiSubdomain:
+       Type: AWS::Route53::RecordSet
+       Properties:
+         Comment: Alias used for customer panther api
+         HostedZoneName: !Sub "${PantherHostedZoneName}."
+         Name: !Sub "api.${PantherDomainName}."
+         Type: A
+         AliasTarget:
+           HostedZoneId: !Ref PantherApiDistributionHostedZoneId
+           DNSName: !Ref PantherApiDistributionDomainName
+           EvaluateTargetHealth: false
+   ```
 
