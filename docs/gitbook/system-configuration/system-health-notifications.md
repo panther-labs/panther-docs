@@ -80,3 +80,15 @@ S3 GetObject error alerts are generated when Panther fails to fetch S3 objects. 
 
 This type of alert is classified as a "System Error", similar to all other system health alerts referenced on this page. Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors. Additionally, you can view this alert in the "System Errors" sub-tab of the "Alerts & Errors" tab in the Panther UI. 
 
+### Destination Failure Notifications
+
+{% hint style="info" %}
+This feature is available in Panther version 1.22
+{% endhint %}
+
+Destination failure alerts are generated when Panther fails to deliver an alert to a destination. When this happens, the following actions take place by default:
+
+* An alert is fired whenever a threshold of alert delivery retries fails to successfully send to an external destination.
+
+This type of alert is classified as a "System Error", similar to all other system health alerts referenced on this page. Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors. Additionally, you can view this alert in the "System Errors" sub-tab of the "Alerts & Errors" tab in the Panther UI. 
+
