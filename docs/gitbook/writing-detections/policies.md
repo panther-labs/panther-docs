@@ -174,6 +174,8 @@ When you see a policy that is showing the state `Error` on a given resource, tha
 Running this test case either locally or in the web UI should provide more context for the issue, and allow you to rapidly modify the policy to debug the exception without having to run the policy against all resources in your environment.
 
 {% hint style="warning" %}
-_**Note: Anything printed to stdout in the python logic will end up in CloudWatch.**_
+_**Note: Anything printed to stdout in the python logic will end up in CloudWatch.  For SaaS/CPaaS customers, panther engineers can see these CloudWatch logs during routine application monitoring.**_
 {% endhint %}
+
+
 

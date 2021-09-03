@@ -131,6 +131,8 @@ def rule(event):
 ```
 
 {% hint style="warning" %}
-_**Note: Anything printed to stdout in the python logic will end up in CloudWatch.**_
+_**Note: Anything printed to stdout in the python logic will end up in CloudWatch. For SaaS/CPaaS customers, panther engineers can see these CloudWatch logs during routine application monitoring.**_
 {% endhint %}
+
+
 
