@@ -130,3 +130,7 @@ def rule(event):
     return event['field'] == 'value'
 ```
 
+{% hint style="warning" %}
+_**Note: Anything printed to stdout in the python logic will end up in CloudWatch.**_
+{% endhint %}
+

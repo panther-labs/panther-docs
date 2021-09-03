@@ -2,16 +2,17 @@
 
 Packs are used to logically group detections as well as enable detection updates via the Panther UI. Panther-provided packs are defined in the open source repository, `panther-labs/panther-analysis`.
 
-A single pack can group any number of detections, global helpers, and data models. For example, one of the provided detections packs, `Panther Universal Detections`, groups all the rules that rely on data models and all of their dependencies.
+A single pack can group any number of detections, queries, global helpers, and data models. For example, one of the provided detections packs, `Panther Universal Detections`, groups all the rules that rely on data models and all of their dependencies.
 
 Updates to detections in these packs are tracked automatically by the Panther backend. When a new update for a detection pack is available in the `panther-analysis` repository, the list packs page will be display an `update available` flag next to the relevant items.
 
 ## Panther Built-In Detection Packs
 
+Panther provides several detection packs out of the box. There are packs that group all the panther provided detections related to a particular log source, but there are also detections packs that are grouped on a particular focus, such as generic rules that leverage unified data models or a core set of detections for AWS. 
+
 | Display Name | Description |
 | :--- | :--- |
 | Universal Detections | This pack groups the standard rules that leverage unified data models |
-| Core AWS | Group of the most critical and high value detections pertinent to the aws environment |
 
 ## Viewing Detection Packs
 
@@ -22,6 +23,20 @@ Panther provided detection packs can be view in the pack overview page. Navigate
 Pack details, including a description, the enabled status, the currently enabled version, and which detections are in the pack, can be viewed in the pack details page. Simply click on a pack in the list to view its details page.
 
 ![Pack Details](../.gitbook/assets/pack-details.png)
+
+## Managing Detections with Packs
+
+When a pack is enabled, panther will install and enable the detections in that pack.  When this happens, panther will update the python body, tests, and a majority of the metadata with the panther-provided version. It will not overwrite a few commonly customized fields, these include: DedupPeriodMinutes, OutputIDs, Severity, and Threshold. 
+
+Packs will also create detection backups in order to prevent loss of customizations to those detections.  When enabling or updating a pack, panther will automatically create a disabled backup of that detection, if it determines there have been any changes.  These backups have the naming convention: `Backup.<original.id>.N` , where N is the number of backups already existing for that detection.  For example, `Backup.Standard.BruteForceByIp.2` is a backup for the detection `Standard.BruteForceByIp`. 
+
+If you would like to maintain an enabled customization of a panther provided detection, best practice is to:
+
+1. Disable the detection in the pack
+2. Manually create a copy of the detection \(with a different, unique ID\)
+3. Make any modifications to the copy
+
+This will ensure there will be no conflict with the panther provided detection in the pack.  
 
 ## Enable and Disable Detection Pack
 
