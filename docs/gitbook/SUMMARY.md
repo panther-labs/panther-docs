@@ -164,7 +164,7 @@
     * [AWS GuardDuty is Logging to a Master Account](alert-runbooks/built-in-policies/aws-guardduty-is-logging-to-a-master-account.md)
     * [AWS GuardDuty Is Enabled](alert-runbooks/built-in-policies/aws-guardduty-is-enabled.md)
     * [AWS IAM Group Has Users](alert-runbooks/built-in-policies/aws-iam-group-has-users.md)
-    * [AWS IAM Policy Blacklist Is Respected](alert-runbooks/built-in-policies/aws-iam-policy-blacklist-is-respected.md)
+    * [AWS IAM Policy Blocklist Is Respected](alert-runbooks/built-in-policies/aws-iam-policy-blacklist-is-respected.md)
     * [AWS IAM Policy Does Not Grant Full Administrative Privileges](alert-runbooks/built-in-policies/aws-iam-policy-does-not-grant-full-administrative-privileges.md)
     * [AWS IAM Policy Is Not Assigned Directly To User](alert-runbooks/built-in-policies/aws-iam-policy-not-assigned-directly-to-user.md)
     * [AWS IAM Policy Role Mapping Is Respected](alert-runbooks/built-in-policies/aws-iam-policy-role-mapping-is-respected.md)
