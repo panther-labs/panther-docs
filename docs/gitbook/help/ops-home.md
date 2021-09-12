@@ -110,11 +110,7 @@ Opstools:
 * **flushrsc**: flush delete pending entries from the panther-resource table
 * **gluerecover**: scans S3 for missing AWS Glue partitions and recovers them
 * **gluesync**: update glue table and partition schemas
-* **invite**: invite the initial user to Panther \(if you did not get an invitation during deployment or need to resend it for an existing user\)
 * **migrate**: utility to do a data migration for the gsuite\_reports table \(log & rule table\)
-* **releasecopy**: copies Panther S3 release assets across regions/partitions
-* **requeue**: copy messages from a dead letter queue back to the originating queue for reprocessing
-* s3list: 
 * **s3queue**: list files under an S3 path and send them to the log processor input queue for processing \(useful for back fill of data\)
 * **s3sns**: lists s3 objects and posts s3 notifications to log processor sns topic
 * **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users

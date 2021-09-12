@@ -232,7 +232,6 @@
 * [Help](help/README.md)
   * [Operations](help/ops-home.md)
   * [Runbooks](help/runbooks.md)
-  * [AWS China](help/china.md)
   * [Troubleshooting](help/troubleshooting.md)
   * [Security and Privacy](help/security-privacy.md)
   * [FAQ](help/faqs.md)
