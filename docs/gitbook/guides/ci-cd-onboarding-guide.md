@@ -9,9 +9,12 @@ description: >-
 
 ## Overview
 
-This guide will teach you how to manage Panther detections with CI/CD. In addition to explaining how you can set up a CI/CD process for your custom detections, we’ll also cover how to fork the [Panther Analysis](https://github.com/panther-labs/panther-analysis) repo and stay up to date with Panther’s built-in detections. 
+This guide will teach you how to manage Panther's built-in detections and your custom detections with a CI/CD workflow.
 
-The process outlined in this guide will use Github, Github Actions, and CircleCI, but can be adapted to your desired toolset. Broadly we will create a CI workflow that runs the Python Black linter on your codebase and executes all unit tests defined for rules. We will also detail maintaining a fork of the Panther-Analysis repository, where all of Panther’s built-in detections are stored, maintained, and updated.
+The process outlined in this guide will use Github, Github Actions, and CircleCI, but can be adapted to your desired toolset. Broadly we will:
+
+* Create a CI workflow that runs the Python Black linter on your codebase and executes all unit tests defined for rules.
+* Maintain a fork of the [Panther-Analysis](https://github.com/panther-labs/panther-analysis) repository, where all of Panther’s built-in detections are stored, maintained, and updated.
 
 ## Setting up CircleCI
 
