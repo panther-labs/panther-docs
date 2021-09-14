@@ -69,7 +69,7 @@ In the sections below, each concept above will be expanded upon.
 
 Panther has two core mechanisms of analyzing data with rules, real-time and scheduled.
 
-Real-Time rules are the default mechanism of analyzing data sent to Panther and have the benefit of low-latency detection and alerting. High-signal logs that not require joins with other data are best suited for real-time detection.
+Real-Time rules are the default mechanism of analyzing data sent to Panther and have the benefit of low-latency detection and alerting. High-signal logs that do not require joins with other data are best suited for real-time detection.
 
 For querying windows of time further in the past, running statistical analysis over data, or joining separate data streams, use a [scheduled ](../data-analytics/scheduled-queries.md)rule. This works by running a SQL query on a defined interval \(or cron\) and using the result of that query as input into a Python-based rule. All other functionality described on this page remains the same.
 
