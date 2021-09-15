@@ -151,7 +151,11 @@ Values of `string` type can be further restricted by declaring a list of values 
 
 ### Validation by string type
 
-Values of `string` type can be restricted to match well known formats. Currently, Panther supports the `ip` and `cidr` formats to require that a string value be a valid IP address or CIDR range. Note that the `ip` and `cidr` validation types can be combined with `allow` or `deny` rules but it is somewhat redundant, for example if you allow two IP addresses, then adding an `ip` validation will simply ensure that your validation will not include false positives it the IP addresses in your list are not valid.
+{% hint style="info" %}
+This feature will be available in 1.24
+{% endhint %}
+
+Values of `string` type can be restricted to match well-known formats. Currently, Panther supports the `ip` and `cidr` formats to require that a string value be a valid IP address or CIDR range. Note that the `ip` and `cidr` validation types can be combined with `allow` or `deny` rules but it is somewhat redundant, for example, if you allow two IP addresses, then adding an `ip` validation will simply ensure that your validation will not include false positives if the IP addresses in your list are not valid.
 
 ```javascript
 # Will allow valid ipv4 IP addresses e.g. 100.100.100.100
