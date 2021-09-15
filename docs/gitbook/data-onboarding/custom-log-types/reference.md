@@ -131,7 +131,7 @@ Values of `string` type can be used as indicators. In order to mark a field as a
   indicators: [ url ]
 ```
 
-### Validation
+### Validation - Allow/Deny lists
 
 Values of `string` type can be further restricted by declaring a list of values to `allow` or `deny`. This allows to have different log types that have common overlapping fields but differ on values of those fields.
 
@@ -147,6 +147,31 @@ Values of `string` type can be further restricted by declaring a list of values 
   type: string
   validate:
     deny: [ "login", "logout"]
+```
+
+### Validation by string type
+
+Values of `string` type can be restricted to match well known formats. Currently, Panther supports the `ip` and `cidr` formats to require that a string value be a valid IP address or CIDR range. Note that the `ip` and `cidr` validation types can be combined with `allow` or `deny` rules but it is somewhat redundant, for example if you allow two IP addresses, then adding an `ip` validation will simply ensure that your validation will not include false positives it the IP addresses in your list are not valid.
+
+```javascript
+# Will allow valid ipv4 IP addresses e.g. 100.100.100.100
+- name: address
+  type: string
+  validate:
+    ip: "ipv4"
+    
+# Will allow valid ipv6 CIDR ranges 
+# e.g. 2001:0db8:85a3:0000:0000:0000:0000:0000/64
+- name: address
+  type: string
+  validate:
+    cidr: "ipv6"
+    
+# Will allow any valid ipv4 or ipv6 address
+- name: address
+  type: string
+  validate:
+    ip: "any"    
 ```
 
 ### Embedded JSON values
