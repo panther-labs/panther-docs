@@ -63,6 +63,24 @@ The Panther customer support team will _**provide**_ you with a unique one-time 
 
 And you're done! Panther will automatically configure and maintain the account for you using our automated tooling. We'll manage integrations, databases, warehouses, and users and roles in the new account. 
 
+#### **Disabling and Reenabling the Panther Account Admin User \(Optional\)**
+
+This new role is only needed for the original deploy and occasional on-upgrade migrations. If desired, the administrative role can be disabled after the initial deployment is complete:
+
+```sql
+USE ROLE SECURITYADMIN;
+
+ALTER USER PANTHERACCOUNTADMIN SET DISABLED = TRUE
+```
+
+If a Panther upgrade requires us to do a data migration, the user can be temporarily reenabled:
+
+```sql
+USE ROLE SECURITYADMIN;
+
+ALTER USER PANTHERACCOUNTADMIN SET DISABLED = FALSE
+```
+
 ### Legacy Snowflake Integration
 
 For legacy Snowflake connection options see [this page](legacy-snowflake-integration.md).
