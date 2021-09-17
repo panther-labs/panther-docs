@@ -2,7 +2,7 @@
 
 This page will walk you through configuring a Custom Webhook as a Destination for your Panther alerts.
 
-A Custom Webhook Destination requires an only a `URL` to the service which can accept an HTTP `POST` request containing a `JSON` payload. This destination type is designed to allow Panther to communicate with other third-party integrations.
+A Custom Webhook Destination requires only a `URL` to the service which can accept an HTTP `POST` request containing a `JSON` payload. This destination type is designed to allow Panther to communicate with other third-party integrations.
 
 ## Delivery and Ack
 
