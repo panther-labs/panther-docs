@@ -28,9 +28,9 @@ New data models are added in the Panther UI or via the [Panther Analysis Tool](p
 
 ### Add New Data Model - UI
 
-To create a new Data Model, navigate to `Analysis` &gt; `Data Models`:
+To create a new Data Model, navigate to `Data` &gt; `Data Models`:
 
-![List Data Models](../.gitbook/assets/data-model-list.png)
+![](../.gitbook/assets/screen-shot-2021-09-17-at-11.28.24-am.png)
 
 Click `CREATE NEW`:
 
