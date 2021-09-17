@@ -36,9 +36,9 @@ Alert routing is based on the following order of precedence, from lowest precede
 
 ## Creating a New Destination
 
-To create a destination, navigate to `Settings` &gt; `Destinations` and select `Add Destination`.
+To create a destination, navigate to `Integrations` &gt; `Alert Destinations` and select `Add Destination`.
 
-![](../.gitbook/assets/readme-add-destination%20%288%29%20%288%29%20%283%29.png)
+![](../.gitbook/assets/screen-shot-2021-09-17-at-1.53.11-pm.png)
 
 You will then be prompted to select a destination type.
 
