@@ -141,6 +141,7 @@ String values can be tagged with a `panther:"SCANNER"` to define [indicator fiel
 | :--- | :--- |
 | `ip` | Adds a `p_any_ip_addresses` indicator if the value is a valid IP address |
 | `domain` | Adds a `p_any_domains` indicator |
+| `hostname` | Adds a `p_any_ip_addresses` indicator if the value is a valid IP address otherwise it adds a `p_any_domains` indicator |
 | `url` | Adds a `p_any_domains` or a `p_any_ip_addresses` indicator using the hostname part of the URL |
 | `net_addr` | Adds a `p_any_domains` or a `p_any_ip_addresses` indicator by splitting a `HOST:PORT` address |
 | `sha256` | Adds a `p_any_sha256_hashes` indicator |
