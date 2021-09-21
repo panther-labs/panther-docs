@@ -231,7 +231,6 @@
   * [Parsers](development/writing-parsers.md)
 * [Help](help/README.md)
   * [Operations](help/ops-home.md)
-  * [Runbooks](help/runbooks.md)
   * [Troubleshooting](help/troubleshooting.md)
   * [Security and Privacy](help/security-privacy.md)
   * [FAQ](help/faqs.md)
