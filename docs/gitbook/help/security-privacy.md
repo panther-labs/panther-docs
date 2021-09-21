@@ -26,7 +26,7 @@ The power to write arbitrary Python can easily be abused to make Panther do just
 4. Be careful when directly accessing/modifying Panther backend services. One of the great things about Panther being open source is that you can modify any aspect of the codebase that you wish, and we highly encourage such customization! But when modifying backend services, be careful of removing controls that seem arbitrary or unnecessary as they may have been put in place to prevent non-obvious abuses of the system.
 
 {% hint style="info" %}
-When in doubt, always feel free to reach out to the Panther team via GitHub, Slack, or email with any questions!
+When in doubt, always feel free to reach out to the Panther team at `support@runpanther.io`
 {% endhint %}
 
 By following these best practices and common sense security, you can use Panther to secure your environment without exposing yourself to undue risk.
