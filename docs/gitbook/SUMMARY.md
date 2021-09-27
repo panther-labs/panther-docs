@@ -18,6 +18,7 @@
   * [Cloud Accounts](data-onboarding/setup-cloud-accounts.md)
   * [Data Transports](data-onboarding/data-transports/README.md)
     * [S3 source](data-onboarding/data-transports/s3.md)
+    * [CloudWatch Logs source](data-onboarding/data-transports/cwl-source.md)
     * [SQS source](data-onboarding/data-transports/sqs.md)
     * [SNS source](data-onboarding/data-transports/sns.md)
   * [Built-in Log Types](data-onboarding/supported-logs/README.md)
