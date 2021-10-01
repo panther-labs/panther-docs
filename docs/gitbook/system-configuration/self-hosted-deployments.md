@@ -6,7 +6,7 @@ In most cases, Panther strongly recommends using the SaaS deployment model. In s
 
 #### Have Panther approve your account
 
-Before you can deploy Panther, you will need to provide Panther with the account ID of the account from which you intend to deploy Panther.
+Before you can deploy Panther, you will need to provide Panther with the account ID and region of the account from which you intend to deploy Panther.
 
 #### Check IAM Permissions
 
@@ -36,10 +36,15 @@ The root stack has a number of deployment parameters you can configure to contro
 
 * `FirstUserEmail`:  the email address provided here will be used to send the invite to the first user of Panther. Be sure its an email you have access to.
 * `OnboardSelf`: this parameter defaults to `true`, but for most self hosted customers we recommend setting this parameter to `false` for at least the first deployment.
+* `PulumiSecretArn` and `PulumiSecretKeyArn` \(v1.22+\) - provided by Panther support - you will have a dedicated [Pulumi](https://www.pulumi.com/) access token in our organization.
 
 #### Minimize initial configurations
 
 Panther has a number of other configuration options besides the ones listed above. We recommend not setting any of these parameters on the first deployment of Panther. If any step of the initial deployment fails, the entire deployment will fail and rollback deleting all infrastructure. After you complete the initial deployment of Panther, you can update the stack with different root parameters. Then if any of these settings cause a deployment failure, Panther will simply roll back to the previous settings without needing an entire fresh deployment. This includes parameters like the snowflake and custom domain configuration parameters.
+
+#### Trigger Pulumi CodeBuild
+
+We are slowly migrating to Pulumi for infrastructure management - after the main Panther stack is deployed, you'll need to start a build for the `panther-pulumi` CodeBuild project \(in v1.22+\). For example: `aws codebuild start-build --project-name panther-pulumi`
 
 ### If a deployment fails
 
