@@ -6,7 +6,11 @@ In order to save a query, you can click on the `Save As` button located below th
 
 ![Save Query](../.gitbook/assets/save-query.png)
 
-Once a query is saved, it will be available to all users with Data Explorer permissions. You can view a list of existing queries by navigating to `Data -> Saved Queries` on the left-hand side menu bar. ![Saved Queries](../.gitbook/assets/saved-queries.png) In the Saved Query screen you can search for queries either by using the time selector to look for queries modified in a time window, say the last 24 hours. You can also use the search box to search the queries by name, by their description, by part of their SQL code or by their tags.
+Once a query is saved, it will be available to all users with Data Explorer permissions. You can view a list of existing queries by navigating to `Data -> Saved Queries` on the left-hand side menu bar.
+
+![Saved Queries](../.gitbook/assets/saved-queries.png)
+
+In the Saved Query screen you can search for queries either by using the time selector to look for queries modified in a time window, say the last 24 hours. You can also use the search box to search the queries by name, by their description, by part of their SQL code, or by up to 100 tags.
 
 Clicking on the name of the saved query should take you directly to data explorer, where you can run your query.
 
