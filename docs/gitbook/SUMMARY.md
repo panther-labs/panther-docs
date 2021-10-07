@@ -228,7 +228,7 @@
     * [Getting Started with Fluentd](guides/onboarding-with-fluentd/resource-guide.md)
     * [MacOS System Logs to S3 via Fluentd](guides/onboarding-with-fluentd/macos-system-logs-to-s3-via-fluentd.md)
     * [Syslog to S3 via Fluentd](guides/onboarding-with-fluentd/syslog-to-s3-via-fluentd.md)
-    * [Windows Event Logs via Fluentd](guides/onboarding-with-fluentd/windows-event-logging-via-fluentd.md)
+    * [Windows Event Logs to S3 via Fluentd](guides/onboarding-with-fluentd/windows-event-logging-via-fluentd.md)
 * [Development](development/README.md)
   * [Parsers](development/writing-parsers.md)
 * [Help](help/README.md)

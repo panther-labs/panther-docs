@@ -1,4 +1,4 @@
-# Windows Event Logs via Fluentd
+# Windows Event Logs to S3 via Fluentd
 
 ## Overview
 
