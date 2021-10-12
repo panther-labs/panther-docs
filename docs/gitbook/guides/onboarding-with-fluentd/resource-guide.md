@@ -8,13 +8,13 @@ Fluentd supports Firehose and S3 destination plugins. We have provided sample Cl
 
 Once the template has been deployed and the resources have been created, return to the log source guide to continue configuring the log source.
 
-### Firehose to S3 Template \(Recommended\) <a id="Firehose-to-S3-Template-(Recommended)"></a>
+### Firehose to S3 Template (Recommended) <a href="firehose-to-s3-template-recommended" id="firehose-to-s3-template-recommended"></a>
 
 {% hint style="info" %}
 The Fluentd Firehose plugin is generally more performant than the Fluentd S3 plugin
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2824%29.png)
+![](<../../../../.gitbook/assets/image (24).png>)
 
 #### **Resources**:
 
@@ -31,15 +31,15 @@ The outputs of this template are:
 * FirehoseSendDataRoleArn - Arn of the role to write to Firehose
 * FirehoseName - The firehose stream name
 
-The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/blob/main/cloudformation/panther-fluentd-firehose.yml).
+The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/tree/main/cloudformation).
 
-### S3 Template <a id="S3-Template"></a>
+### S3 Template <a href="s3-template" id="s3-template"></a>
 
 {% hint style="warning" %}
 As mentioned above, this template is less performant than the Firehose template and is not recommended unless necessary
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2825%29.png)
+![](<../../../../.gitbook/assets/image (25).png>)
 
 ### **Resources**:
 
@@ -54,5 +54,4 @@ The outputs of this template are:
 * FluentdUser - IAM user to be used within the Fluentd configuration
 * S3Bucket - The bucket that was created to use within the Fluentd configuration
 
-The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/blob/main/cloudformation/panther-fluentd-s3.yml).
-
+The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/tree/main/cloudformation).
