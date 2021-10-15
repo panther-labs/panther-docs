@@ -35,7 +35,7 @@ As an example, let's write a rule to send an alert when an admin panel is access
 
 A basic rule would look like this:
 
-* A `rule` function that looks for 200 \(OK\) web requests to any URL with the `admin-panel` string
+* A `rule` function that looks for 200 (OK) web requests to any URL with the `admin-panel` string
 * A `title` to say that admin panel logins have been logged into from a specific IP address
 * A `dedup` function to group all events by the same IP address
 
@@ -63,39 +63,13 @@ Then, the following would occur:
 A unique alert will be generated for each unique deduplication string, which in this case, is the IP of the requestor. 
 {% endhint %}
 
-In the sections below, each concept above will be expanded upon.
-
 ## Real-Time vs Scheduled
 
 Panther has two core mechanisms of analyzing data with rules, real-time and scheduled.
 
 Real-Time rules are the default mechanism of analyzing data sent to Panther and have the benefit of low-latency detection and alerting. High-signal logs that do not require joins with other data are best suited for real-time detection.
 
-For querying windows of time further in the past, running statistical analysis over data, or joining separate data streams, use a [scheduled ](../data-analytics/scheduled-queries.md)rule. This works by running a SQL query on a defined interval \(or cron\) and using the result of that query as input into a Python-based rule. All other functionality described on this page remains the same.
-
-## Functions
-
-Panther Rules contain several Python3 functions that control the analysis logic, generated alert title, event grouping, routing of alerts, and metadata overrides.
-
-Rules are very customizable and can import from standard Python libraries or [global helpers](globals.md). Additional functions, variables, or classes may also be defined outside of the functions defined below for advanced use or cleaner code. 
-
-{% hint style="info" %}
-Read [Runtime Environment](run-time.md) to learn more about the available libraries and how to add custom or third-party ones. 
-{% endhint %}
-
-Each function listed below takes a single argument of `event`
-
-| Name | Description | Return Value | Default Return Value |
-| :--- | :--- | :--- | :--- |
-| `rule` | The main logic to analyze data and determine if an alert should send. **This is the only required function**. | `True/False` | - |
-| `title` | The generated alert title | `String` | If not defined, the `Rule Display Name` or`RuleID` is used |
-| `dedup` | The string to group related events with, limited to 1000 characters | `String` | If not defined, the `title`function output is used |
-| `alert_context` | Additional context to pass to the alert destination\(s\) | `Dict[String: Any]` | An empty `Dict` |
-| `severity` | The level of urgency of the alert | `INFO, LOW, MEDIUM, HIGH, or CRITICAL` | The severity as defined in the rule metadata |
-| `description` | An explanation about why the rule exists | `String` | The description as defined in the rule metadata |
-| `reference` | A reference URL to an internal document or online resource about the rule | `String` | The reference as defined in the rule metadata |
-| `runbook` | A list of instructions to follow once the alert is generated | `String` | The runbook as defined in the rule metadata |
-| `destinations` | The label or ID of the destinations to specifically send alerts to. An empty list will suppress all alerts. | `List[Destination Name]` | The destinations as defined in the rule metadata |
+For querying windows of time further in the past, running statistical analysis over data, or joining separate data streams, use a [scheduled ](../data-analytics/scheduled-queries.md)rule. This works by running a SQL query on a defined interval (or cron) and using the result of that query as input into a Python-based rule. All other functionality described on this page remains the same.
 
 ## Best Practices
 
@@ -109,7 +83,7 @@ Once many detections are written, a set of patterns and repeated code will begin
 
 ### Use Data Models for Generic Detections
 
-Occasionally, analysts may want to write detections across a large set of log types. By utilizing [data models](data-models.md), generic logic can be written using event field types \(IPs, domains, users\) across all applicable log types.
+Occasionally, analysts may want to write detections across a large set of log types. By utilizing [data models](data-models.md), generic logic can be written using event field types (IPs, domains, users) across all applicable log types.
 
 ### Configure Built-in Detections
 
@@ -133,6 +107,4 @@ def rule(event):
 {% hint style="warning" %}
 _**Note: Anything printed to stdout in the python logic will end up in CloudWatch. For SaaS/CPaaS customers, panther engineers can see these CloudWatch logs during routine application monitoring.**_
 {% endhint %}
-
-
 

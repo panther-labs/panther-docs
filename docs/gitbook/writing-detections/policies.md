@@ -134,24 +134,6 @@ Next, configure test cases to ensure our policy works as expected:
 
 ![Unit Tests](<../../../.gitbook/assets/policy-creation4 (7) (2) (9).png>)
 
-### Configure Automatic Remediation
-
-{% hint style="info" %}
-Your source must be [configured to allow automatic remediation](broken-reference) for this setting to work
-{% endhint %}
-
-From the `Remediation` dropdown, select the remediation you wish to enable for this policy. Some remediations may support or require configurations to be set. On the following pages, you will find more detailed descriptions of each available remediation and their configuration settings.
-
-![Remediation Settings](<../../../.gitbook/assets/policy-creation5 (7) (3) (8).png>)
-
-To apply the remediation manually to fix a policy failure on an individual resource, select the "Remeidate" option on a failing resource when viewing the resources for the policy.
-
-![Manual Remediation](<../../../.gitbook/assets/policy-creation6 (7) (4) (1) (5).png>)
-
-To apply the remediation to _all_ currently failing resources, simply disable the policy then re-enable the policy to re-evaluate all resources immediately. Panther doesn't do this automatically for safety reasons.
-
-This way you are able to enable an automatic remediation, test it out on a few resources to make sure everything is working as intended, then apply it to all failing resources (if desired) with the confidence that the exact policy and remediation configurations you intend to carry out are working as intended.
-
 ## Policy Writing Tips
 
 ### Constructing Test Resources

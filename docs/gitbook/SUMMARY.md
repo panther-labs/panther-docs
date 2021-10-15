@@ -57,6 +57,7 @@
 * [Writing Detections](writing-detections/README.md)
   * [Rules](writing-detections/rules.md)
   * [Policies](writing-detections/policies.md)
+  * [Detection Auxiliary Functions](writing-detections/detection-auxiliary-functions.md)
   * [Testing](writing-detections/testing.md)
   * [Alert Summaries](writing-detections/alert-summaries.md)
   * [Detection Packs](writing-detections/detection-packs.md)
