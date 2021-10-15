@@ -14,7 +14,7 @@ When an alert is forwarded to a Jira Destination, a bug, story, or task is creat
 
 ## Example
 
-![](../.gitbook/assets/jira-issue%20%282%29%20%282%29%20%284%29%20%283%29%20%284%29.png)
+![](<../../../.gitbook/assets/jira-issue (2) (2) (4) (3) (4).png>)
 
 ### Integration fields
 
@@ -32,17 +32,17 @@ The `Assignee ID` is optional. If specified, issues created will automatically b
 
 The `Issue Type` is the label to tag for Jira issues.
 
-![](../.gitbook/assets/jira1%20%289%29%20%285%29%20%284%29.png)
+![](<../../../.gitbook/assets/jira1 (9) (5) (4).png>)
 
 ### Create a Jira API key
 
 To create a new API key, please visit [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens) while logged in as the user. click the `Create API Token` button, provide a memorable label, and click `Create`:
 
-![](../.gitbook/assets/jira-key1.png)
+![](../../../.gitbook/assets/jira-key1.png)
 
 After creating the token, you will have an opportunity to copy it. Jira warns this token is sensitive and you will not be able to access it again in the future. Click `Copy`:
 
-![](../.gitbook/assets/jira-key2.png)
+![](../../../.gitbook/assets/jira-key2.png)
 
 Navigate back to the onboarding process inside Panther and paste in the key inside the appropriate field.
 
@@ -54,19 +54,18 @@ This field accepts the unique string ID called the user's `accountID`. You need 
 
 `https://example.atlassian.net/jira/people/search`
 
-Click on a desired user: ![](../.gitbook/assets/jira-user1%20%282%29%20%282%29%20%284%29%20%285%29%20%283%29.png)
+Click on a desired user: ![](<../../../.gitbook/assets/jira-user1 (2) (2) (4) (5) (3).png>)
 
 Inspect the URL and copy the trailing string. This is the `accountId`. For example, in the following URL, `5f8f26dabd138600693d7fb8` would be the `accountId`:
 
 `https://example.atlassian.net/jira/people/5f8f26dabd138600693d7fb8`
 
-![](../.gitbook/assets/jira-user2.png)
+![](../../../.gitbook/assets/jira-user2.png)
 
 Navigate back to the onboarding process and paste this into the `Assignee ID` field.
 
-Once you've filled out the form, click `Add Destination`. You may optionally send a test alert: ![](../.gitbook/assets/jira2%20%289%29%20%286%29%20%281%29.png) ![](../.gitbook/assets/jira3.png)
+Once you've filled out the form, click `Add Destination`. You may optionally send a test alert: ![](<../../../.gitbook/assets/jira2 (9) (6) (1).png>) ![](../../../.gitbook/assets/jira3.png)
 
 Click `Finish Setup` to finalize the destination configuration. This destination is now ready to receive alerts!
 
-![](../.gitbook/assets/jira4.png)
-
+![](../../../.gitbook/assets/jira4.png)

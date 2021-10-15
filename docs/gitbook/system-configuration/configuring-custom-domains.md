@@ -9,9 +9,9 @@ To set up a custom domain for Panther, follow these easy four steps::
 1. Register a domain
 2. Get a signed certificate for your domain into AWS
 3. Configure Panther
-4. Setup an alias from the domain to the auto-generated load balancer URL
+4.  Setup an alias from the domain to the auto-generated load balancer URL
 
-   All of these steps can be completed from within the AWS ecosystem. This guide will walk through configuring a custom domain totally within the AWS ecosystem and should take ~45 minutes and cost less than $20/year. If you prefer to manage your certificates outside of AWS, the steps listed below still apply, although the exact details will depend on where you are registering your certificate.
+    All of these steps can be completed from within the AWS ecosystem. This guide will walk through configuring a custom domain totally within the AWS ecosystem and should take \~45 minutes and cost less than $20/year. If you prefer to manage your certificates outside of AWS, the steps listed below still apply, although the exact details will depend on where you are registering your certificate.
 
 ### Register a domain
 
@@ -44,7 +44,7 @@ The next step is to configure Panther to use your new certificate and domain. Th
 
 Navigate to the [CloudFormation](https://console.aws.amazon.com/cloudformation/home) console.
 
-1. Find the Panther master stack \(called `panther` by default\), select this stack, and click the `Update` button.
+1. Find the Panther master stack (called `panther` by default), select this stack, and click the `Update` button.
 2. Select the `Use current template` option is selected and click `Next`.
 3. Find the `Parameters` section and update the following two parameters:
 4. `CertificateArn` - in this field, put the full ARN of the ACM certificate created in step two. This can be retrieved from the ACM console.
@@ -61,15 +61,13 @@ Finally, you will need to create an alias or CNAME on your domain pointing to th
    * Leave the `name` field empty
    * Leave the `Type` field set to `A - IPv4 address`
    * For the `Alias` field, select `Yes`
-   * In the `Alias Target` field, select the name of the ELB load balancer from your Panther deployment. It will be under the `ELB Application load balancers` section. You can find this manually in CloudFormation by going to the `panther-bootstrap` stack and looking for the `LoadBalancerUrl` output.
+   *   In the `Alias Target` field, select the name of the ELB load balancer from your Panther deployment. It will be under the `ELB Application load balancers` section. You can find this manually in CloudFormation by going to the `panther-bootstrap` stack and looking for the `LoadBalancerUrl` output.
 
-     Note: the name will automatically be prefixed with "dualstack.", leave this in place
-
+       Note: the name will automatically be prefixed with "dualstack.", leave this in place
    * Leave the `Routing Policy` field set to `Simple`
    * Leave the `Evaluate Target Health` field set to `No`
    * Click the `Create` button
 
-![](../.gitbook/assets/hosted-zone-alias%20%289%29%20%2810%29%20%283%29%20%287%29.png)
+![](<../../../.gitbook/assets/hosted-zone-alias (9) (10) (3) (7).png>)
 
 After this, your setup is complete. You can now navigate to your new domain and reach the Panther web application over a signed and secure HTTPS connection.
-

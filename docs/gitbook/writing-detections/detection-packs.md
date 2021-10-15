@@ -10,19 +10,19 @@ Updates to detections in these packs are tracked automatically by the Panther ba
 
 Panther provides several detection packs out of the box. There are packs that group all the panther provided detections related to a particular log source, but there are also detections packs that are grouped on a particular focus, such as generic rules that leverage unified data models or a core set of detections for AWS. 
 
-| Display Name | Description |
-| :--- | :--- |
+| Display Name         | Description                                                           |
+| -------------------- | --------------------------------------------------------------------- |
 | Universal Detections | This pack groups the standard rules that leverage unified data models |
 
 ## Viewing Detection Packs
 
-Panther provided detection packs can be view in the pack overview page. Navigate to `Analysis` &gt; `Packs` to view a list of the provided packs.
+Panther provided detection packs can be view in the pack overview page. Navigate to `Analysis` > `Packs` to view a list of the provided packs.
 
-![List Packs](../.gitbook/assets/pack-list.png)
+![List Packs](../../../.gitbook/assets/pack-list.png)
 
 Pack details, including a description, the enabled status, the currently enabled version, and which detections are in the pack, can be viewed in the pack details page. Simply click on a pack in the list to view its details page.
 
-![Pack Details](../.gitbook/assets/pack-details.png)
+![Pack Details](../../../.gitbook/assets/pack-details.png)
 
 ## Managing Detections with Packs
 
@@ -33,7 +33,7 @@ Packs will also create detection backups in order to prevent loss of customizati
 If you would like to maintain an enabled customization of a panther provided detection, best practice is to:
 
 1. Disable the detection in the pack
-2. Manually create a copy of the detection \(with a different, unique ID\)
+2. Manually create a copy of the detection (with a different, unique ID)
 3. Make any modifications to the copy
 
 This will ensure there will be no conflict with the panther provided detection in the pack.  
@@ -42,25 +42,25 @@ This will ensure there will be no conflict with the panther provided detection i
 
 Packs can be disabled or enabled using the Panther UI. If you enable a pack, all the detections in the pack will be enabled. If you would like to disable a single or multiple detections within it, you can do this on a one-by-one basis without having to disable the entire pack. When you update a pack that has disabled detections, the detections will be updated but they will stay disabled.
 
-There are two ways to enable or disable a pack. The first option is to navigate to `Analysis` &gt; `Packs`. From the list of packs on this page, you can toggle the `enabled` slider to enable or disable individual packs.
+There are two ways to enable or disable a pack. The first option is to navigate to `Analysis` > `Packs`. From the list of packs on this page, you can toggle the `enabled` slider to enable or disable individual packs.
 
-![Enable Pack From List](../.gitbook/assets/pack-list-enable.png)
+![Enable Pack From List](../../../.gitbook/assets/pack-list-enable.png)
 
 You can also click on a specific pack to view the details of it. From the pack details page, you can also toggle the `enabled` slider to enable or disable the pack.
 
-![Enable Pack From Details](../.gitbook/assets/pack-details-enable.png)
+![Enable Pack From Details](../../../.gitbook/assets/pack-details-enable.png)
 
 ## Update or Rollback Detection Pack
 
 New updates to detection packs will periodically be released to the `panther-analysis` repository. These updates will automatically be detected by panther, and the pack overview page will show an `Update Available` flag next to relevant packs.
 
-You can update pack detections in your environment by navigating to `Analysis` &gt; `Packs`. From this pack overview page, you can update the detections by selecting the version from the dropdown menu and hitting the `Update Pack` button.
+You can update pack detections in your environment by navigating to `Analysis` > `Packs`. From this pack overview page, you can update the detections by selecting the version from the dropdown menu and hitting the `Update Pack` button.
 
-![Update Pack](../.gitbook/assets/pack-update.png)
+![Update Pack](../../../.gitbook/assets/pack-update.png)
 
 On the other hand, if you would like to revert a pack version, you can select the appropriate version from the dropdown and hit the `Revert Pack` button.
 
-![Revert Pack](../.gitbook/assets/pack-revert.png)
+![Revert Pack](../../../.gitbook/assets/pack-revert.png)
 
 ## Pack Sources
 
@@ -72,12 +72,12 @@ Pack Sources provide a way to configure custom Github sources for detection pack
 
 Pack source fields are described in the following table.
 
-| Field Name | Required | Description | Expected Value |
-| :--- | :--- | :--- | :--- |
-| `Owner` | Yes | The owner/organization of the target repository | String |
-| `Repository` | Yes | The name of the repository | String |
-| `kmsKey` | No | The ARN for a sign/verify kms key to validate release signatures | String |
-| `AccessToken` | No | Personal Access Token used to access a private repository | String |
+| Field Name    | Required | Description                                                      | Expected Value |
+| ------------- | -------- | ---------------------------------------------------------------- | -------------- |
+| `Owner`       | Yes      | The owner/organization of the target repository                  | String         |
+| `Repository`  | Yes      | The name of the repository                                       | String         |
+| `kmsKey`      | No       | The ARN for a sign/verify kms key to validate release signatures | String         |
+| `AccessToken` | No       | Personal Access Token used to access a private repository        | String         |
 
 ### Accessing Private Repositories
 
@@ -105,19 +105,19 @@ Sample entry to add to the key policy, where the account id should be replaced w
 
 ### Managing Pack Sources
 
-Navigate to `Settings` &gt; `General` and click on the `Detection Pack Sources` tab.
+Navigate to `Settings` > `General` and click on the `Detection Pack Sources` tab.
 
 To Add a pack source, click on the `+` at the top right. Enter in the approrpriate field names for each input field and click `Save`.
 
-![Add Pack Source](../.gitbook/assets/pack-source-add.png)
+![Add Pack Source](../../../.gitbook/assets/pack-source-add.png)
 
 To modify the `kmsKey` or `AccessToken` fields for a pack source, first go to the pack source details by selecting the pack source of interest from the list of pack sources. From this page, edit the fields of interest, and click `Save`.
 
-![Edit Pack Source](../.gitbook/assets/pack-source-edit.png)
+![Edit Pack Source](../../../.gitbook/assets/pack-source-edit.png)
 
 To Delete a pack source, click on the `...` next to the pack source you would like to delete and select "delete."
 
-![Delete Pack Source](../.gitbook/assets/pack-source-delete.png)
+![Delete Pack Source](../../../.gitbook/assets/pack-source-delete.png)
 
 {% hint style="info" %}
 Deleting a pack source will delete the packs originating from it, along with all the detections in it.
@@ -195,6 +195,5 @@ optional arguments:
 ```
 
 {% hint style="info" %}
-The `kms-key` argument is an optional argument that you can use to generate a signature file. If you want to use this argument, be sure to run panther\_analysis\_tool using the appropriate aws credentials to call `kms:Sign` on the specified key.
+The `kms-key` argument is an optional argument that you can use to generate a signature file. If you want to use this argument, be sure to run panther_analysis_tool using the appropriate aws credentials to call `kms:Sign` on the specified key.
 {% endhint %}
-

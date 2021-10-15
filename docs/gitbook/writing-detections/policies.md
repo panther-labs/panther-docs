@@ -35,7 +35,7 @@ def policy(resource):
 
 ## Policy Writing Workflow
 
-Panther policies can be written, tested, and deployed either with the UI or the [panther\_analysis\_tool](https://github.com/panther-labs/panther_analysis_tool) CLI utility.
+Panther policies can be written, tested, and deployed either with the UI or the [panther_analysis_tool](https://github.com/panther-labs/panther_analysis_tool) CLI utility.
 
 Each policy takes a `resource` input of a given resource type from the [supported resources](../resources/) page.
 
@@ -112,45 +112,45 @@ Then, configure the built in policies by searching for the `Configuration Requir
 
 ## Writing Policies in the Panther UI
 
-Navigate to Cloud Security &gt; Policies, and click `Create New` in the top right corner. You have the option of creating a single new policy, or uploading a zip file containing policies created with the `panther_analysis_tool`. Clicking single will take you to the policy editor page.
+Navigate to Cloud Security > Policies, and click `Create New` in the top right corner. You have the option of creating a single new policy, or uploading a zip file containing policies created with the `panther_analysis_tool`. Clicking single will take you to the policy editor page.
 
-![Policy Editor](../.gitbook/assets/policy-creation1%20%285%29.png)
+![Policy Editor](<../../../.gitbook/assets/policy-creation1 (5).png>)
 
 ### Set Attributes
 
 Keeping with the Password Policy example above, set all the necessary rule attributes:
 
-![Attributes Set](../.gitbook/assets/policy-creation2%20%286%29.png)
+![Attributes Set](<../../../.gitbook/assets/policy-creation2 (6).png>)
 
 ### Write Policy Body
 
 Then write our policy logic in the `policy()` function.
 
-![Policy Body](../.gitbook/assets/policy-creation3%20%287%29.png)
+![Policy Body](<../../../.gitbook/assets/policy-creation3 (7).png>)
 
 ### Configure Tests
 
 Next, configure test cases to ensure our policy works as expected:
 
-![Unit Tests](../.gitbook/assets/policy-creation4%20%287%29%20%282%29%20%289%29.png)
+![Unit Tests](<../../../.gitbook/assets/policy-creation4 (7) (2) (9).png>)
 
 ### Configure Automatic Remediation
 
 {% hint style="info" %}
-Your source must be [configured to allow automatic remediation]() for this setting to work
+Your source must be [configured to allow automatic remediation](broken-reference) for this setting to work
 {% endhint %}
 
 From the `Remediation` dropdown, select the remediation you wish to enable for this policy. Some remediations may support or require configurations to be set. On the following pages, you will find more detailed descriptions of each available remediation and their configuration settings.
 
-![Remediation Settings](../.gitbook/assets/policy-creation5%20%287%29%20%283%29%20%288%29.png)
+![Remediation Settings](<../../../.gitbook/assets/policy-creation5 (7) (3) (8).png>)
 
 To apply the remediation manually to fix a policy failure on an individual resource, select the "Remeidate" option on a failing resource when viewing the resources for the policy.
 
-![Manual Remediation](../.gitbook/assets/policy-creation6%20%287%29%20%284%29%20%281%29%20%285%29.png)
+![Manual Remediation](<../../../.gitbook/assets/policy-creation6 (7) (4) (1) (5).png>)
 
 To apply the remediation to _all_ currently failing resources, simply disable the policy then re-enable the policy to re-evaluate all resources immediately. Panther doesn't do this automatically for safety reasons.
 
-This way you are able to enable an automatic remediation, test it out on a few resources to make sure everything is working as intended, then apply it to all failing resources \(if desired\) with the confidence that the exact policy and remediation configurations you intend to carry out are working as intended.
+This way you are able to enable an automatic remediation, test it out on a few resources to make sure everything is working as intended, then apply it to all failing resources (if desired) with the confidence that the exact policy and remediation configurations you intend to carry out are working as intended.
 
 ## Policy Writing Tips
 
@@ -158,7 +158,7 @@ This way you are able to enable an automatic remediation, test it out on a few r
 
 Manually building test cases is tedious and error prone. We suggest one of two alternatives:
 
-1. Open `Cloud Security` &gt; `Resources`, and apply a filter of the resource type you intend to emulate in your test. Select a resource in your environment, and on the `Attributes` card you can copy the full JSON representation of that resource by selecting copy button next to the word `root`.
+1. Open `Cloud Security` > `Resources`, and apply a filter of the resource type you intend to emulate in your test. Select a resource in your environment, and on the `Attributes` card you can copy the full JSON representation of that resource by selecting copy button next to the word `root`.
 2. Open the Panther [Resources documentation](../resources/), and navigate to the section for the resource you are trying to emulate. Copy the provided example resource.
 
 Paste this in to the resource editor if you're working in the web UI, or into the `Resource` field if you are working locally. Now you can manually modify the fields relevant to your policy and the specific test case you are trying to emulate.
@@ -176,6 +176,4 @@ Running this test case either locally or in the web UI should provide more conte
 {% hint style="warning" %}
 _**Note: Anything printed to stdout in the python logic will end up in CloudWatch.  For SaaS/CPaaS customers, panther engineers can see these CloudWatch logs during routine application monitoring.**_
 {% endhint %}
-
-
 

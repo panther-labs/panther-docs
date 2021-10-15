@@ -11,15 +11,15 @@ Panther allows users to define their own log types by adding a _Custom Log Type_
 
 ## Adding a Custom Log Type
 
-You can add a _Custom Log Type_ by navigating to _Analysis_ -&gt; _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
+You can add a _Custom Log Type_ by navigating to _Analysis_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
-![](../../.gitbook/assets/image%20%2822%29.png)
+![](<../../../../.gitbook/assets/image (22).png>)
 
-Here you must enter a name for the _Custom Log Type_ \(ie `Custom.SampleAPI`\) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
+Here you must enter a name for the _Custom Log Type_ (ie `Custom.SampleAPI`) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
 
 > Note that the 'Validate Syntax' button only checks the **syntax** of the _Log Schema_. 'Save' might still fail due to name conflicts.
 
-If all went well, you can now navigate to _Log Analysis_ -&gt; _Sources and add either add a new source or modify an existing one to use the new `Custom.SampleAPI` \_Log Type_. Once Panther receives events from this _Source_, it will and process the logs and store the _Log Events_ to the `custom_sampleapi` table. You can now write _Rules_ to match against these logs and query them using the _Data Explorer_.
+If all went well, you can now navigate to _Log Analysis_ -> _Sources and add either add a new source or modify an existing one to use the new `Custom.SampleAPI` \_Log Type_. Once Panther receives events from this _Source_, it will and process the logs and store the _Log Events_ to the `custom_sampleapi` table. You can now write _Rules_ to match against these logs and query them using the _Data Explorer_.
 
 ## Editing a Custom Log Type
 
@@ -28,8 +28,8 @@ Panther allows limited **editing** of _Custom Log Types_. Specifically:
 * You _can_ modify the `parser` configuration to fix bugs or add new patterns.
 * You _can_ add new fields to the schema.
 * You _cannot_ rename existing fields.
-* You _cannot_ deleted existing fields \(doing so would allow renaming in two steps\).
-* You _cannot_ change the `type` of an existing field \(this includes the element type for `array` fields\).
+* You _cannot_ deleted existing fields (doing so would allow renaming in two steps).
+* You _cannot_ change the `type` of an existing field (this includes the element type for `array` fields).
 
 You can edit a _Custom Log Type_ by clicking on the _Edit_ action in the details page of a _Custom Log Type_. Modify the YAML and click _Update_ to submit your change. _Validate Syntax_ can check the YAML for structural compliance but the rules described above can only be checked on _Update_. The update will be rejected if the rules are not followed.
 
@@ -130,11 +130,11 @@ The YAML specification can either be edited directly in the Panther UI or [prepa
 
 Panther handles logs that are not structured as JSON by using a 'parser' that translates each log line into key/value pairs and feeds it as JSON to the rest of the pipeline. You can define a text parser using the `parser` field of the _Log Schema_. Panther provides the following parsers for non-JSON formatted logs:
 
-| Name | Description |
-| :--- | :--- |
-| [fastmatch](example-fastmatch.md) | Match each line of text against one or more simple patterns |
-| [regex](example-regex.md) | Use regular expression patterns to handle more complex matching such as conditional fields, case-insensitive matching etc |
-| [csv](example-csv.md) | Treat log files as CSV mapping colunm names to field names |
+| Name                              | Description                                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [fastmatch](example-fastmatch.md) | Match each line of text against one or more simple patterns                                                               |
+| [regex](example-regex.md)         | Use regular expression patterns to handle more complex matching such as conditional fields, case-insensitive matching etc |
+| [csv](example-csv.md)             | Treat log files as CSV mapping colunm names to field names                                                                |
 
 ## Pantherlog CLI
 
@@ -142,24 +142,22 @@ Panther provides a simple CLI tool to help work with Custom Logs feature. The to
 
 ### Generating a Schema from JSON samples
 
-You can use the tool to generate a schema file out of sample files in [new-line delimited JSON](http://ndjson.org/) format. The tool will scan the provided logs and print the inferred schema to `stdout`.
+You can use the tool to generate a schema file out of sample files in [new-line delimited JSON](http://ndjson.org) format. The tool will scan the provided logs and print the inferred schema to `stdout`.
 
 For example, to infer the schema of logs `sample_logs.jsonl` and output to `schema.yml`, use:
 
-```text
+```
 $ ./pantherlog infer sample_logs.jsonl > schema.yml
 ```
 
 > **WARNING**: The tool has the following limitations:
 >
-> * It will identify a string as a timestamp, only if the string is in RFC3339 format. Make sure to review the schema after it is generated by the tool
+> *   It will identify a string as a timestamp, only if the string is in RFC3339 format. Make sure to review the schema after it is generated by the tool
 >
->   and identify fields that should be of type `timestamp` instead.
+>     and identify fields that should be of type `timestamp` instead.
+> *   It will not mark any timestamp field as `isEventTime:true`. Make sure to select the appropriate `timestamp` field and mark it as `isEventTime:true`.
 >
-> * It will not mark any timestamp field as `isEventTime:true`. Make sure to select the appropriate `timestamp` field and mark it as `isEventTime:true`.
->
->   For more information regarding `isEventTime:true` see [timestamp](reference.md#timestamps).
->
+>     For more information regarding `isEventTime:true` see [timestamp](reference.md#timestamps).
 > * It is able to infer only 3 types of indicators: `ip`, `aws_arn`, `url`. Make sure to review the fields and add more indicators as appropriate.
 >
 > Make sure to review the schema generated and edit it appropriately before deploying to your production environment!
@@ -170,13 +168,13 @@ You can use the tool to validate a schema file and use it to parse log files. No
 
 For example, to parse logs in `sample_logs.jsonl` with the log schema in `schema.yml`, use:
 
-```text
+```
 $ ./pantherlog parse --path schema.yml --schemas Schema.Name sample_logs.jsonl
 ```
 
 The tool can also accept input via `stdin` so it can be used in a pipeline:
 
-```text
+```
 $ cat sample_logs.jsonl | ./pantherlog parse --path schema.yml
 ```
 
@@ -184,7 +182,7 @@ $ cat sample_logs.jsonl | ./pantherlog parse --path schema.yml
 
 You can use the tool to run unit tests. You can define unit tests for your Custom Schema in YAML files. The format for the unit tests is described in [writing parsers](../../development/writing-parsers.md#step-0-writing-a-test). To run tests defined in a `schema_tests.yml` file for a custom schema defined in `schema.yml` use:
 
-```text
+```
 $ ./pantherlog test schema.yml schema_tests.yml
 ```
 
@@ -200,7 +198,7 @@ The uploader command receives a base path as an argument and then proceeds to re
 It is recommended to keep schema files separately from other unrelated files, otherwise you may notice several unrelated errors for attempting to upload invalid schema files.
 {% endhint %}
 
-```text
+```
 panther_analysis_tool update-custom-schemas --path ./schemas
 ```
 
@@ -215,4 +213,3 @@ The uploaded files are validated with the same criteria as Web UI updates.
 {% endhint %}
 
 ##  
-

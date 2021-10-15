@@ -5,16 +5,16 @@ All queries should control the result size. This can be done with a `LIMIT` or `
 {% endhint %}
 
 {% hint style="warning" %}
-Please note that all **Athena** queries should be qualified with partition columns \(year, month, day, hour\) for performance reasons.
+Please note that all **Athena** queries should be qualified with partition columns (year, month, day, hour) for performance reasons.
 {% endhint %}
 
-## Did this IP address have any activity in my network \(and in what logs\)?
+## Did this IP address have any activity in my network (and in what logs)?
 
 This is often one of the first questions asked in an investigation. Given there is some known bad indicator such as an IP address, then if there is related activity in your network/systems, a detailed investigation will be needed.
 
-Panther makes asking such questions easy using the 'all\_logs' Athena view which will search all data for the indicator of interest. Since most often the answers to these questions are negative, making this a fast and efficient operation reduces investigation time.
+Panther makes asking such questions easy using the 'all_logs' Athena view which will search all data for the indicator of interest. Since most often the answers to these questions are negative, making this a fast and efficient operation reduces investigation time.
 
-In this example the Panther field `p_any_ip_addresses` is used. Panther extracts a number of common indicator fields over all data sources into standard fields \(see [Panther Fields](panther-fields.md)\).
+In this example the Panther field `p_any_ip_addresses` is used. Panther extracts a number of common indicator fields over all data sources into standard fields (see [Panther Fields](panther-fields.md)).
 
 ```sql
 -- Athena
@@ -40,7 +40,7 @@ LIMIT 100
 
 ## What are the top 10 IPs by row count over all logs?
 
-Ranking activity \(top or bottom\) is a useful technique to gain visibility into a network. High ranking activity might help locate IP addresses involved in a DDOS attack while low ranking \(change ORDER BY to ASC\) might highlight sneaky activity.
+Ranking activity (top or bottom) is a useful technique to gain visibility into a network. High ranking activity might help locate IP addresses involved in a DDOS attack while low ranking (change ORDER BY to ASC) might highlight sneaky activity.
 
 ```sql
 -- Athena
@@ -142,7 +142,7 @@ LIMIT 100
 
 ## Show VPC Flowlog activity for an IP address
 
-During an investigation often particular IP addresses are identified as being of interest \(e.g, a known command and control node\). Once the role of an IP address is identified, isolating and explaining that activity is of interest. This can indicate which resources are likely to be compromised.
+During an investigation often particular IP addresses are identified as being of interest (e.g, a known command and control node). Once the role of an IP address is identified, isolating and explaining that activity is of interest. This can indicate which resources are likely to be compromised.
 
 ```sql
 -- Athena
@@ -306,7 +306,7 @@ LIMIT 100
 
 ## Show CloudTrail activity related to an AWS role
 
-Similar to the above query, the Panther field `p_any_aws_arns` can be used to quickly and easily find all CloudTrail activity related to an ARN of interest \(perhaps an ARN of role known to be compromised\).
+Similar to the above query, the Panther field `p_any_aws_arns` can be used to quickly and easily find all CloudTrail activity related to an ARN of interest (perhaps an ARN of role known to be compromised).
 
 ```sql
 -- Athena
@@ -332,7 +332,7 @@ LIMIT 100
 
 ## Show CloudTrail activity related to an AWS account id
 
-This is another variation of using a Panther field to broadly query. In this case finding all CloudTrail data related to an account of interest using `p_any_aws_account_ids` \(perhaps the account is compromised, where the concern is lateral movement\).
+This is another variation of using a Panther field to broadly query. In this case finding all CloudTrail data related to an account of interest using `p_any_aws_account_ids` (perhaps the account is compromised, where the concern is lateral movement).
 
 ```sql
 -- Athena
@@ -438,7 +438,7 @@ ORDER BY total_rows DESC
 
 ## Find the DISTINCT IP addresses communicating with an S3 bucket and rank
 
-The misconfiguration of S3 buckets is a major threat vector. If an open bucket is detected that was not intended to be world readable, it is of critical importance to understand if there were any inappropriate accesses. This query will collect and rank all IP addresses accessing the bucket of interest. These should be reviewed to determine if any are outside your organization \(**if so, you may have had a data leak**\).
+The misconfiguration of S3 buckets is a major threat vector. If an open bucket is detected that was not intended to be world readable, it is of critical importance to understand if there were any inappropriate accesses. This query will collect and rank all IP addresses accessing the bucket of interest. These should be reviewed to determine if any are outside your organization (**if so, you may have had a data leak**).
 
 ```sql
 -- Athena
@@ -541,7 +541,7 @@ Your company will incur costs on your data platform every time a scheduled query
 All examples in this section use Snowflake style SQL.
 
 {% hint style="warning" %}
-Attention Athena Users: Athena \(Presto\) has issues with returning query results as proper JSON for complex objects. This can lead to unparsable results in Scheduled Rules where the Python rules engine will read the result as a JSON object.
+Attention Athena Users: Athena (Presto) has issues with returning query results as proper JSON for complex objects. This can lead to unparsable results in Scheduled Rules where the Python rules engine will read the result as a JSON object.
 
 To work around this limitation of Athena you should return scalar objects in your Scheduled Queries NOT complex objects. If multiple elements in a complex object are needed in the result then extract them in the SQL as separate scalar columns.
 {% endhint %}
@@ -549,14 +549,14 @@ To work around this limitation of Athena you should return scalar objects in you
 {% hint style="warning" %}
 In order to write effective Scheduled Query detections you need to understand the latency of the data from the time the event is recorded until it reaches Panther. Use this information to adjust the scheduled and window of time used accordingly.
 
-For example, AWS CloudTrail data has a latency of about 10 minutes \(not due to Panther, due to AWS\). If you want to analyze the last hour of data and be confident that your query is considering most of it, then schedule the query to run 15 minutes past the hour.
+For example, AWS CloudTrail data has a latency of about 10 minutes (not due to Panther, due to AWS). If you want to analyze the last hour of data and be confident that your query is considering most of it, then schedule the query to run 15 minutes past the hour.
 
 This is not a consideration for Panther streaming rules, since they are applied when the data is first processed as it comes into the system. Since Scheduled Queries periodically look back at accumulated data, timing considerations are important.
 {% endhint %}
 
 Let's start with a very simple end to end example to better understand the process of creating a detection using a Scheduled Query and a Scheduled Rule. Let's assume you very carefully restrict access to the AWS console to IP addresses from with company IP space. In order to verify this control you want to check that all AWS console logins have a `sourceIPAddress` from within this IP space. You keep a table of these IP blocks in the datalake. NOTE: this example uses a simple equality join operation and assumes that the table of IP blocks are all /32 addresses. In a realistic implementation the IP block table would have CIDR blocks and the check would be to find those not inside the CIDR blocks. This is left as an exercise for the reader.
 
-Let's assume we schedule a rule to run every 15 minutes, checking the previous 30 minutes \(we are using long window handle inherent delay in data associated with CloudTrail\).
+Let's assume we schedule a rule to run every 15 minutes, checking the previous 30 minutes (we are using long window handle inherent delay in data associated with CloudTrail).
 
 Full disclosure: you _could_ implement this detection using a Streaming Rule if you managed the IP whitelist table in Dynamodb or S3. For very high volume log sources it will be more efficient to do a periodic batch join as below.
 
@@ -580,26 +580,26 @@ LIMIT 1000 -- we don't expect many of these BUT we have this here for safety!
 Note the `p_occurs_since()` is a Panther [SQL macro](data-explorer.md) to make creating Scheduled Queries easier.
 
 {% hint style="warning" %}
-Since the output of a Scheduled Query flows through a Scheduled Rule \(in Python\) it is important to keep the number of rows returned carefully controlled. It is recommended to _always_ provide a `LIMIT` clause or use `GROUP BY` aggregations that return limited number of rows \(less than a few thousand maximum\).
+Since the output of a Scheduled Query flows through a Scheduled Rule (in Python) it is important to keep the number of rows returned carefully controlled. It is recommended to _always_ provide a `LIMIT` clause or use `GROUP BY` aggregations that return limited number of rows (less than a few thousand maximum).
 {% endhint %}
 
 To implement this you create a Saved Query with a Schedule, in this case will use a period schedule of every 30 minutes:
 
-![Console Query](../.gitbook/assets/console-login-query.png)
+![Console Query](../../../.gitbook/assets/console-login-query.png)
 
 Once that is running we now make a Scheduled Rule targeted at the output of the Scheduled Query:
 
-![Console Rule Desc](../.gitbook/assets/console-login-rule-desc.png)
+![Console Rule Desc](../../../.gitbook/assets/console-login-rule-desc.png)
 
-![Console Rule](../.gitbook/assets/console-login-rule.png)
+![Console Rule](../../../.gitbook/assets/console-login-rule.png)
 
 A Scheduled Rule has all the capability of a streaming rule, allowing you to customize alerts and direct the destinations. The deduping in Panther prevents alert storms, in the above rule we use the `sourceIPAddress` dedupe which will only create 1 alert per 30 minutes.
 
-This pattern of joining to a list can also be used for IOC detections \(keeping a table of IOCs such as TOR Exit Nodes, malware hashes ,etc\).
+This pattern of joining to a list can also be used for IOC detections (keeping a table of IOCs such as TOR Exit Nodes, malware hashes ,etc).
 
-### Command and Control \(C2\) Beacon Detection
+### Command and Control (C2) Beacon Detection
 
-In this example we will create a very simple but effective behavioral detection that uses aggregation to find C2 beaconing. NOTE: this is an oversimplified detection for illustration purposes only. Using this without refinements such as whitelisting and tuning thresholds can cause excessive false positives \(there are many non-malicious processes that "beacon"\). That said, on well understood networks and using the appropriate whitelisting, this technique can be very effective.
+In this example we will create a very simple but effective behavioral detection that uses aggregation to find C2 beaconing. NOTE: this is an oversimplified detection for illustration purposes only. Using this without refinements such as whitelisting and tuning thresholds can cause excessive false positives (there are many non-malicious processes that "beacon"). That said, on well understood networks and using the appropriate whitelisting, this technique can be very effective.
 
 We will define a C2 beacon as any IP activity that happens AT MOST 5 times day and repeats for more than 3 days. To implement that in SQL:
 
@@ -628,23 +628,23 @@ LIMIT 20 -- avoid alert storms!
 
 To implement this you create a Saved Query with a Schedule, in this case will use a cron expression to have this run at 1 minute after midnight every day:
 
-![C2 Beacon](../.gitbook/assets/c2-beacon.png)
+![C2 Beacon](../../../.gitbook/assets/c2-beacon.png)
 
 Once that is running we now make a Scheduled Rule targeted at the output of the scheduled query:
 
-![C2 Beacon Desc](../.gitbook/assets/c2-beacon-rule-desc.png)
+![C2 Beacon Desc](../../../.gitbook/assets/c2-beacon-rule-desc.png)
 
-![C2 Beacon Code](../.gitbook/assets/c2-beacon-rule.png)
+![C2 Beacon Code](../../../.gitbook/assets/c2-beacon-rule.png)
 
 ### How Well is My Endpoint Monitoring Working?
 
-For this hypothetical example we will assume you are using CrowdStrike as your endpoint monitoring software. Panther is configured to ingest your logs and you have a [CMDB](https://en.wikipedia.org/wiki/Configuration_management_database) populated that maps the deployed agents to their internal associated user\(s\).
+For this hypothetical example we will assume you are using CrowdStrike as your endpoint monitoring software. Panther is configured to ingest your logs and you have a [CMDB](https://en.wikipedia.org/wiki/Configuration_management_database) populated that maps the deployed agents to their internal associated user(s).
 
 There are _many_ interesting questions that can be asked of this data but for this example we will specifically ask the question: "Which endpoints have not reported ANY data in the last 24 hours?"
 
-In CrowdStrike logs the unique id for the deployed agent is called an `aid` . The CMDB has a mapping of `aid` to reference data. For this example we will assume it has the attributes `employee_name`, `employee_group` and `last_seen`. The employee related attributes help identify who currently uses the endpoint and the `last_seen` is a timestamp we assume is updated by a backend process that tracks network activity \(e.g, VPN access, DHCP leases, Authentication, liveliness detections, etc\).
+In CrowdStrike logs the unique id for the deployed agent is called an `aid` . The CMDB has a mapping of `aid` to reference data. For this example we will assume it has the attributes `employee_name`, `employee_group` and `last_seen`. The employee related attributes help identify who currently uses the endpoint and the `last_seen` is a timestamp we assume is updated by a backend process that tracks network activity (e.g, VPN access, DHCP leases, Authentication, liveliness detections, etc).
 
-To answer this question we want to know which agents in the CMDB that DO have network activity in the last 24 hours but do NOT have any CrowdStrike activity, which may indicate the agent is not running or has been disabled \(indicating a coverage gap\). The query below will compute a report by employee group that includes the specific suspect endpoints:
+To answer this question we want to know which agents in the CMDB that DO have network activity in the last 24 hours but do NOT have any CrowdStrike activity, which may indicate the agent is not running or has been disabled (indicating a coverage gap). The query below will compute a report by employee group that includes the specific suspect endpoints:
 
 ```sql
 WITH active_aids AS (
@@ -671,11 +671,11 @@ ORDER BY 2 desc
 
 To implement this you create a Saved Query with a Schedule, in this case will use a cron expression to have this run at 1 minute after midnight every day:
 
-![CrowdStrikeQuery](../.gitbook/assets/crowdstrike-query.png)
+![CrowdStrikeQuery](../../../.gitbook/assets/crowdstrike-query.png)
 
 Once that is running we now make a Scheduled Rule targeted at the output of the scheduled query:
 
-![CrowdStrikeRule](../.gitbook/assets/crowdstrike-rule.png)
+![CrowdStrikeRule](../../../.gitbook/assets/crowdstrike-rule.png)
 
 The events associated with the alert can be reviewed by an analyst which will be at most one per employee group. The "hits" are accumulated in `endpoints` using the employee info for easy vetting. As with all Panther rules, you have the flexibility to customize destinations of alert. For example, if the `employee_group` is `C-Suite` then perhaps that generates a page to the oncall, while the default alerts simply go to a work queue for vetting the next day.
 
@@ -685,7 +685,7 @@ The [Okta logs](../data-onboarding/supported-logs/okta.md) provide the answers t
 
 The challenge is defining "suspicious". One way to define suspicious is deviation from normal. If we can construct a baseline for each user, then we could alert when there is a significant change.
 
-That sounds good, but now we have to define "significant change" in a way that generates useful security findings \(and not many false positives\). For this example we will target significant changes to the `client` information that might indicate stolen credentials. NOTE: the Okta data is very rich in context, this is just one simple example of how to make use of this data.
+That sounds good, but now we have to define "significant change" in a way that generates useful security findings (and not many false positives). For this example we will target significant changes to the `client` information that might indicate stolen credentials. NOTE: the Okta data is very rich in context, this is just one simple example of how to make use of this data.
 
 Because of VPNs and proxies, it is often not practical to just use specific IP addresses or related geographic information to identity suspect activity. Similarly, users may change their device because they are using a new one, or they may make use of multiple devices. We expect significant variation between legitimate users. However, for any particular user we expect there to be more consistency over time.
 
@@ -694,15 +694,15 @@ For this example, we will characterize "normal" by computing for each `actor`, f
 * unique auth clients used
 * unique os versions used
 * unique devices used
-* unique locations used \(defined as: country, state, city\)
+* unique locations used (defined as: country, state, city)
 
 We will define events that do NOT match ANY the four dimensions as "suspicious". This means:
 
 * We will not get alerts if they get a new device.
 * We will not get alerts when they change location.
-* We _will_ get alerts when all of the attributes change at once,
+*   We _will_ get alerts when all of the attributes change at once,
 
-  and we are assuming this is both anomalous and interesting from the security point of view.
+    and we are assuming this is both anomalous and interesting from the security point of view.
 
 We will also NOT consider actors unless they have at least 5 days of history, to avoid false positives from new employees.
 
@@ -754,7 +754,7 @@ Recomputing these baselines each time a query is run is not very efficient. In t
 
 ### Detecting Password Spraying
 
-Password spraying is an attack that attempts to access numerous accounts \(usernames\) with a few commonly used passwords. Traditional brute-force attacks attempt to gain unauthorized access to a single account by guessing the password. This can quickly result in the targeted account getting locked-out, as commonly used account-lockout policies allow for a limited number of failed attempts \(typically three to five\) during a set period of time. During a password-spray attack \(also known as the “low-and-slow” method\), the malicious actor attempts a single commonly used password \(such as ‘password123’ or ‘winter2017’\) against many accounts before moving on to attempt a second password, and so on. This technique allows the actor to remain undetected by avoiding rapid or frequent account lockouts.
+Password spraying is an attack that attempts to access numerous accounts (usernames) with a few commonly used passwords. Traditional brute-force attacks attempt to gain unauthorized access to a single account by guessing the password. This can quickly result in the targeted account getting locked-out, as commonly used account-lockout policies allow for a limited number of failed attempts (typically three to five) during a set period of time. During a password-spray attack (also known as the “low-and-slow” method), the malicious actor attempts a single commonly used password (such as ‘password123’ or ‘winter2017’) against many accounts before moving on to attempt a second password, and so on. This technique allows the actor to remain undetected by avoiding rapid or frequent account lockouts.
 
 The key to detecting this behavior is to aggregate over time and look at the diversity of usernames with failed logins. The example below uses CloudTrail but a similar technique and be used with any authentication log. The thresholds chosen will need to be tuned to the target network.
 
@@ -788,7 +788,7 @@ HAVING
 
 Since DNS cannot generally be blocked on most networks, DNS based data exfiltration and C2 can be extremely effective. There are many tools available to create DNS-based tunnels. Not all DNS tunnels are malicious, ironically, many anti-virus tools use DNS tunnels to send telemetry back "home". Most security-minded people find DNS tunnels un-nerving, so detecting them on your network is useful. Simple traffic analysis can easily find these tunnels but because of legitimate tunnels, this below example will require some tuning to the local environment for both thresholds and whitelisting.
 
-We will define a potential DNS tunnel as a DNS server \(port 53\) that moves enough data to be interesting with an hour's time to only a few UNIQUE domains.
+We will define a potential DNS tunnel as a DNS server (port 53) that moves enough data to be interesting with an hour's time to only a few UNIQUE domains.
 
 Assume we run this query every hour, looking back 1 hour to identify these tunnels:
 
@@ -885,11 +885,11 @@ Example output:
 
 The `resource_history` table has detail down to the specific resource, so there are variations of the above query that can be more detailed if desired.
 
-### Database Monitoring \(Snowflake\)
+### Database Monitoring (Snowflake)
 
 Databases holding sensitive data require extensive security monitoring as they are often targets of attack.
 
-These queries require that Panther's read-only role has access to the `snowflake.account_usage` audit database \(this may need to be done by the snowflake admins\).
+These queries require that Panther's read-only role has access to the `snowflake.account_usage` audit database (this may need to be done by the snowflake admins).
 
 ```sql
  USE ROLE accountadmin;
@@ -956,4 +956,3 @@ WHERE 1=1
   AND execution_status='SUCCESS'
   AND (role_granted ILIKE '%securityadmin%'  OR role_granted ILIKE '%accountadmin%' OR role_granted ILIKE '%admin%')
 ```
-

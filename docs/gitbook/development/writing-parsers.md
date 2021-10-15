@@ -4,7 +4,7 @@ To add support for a new log type we should: 1. Define the schema for the new lo
 
 ## Code structure
 
-Log types are identified by a name that has the form `Service.EventName`. The `Service` prefix groups log types based on the service that produced them \(ie `NGINX`, `Juniper`, `Syslog`\). All log types for a `Service` are grouped under a go module in the [parsers](https://github.com/panther-labs/panther/tree/master/internal/log_analysis/log_processor/parsers) module. For example all `AWS.*` logs live under the `awslogs` module at `internal/log_analysis/log_processor/parsers/awslogs`.
+Log types are identified by a name that has the form `Service.EventName`. The `Service` prefix groups log types based on the service that produced them (ie `NGINX`, `Juniper`, `Syslog`). All log types for a `Service` are grouped under a go module in the [parsers](https://github.com/panther-labs/panther/tree/master/internal/log_analysis/log_processor/parsers) module. For example all `AWS.*` logs live under the `awslogs` module at `internal/log_analysis/log_processor/parsers/awslogs`.
 
 Each log type is described in its own `.go` file inside its module. For example, `AWS.CloudTrail` is defined in `cloud_trail.go` file at `internal/log_analysis/log_processor/parsers/awslogs/cloudtrail.go`.
 
@@ -35,7 +35,7 @@ We will start by writing a test to better understand what we want to achieve and
 
 Our goal here is to parse a JSON string of a `Foo.Event` and produce a Panther log event that will be stored in our storage backend to be processed by the rules engine and queried in the security data lake.
 
-Panther provides the `logtesting` package with helpers for testing log parsers. This module allows to run tests declared in YAML files using the `logtesting.RunTestsFromYAML` function. These tests verify that the parser produces the expected log event\(s\) for a log entry. This method ensures we haven't missed any fields or indicator values throughout the process.
+Panther provides the `logtesting` package with helpers for testing log parsers. This module allows to run tests declared in YAML files using the `logtesting.RunTestsFromYAML` function. These tests verify that the parser produces the expected log event(s) for a log entry. This method ensures we haven't missed any fields or indicator values throughout the process.
 
 We write a test for `Foo.Event` in a YAML file at `foologs/testdata/foologs_tests.yml`
 
@@ -125,7 +125,7 @@ type User struct {
 
 ### Field types
 
-Fields in a log event struct should use the types defined in the `pantherlog` module. These types handle `null` values and missing JSON fields by omitting them in the output. Empty strings \(`""`\) and zero numeric values are never omitted in order to preserve as much as possible from the original log event.
+Fields in a log event struct should use the types defined in the `pantherlog` module. These types handle `null` values and missing JSON fields by omitting them in the output. Empty strings (`""`) and zero numeric values are never omitted in order to preserve as much as possible from the original log event.
 
 Panther uses [struct tags](https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go) to specify field attributes. All fields _must_ have some `description` to document the contents of this field. These documentation strings will be used to generate user documentation from this code. The `json` tag _must_ use the exact name used in the logs. Panther automatically adds `omitempty` to all fields.
 
@@ -137,23 +137,23 @@ Panther uses [struct tags](https://www.digitalocean.com/community/tutorials/how-
 
 String values can be tagged with a `panther:"SCANNER"` to define [indicator fields](../data-analytics/panther-fields.md#indicator-fields). Note that a scanner can produce multiple indicator fields from a single value, or a different indicator field based on the value. Panther defines the following scanners
 
-| Scanner | Description |
-| :--- | :--- |
-| `ip` | Adds a `p_any_ip_addresses` indicator if the value is a valid IP address |
-| `domain` | Adds a `p_any_domains` indicator |
-| `hostname` | Adds a `p_any_ip_addresses` indicator if the value is a valid IP address otherwise it adds a `p_any_domains` indicator |
-| `url` | Adds a `p_any_domains` or a `p_any_ip_addresses` indicator using the hostname part of the URL |
-| `net_addr` | Adds a `p_any_domains` or a `p_any_ip_addresses` indicator by splitting a `HOST:PORT` address |
-| `sha256` | Adds a `p_any_sha256_hashes` indicator |
-| `sha1` | Adds a `p_any_sha1_hashes` indicator |
-| `md5` | Adds a `p_any_md5_hashes` indicator |
-| `trace_id` | Adds a `p_any_trace_ids` indicator |
-| `aws_arn` | Scans an ARN string and adds any `p_any_aws_arns`, `p_any_aws_account_id` and `p_any_instance_ids` indicators found |
-| `aws_instance_id` | Adds a `p_any_aws_instance_ids` indicator |
-| `aws_account_id` | Adds a `p_any_aws_account_ids` indicator |
-| `aws_tag` | Adds a `p_any_aws_tags` indicator |
-| `username` | Adds a `p_any_usernames` indicator |
-| `email` | Adds a `p_any_emails` indicator |
+| Scanner           | Description                                                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `ip`              | Adds a `p_any_ip_addresses` indicator if the value is a valid IP address                                               |
+| `domain`          | Adds a `p_any_domains` indicator                                                                                       |
+| `hostname`        | Adds a `p_any_ip_addresses` indicator if the value is a valid IP address otherwise it adds a `p_any_domains` indicator |
+| `url`             | Adds a `p_any_domains` or a `p_any_ip_addresses` indicator using the hostname part of the URL                          |
+| `net_addr`        | Adds a `p_any_domains` or a `p_any_ip_addresses` indicator by splitting a `HOST:PORT` address                          |
+| `sha256`          | Adds a `p_any_sha256_hashes` indicator                                                                                 |
+| `sha1`            | Adds a `p_any_sha1_hashes` indicator                                                                                   |
+| `md5`             | Adds a `p_any_md5_hashes` indicator                                                                                    |
+| `trace_id`        | Adds a `p_any_trace_ids` indicator                                                                                     |
+| `aws_arn`         | Scans an ARN string and adds any `p_any_aws_arns`, `p_any_aws_account_id` and `p_any_instance_ids` indicators found    |
+| `aws_instance_id` | Adds a `p_any_aws_instance_ids `indicator                                                                              |
+| `aws_account_id`  | Adds a `p_any_aws_account_ids` indicator                                                                               |
+| `aws_tag`         | Adds a `p_any_aws_tags` indicator                                                                                      |
+| `username`        | Adds a `p_any_usernames` indicator                                                                                     |
+| `email`           | Adds a `p_any_emails` indicator                                                                                        |
 
 #### Timestamps
 
@@ -163,7 +163,7 @@ Timestamps use a separate Go type to allow easier querying of logs using date ti
 
 #### Numbers
 
-All numeric values can be parsed from either a JSON number or a JSON numerical string \(ie both `42` and `"42"` are valid\).
+All numeric values can be parsed from either a JSON number or a JSON numerical string (ie both `42` and `"42"` are valid).
 
 #### Floating point numbers
 
@@ -205,7 +205,7 @@ type Interface interface {
 }
 ```
 
-The parser takes a log item \(in most cases a line of text\) and tries to parse it into one or more log events. If it fails to parse the line it should return a `nil` slice and an error.
+The parser takes a log item (in most cases a line of text) and tries to parse it into one or more log events. If it fails to parse the line it should return a `nil` slice and an error.
 
 For our example the parser would be:
 
@@ -242,7 +242,7 @@ func (p *FooParser) ParseLog(input string) ([]*pantherlog.Result, error) {
 }
 ```
 
-Parser code follows this general pattern: 1. Parse the input text into a struct 2. Validate the parsed output to ensure the input is valid for this log type 3. Package the log event\(s\) into `pantherlog.Result` values so the log processor can store them.
+Parser code follows this general pattern: 1. Parse the input text into a struct 2. Validate the parsed output to ensure the input is valid for this log type 3. Package the log event(s) into `pantherlog.Result` values so the log processor can store them.
 
 Fields marked with a `panther` struct tag will only be processed when the `Result` is **encoded** to JSON. This is deliberate in order to be able to support both JSON and text-based log types. In the log processor pipeline this happens in the final stage when the result is written to a buffer that will be uploaded to S3.
 
@@ -280,7 +280,7 @@ var configFooEvent = logtypes.Config{
 
 To validate the configuration and build a `logtypes.Entry` we need to use its `BuildEntry() (logtypes.Entry, error)` function
 
-```text
+```
 logtypes.Build(config logtypes.Builder) (logtypes.Entry, error)
 ```
 
@@ -435,8 +435,7 @@ By now our test should be passing, verifying that Panther can properly handle `F
 
 * Ensure your code is formatted, run `mage fmt`
 * Ensure all tests pass `mage test:ci`
-* Be sure to checkin the documentation that will be automatically generated and update the [SUMMARY.md](https://github.com/panther-labs/panther/blob/master/docs/gitbook/SUMMARY.md) if you added a new family of log types \(enterprise-only\).
+* Be sure to checkin the documentation that will be automatically generated and update the [SUMMARY.md](https://github.com/panther-labs/panther/blob/master/docs/gitbook/SUMMARY.md) if you added a new family of log types (enterprise-only).
 * Deploy Panther and add a Source that uses the log types you defined. You should be able to see a new table with your added parser in Glue Data Catalog
 * Do an end-to-end test. You can use [s3queue](../help/ops-home.md#tools) to copy test files into the `panther-bootstrap-auditlogs-<id>` bucket to drive log processing or use the development tool `./out/bin/devtools/<os>/<arch>/logprocessor` to read files from the local file system.
 * Write a test rule for the new type to ensure data is flowing.
-

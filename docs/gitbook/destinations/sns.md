@@ -4,15 +4,15 @@ This page will walk you through configuring SNS as a Destination for your Panthe
 
 The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS Destination, it publishes a JSON string to that topic:
 
-![](../.gitbook/assets/sns-panther%20%287%29%20%287%29%20%287%29%20%288%29.png)
+![](<../../../.gitbook/assets/sns-panther (7) (7) (7) (8).png>)
 
 From the AWS [SNS console](https://us-west-2.console.aws.amazon.com/sns/v3/home#/topics), create a new Topic or navigate to the topic you wish to add as a destination. Copy the ARN out and into the Panther Destinations configuration, then select the topic. We will be editing its permissions so Panther can publish messages to it:
 
-![](../.gitbook/assets/sns1%20%287%29%20%281%29%20%285%29.png)
+![](<../../../.gitbook/assets/sns1 (7) (1) (5).png>)
 
 After selecting the SNS topic, select the `Edit` button then scroll down and expand the `Access policy` section:
 
-![](../.gitbook/assets/sns2%20%288%29%20%281%29%20%283%29.png)
+![](<../../../.gitbook/assets/sns2 (8) (1) (3).png>)
 
 After expanding the `Access policy` section, add the following statement to the `Statement` block:
 
@@ -34,11 +34,11 @@ Be sure to replace the `Resource` field with the ARN of your own SNS Topic, and 
 
 When specifying the `Principal`, you can find the account ID where Panther is running in the `Settings -> General` page of your Panther deployment:
 
-![](../.gitbook/assets/sqs3%20%289%29%20%284%29%20%289%29.png)
+![](<../../../.gitbook/assets/sqs3 (9) (4) (9).png>)
 
 Enter this account ID as part of the `principal`:
 
-![](../.gitbook/assets/sns3%20%289%29.png)
+![](<../../../.gitbook/assets/sns3 (9).png>)
 
 1. Select the `Save changes` button to confirm your changes, and your SNS Topic will now be able to receive Panther alerts
 
@@ -50,5 +50,4 @@ If your goal is to set up email notifications with this topic, continue below:
 4. Click `Create subscription`
 5. You must confirm the subscription sent to your email before receiving alerts from this topic
 
-![](../.gitbook/assets/image%20%2812%29.png)
-
+![](<../../../.gitbook/assets/image (12).png>)

@@ -4,7 +4,7 @@ Data Models provide a way to configure a set of unified fields across all log ty
 
 ## Data Model Motivation
 
-Suppose you want to check for a particular source ip address in all events that log network traffic. These LogTypes might not only span different categories \(DNS, Zeek, Apache, etc.\), but also different vendors. Without a common logging standard, each of these LogTypes may represent the source ip by a different name, such as `ipAddress`, `srcIP`, or `ipaddr`. The more LogTypes you want to monitor, the more complex and cumbersome this simple check becomes:
+Suppose you want to check for a particular source ip address in all events that log network traffic. These LogTypes might not only span different categories (DNS, Zeek, Apache, etc.), but also different vendors. Without a common logging standard, each of these LogTypes may represent the source ip by a different name, such as `ipAddress`, `srcIP`, or `ipaddr`. The more LogTypes you want to monitor, the more complex and cumbersome this simple check becomes:
 
 ```python
 (event.get('ipAddress') == '127.0.0.1' or 
@@ -28,19 +28,19 @@ New data models are added in the Panther UI or via the [Panther Analysis Tool](p
 
 ### Add New Data Model - UI
 
-To create a new Data Model, navigate to `Data` &gt; `Data Models`:
+To create a new Data Model, navigate to `Data` > `Data Models`:
 
-![](../.gitbook/assets/screen-shot-2021-09-17-at-11.28.24-am.png)
+![](../../../.gitbook/assets/screen-shot-2021-09-17-at-11.28.24-am.png)
 
 Click `CREATE NEW`:
 
-![Create New Data Model](../.gitbook/assets/data-model-create.png)
+![Create New Data Model](../../../.gitbook/assets/data-model-create.png)
 
 Set all the necessary Data Model attributes, such as the ID, DisplayName, the applicable LogType, the field `Mappings`, and any python logic. Click `SAVE`. This data model can now be accessed in your rule logic with the `event.udm()` method
 
 ### Add New Data Model - Panther Analysis Tool
 
-To add a new data model using the `panther_analysis_tool`, first create your DataModel specification file \(e.g. `data_models/aws_cloudtrail_datamodel.yml`\):
+To add a new data model using the `panther_analysis_tool`, first create your DataModel specification file (e.g. `data_models/aws_cloudtrail_datamodel.yml`):
 
 ```yaml
 AnalysisType: datamodel
@@ -60,7 +60,7 @@ Mappings:
     Path: userAgent
 ```
 
-Then, if any `Method`s are defined, create an associated python file \(`data_models/aws_cloudtrail_datamodel.py`\):
+Then, if any `Method`s are defined, create an associated python file (`data_models/aws_cloudtrail_datamodel.py`):
 
 ```python
 from panther_base_helpers import deep_get
@@ -84,7 +84,7 @@ Finally, use this data model in a rule by:
 * Add the LogType to all the Rule's `Test` cases, in the `p_log_type` field
 * Leveraging the `event.udm()` method in the Rule's python logic:
 
-```text
+```
 AnalysisType: rule
 DedupPeriodMinutes: 60
 DisplayName: DataModel Example Rule
@@ -128,21 +128,21 @@ def title(event):
 
 A complete list of DataModel specification fields:
 
-| Field Name | Required | Description | Expected Value |
-| :--- | :--- | :--- | :--- |
-| `AnalysisType` | Yes | Indicates whether this specification is defining a rule, policy, data model, or global | `datamodel` |
-| `DataModelID` | Yes | The unique identifier of the data model | String |
-| `DisplayName` | No | What name to display in the UI and alerts. The `DataModelID` will be displayed if this field is not set. | String |
-| `Enabled` | Yes | Whether this data model is enabled | Boolean |
-| `FileName` | No | The path \(with file extension\) to the python DataModel body | String |
-| `LogTypes` | Yes | What log types this policy will apply to | Singleton List of strings |
-| `Mappings` | Yes | Mapping from source field name or method to unified data model field name | List of Maps |
+| Field Name     | Required | Description                                                                                              | Expected Value            |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `AnalysisType` | Yes      | Indicates whether this specification is defining a rule, policy, data model, or global                   | `datamodel`               |
+| `DataModelID`  | Yes      | The unique identifier of the data model                                                                  | String                    |
+| `DisplayName`  | No       | What name to display in the UI and alerts. The `DataModelID` will be displayed if this field is not set. | String                    |
+| `Enabled`      | Yes      | Whether this data model is enabled                                                                       | Boolean                   |
+| `FileName`     | No       | The path (with file extension) to the python DataModel body                                              | String                    |
+| `LogTypes`     | Yes      | What log types this policy will apply to                                                                 | Singleton List of strings |
+| `Mappings`     | Yes      | Mapping from source field name or method to unified data model field name                                | List of Maps              |
 
 ### DataModel Mappings
 
-Mappings translate LogType fields to unified data model fields. Each mapping entry must define a unified data model field name \(`Name`\) and either a Path \(`Path`\) or a method \(`Method`\). The `Path` can be a simple field name or a JSON Path. The method must be implemented in the file listed in the data model specification `Filename` field.
+Mappings translate LogType fields to unified data model fields. Each mapping entry must define a unified data model field name (`Name`) and either a Path (`Path`) or a method (`Method`). The `Path` can be a simple field name or a JSON Path. The method must be implemented in the file listed in the data model specification `Filename` field.
 
-```text
+```
 Mappings:
   - Name: source_ip
     Path: srcIp
@@ -160,18 +160,18 @@ More information about jsonpath-ng can be found [here](https://pypi.org/project/
 
 The initial set of supported unified data model fields are described below.
 
-| Unified Data Model Field Name | Description |
-| :--- | :--- |
-| `actor_user` | ID or username of the user whose action triggered the event. |
-| `assigned_admin_role` | Admin role ID or name assigned to a user in the event. |
-| `destination_ip` | Destination IP for the traffic |
-| `destination_port` | Destination port for the traffic |
-| `event_type` | Custom description for the type of event. Out of the box support for event types can be found in the global, `panther_event_type_helpers.py`. |
-| `http_status` | Numeric http status code for the traffic |
-| `source_ip` | Source IP for the traffic |
-| `source_port` | Source port for the traffic |
-| `user_agent` | User agent associated with the client in the event. |
-| `user` | ID or username of the user that was acted upon to trigger the event. |
+| Unified Data Model Field Name | Description                                                                                                                                   |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `actor_user`                  | ID or username of the user whose action triggered the event.                                                                                  |
+| `assigned_admin_role`         | Admin role ID or name assigned to a user in the event.                                                                                        |
+| `destination_ip`              | Destination IP for the traffic                                                                                                                |
+| `destination_port`            | Destination port for the traffic                                                                                                              |
+| `event_type`                  | Custom description for the type of event. Out of the box support for event types can be found in the global, `panther_event_type_helpers.py`. |
+| `http_status`                 | Numeric http status code for the traffic                                                                                                      |
+| `source_ip`                   | Source IP for the traffic                                                                                                                     |
+| `source_port`                 | Source port for the traffic                                                                                                                   |
+| `user_agent`                  | User agent associated with the client in the event.                                                                                           |
+| `user`                        | ID or username of the user that was acted upon to trigger the event.                                                                          |
 
 ## Leveraging Existing Data Models
 
@@ -186,7 +186,7 @@ def title(event):
 
 Update the rule specification to include the pertinent LogTypes:
 
-```text
+```
 AnalysisType: rule 
 Filename: example_rule.py
 Description: A rule that uses datamodels
@@ -197,4 +197,3 @@ LogTypes:
   - Logtype.With.DataModel
   - Another.Logtype.With.DataModel
 ```
-

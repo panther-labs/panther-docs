@@ -26,32 +26,32 @@ MonitoringParameterValues:
 To configure alarms to send to your team, follow the guides below:
 
 * [SNS Email and SMS Integration](https://docs.aws.amazon.com/sns/latest/dg/sns-user-notifications.html)
-* [PagerDuty Integration](https://support.pagerduty.com/docs/aws-cloudwatch-integration-guide)
+*   [PagerDuty Integration](https://support.pagerduty.com/docs/aws-cloudwatch-integration-guide)
 
-  NOTE: As of this writing \(August 2020\) Pager Duty cannot [handle composite CloudWatch alarms](https://community.pagerduty.com/forum/t/composite-alarm-in-cloudwatch-not-triggering-pd-integration/1798) which Panther uses to avoid duplicate pages to oncall staff. The work around is to use a `Custom Event Transformer`.
+    NOTE: As of this writing (August 2020) Pager Duty cannot [handle composite CloudWatch alarms](https://community.pagerduty.com/forum/t/composite-alarm-in-cloudwatch-not-triggering-pd-integration/1798) which Panther uses to avoid duplicate pages to oncall staff. The work around is to use a `Custom Event Transformer`.
 
-  Follow the [instructions ](https://www.pagerduty.com/docs/guides/custom-event-transformer/) using the below code:
+    Follow the [instructions ](https://www.pagerduty.com/docs/guides/custom-event-transformer/) using the below code:
 
-  ```javascript
-     var details = JSON.parse(PD.inputRequest.rawBody);
+    ```javascript
+       var details = JSON.parse(PD.inputRequest.rawBody);
 
-     var description = "unknown event";
-     if ("AlarmDescription" in details) {  // looks like a CloudWatch event ...
-       var descLines = details.AlarmDescription.split("\n");
-       description = (descLines.length > 1)? descLines[0] + " " + descLines[1] : descLines[0];
-     }
+       var description = "unknown event";
+       if ("AlarmDescription" in details) {  // looks like a CloudWatch event ...
+         var descLines = details.AlarmDescription.split("\n");
+         description = (descLines.length > 1)? descLines[0] + " " + descLines[1] : descLines[0];
+       }
 
-     var normalized_event = {
-       event_type: PD.Trigger,
-       description: description,
-       incident_key: description,
-       details: details
-     };
+       var normalized_event = {
+         event_type: PD.Trigger,
+         description: description,
+         incident_key: description,
+         details: details
+       };
 
-     PD.emitGenericEvents([normalized_event]);
-  ```
+       PD.emitGenericEvents([normalized_event]);
+    ```
 
-  Configure the SNS topic to use `RawMessageDelivery: true` when creating the Pager Duty subscription.
+    Configure the SNS topic to use `RawMessageDelivery: true` when creating the Pager Duty subscription.
 
 ### Assessing Data Ingest Volume
 
@@ -63,27 +63,27 @@ The steps to view the dashboard:
 * Select `CloudWatch` from the Services menu
 * Select `Dashboards` from the left pane of the CloudWatch console
 
-![](../.gitbook/assets/cloudwatch-dashboards%20%286%29%20%286%29%20%288%29%20%289%29%20%286%29.png)
+![](<../../../.gitbook/assets/cloudwatch-dashboards (6) (6) (8) (9) (6).png>)
 
 * Select the dashboard beginning with `PantherLogAnalysis`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis%20%286%29%20%286%29%20%284%29.png)
+![](<../../../.gitbook/assets/cloudwatch-dashboards-log-analysis (6) (6) (4).png>)
 
 * Select the vertical `...` of the pane entitled `Input MBytes (Uncompressed) by Log Type` and select from the menu `View in CloudWatch Insights`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select%20%286%29%20%286%29%20%288%29%20%285%29%20%281%29.png)
+![](<../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select (6) (6) (8) (5) (1).png>)
 
 * Set the time period for 4 weeks and click `Apply`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select-time%20%286%29%20%286%29%20%288%29%20%289%29%20%283%29.png)
+![](<../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select-time (6) (6) (8) (9) (3).png>)
 
 * Click `Run Query`
 
-![](../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-show%20%286%29%20%286%29%20%288%29%20%286%29%20%284%29.png)
+![](<../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-show (6) (6) (8) (6) (4).png>)
 
 ## Tools
 
-Panther comes with some operational tools useful for managing the Panther infrastructure. These are statically compiled executables for linux, mac \(AKA darwin\) and windows. They can be copied/installed onto operational support hosts.
+Panther comes with some operational tools useful for managing the Panther infrastructure. These are statically compiled executables for linux, mac (AKA darwin) and windows. They can be copied/installed onto operational support hosts.
 
 These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html) be set in the environment. We recommend a tool to manage these securely such as [AWS Vault](https://github.com/99designs/aws-vault).
 
@@ -105,13 +105,13 @@ Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.
 
 Opstools:
 
-* **compact**: backfill JSON to Parquet conversion of log data \(used when upgrading to Panther Enterprise\)
+* **compact**: backfill JSON to Parquet conversion of log data (used when upgrading to Panther Enterprise)
 * **cost**: generates cost reports using the costexplorer api
 * **flushrsc**: flush delete pending entries from the panther-resource table
 * **gluerecover**: scans S3 for missing AWS Glue partitions and recovers them
 * **gluesync**: update glue table and partition schemas
-* **migrate**: utility to do a data migration for the gsuite\_reports table \(log & rule table\)
-* **s3queue**: list files under an S3 path and send them to the log processor input queue for processing \(useful for back fill of data\)
+* **migrate**: utility to do a data migration for the gsuite_reports table (log & rule table)
+* **s3queue**: list files under an S3 path and send them to the log processor input queue for processing (useful for back fill of data)
 * **s3sns**: lists s3 objects and posts s3 notifications to log processor sns topic
 * **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
 * **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
@@ -126,4 +126,3 @@ Devtools:
 * **pantherlog**: Parse logs using built-in or custom schemas
 
 An example of a full link to the set of tools would be: [https://panther-community-us-east-1.s3.amazonaws.com/v1.23.3/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.23.3/tools/darwin-amd64.zip)
-

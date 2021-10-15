@@ -13,17 +13,17 @@ With Panther Data Explorer, you are able to:
 * Select entire rows as JSON to use in the rule engine as unit tests
 * Download results in a CSV
 
-![](../.gitbook/assets/data-explorer%20%281%29.png)
+![](<../../../.gitbook/assets/data-explorer (1).png>)
 
 As with all of our enterprise features, access to the Data Explorer can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
 
 ## Macros
 
-All the tables in our supported backend databases \(Athena and Snowflake\) are partitioned by event time to allow for better performance when querying using a time filter. However, the partition technologies are different across the backends, and using them efficiently can make for unwieldy SQL code if written by hand. To make things even easier, we have created a number of macros that will be expanded into full expressions when sent to the database, so that you don't have to worry about writing complicated expressions.
+All the tables in our supported backend databases (Athena and Snowflake) are partitioned by event time to allow for better performance when querying using a time filter. However, the partition technologies are different across the backends, and using them efficiently can make for unwieldy SQL code if written by hand. To make things even easier, we have created a number of macros that will be expanded into full expressions when sent to the database, so that you don't have to worry about writing complicated expressions.
 
 **Note**: that the macro expansions will only work from the Panther UI, i.e. will not work if you are using the native Database web UI.
 
-### Time range filter: p\_occurs\_between
+### Time range filter: p_occurs_between
 
 `p_occurs_between(startTime, endTime [, tableAlias])`
 
@@ -33,9 +33,9 @@ All the tables in our supported backend databases \(Athena and Snowflake\) are p
 
 `tableAlias - optional parameter, allows passing through a table alias to the filter`
 
-**Note**: Please ensure that your time expression can be parsed by the database backend your team is using. Some expressions that work in Snowflake \(i.e. `2021-01-21T11:15:54.346Z`\) will not be accepted as valid timestamps by Athena. The default safe time format should probably look similar to this `2021-01-02 15:04:05.000` and is assumed to be in the UTC time zone.
+**Note**: Please ensure that your time expression can be parsed by the database backend your team is using. Some expressions that work in Snowflake (i.e. `2021-01-21T11:15:54.346Z`) will not be accepted as valid timestamps by Athena. The default safe time format should probably look similar to this `2021-01-02 15:04:05.000` and is assumed to be in the UTC time zone.
 
-The macro p\_occurs\_between\(\) takes a start time, an end time and optionally a table alias \(in case you want to use the macro across one or multiple tables in a join\) and filters the result set to those events in the time range, using the correct partition \(minimizing I/O and speeding up the query\).
+The macro p_occurs_between() takes a start time, an end time and optionally a table alias (in case you want to use the macro across one or multiple tables in a join) and filters the result set to those events in the time range, using the correct partition (minimizing I/O and speeding up the query).
 
 The following Snowflake command contains a macro:
 
@@ -76,7 +76,7 @@ group by p_db_name
 limit 1000
 ```
 
-### Time offset from present: p\_occurs\_since
+### Time offset from present: p_occurs_since
 
 `p_occurs_since(offsetFromPresent [, tableAlias])`
 
@@ -84,7 +84,7 @@ limit 1000
 
 `tableAlias - optional parameter, allows passing through a table alias to the filter`
 
-The macro p\_occurs\_since\(\) takes a positive integer number of seconds and optionally a table alias \(in case you want to use the macro across one or multiple tables in a join\), and filters the result set down to those events from the current time offset by the specified number of seconds, using the correct partition or cluster key \(minimizing I/O and speeding up the query\).
+The macro p_occurs_since() takes a positive integer number of seconds and optionally a table alias (in case you want to use the macro across one or multiple tables in a join), and filters the result set down to those events from the current time offset by the specified number of seconds, using the correct partition or cluster key (minimizing I/O and speeding up the query).
 
 For convenience, we have added additional time parts that can be used:
 
@@ -104,9 +104,9 @@ p_occurs_since(900) // assumes seconds
 p_occurs_since('96 hrs')
 ```
 
-**Note**: If this is used in a scheduled query, then rather than using the current time as the reference, the scheduled run time will be used. For example, if a query is scheduled to run at the start of each hour, then the `p_occurs_since('1 hour')` macro will expand using a time range of 1 hour starting at the start of each hour \(regardless of when the query is actually executed\).
+**Note**: If this is used in a scheduled query, then rather than using the current time as the reference, the scheduled run time will be used. For example, if a query is scheduled to run at the start of each hour, then the `p_occurs_since('1 hour')` macro will expand using a time range of 1 hour starting at the start of each hour (regardless of when the query is actually executed).
 
-In the following example of a macro with a table alias parameter, we look at Cloudtrail logs to identify S3 buckets created and deleted within one hour of their creation, a potentially suspicious behaviour. To get this information we do a self-join on the `aws_cloudtrail` table in `panther_logs`, and we use a macro expansion to limit this search to the past 24 hours on each of the two elements of the self-join \(aliased `ct1` and `ct2` below\):
+In the following example of a macro with a table alias parameter, we look at Cloudtrail logs to identify S3 buckets created and deleted within one hour of their creation, a potentially suspicious behaviour. To get this information we do a self-join on the `aws_cloudtrail` table in `panther_logs`, and we use a macro expansion to limit this search to the past 24 hours on each of the two elements of the self-join (aliased `ct1` and `ct2` below):
 
 ```sql
 select 
@@ -153,4 +153,3 @@ and ct2.p_event_time >= current_timestamp - interval '86400 second'
 and ct1.p_event_time >= current_timestamp - interval '86400 second'
 order by createdBucket, createTime;
 ```
-

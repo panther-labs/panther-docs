@@ -20,19 +20,19 @@ Once your account has been provisioned, you will get an invitation email from `n
 
 You can use these temporary credentials to login and setup MFA:
 
-![Login Screen](.gitbook/assets/quick-start-login.png)
+![Login Screen](../../.gitbook/assets/quick-start-login.png)
 
 ### Alert Destinations
 
 The first recommended step after initial login is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as Slack, PagerDuty, or automation platforms like Tines. You can quickly set up a destination by following the steps below:
 
-1. Go to  `Integrations` &gt; `Alert Destinations` &gt; `Add New Destination`
+1. Go to  `Integrations` > `Alert Destinations `> `Add New Destination`
 2. Select a destination you would like to push alert to
 3. Follow the onboarding experience, use Panther Docs to correctly configure the destination
 
 ### Data Onboarding
 
-For data normalization, real-time analytics, and storage into the data lake, start by onboarding data through one \(or multiple\) of the transport methods below:
+For data normalization, real-time analytics, and storage into the data lake, start by onboarding data through one (or multiple) of the transport methods below:
 
 * [Amazon S3](https://docs.runpanther.io/data-onboarding/data-transports/s3)
 * [AWS SQS](https://docs.runpanther.io/data-onboarding/data-transports/sqs)
@@ -52,15 +52,14 @@ Panther comes with build-in detections that alert against common security events
 
 Panther can be deployed to any of the following regions:
 
-* `ap-northeast-1` \(Tokyo\)
-* `ap-south-1` \(Mumbai\)
-* `ap-southeast-1` \(Singapore\)
-* `ap-southeast-2` \(Sydney\)
-* `ca-central-1` \(Canada\)
-* `eu-central-1` \(Frankfurt\)
-* `eu-west-1` \(Ireland\)
-* `eu-west-2` \(London\)
-* `us-east-1` \(N. Virginia\)
-* `us-east-2` \(Ohio\)
-* `us-west-2` \(Oregon\)
-
+* `ap-northeast-1` (Tokyo)
+* `ap-south-1` (Mumbai)
+* `ap-southeast-1` (Singapore)
+* `ap-southeast-2` (Sydney)
+* `ca-central-1` (Canada)
+* `eu-central-1` (Frankfurt)
+* `eu-west-1` (Ireland)
+* `eu-west-2` (London)
+* `us-east-1` (N. Virginia)
+* `us-east-2` (Ohio)
+* `us-west-2` (Oregon)

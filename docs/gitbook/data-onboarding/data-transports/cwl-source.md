@@ -12,21 +12,21 @@ CloudWatch Logs as a Data Transport was introduced in 1.23
 
 The steps below will enable secure access for Panther to pull security logs from CloudWatch.
 
-From **Integrations**, click **Log Sources** &gt; **Add Source** &gt; **Data Transport** &gt; **CloudWatch Logs**
+From **Integrations**, click **Log Sources** > **Add Source** > **Data Transport** >** CloudWatch Logs**
 
-![](../../.gitbook/assets/image%20%2830%29.png)
+![](<../../../../.gitbook/assets/image (30).png>)
 
 ### Step 1: Enter the Bucket Details
 
-| Field | Required? | Description |
-| :---: | :--- | :--- |
-| `Name` | `Yes` | Friendly name of the CloudWatch logs source |
-| `Log Group Name` | `Yes` | The unique name of the CloudWatch logs group |
-| `AWS Account ID` | `Yes` | The AWS Account ID number that the S3 bucket lives in |
-| `Pattern Filter` | `No` | Use this field to filter data log data received from CloudWatch. Read more [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html). |
-| `Log Types` | `Yes` | The `Log Types` Panther should use to parse CloudWatch logs. At least one `Log Type` must be selected from the dropdown menu.  |
+|       Field      | Required? | Description                                                                                                                                                              |
+| :--------------: | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|      `Name`      | `Yes`     | Friendly name of the CloudWatch logs source                                                                                                                              |
+| `Log Group Name` | `Yes`     | The unique name of the CloudWatch logs group                                                                                                                             |
+| `AWS Account ID` | `Yes`     | The AWS Account ID number that the S3 bucket lives in                                                                                                                    |
+| `Pattern Filter` | `No`      | Use this field to filter data log data received from CloudWatch. Read more [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html). |
+|    `Log Types`   | `Yes`     | The `Log Types` Panther should use to parse CloudWatch logs. At least one `Log Type` must be selected from the dropdown menu.                                            |
 
-![](../../.gitbook/assets/image%20%2828%29.png)
+![](<../../../../.gitbook/assets/image (28).png>)
 
 Click **Continue**.
 
@@ -46,9 +46,9 @@ More details on this process can be found in the [AWS Cloudwatch Logs documentat
 
 
 
-The "_I want Panther to configure bucket notifications for me_" checkbox enables you to allow Panther configure bucket notifications automatically. Panther uses [S3 Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html) to get notified about new files added to your bucket. If you check the box, the provided CloudFormation template will add extra permissions to the IAM role, and Panther will be able to configure bucket notifications automatically for you \(existing configurations will not be removed or overwritten\). Otherwise, you will be prompted to configure bucket notifications manually, at a later step.
+The "_I want Panther to configure bucket notifications for me_" checkbox enables you to allow Panther configure bucket notifications automatically. Panther uses [S3 Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html) to get notified about new files added to your bucket. If you check the box, the provided CloudFormation template will add extra permissions to the IAM role, and Panther will be able to configure bucket notifications automatically for you (existing configurations will not be removed or overwritten). Otherwise, you will be prompted to configure bucket notifications manually, at a later step.
 
-![](../../.gitbook/assets/image%20%2829%29.png)
+![](<../../../../.gitbook/assets/image (29).png>)
 
 {% hint style="warning" %}
 We strongly suggest you allow Panther to configure bucket notifications. This will help in monitoring the health of the CloudWatch logs and surface issues through Panther's system health notifications.
@@ -56,7 +56,7 @@ We strongly suggest you allow Panther to configure bucket notifications. This wi
 
 After the CloudFormation stack creation is complete, the role ARN will be visible in the Outputs of the stack.
 
-![](../../.gitbook/assets/cfn-outputs.png)
+![](../../../../.gitbook/assets/cfn-outputs.png)
 
 Fill in the role ARN to Panther and click Continue Setup.
 
@@ -88,7 +88,7 @@ When the IAM role is ready, fill in the role ARN to Panther and click Continue S
 
 If you have opted in for Panther-managed notifications in step 2, you are done! Your S3 source is ready to ingest data and a success page is shown:
 
-![](../../.gitbook/assets/image%20%2827%29.png)
+![](<../../../../.gitbook/assets/image (27).png>)
 
 {% hint style="info" %}
 Make sure that you have alarming for log drop-offs set as you verify set-up. This will ensure that a system error notification is fired off in the event that Panther stops receiving data from this source.
@@ -100,5 +100,4 @@ That's it! Everything should be set up correctly and Panther can start processin
 
 ## Viewing Collected Logs
 
-After log sources are configured, your data can be searched with Data Explorer! Learn more [here](https://app.gitbook.com/@panther-labs/s/documentation/~/drafts/-Mjpl055436mGBJXxM_u/data-analytics/data-explorer).
-
+After log sources are configured, your data can be searched with Data Explorer! Learn more [here](https://app.gitbook.com/@panther-labs/s/documentation/\~/drafts/-Mjpl055436mGBJXxM_u/data-analytics/data-explorer).

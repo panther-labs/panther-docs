@@ -1,12 +1,12 @@
 # Legacy Snowflake Integration
 
-### Legacy Snowflake Configuration \(**Deprecated**\)
+### Legacy Snowflake Configuration (**Deprecated**)
 
 > Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the [supported methods](./) in the future.
 
 This guide assumes you already have a Snowflake instance in AWS.
 
-Ideally, your Panther deployment and Snowflake instance are in the same AWS region. Having both Panther and Snowflake in the same region lowers latency for queries and data movement \(relative to cross region communications\).
+Ideally, your Panther deployment and Snowflake instance are in the same AWS region. Having both Panther and Snowflake in the same region lowers latency for queries and data movement (relative to cross region communications).
 
 Panther uses two Snowflake users/roles to access your Snowflake instance:
 
@@ -18,12 +18,12 @@ There are 9 steps to configuring Panther integration with Snowflake.
 1. Security Team: Gather configuration information from Panther
 2. DBA: Gather configuration information from Snowflake
 3. DBA: Create the Panther databases in Snowflake
-4. DBA: Create a read only role and an administrative role in Snowflake \(limited to Panther tables\)
+4. DBA: Create a read only role and an administrative role in Snowflake (limited to Panther tables)
 5. DBA: Create a read only user and an administrative user in Snowflake
-6. DBA: Create a stored procedure to make creating AWS Secrets easier \(optional\)
+6. DBA: Create a stored procedure to make creating AWS Secrets easier (optional)
 7. AWS Admin: Create a KMS key in your AWS account for Panther Snowflake Secrets
 8. AWS Admin: Create a read only user AWS Secret and an administrative user AWS Secret
-9. Panther \(SaaS\) or Customer \(CloudPrem\): Deploy Panther with Snowflake enabled
+9. Panther (SaaS) or Customer (CloudPrem): Deploy Panther with Snowflake enabled
 
 #### 1. Gather configuration information from Panther
 
@@ -32,7 +32,7 @@ Go to the `Settings` page of Panther and select `General Settings`. There you wi
 * Snowflake ReadOnly Lambda Role ARN
 * Snowflake Admin Lambda Role ARN
 
-![](../../.gitbook/assets/snowflake-settings.png)
+![](../../../../.gitbook/assets/snowflake-settings.png)
 
 Keep these ARNs handy, we will use this later.
 
@@ -87,7 +87,7 @@ CREATE database IF NOT EXISTS panther_stored_procedures;
 #### 4. Create a read only role and an administrative role in Snowflake
 
 {% hint style="warning" %}
-_**For customers with self-hosted Snowflake deployments who are upgrading to 1.18**_ 
+_**For customers with self-hosted Snowflake deployments who are upgrading to 1.18 **_
 
 Self-hosted customers using Snowflake data cloud should have their Database Administrator add the following permission set, or update their automation scripts to reflect the latest version of the setup instructions:
 {% endhint %}
@@ -100,7 +100,7 @@ GRANT CREATE STAGE, CREATE PIPE ON ALL SCHEMAS IN DATABASE PANTHER_MONITOR
 
 _**NOTE**_: be sure to update `<your warehouse>` in the first line of the SQL block below to the desired Snowflake warehouse name that you wish Panther to use.
 
-We recommend you create a dedicated Panther warehouse \(e.g., PANTHER\_WH\), so that you can easily track costs and resize capacity independently of other Snowflake resources.
+We recommend you create a dedicated Panther warehouse (e.g., PANTHER_WH), so that you can easily track costs and resize capacity independently of other Snowflake resources.
 
 Execute in Snowflake SQL shell:
 
@@ -329,9 +329,9 @@ ALTER USER PANTHER_ADMIN
    SET TIMEZONE = 'UTC';
 ```
 
-#### 6. Create a stored procedure to make creating AWS Secrets easier \(Optional\)
+#### 6. Create a stored procedure to make creating AWS Secrets easier (Optional)
 
-Define this stored procedure that will create a JSON document you can use to cut-n-paste into AWS Secret Manger \(saving typing\). Execute in Snowflake SQL shell:
+Define this stored procedure that will create a JSON document you can use to cut-n-paste into AWS Secret Manger (saving typing). Execute in Snowflake SQL shell:
 
 ```sql
 USE ROLE SYSADMIN;
@@ -359,11 +359,11 @@ CREATE or replace FUNCTION panther_stored_procedures.public.generate_secret(USN 
 You will use this key to encrypt the Snowflake secrets that we will store in your AWS account as part of Step 8.
 
 * Log in to your AWS account
-* \(Optional\) Go to the same region that your Snowflake account is in
+* (Optional) Go to the same region that your Snowflake account is in
 * Go to KMS service
 * Click on `Create a key`
 * Pick `Symmetric` for the type and click `Next`
-* Set the alias to `panther-secret`. Click `Next`. On the next page Click `Next` \(accept defaults\)
+* Set the alias to `panther-secret`. Click `Next`. On the next page Click `Next` (accept defaults)
 * Click on `Add another AWS Account` and enter the account id where Panther is installed.
 * Click `Next` and then click `Finish`.
 
@@ -376,16 +376,16 @@ Repeat the process below, once for `panther_readonly` user and once for the `pan
 * Access the AWS Secrets Manager via the console and select `Store a New Secret` button on the page.
 * You will be presented with a page titled `Store a new secret`. Select `Other type of secrets` from the list of types. Specify the following key/value pairs:
 
-| Field | Description |
-| :---: | :--- |
-| `account` | The name of your Snowflake account. It can be found by executing `SELECT CURRENT_ACCOUNT()` |
-| `user` | Snowflake user you created earlier, either `panther_readonly` or `panther_admin` |
-| `password` | The Snowflake user password that you created in Step 1 |
-| `host` | This is usually `<something>.snowflakecomputing.com` from the URL used to log into your cluster. Remove `https://` and any trailing `/` from the hostname. |
-| `port` | Use `443` unless you have configured differently |
-| `warehouse` | The name of your Snowflake active warehouse |
+|    Field    | Description                                                                                                                                                |
+| :---------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  `account`  | The name of your Snowflake account. It can be found by executing `SELECT CURRENT_ACCOUNT()`                                                                |
+|    `user`   | Snowflake user you created earlier, either `panther_readonly` or `panther_admin`                                                                           |
+|  `password` | The Snowflake user password that you created in Step 1                                                                                                     |
+|    `host`   | This is usually `<something>.snowflakecomputing.com` from the URL used to log into your cluster. Remove `https://` and any trailing `/` from the hostname. |
+|    `port`   | Use `443` unless you have configured differently                                                                                                           |
+| `warehouse` | The name of your Snowflake active warehouse                                                                                                                |
 
-You can enter the above by hand OR run the following command in a Snowflake SQL shell, typing in the appropriate values for the 4 specified parameters \(`account` and `port` should autopopulate\). Do this once for the `panther_readonly` user and once for the `panther_admin`:
+You can enter the above by hand OR run the following command in a Snowflake SQL shell, typing in the appropriate values for the 4 specified parameters (`account` and `port` should autopopulate). Do this once for the `panther_readonly` user and once for the `panther_admin`:
 
 ```sql
 SELECT panther_stored_procedures.public.generate_secret(<user>,<password>,<warehouse>,<host>);
@@ -393,22 +393,22 @@ SELECT panther_stored_procedures.public.generate_secret(<user>,<password>,<wareh
 
 You can then copy-paste the result into each of the 2 secrets "plaintext" editor tab.
 
-![](../../.gitbook/assets/snowflake-secrets-page1a.png)
+![](../../../../.gitbook/assets/snowflake-secrets-page1a.png)
 
-_**NOTE**_: Check to make sure that all 6 fields \(_account, host, password, port, user, warehouse_\) are filled out and have the correct values, otherwise the Panther lambdas may encounter issues connecting to snowflake.
+_**NOTE**_: Check to make sure that all 6 fields (_account, host, password, port, user, warehouse_) are filled out and have the correct values, otherwise the Panther lambdas may encounter issues connecting to snowflake.
 
 * Select `panther-secret` from the dropdown under `Select the encryption key`.
 * Click `Next`.
 
-![](../../.gitbook/assets/snowflake-secrets-page1b.png)
+![](../../../../.gitbook/assets/snowflake-secrets-page1b.png)
 
 * You will be presented with a screen asking for the name and description of the secret. Fill these in and click `Next`.
 
-![](../../.gitbook/assets/snowflake-secrets-page2%20%288%29%20%281%29%20%285%29.png)
+![](<../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (5).png>)
 
 * The next screen concerns autorotation, just click the `Next` button.
 
-![](../../.gitbook/assets/snowflake-secrets-page3%20%288%29%20%282%29%20%286%29.png)
+![](<../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (6).png>)
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 
@@ -447,7 +447,7 @@ Make a note of the `arn` for the secret. We will use this later.
 
 #### SaaS Legacy Deployment Users
 
-Send to your Panther point of contact \(POC\):
+Send to your Panther point of contact (POC):
 
 * `SNOWFLAKE_IAM_USER` collected in the first step
 * ARN for the `panther_readonly` user AWS Secret
@@ -457,7 +457,7 @@ Your Panther POC will re-deploy Panther with these settings to enable Snowflake.
 
 #### CloudPrem Users
 
-Customers running Panther in their own accounts \(we call that `CloudPrem)` need to first deploy the master template doing an initial setup of Panther. After deploying the master template configure the master stack parameters as below:
+Customers running Panther in their own accounts (we call that `CloudPrem)` need to first deploy the master template doing an initial setup of Panther. After deploying the master template configure the master stack parameters as below:
 
 * update: `SnowflakeAPISecretARN` parameter as the ARN of the secret created above for the `panther_readonly` user.
 * update: `SnowflakeAdminAPISecretARN` parameter as the ARN of the secret created above for the `panther_admin` user.
@@ -487,9 +487,8 @@ You can quickly test if the data ingestion is working by running a simple query:
 SELECT count(1) AS c FROM panther_views.public.all_logs ;
 ```
 
-The configuration can be tested from the [Data Explorer](../../data-analytics/data-explorer.md). Run some same queries over a table that you know has data \(check via Snowflake console\).
+The configuration can be tested from the [Data Explorer](../../data-analytics/data-explorer.md). Run some same queries over a table that you know has data (check via Snowflake console).
 
 #### Rotating Secrets
 
 To rotate secrets, create a NEW user and edit the secret replacing the old user and password with the new user and password. Wait one hour before deleting/disabling the old user in Snowflake.
-

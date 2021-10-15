@@ -13,12 +13,12 @@ CrowdStrike customers must have the [Falcon Data Replicator](https://developer.c
 3. Click **Create new credentials** under the **FDR AWS S3 Credentials and SQS Queue** section
 4. Copy down the Client ID, Secret ID, and SQS URL for the next steps
 
-![](../../.gitbook/assets/crowdstrike-fdr-creds-page.png)
+![](../../../../.gitbook/assets/crowdstrike-fdr-creds-page.png)
 
 ## Create a New CrowdStrike Source in Panther
 
 1. Login to your Panther deployment
-2. Go to **Integrations &gt; Log Sources** from the sidebar menu
+2. Go to **Integrations > Log Sources **from the sidebar menu
 3. Click **Add Source**
 4. Select **CrowdStrike** from the list of available types
 5. Fill in the fields below:
@@ -29,5 +29,4 @@ CrowdStrike customers must have the [Falcon Data Replicator](https://developer.c
 
 You are done! You can now start writing detections and exploring your CrowdStrike data.
 
-![](../../.gitbook/assets/crowdstrike-add-integration.png)
-
+![](../../../../.gitbook/assets/crowdstrike-add-integration.png)

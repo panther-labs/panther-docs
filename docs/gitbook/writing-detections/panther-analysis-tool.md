@@ -4,7 +4,7 @@ The `panther_analysis_tool` is an [open source](https://github.com/panther-labs/
 
 It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
 
-For more information on tailoring detections with dynamic alert fields, see [alert field overrides]()
+For more information on tailoring detections with dynamic alert fields, see [alert field overrides](broken-reference)
 
 ## Installation
 
@@ -31,7 +31,7 @@ Each analysis consists of:
 
 Rules are Python functions to detect suspicious behaviors. Returning a value of `True` indicates suspicious activity, which triggers an alert.
 
-First, [write your rule](rules.md) and save it \(in your folder of choice\) as `my_new_rule.py`:
+First, [write your rule](rules.md) and save it (in your folder of choice) as `my_new_rule.py`:
 
 ```python
 def rule(event):
@@ -40,7 +40,7 @@ def rule(event):
 
 Then, create a specification file using the template below:
 
-```text
+```
 AnalysisType: rule
 DedupPeriodMinutes: 60 # 1 hour
 DisplayName: Example Rule to Check the Format of the Spec
@@ -70,30 +70,30 @@ When this rule is uploaded, each of the fields you would normally populate in th
 
 A complete list of rule specification fields:
 
-| Field Name | Required | Description | Expected Value |
-| :--- | :--- | :--- | :--- |
-| `AnalysisType` | Yes | Indicates whether this analysis is a rule, policy, or global | `rule` |
-| `Enabled` | Yes | Whether this rule is enabled | Boolean |
-| `FileName` | Yes | The path \(with file extension\) to the python rule body | String |
-| `RuleID` | Yes | The unique identifier of the rule | String |
-| `LogTypes` | Yes | The list of logs to apply this rule to | List of strings |
-| `Severity` | Yes | What severity this rule is | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
-| `Description` | No | A brief description of the rule | String |
-| `DedupPeriodMinutes` | No | The time period \(in minutes\) during which similar events of an alert will be grouped together | `15`,`30`,`60`,`180` \(3 hours\),`720` \(12 hours\), or `1440` \(24 hours\) |
-| `DisplayName` | No | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set. | String |
-| `OutputIds` | No | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings |
-| `Reference` | No | The reason this rule exists, often a link to documentation | String |
-| `Runbook` | No | The actions to be carried out if this rule returns an alert, often a link to documentation | String |
-| `SummaryAttributes` | No | A list of fields that alerts should summarize. | List of strings |
-| `Threshold` | No | How many events need to trigger this rule before an alert will be sent. | Integer |
-| `Tags` | No | Tags used to categorize this rule | List of strings |
-| `Tests` | No | Unit tests for this rule. | List of maps |
+| Field Name           | Required | Description                                                                                                                                                 | Expected Value                                                               |
+| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `AnalysisType`       | Yes      | Indicates whether this analysis is a rule, policy, or global                                                                                                | `rule`                                                                       |
+| `Enabled`            | Yes      | Whether this rule is enabled                                                                                                                                | Boolean                                                                      |
+| `FileName`           | Yes      | The path (with file extension) to the python rule body                                                                                                      | String                                                                       |
+| `RuleID`             | Yes      | The unique identifier of the rule                                                                                                                           | String                                                                       |
+| `LogTypes`           | Yes      | The list of logs to apply this rule to                                                                                                                      | List of strings                                                              |
+| `Severity`           | Yes      | What severity this rule is                                                                                                                                  | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
+| `Description`        | No       | A brief description of the rule                                                                                                                             | String                                                                       |
+| `DedupPeriodMinutes` | No       | The time period (in minutes) during which similar events of an alert will be grouped together                                                               | `15`,`30`,`60`,`180` (3 hours),`720` (12 hours), or `1440` (24 hours)        |
+| `DisplayName`        | No       | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set.                                                      | String                                                                       |
+| `OutputIds`          | No       | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings                                                              |
+| `Reference`          | No       | The reason this rule exists, often a link to documentation                                                                                                  | String                                                                       |
+| `Runbook`            | No       | The actions to be carried out if this rule returns an alert, often a link to documentation                                                                  | String                                                                       |
+| `SummaryAttributes`  | No       | A list of fields that alerts should summarize.                                                                                                              | List of strings                                                              |
+| `Threshold`          | No       | How many events need to trigger this rule before an alert will be sent.                                                                                     | Integer                                                                      |
+| `Tags`               | No       | Tags used to categorize this rule                                                                                                                           | List of strings                                                              |
+| `Tests`              | No       | Unit tests for this rule.                                                                                                                                   | List of maps                                                                 |
 
 ### Rule Tests
 
 Tests help validate that your rule will behave as intended and detect the early signs of a breach. In your spec file, add the `Tests` key with sample cases:
 
-```text
+```
 Tests:
   -
     Name: Name to describe our first test
@@ -115,7 +115,7 @@ Try to cover as many test cases as possible, including both true and false posit
 
 Policies are Python functions to detect misconfigured cloud infrastructure. Returning a value of `True` indicates this resource is valid and properly configured. Returning `False` indicates a policy failure, which triggers an alert.
 
-First, [write your policy](policies.md) and save it \(in your folder of choice\) as `my_new_policy.py`:
+First, [write your policy](policies.md) and save it (in your folder of choice) as `my_new_policy.py`:
 
 ```python
 def polcy(resource):
@@ -124,7 +124,7 @@ def polcy(resource):
 
 Then, create a specification file using the template below:
 
-```text
+```
 AnalysisType: policy
 Enabled: true
 Filename: my_new_policy.py
@@ -145,29 +145,29 @@ Reference: https://www.link-to-info.io
 
 A complete list of policy specification fields:
 
-| Field Name | Required | Description | Expected Value |
-| :--- | :--- | :--- | :--- |
-| `AnalysisType` | Yes | Indicates whether this specification is defining a policy or a rule | `policy` |
-| `Enabled` | Yes | Whether this policy is enabled | Boolean |
-| `FileName` | Yes | The path \(with file extension\) to the python policy body | String |
-| `PolicyID` | Yes | The unique identifier of the policy | String |
-| `ResourceTypes` | Yes | What resource types this policy will apply to | List of strings |
-| `Severity` | Yes | What severity this policy is | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
-| `ActionDelaySeconds` | No | How long \(in seconds\) to delay auto-remediations and alerts, if configured | Integer |
-| `AutoRemediationID` | No | The unique identifier of the auto-remediation to execute in case of policy failure | String |
-| `AutoRemediationParameters` | No | What parameters to pass to the auto-remediation, if one is configured | Map |
-| `Description` | No | A brief description of the policy | String |
-| `DisplayName` | No | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String |
-| `Reference` | No | The reason this policy exists, often a link to documentation | String |
-| `Runbook` | No | The actions to be carried out if this policy fails, often a link to documentation | String |
-| `Tags` | No | Tags used to categorize this policy | List of strings |
-| `Tests` | No | Unit tests for this policy. | List of maps |
+| Field Name                  | Required | Description                                                                                           | Expected Value                                                               |
+| --------------------------- | -------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `AnalysisType`              | Yes      | Indicates whether this specification is defining a policy or a rule                                   | `policy`                                                                     |
+| `Enabled`                   | Yes      | Whether this policy is enabled                                                                        | Boolean                                                                      |
+| `FileName`                  | Yes      | The path (with file extension) to the python policy body                                              | String                                                                       |
+| `PolicyID`                  | Yes      | The unique identifier of the policy                                                                   | String                                                                       |
+| `ResourceTypes`             | Yes      | What resource types this policy will apply to                                                         | List of strings                                                              |
+| `Severity`                  | Yes      | What severity this policy is                                                                          | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
+| `ActionDelaySeconds`        | No       | How long (in seconds) to delay auto-remediations and alerts, if configured                            | Integer                                                                      |
+| `AutoRemediationID`         | No       | The unique identifier of the auto-remediation to execute in case of policy failure                    | String                                                                       |
+| `AutoRemediationParameters` | No       | What parameters to pass to the auto-remediation, if one is configured                                 | Map                                                                          |
+| `Description`               | No       | A brief description of the policy                                                                     | String                                                                       |
+| `DisplayName`               | No       | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String                                                                       |
+| `Reference`                 | No       | The reason this policy exists, often a link to documentation                                          | String                                                                       |
+| `Runbook`                   | No       | The actions to be carried out if this policy fails, often a link to documentation                     | String                                                                       |
+| `Tags`                      | No       | Tags used to categorize this policy                                                                   | List of strings                                                              |
+| `Tests`                     | No       | Unit tests for this policy.                                                                           | List of maps                                                                 |
 
 ### Policy Tests
 
 In the spec file, add the following `Tests` key:
 
-```text
+```
 Tests:
   -
     Name: Name to describe our first test.
@@ -224,14 +224,14 @@ Tests:
 ```
 
 {% hint style="info" %}
-The value of `Resource` can be a JSON object copied directly from the Policies &gt; Resources explorer.
+The value of `Resource` can be a JSON object copied directly from the Policies > Resources explorer.
 {% endhint %}
 
 ## Unit Test Mocking
 
 Both policy and rule tests support unit test mocking. In order to configure mocks for a particular test case, add the `Mocks` key to your test case. The `Mocks` key is used to define a list of functions you want to mock, and the value that should be returned when that function is called. Multiple functions can be mocked in a single test. For example, if we have a rule test and want to mock the function `get_counter` to always return a `1` and the function `geoinfo_from_ip` to always return a specific set of geo IP info, we could write our unit test like this:
 
-```text
+```
 Tests:
   -
     Name: Test With Mock
@@ -255,7 +255,7 @@ Tests:
       }
 ```
 
-Mocking allows us to emulate network calls without requiring API keys or network access in our CI/CD pipeline, and without muddying the state of external tracking systems \(such as the panther KV store\).
+Mocking allows us to emulate network calls without requiring API keys or network access in our CI/CD pipeline, and without muddying the state of external tracking systems (such as the panther KV store).
 
 ## Running Tests
 
@@ -279,7 +279,7 @@ Global functions allow common logic to be shared across either rules or policies
 Globals defined outside of the `global_helpers` folder will not be loaded.
 {% endhint %}
 
-First, create your Python file \(`global_helpers/acmecorp.py`\):
+First, create your Python file (`global_helpers/acmecorp.py`):
 
 ```python
 from fnmatch import fnmatch
@@ -300,7 +300,7 @@ Filename: acmecorp.py
 Description: A set of helpers internal to acme-corp
 ```
 
-Finally, use this helper in a policy \(or a rule\):
+Finally, use this helper in a policy (or a rule):
 
 ```python
 import acmecorp
@@ -333,4 +333,3 @@ For Panther Cloud customers, file a support ticket to gain upload access to your
 ## Pack Source
 
 See [here](detection-packs.md) for details on using `panther_analysis_tool` with detection packs and pack sources.
-

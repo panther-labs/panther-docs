@@ -2,7 +2,7 @@
 
 Destinations are integrations that receive alerts from rules and policies.
 
-Alerts are routed based on severity \(by default\) and can dispatch to multiple destinations simultaneously, such as creating a Jira ticket, sending an email, and creating a PagerDuty Incident.
+Alerts are routed based on severity (by default) and can dispatch to multiple destinations simultaneously, such as creating a Jira ticket, sending an email, and creating a PagerDuty Incident.
 
 Destinations can be overridden on a per-rule or per-policy basis by using the detection metadata or overrides.
 
@@ -12,18 +12,18 @@ AWS destinations require IAM configurations to grant permissions for Panther to 
 
 ## Supported Destinations
 
-| Name | Homepage |
-| :---: | :--- |
-| Amazon SNS | [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/) |
-| Amazon SQS | [https://aws.amazon.com/sqs/](https://aws.amazon.com/sqs/) |
-| Asana | [https://developers.asana.com/docs](https://developers.asana.com/docs) |
-| Custom Webhook | [https://docs.runpanther.io](custom_webhook.md) |
-| Github | [https://github.com/](https://github.com/) |
-| Jira | [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira) |
+|       Name      | Homepage                                                                                                                                       |
+| :-------------: | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Amazon SNS   | [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/)                                                                                     |
+|    Amazon SQS   | [https://aws.amazon.com/sqs/](https://aws.amazon.com/sqs/)                                                                                     |
+|      Asana      | [https://developers.asana.com/docs](https://developers.asana.com/docs)                                                                         |
+|  Custom Webhook | [https://docs.runpanther.io](custom_webhook.md)                                                                                                |
+|      Github     | [https://github.com/](https://github.com)                                                                                                      |
+|       Jira      | [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)                                                             |
 | Microsoft Teams | [https://products.office.com/en-us/microsoft-teams/group-chat-software](https://products.office.com/en-us/microsoft-teams/group-chat-software) |
-| OpsGenie | [https://www.atlassian.com/software/opsgenie/what-is-opsgenie](https://www.atlassian.com/software/opsgenie/what-is-opsgenie) |
-| PagerDuty | [https://www.pagerduty.com/](https://www.pagerduty.com/) |
-| Slack | [https://slack.com/](https://slack.com/) |
+|     OpsGenie    | [https://www.atlassian.com/software/opsgenie/what-is-opsgenie](https://www.atlassian.com/software/opsgenie/what-is-opsgenie)                   |
+|    PagerDuty    | [https://www.pagerduty.com/](https://www.pagerduty.com)                                                                                        |
+|      Slack      | [https://slack.com/](https://slack.com)                                                                                                        |
 
 ## Routing Order Precedence
 
@@ -36,29 +36,29 @@ Alert routing is based on the following order of precedence, from lowest precede
 
 ## Creating a New Destination
 
-To create a destination, navigate to `Integrations` &gt; `Alert Destinations` and select `Add Destination`.
+To create a destination, navigate to `Integrations` > `Alert Destinations` and select `Add Destination`.
 
-![](../.gitbook/assets/screen-shot-2021-09-17-at-1.53.11-pm.png)
+![](../../../.gitbook/assets/screen-shot-2021-09-17-at-1.53.11-pm.png)
 
 You will then be prompted to select a destination type.
 
 Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine-grained control of destination routing.
 
-![](../.gitbook/assets/readme-destination-types%20%288%29%20%282%29%20%283%29.png)
+![](<../../../.gitbook/assets/readme-destination-types (8) (2) (3).png>)
 
 Next, add a `Display Name` to distinguish the destination from others in the Panther UI and optionally select the associated severities for this destination.
 
 Each destination type will have specific configuration options based on the system's API. See the destination-specific setup instructions in the following pages for more details.
 
-![](../.gitbook/assets/readme-settings-example%20%288%29%20%282%29%20%289%29.png)
+![](<../../../.gitbook/assets/readme-settings-example (8) (2) (9).png>)
 
 Finally, click the `Add Destination` button to save the configuration. You will be prompted to optionally send a test alert to check if everything was set up correctly.
 
-![](../.gitbook/assets/readme-test%20%283%29%20%283%29%20%285%29%20%286%29%20%284%29.png)
+![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (4).png>)
 
 Let's send a test to make sure everything is working as expected.
 
-![](../.gitbook/assets/readme-test-success.png)
+![](../../../.gitbook/assets/readme-test-success.png)
 
 If successful, click `Finish Setup`. You are now ready to receive alerts!
 
@@ -66,7 +66,7 @@ If successful, click `Finish Setup`. You are now ready to receive alerts!
 
 An existing destination may be modified or deleted by selecting the triple-dot button. From here, you can modify the display name, the severities, and the specific configurations. Alternatively, you can also delete the destination.
 
-![](../.gitbook/assets/readme-modify.png)
+![](../../../.gitbook/assets/readme-modify.png)
 
 ## Workflow Automation
 
@@ -94,7 +94,7 @@ A Custom Webhook will deliver an alert with the following schema:
 ```
 
 {% hint style="info" %}
-The [AWSDateTime](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html) scalar type represents a valid extended ISO 8601 DateTime string. In other words, this scalar type accepts datetime strings of the form YYYY-MM-DDThh:mm:ss.sssZ. The field after the seconds field is a nanoseconds field. It can accept between 1 and 9 digits. The seconds and nanoseconds fields are optional \(the seconds field must be specified if the nanoseconds field is to be used\). The time zone offset is compulsory for this scalar. The time zone offset must either be Z \(representing the UTC time zone\) or be in the format ±hh:mm:ss. The seconds field in the timezone offset will be considered valid even though it is not part of the ISO 8601 standard.
+The [AWSDateTime](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html) scalar type represents a valid extended ISO 8601 DateTime string. In other words, this scalar type accepts datetime strings of the form YYYY-MM-DDThh:mm:ss.sssZ. The field after the seconds field is a nanoseconds field. It can accept between 1 and 9 digits. The seconds and nanoseconds fields are optional (the seconds field must be specified if the nanoseconds field is to be used). The time zone offset is compulsory for this scalar. The time zone offset must either be Z (representing the UTC time zone) or be in the format ±hh:mm:ss. The seconds field in the timezone offset will be considered valid even though it is not part of the ISO 8601 standard.
 {% endhint %}
 
 ### Example JSON payload:
@@ -118,4 +118,3 @@ The [AWSDateTime](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.ht
   "version": "CJm9PiaXV0q8U0JhoFmE6L21ou7e5Ek0"
 }
 ```
-

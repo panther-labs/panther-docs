@@ -30,21 +30,21 @@ def title(event):
 
 New globals can be created from the [Panther Analysis Tool](panther-analysis-tool.md#globals) or in the Panther UI.
 
-To create a new global, navigate to `Analysis` &gt; `Helpers`:
+To create a new global, navigate to `Analysis` > `Helpers`:
 
-![List Globals](../.gitbook/assets/globals-list%20%287%29%20%283%29%20%286%29.png)
+![List Globals](<../../../.gitbook/assets/globals-list (7) (3) (6).png>)
 
 Click `CREATE NEW`:
 
-![Create New Global](../.gitbook/assets/globals-create%20%287%29%20%281%29%20%289%29.png)
+![Create New Global](<../../../.gitbook/assets/globals-create (7) (1) (9).png>)
 
 Type your Python functions, then click `CREATE`. This global can now be imported in your rules or policies.
 
 ## Popular Helpers
 
-#### deep\_get\(\)
+#### deep_get()
 
-Located in [**panther\_base\_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
+Located in [**panther_base_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
 
 `deep_get()` can be used to return keys that are nested within the python dictionaries.  This function is useful for safely returning nested keys and avoiding an `AttributeError` when a key is not present. 
 
@@ -60,7 +60,7 @@ def deep_get(dictionary: dict, *keys, default=None):
 
 Example:
 
-With the following JSON, the deep\_get function would return the value of result.
+With the following JSON, the deep_get function would return the value of result.
 
 ```python
 { "outcome": { "reason": "VERIFICATION_ERROR", "result": "FAILURE" }}
@@ -72,9 +72,9 @@ deep_get(event, "outcome", "result") == "FAILURE"
 
 An example of this can be found in the [Geographically Improbable Okta Login](https://github.com/panther-labs/panther-analysis/blob/master/okta_rules/okta_geo_improbable_access.yml) detection.
 
-#### is\_ip_\__in\_network\(\)
+#### is_ip_\__in_network()
 
-Located in [**panther\_base\_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
+Located in [**panther_base_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
 
 `is_ip_in_network()` is a function to check if an IP address is within a list of IP ranges.  This function can be used with a list of known internal networks for added context to the detection.
 
@@ -97,9 +97,9 @@ if is_ip_in_network(event.get("ipaddr"), SHARED_IP_SPACE):
 
 An example can be found in the [OneLogin Active Login Activity](https://github.com/panther-labs/panther-analysis/blob/master/onelogin_rules/onelogin_active_login_activity.py) detection.
 
-#### pattern\_match\(\)
+#### pattern_match()
 
-Located in [**panther\_base\_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
+Located in [**panther_base_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
 
 Wrapper around [fnmatch](https://docs.python.org/3/library/fnmatch.html) for basic pattern globs. This can be used when simple pattern matching is needed without the requirement of using regex.
 
@@ -111,7 +111,7 @@ def pattern_match(string_to_match: str, pattern: str):
 
 Example:
 
-With the following JSON the pattern\_match\(\) function would return true. 
+With the following JSON the pattern_match() function would return true. 
 
 ```python
 { "operation": "REST.PUT.OBJECT" }
@@ -121,11 +121,11 @@ With the following JSON the pattern\_match\(\) function would return true.
 pattern_match(event.get("operation", ""), "REST.*.OBJECT")
 ```
 
-An example can be found in the [AWS S3 Access Error](https://github.com/panther-labs/panther-analysis/blob/master/aws_s3_rules/aws_s3_access_error.py) detection.
+An example can be found in the [AWS S3 Access Error](https://github.com/panther-labs/panther-analysis/blob/master/aws_s3\_rules/aws_s3\_access_error.py) detection.
 
-#### pattern\_match\_list\(\)
+#### pattern_match_list()
 
-Located in [**panther\_base\_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
+Located in [**panther_base_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
 
 Similar to `pattern_match()`, `pattern_match_list()` can check that a string matches any pattern in a given list.
 
@@ -137,7 +137,7 @@ def pattern_match_list(string_to_match: str, patterns: Sequence[str]):
 
 Example:
 
-With the following JSON the pattern\_match\_list\(\) function would return true. 
+With the following JSON the pattern_match_list() function would return true. 
 
 ```python
 { "userAgent": "aws-sdk-go/1.29.7 (go1.13.7; darwin; amd64) APN/1.0 HashiCorp/1.0 Terraform/0.12.24 (+https://www.terraform.io)" }
@@ -153,11 +153,11 @@ ALLOWED_USER_AGENTS = {
 pattern_match_list(event.get("userAgent"), ALLOWED_USER_AGENTS)
 ```
 
-An example can be found in the [AWS EC2 Manual Security Group Change](https://github.com/panther-labs/panther-analysis/blob/master/aws_cloudtrail_rules/aws_ec2_manual_security_group_changes.py) detection.
+An example can be found in the [AWS EC2 Manual Security Group Change](https://github.com/panther-labs/panther-analysis/blob/master/aws_cloudtrail_rules/aws_ec2\_manual_security_group_changes.py) detection.
 
-#### aws\_strip\_role\_session\_id\(\)
+#### aws_strip_role_session_id()
 
-Located in [**panther\_base\_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
+Located in [**panther_base_helpers**](https://github.com/panther-labs/panther-analysis/blob/master/global_helpers/panther_base_helpers.py)**.**
 
 `aws_strip_role_session_id()` strips the session ID our of the arn. 
 
@@ -184,5 +184,4 @@ aws_strip_role_session_id(user_identity.get("arn", ""))
 
 An example can be found in the [AWS Unauthorized API Call](https://github.com/panther-labs/panther-analysis/blob/master/aws_cloudtrail_rules/aws_unauthorized_api_call.py) detection.
 
-#### 
-
+####
