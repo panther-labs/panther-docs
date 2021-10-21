@@ -1,6 +1,6 @@
 # Panther Analysis Tool
 
-The `panther_analysis_tool` is an [open source](https://github.com/panther-labs/panther_analysis_tool) utility for testing, packaging, and deploying Panther detections from source code.
+The `panther_analysis_tool` is an [open source](https://github.com/panther-labs/panther\_analysis\_tool) utility for testing, packaging, and deploying Panther detections from source code.
 
 It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
 
@@ -83,6 +83,7 @@ A complete list of rule specification fields:
 | `DisplayName`        | No       | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set.                                                      | String                                                                       |
 | `OutputIds`          | No       | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings                                                              |
 | `Reference`          | No       | The reason this rule exists, often a link to documentation                                                                                                  | String                                                                       |
+| `Reports`            | No       | A mapping of framework or report names to values this rule covers for that framework                                                                        | Map of strings to list of strings                                            |
 | `Runbook`            | No       | The actions to be carried out if this rule returns an alert, often a link to documentation                                                                  | String                                                                       |
 | `SummaryAttributes`  | No       | A list of fields that alerts should summarize.                                                                                                              | List of strings                                                              |
 | `Threshold`          | No       | How many events need to trigger this rule before an alert will be sent.                                                                                     | Integer                                                                      |
@@ -159,6 +160,7 @@ A complete list of policy specification fields:
 | `Description`               | No       | A brief description of the policy                                                                     | String                                                                       |
 | `DisplayName`               | No       | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String                                                                       |
 | `Reference`                 | No       | The reason this policy exists, often a link to documentation                                          | String                                                                       |
+| `Reports`                   | No       | A mapping of framework or report names to values this policy covers for that framework                | Map of strings to list  of strings                                           |
 | `Runbook`                   | No       | The actions to be carried out if this policy fails, often a link to documentation                     | String                                                                       |
 | `Tags`                      | No       | Tags used to categorize this policy                                                                   | List of strings                                                              |
 | `Tests`                     | No       | Unit tests for this policy.                                                                           | List of maps                                                                 |
