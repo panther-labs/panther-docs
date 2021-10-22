@@ -10,7 +10,7 @@ This guide assumes that an S3 bucket or Firehose has already been created. If yo
 
 ## Setup Fluentd
 
-### Step 1. Install Fluentd \(td-agent\)
+### Step 1. Install Fluentd (td-agent)
 
 Follow the Fluentd installation [instructions](https://docs.fluentd.org/installation/install-by-dmg) for the machine from which you want to collect MacOS System Logs. This guide will specifically cover using td-agent as the service to collect logs.
 
@@ -18,7 +18,7 @@ Follow the Fluentd installation [instructions](https://docs.fluentd.org/installa
 
 Use the command below to install the Fluentd MacOS  plugin.
 
-```text
+```
 sudo /opt/td-agent/bin/fluent-gem install fluent-plugin-macos-log
 ```
 
@@ -26,15 +26,15 @@ Further documentation about this plugin can be found on [Github](https://github.
 
 ### Step 3. Edit Fluentd Configuration
 
-Edit the Fluentd configuration with the `aws_key_id`, `aws_sec_key`, `s3_bucket`, and `s3_region` below.
+The configuration information that is included by default can be removed if not in use. Use the Fluentd configuration below and add your `aws_key_id`, `aws_sec_key`, `s3_bucket`, and `s3_region` information.
 
-Fluentd and td-agent will attempt to run services on conflicting ports. If this is a new installation you will need to change the ports in the configuration file or remove the default configuration from the file.
+Fluentd and td-agent will attempt to run services on conflicting ports. If this is a new installation you will need to change the ports in the configuration file or remove the default configuration from the file.&#x20;
 
-```text
+```
 /etc/td-agent/td-agent.conf
 ```
 
-```text
+```
 <source>
   @type macoslog
   style ndjson
@@ -73,7 +73,7 @@ Fluentd and td-agent will attempt to run services on conflicting ports. If this 
 
 ### Step 4. Point Fluentd to Configuration File and Validate
 
-```text
+```
 # Point fluentd to configuration file
 fluentd -c /etc/td-agent/td-agent.conf
 
@@ -89,12 +89,12 @@ After a few minutes have passed, verify that events are being logged to the S3 b
 
 ### Step 1. Create a Custom Schema
 
-Go to **Log Analysis &gt; Custom Schema &gt; + New Schema** and enter the below values in the schema fields:
+Go to **Log Analysis > Custom Schema > + New Schema** and enter the below values in the schema fields:
 
-**Name:** Custom.MacOSSystemLogs  
+**Name:** Custom.MacOSSystemLogs\
 **Description:** MacOS System Logs for Application, Security, System
 
-```text
+```
 version: 0
 fields:
 - name: pid
@@ -162,11 +162,9 @@ fields:
   type: float
 ```
 
-### Step 2. Onboard the S3 bucket <a id="Step-2.-Onboard-the-S3-bucket"></a>
+### Step 2. Onboard the S3 bucket <a href="step-2.-onboard-the-s3-bucket" id="step-2.-onboard-the-s3-bucket"></a>
 
 Follow the [S3 source](../../data-onboarding/data-transports/s3.md) onboarding documentation and use the S3 Bucket used in the previous setup.
 
 Select the log type `Custom.MacOSSystemLogs` and prefix `macos/` in the onboarding steps. After completing the bucket onboarding, data should now be flowing into Panther!
-
-
 
