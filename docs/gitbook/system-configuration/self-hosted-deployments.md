@@ -32,11 +32,14 @@ When deploying Panther, you will be provided with a template URL to a root panth
 
 #### Configure deployment parameters
 
-The root stack has a number of deployment parameters you can configure to control how Panther is deployed. We recommend changing at least these parameters:
+The Panther CloudFormation stack has a number of configurable deployment parameters. Pay special attention to the following options:
 
-* `FirstUserEmail`:  the email address provided here will be used to send the invite to the first user of Panther. Be sure its an email you have access to.
-* `OnboardSelf`: this parameter defaults to `true`, but for most self hosted customers we recommend setting this parameter to `false` for at least the first deployment.
-* `PulumiSecretArn` and `PulumiSecretKeyArn` (v1.22+) - provided by Panther support - you will have a dedicated [Pulumi](https://www.pulumi.com) access token in our organization.
+* `FirstUserEmail` _(required)_: a Panther admin invite will be sent to this email address. Updates to this value are ignored after the first successful deploy.
+* `PulumiSecretArn` and `PulumiSecretKeyArn` (_required in v1.22+_): these values will be provided by our team - you will have a dedicated [Pulumi](https://www.pulumi.com) access token in our organization.
+* `OnboardSelf`: whether you want Panther to onboard its own AWS account for monitoring.
+* `SentryEnvironment`: by default, application errors are sent to [Sentry](https://sentry.io) for us to triage. We strongly recommend keeping this enabled with the default value (`prod`), but if that's not an option for you, you can disable the Sentry integration by setting this to a blank string.
+* `SupportRoleIdentityAccountId`: by default, a read-only SupportRole is deployed with Panther which our on-call engineers can assume to triage application errors. This role does **not** have access to your data and we’d encourage you to keep it enabled so we can deliver a better support experience. However, if you prefer, this role can be disabled by setting the `SupportRoleIdentityAccountId` to a blank string.
+* `OpsRoleIdentityAccountId`: a non-empty value will deploy an OperationsRole with service-level admin permissions for migrations, data recoveries, and other operational emergencies. We recommend keeping this role disabled until necessary (it's off by default).
 
 #### Minimize initial configurations
 
