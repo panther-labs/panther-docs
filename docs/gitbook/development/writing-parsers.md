@@ -1,6 +1,15 @@
+# Note
+
+These instructions were developed for Panther's [open source repository](https://github.com/panther-labs/panther). The portions of the instructions below that pertain to developing testing code reference these open source libraries. Panther became closed-source in 2021, and these libraries have continued to evolve. _If you are a current SaaS customer and wish to onboard a new log source type, you only need to create a test event `.yml` file (step 0) and a log schema `.go` file (step 1)._ Please submit the files you create to your Support Engineer for inclusion in a future release of Panther.
+
+
 # Parsers
 
-To add support for a new log type we should: 1. Define the schema for the new log type 1. Provide a parser to parse a single log item 1. Build and validate a log type entry 1. Export the log type entry so Panther can use it
+To add support for a new log type we should: 
+1. Define the schema for the new log type 
+2. Provide a parser to parse a single log item
+3. Build and validate a log type entry
+4. Export the log type entry so Panther can use it
 
 ## Code structure
 
@@ -37,7 +46,7 @@ Our goal here is to parse a JSON string of a `Foo.Event` and produce a Panther l
 
 Panther provides the `logtesting` package with helpers for testing log parsers. This module allows to run tests declared in YAML files using the `logtesting.RunTestsFromYAML` function. These tests verify that the parser produces the expected log event(s) for a log entry. This method ensures we haven't missed any fields or indicator values throughout the process.
 
-We write a test for `Foo.Event` in a YAML file at `foologs/testdata/foologs_tests.yml`
+We write a test for `Foo.Event` in a YAML file at `foologs/testdata/foologs_tests.yml`. The `input` is the raw log from the log source, and the `result` is the log after it has been processed by the log processor:
 
 ```yaml
 name: sample_foo_event
@@ -75,11 +84,9 @@ result: |
   }
 ```
 
-Note that Panther adds some fields to the output event. We call these fields ['panther fields'](../data-analytics/panther-fields.md) and they are prefixed with `p_` to avoid name collisions.
+Note the additional fields beginning with `p_` appended to the `result`. We call these fields ['panther fields'](../data-analytics/panther-fields.md) and they are prefixed with `p_` to avoid name collisions. To cause these fields to appear in processed logs, a special tag called a `scanner` must be added to any raw event fields that you wish to appear in a given panther field (see "Indicator Strings", below). 
 
-Also note that the `result` JSON _includes all the panther-fields_ so we can verify that the log processing is correct. For testing purposes `p_parse_time` and `p_row_id` are omitted since they would vary on each run of the test. The helper only verifies that these fields are non-empty and of valid format in the parsed result.
-
-Then to run the test we write a simple go test at `foologs/foologs_test.go`. The test will read tests from a YAML file and run them.
+To run the test, we write a simple go test at `foologs/foologs_test.go`. The test will read tests from a YAML file and run them.
 
 ```go
 package foologs_test
@@ -99,9 +106,9 @@ The test should fail at this point since we haven't defined any log types yet.
 
 ## Step 1: Defining the log type schema
 
-First order of bussiness is to define the schema for the `Foo.Event` log type. Panther uses Go [structs](https://tour.golang.org/moretypes/2) to define the schema of a log type.
+Now we define the schema for the `Foo.Event` log type. Panther uses Go [structs](https://tour.golang.org/moretypes/2) to define the schema of a log type.
 
-We can represent the schema of a `Foo.Event` as a Go struct by:
+We can represent the schema of a `Foo.Event` as a Go struct with following in `foologs/foologs.go`:
 
 ```go
 package foologs
@@ -125,9 +132,17 @@ type User struct {
 
 ### Field types
 
-Fields in a log event struct should use the types defined in the `pantherlog` module. These types handle `null` values and missing JSON fields by omitting them in the output. Empty strings (`""`) and zero numeric values are never omitted in order to preserve as much as possible from the original log event.
+Fields in a log event `struct` should use the types defined in the `pantherlog` [module](https://github.com/panther-labs/panther/blob/master/internal/log_analysis/log_processor/pantherlog/pantherlog.go#L33) (Note: please ask your support engineer for the current list of supported types in the closed-source version of this module). These types handle `null` values and missing JSON fields by omitting them in the output (`result` portion of the test file, above). Empty strings (`""`) and zero numeric values are included in the output in order to preserve as much as possible from the original log event.
 
-Panther uses [struct tags](https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go) to specify field attributes. All fields _must_ have some `description` to document the contents of this field. These documentation strings will be used to generate user documentation from this code. The `json` tag _must_ use the exact name used in the logs. Panther automatically adds `omitempty` to all fields.
+The types are specified in the struct as `pantherlog.<Type>`, where `<Type>` is one of the types listed in the code linked above. See examples on this page.
+
+The `RawMessage` type is for a JSON blob for which you don't wish to create sub-`struct` objects. Note that in order to search for nested attributes and values in your logs using [JSONPath](https://goessner.net/articles/JsonPath/)-like syntax in Panther Data Explorer, you must define sub-`struct` types in your log schema file. You can still search `RawMessage` fields, but you will have to use the `json_extract` [function in Athena](https://prestodb.io/docs/0.217/functions/json.html#json_extract) or the `GET_PATH` [function in Snowflake](https://docs.snowflake.com/en/sql-reference/functions/get_path.html).
+
+Panther uses [struct tags](https://www.digitalocean.com/community/tutorials/how-to-use-struct-tags-in-go) to specify field attributes. All fields _must_ have some `description` to document the contents of this field. These documentation strings will be used to generate user documentation from this code. The `json` tag _must_ use the exact field name used in the raw log. Panther automatically adds the `omitempty` option to the `json:` tag for all fields.
+
+Panther relies on the `validate:` tag to distinguish different log types. The [validator package](https://pkg.go.dev/gopkg.in/go-playground/validator.v9) defines the syntax for this tag. Panther specifically relies on the `validate:"required"` tag, which tells Panther which fields must be present in order to classify a log as a specific type. _The `validate:"required"` tag should be applied to the fewest fields absolutely necessary to identify a given log type_ to minimize processing overhead in Panther. Common fields such as timestamps generally should not be tagged as `"required"`. Additionally, before tagging a field as `"required"`, review a sample of log events from your source to verify that the field is present in _every_ log. _If a `"required"` field is not present in a log event, it will not be correctly identified. It may be dropped or incorrectly classified as a different log type_.
+
+Note: The `json:"omitempty` tag is not the same as the [validator tag](https://pkg.go.dev/gopkg.in/go-playground/validator.v9#hdr-Omit_Empty) `validate:"omitempty".
 
 #### String values
 
@@ -135,7 +150,7 @@ Panther uses [struct tags](https://www.digitalocean.com/community/tutorials/how-
 
 #### Indicator strings
 
-String values can be tagged with a `panther:"SCANNER"` to define [indicator fields](../data-analytics/panther-fields.md#indicator-fields). Note that a scanner can produce multiple indicator fields from a single value, or a different indicator field based on the value. Panther defines the following scanners
+String values can be tagged with a `panther:"<scanner>"` to define [indicator fields](../data-analytics/panther-fields.md#indicator-fields). Note that a `scanner` can produce multiple indicator fields from a single value, or a different indicator field based on the value. Panther defines the following scanners:
 
 | Scanner           | Description                                                                                                            |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -189,7 +204,20 @@ Boolean values handle `null` case by omitting the field when encoding to JSON.
 
 #### Objects
 
-If our log has nested objects we define a separate struct to define the object. Fields that have an object value should use a pointer so the nested object can be safely omitted in the output if it is `null` or missing in the log input.
+If our log has nested objects we define a separate struct to define the object. Fields that have an object value should use a pointer so the nested object can be safely omitted in the output if it is `null` or missing in the log input:
+
+```go
+type FooEvent struct {
+    User        *FooUser              `json:"user" description:"The user that made the request"`
+}
+
+type FooUser struct {
+    Username    pantherlog.String     `json:"username" description:"The username"`
+    Usertype    pantherlog.String     `json:"usertype" description:"The type of user"`
+}
+
+```
+
 
 #### Arrays
 
