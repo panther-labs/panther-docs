@@ -4,11 +4,11 @@
 | :--- | :--- |
 | **High** | **Low** |
 
-This policy validates that S3 Bucket access policies do not allow any principal for a given action on the bucket, in accordance with the principle of least privilege.
+This policy validates that S3 Bucket access policies do not allow all users (`Principal:"*"`) for a given action on the bucket, in accordance with the principle of least privilege.
 
 **Remediation**
 
-To remediate this, modify any grants in the S3 Bucket access policy that have `Effect:Allow` on `Princiapl:*`. New, more restrictive grants may be needed in their place to maintain access.
+To remediate this, modify any grants in the S3 Bucket access policy that have `Effect:Allow` on `Principal:"*"`. New, more restrictive grants may be needed in their place to maintain access.
 
 **Reference**
 
