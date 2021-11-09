@@ -2,7 +2,7 @@
 
 ### Legacy Snowflake Configuration (**Deprecated**)
 
-> Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the [supported methods](./) in the future.
+> Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the [supported methods](../) in the future.
 
 This guide assumes you already have a Snowflake instance in AWS.
 
@@ -32,7 +32,7 @@ Go to the `Settings` page of Panther and select `General Settings`. There you wi
 * Snowflake ReadOnly Lambda Role ARN
 * Snowflake Admin Lambda Role ARN
 
-![](../../../../.gitbook/assets/snowflake-settings.png)
+![](../../../../../.gitbook/assets/snowflake-settings.png)
 
 Keep these ARNs handy, we will use this later.
 
@@ -82,6 +82,7 @@ CREATE database IF NOT EXISTS panther_cloudsecurity;
 CREATE database IF NOT EXISTS panther_monitor;
 CREATE database IF NOT EXISTS panther_views;
 CREATE database IF NOT EXISTS panther_stored_procedures;
+CREATE database IF NOT EXISTS panther_lookups;
 ```
 
 #### 4. Create a read only role and an administrative role in Snowflake
@@ -100,7 +101,7 @@ GRANT CREATE STAGE, CREATE PIPE ON ALL SCHEMAS IN DATABASE PANTHER_MONITOR
 
 _**NOTE**_: be sure to update `<your warehouse>` in the first line of the SQL block below to the desired Snowflake warehouse name that you wish Panther to use.
 
-We recommend you create a dedicated Panther warehouse (e.g., PANTHER_WH), so that you can easily track costs and resize capacity independently of other Snowflake resources.
+We recommend you create a dedicated Panther warehouse (e.g., PANTHER\_WH), so that you can easily track costs and resize capacity independently of other Snowflake resources.
 
 Execute in Snowflake SQL shell:
 
@@ -238,6 +239,26 @@ GRANT SELECT
   ON FUTURE VIEWS IN SCHEMA panther_views.public
   TO ROLE panther_readonly_role;
 
+-- panther_lookups
+GRANT USAGE
+  ON DATABASE panther_lookups
+  TO ROLE panther_readonly_role;
+GRANT USAGE
+  ON SCHEMA panther_lookups.public
+  TO ROLE panther_readonly_role;
+GRANT SELECT
+  ON ALL TABLES IN SCHEMA panther_lookups.public
+  TO ROLE panther_readonly_role;
+GRANT SELECT
+  ON ALL VIEWS IN SCHEMA panther_lookups.public
+  TO ROLE panther_readonly_role;
+GRANT SELECT
+  ON FUTURE TABLES IN SCHEMA panther_lookups.public
+  TO ROLE panther_readonly_role;
+GRANT SELECT
+  ON FUTURE VIEWS IN SCHEMA panther_lookups.public
+  TO ROLE panther_readonly_role;
+
 --------------- create panther_admin_role
 CREATE ROLE IF NOT EXISTS panther_admin_role;
 
@@ -275,6 +296,17 @@ GRANT SELECT, INSERT, UPDATE
   TO ROLE PANTHER_ADMIN_ROLE;
 GRANT SELECT, INSERT, UPDATE 
   ON FUTURE TABLES IN SCHEMA PANTHER_MONITOR.PUBLIC 
+  TO ROLE PANTHER_ADMIN_ROLE;
+
+-- panther_lookups
+GRANT CREATE TABLE, CREATE VIEW, CREATE STAGE, CREATE PIPE, MODIFY 
+  ON ALL SCHEMAS IN DATABASE PANTHER_LOOKUPS 
+  TO ROLE PANTHER_ADMIN_ROLE;
+GRANT SELECT, INSERT, UPDATE 
+  ON ALL TABLES IN SCHEMA PANTHER_LOOKUPS.PUBLIC 
+  TO ROLE PANTHER_ADMIN_ROLE;
+GRANT SELECT, INSERT, UPDATE 
+  ON FUTURE TABLES IN SCHEMA PANTHER_LOOKUPS.PUBLIC 
   TO ROLE PANTHER_ADMIN_ROLE;
 
 -- panther_views
@@ -393,22 +425,22 @@ SELECT panther_stored_procedures.public.generate_secret(<user>,<password>,<wareh
 
 You can then copy-paste the result into each of the 2 secrets "plaintext" editor tab.
 
-![](../../../../.gitbook/assets/snowflake-secrets-page1a.png)
+![](../../../../../.gitbook/assets/snowflake-secrets-page1a.png)
 
 _**NOTE**_: Check to make sure that all 6 fields (_account, host, password, port, user, warehouse_) are filled out and have the correct values, otherwise the Panther lambdas may encounter issues connecting to snowflake.
 
 * Select `panther-secret` from the dropdown under `Select the encryption key`.
 * Click `Next`.
 
-![](../../../../.gitbook/assets/snowflake-secrets-page1b.png)
+![](../../../../../.gitbook/assets/snowflake-secrets-page1b.png)
 
 * You will be presented with a screen asking for the name and description of the secret. Fill these in and click `Next`.
 
-![](<../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (5).png>)
+![](<../../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (5).png>)
 
 * The next screen concerns autorotation, just click the `Next` button.
 
-![](<../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (6).png>)
+![](<../../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (6).png>)
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 
@@ -487,7 +519,7 @@ You can quickly test if the data ingestion is working by running a simple query:
 SELECT count(1) AS c FROM panther_views.public.all_logs ;
 ```
 
-The configuration can be tested from the [Data Explorer](../../data-analytics/data-explorer.md). Run some same queries over a table that you know has data (check via Snowflake console).
+The configuration can be tested from the [Data Explorer](../../../data-analytics/data-explorer.md). Run some same queries over a table that you know has data (check via Snowflake console).
 
 #### Rotating Secrets
 
