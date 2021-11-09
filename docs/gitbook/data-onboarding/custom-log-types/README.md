@@ -12,16 +12,47 @@ Panther allows users to define their own log types by adding a _Custom Log Type_
 ## Generating a Custom Log Type from Sample Logs
 
 {% hint style="info" %}
-This feature will be available in version 1.25
+This feature is available in version 1.25 and above
 {% endhint %}
 
 You can generate a schema for a custom log type by uploading sample logs into the Panther UI. To get started, follow these steps:
 
-1. Navigate to the
+* Navigate to the **Schemas **tab in the Panther UI under **Data.**
+* Click the **"plus"** button at the top right of the page next to the search bar.
+* Scroll to the bottom of the page where you'll find the option to upload sample log files.
+
+![](<../../.gitbook/assets/Screen Shot 2021-11-08 at 10.21.53 PM.png>)
+
+* Upload a sample set of logs into the UI by dragging them over the box or by selecting a files
+* Panther will then display the raw logs in the UI. You can expand the log lines to view the entire raw log.
+
+![](<../../.gitbook/assets/Screen Shot 2021-11-08 at 10.32.25 PM.png>)
+
+* You can add another sample set (which will override the sample you previously uploaded) or you can proceed to infer a schema from the sample set displayed in the UI. To do this, click **Infer Schema from All Logs.**
+* Panther will then begin to infer a schema from the raw sample logs. Depending on the number of logs uploaded, this could take some time (e.g. 30 seconds for 100 logs).
+* Once the schema is generated, it will appear in the schema editor box above the raw logs.
+
+![](broken-reference)
+
+* To ensure the schema works properly against the sample logs you uploaded and any changes you make to the schema, click **Validate and Test Schema.**
+* This test will validate that the syntax of your schema is correct and that the log samples you have uploaded into Panther are successfully matching against the schema. You should see the results appear below the schema editor box.
+* All successfully matched logs will appear under **Matched;** each log will display the column, field, and JSON view.
+
+![](broken-reference)
+
+* All unsuccessfully matched logs will appear under **Unmatched; **each log will display the error message and the raw log.
+
+![](broken-reference)
+
+* You can continue to edit the schema or upload new sample logs to iterate on the schema. Once you're done testing, ensure that you've given your schema a **Schema ID, Description, and Reference URL**. After that, you can click **Save **which will then publish the scehma.
+
+{% hint style="info" %}
+Note that the UI will only display up to 100 logs. This doesn't mean Panther can only infer from 100 logs, Panther will infer from all logs uploaded, this is just a performance characteristic to ensure fast response time when generating a schema.
+{% endhint %}
 
 ## Adding a Custom Log Type Manually
 
-You can add a _Custom Log Type_ by navigating to _Analysis_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
+You can add a _Custom Log Type_ by navigating to _Data_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
 ![](<../../../../.gitbook/assets/image (22).png>)
 
