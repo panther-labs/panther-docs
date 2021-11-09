@@ -66,6 +66,7 @@
   * [Caching](writing-detections/caching.md)
   * [Data Models](writing-detections/data-models.md)
   * [Global Helper Functions](writing-detections/globals.md)
+  * [Report Mapping](writing-detections/report-mapping.md)
   * [Panther Analysis Tool](writing-detections/panther-analysis-tool.md)
   * [Runtime Environment](writing-detections/run-time.md)
 * [Cloud Resources](resources/README.md)
