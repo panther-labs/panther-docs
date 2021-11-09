@@ -4,16 +4,16 @@
 This feature will be available in version 1.22
 {% endhint %}
 
-Panther has the ability to fetch [Zendesk audit logs ](https://developer.zendesk.com/api-reference/ticketing/account-configuration/audit_logs/)by querying the [Zendesk Support API](https://developer.zendesk.com/api-reference/ticketing/introduction/).
+Panther has the ability to fetch [Zendesk audit logs ](https://developer.zendesk.com/api-reference/ticketing/account-configuration/audit\_logs/)by querying the [Zendesk Support API](https://developer.zendesk.com/api-reference/ticketing/introduction/).
 
-In order to set up Zendesk as a log source in Panther, you'll need to authorize Panther in Zendesk and then set up Zendesk as a log source in Panther. There are two ways to authorize Panther to receive Zendesk audit logs:
+In order to set up Zendesk as a log source in Panther, you'll need to authorize Panther in Zendesk and then set up Zendesk as a log source in Panther. There are three ways to authorize Panther to receive Zendesk audit logs:
 
 * **Create a new OAuth2 App** in Zendesk and provide the app credentials to Panther
 * **Provide your Zendesk email address and password** in Panther for basic authentication
 * **Generate a Personal Access Token** in Zendesk and provide credentials to Panther
 
 {% hint style="warning" %}
-Note that Zendesk API rate limits depend on your Zendesk Suite Plan, see [here](https://developer.zendesk.com/api-reference/ticketing/account-configuration/usage_limits/) for more details
+Note that Zendesk API rate limits depend on your Zendesk Suite Plan, see [here](https://developer.zendesk.com/api-reference/ticketing/account-configuration/usage\_limits/) for more details
 {% endhint %}
 
 ## Create a new OAuth2 App (option 1)
@@ -61,7 +61,7 @@ The steps below can only be performed if you have admin permission in your Zende
 
 ![Create a API token here in the Zendesk UI](<../../../../.gitbook/assets/image (14).png>)
 
-![Find the API token here in the Zendesk UI](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/token_created.png)
+![Find the API token here in the Zendesk UI](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/token\_created.png)
 
 ## Create a new Zendesk source in Panther
 

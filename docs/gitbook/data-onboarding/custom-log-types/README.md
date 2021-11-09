@@ -9,7 +9,17 @@ Panther allows users to define their own log types by adding a _Custom Log Type_
 * You can query the data in Data Explorer. Panther will create a new table for the _Custom Log Type_, once you onboard a source that uses it.
 * You can query the data through Indicator Search
 
-## Adding a Custom Log Type
+## Generating a Custom Log Type from Sample Logs
+
+{% hint style="info" %}
+This feature will be available in version 1.25
+{% endhint %}
+
+You can generate a schema for a custom log type by uploading sample logs into the Panther UI. To get started, follow these steps:
+
+1. Navigate to the
+
+## Adding a Custom Log Type Manually
 
 You can add a _Custom Log Type_ by navigating to _Analysis_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
@@ -138,7 +148,7 @@ Panther handles logs that are not structured as JSON by using a 'parser' that tr
 
 ## Pantherlog CLI
 
-Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/ops-home.md#tools). 
+Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/ops-home.md#tools).&#x20;
 
 ### Generating a Schema from JSON samples
 
@@ -205,11 +215,11 @@ panther_analysis_tool update-custom-schemas --path ./schemas
 The uploader will check if an existing schema exists and proceed with the update or create a new one if no matching schema name is found.
 
 {% hint style="danger" %}
-The `schema`field must always be defined in the YAML file and be consistent with the existing schema name for an update to succeed. For an example see [here](https://github.com/panther-labs/panther_analysis_tool/blob/42084578fb128f79d191e17f8259c12990f94801/tests/fixtures/custom-schemas/valid/schema-1.yml#L1).
+The `schema`field must always be defined in the YAML file and be consistent with the existing schema name for an update to succeed. For an example see [here](https://github.com/panther-labs/panther\_analysis\_tool/blob/42084578fb128f79d191e17f8259c12990f94801/tests/fixtures/custom-schemas/valid/schema-1.yml#L1).
 {% endhint %}
 
 {% hint style="info" %}
 The uploaded files are validated with the same criteria as Web UI updates.
 {% endhint %}
 
-##  
+## &#x20;
