@@ -32,17 +32,17 @@ You can generate a schema for a custom log type by uploading sample logs into th
 * Panther will then begin to infer a schema from the raw sample logs. Depending on the number of logs uploaded, this could take some time (e.g. 30 seconds for 100 logs).
 * Once the schema is generated, it will appear in the schema editor box above the raw logs.
 
-![](broken-reference)
+![](<../../.gitbook/assets/view schema.png>)
 
 * To ensure the schema works properly against the sample logs you uploaded and any changes you make to the schema, click **Validate and Test Schema.**
 * This test will validate that the syntax of your schema is correct and that the log samples you have uploaded into Panther are successfully matching against the schema. You should see the results appear below the schema editor box.
 * All successfully matched logs will appear under **Matched;** each log will display the column, field, and JSON view.
 
-![](broken-reference)
+![](<../../.gitbook/assets/matched logs.png>)
 
 * All unsuccessfully matched logs will appear under **Unmatched; **each log will display the error message and the raw log.
 
-![](broken-reference)
+![](<../../.gitbook/assets/umatched logs.png>)
 
 * You can continue to edit the schema or upload new sample logs to iterate on the schema. Once you're done testing, ensure that you've given your schema a **Schema ID, Description, and Reference URL**. After that, you can click **Save **which will then publish the scehma.
 
