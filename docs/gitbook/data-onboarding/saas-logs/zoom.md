@@ -29,8 +29,8 @@ In order to create an OAuth app in Zoom, you'll need to register the app in the 
    * **Distribution** — Set this toggle to enabled to make the app publicly available in the Zoom App Marketplace. Set this at your discretion but the app does not need to be publicly available.
 4. When finished, click **Create**. A new window displaying your new OAuth app will appear.
 5. When you create your app, be sure to copy the **Client ID** and **Client Secret** for your app as you will need this to authenticate Zoom as a log source in the Panther UI.
-6. At this point, you will need the **Redirect URL** from Panther to paste into the **Redirect URL** field in the app. In order to do this, you will need to log into Panther and set up Zoom as a log source by following the directions below in the next section. Once you've made it to Step 6, you should be able to find the **Redirect URL **and continue setting up your Zoom app.
-7. Once the **Redirect URL **is entered into the OAuth App in your Zoom account, you should be set!
+6. At this point, you will need the **Redirect URL** from Panther to paste into the **Redirect URL** field and **OAuth allow list** in the app. In order to do this, you will need to log into Panther and set up Zoom as a log source by following the directions below in the next section. Once you've made it to Step 6, you should be able to find the **Redirect URL **and continue setting up your Zoom app.
+7. Once the **Redirect URL **is entered into both fields in the OAuth App in your Zoom account, you should be set!
 
 If you have trouble setting up the OAuth app in Zoom, be sure to check out[ Zoom's documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app).
 
