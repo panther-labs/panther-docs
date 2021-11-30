@@ -18,11 +18,13 @@ In this step, you will configure your SNS topic to forward messages to the SQS q
 
 2\. Go to SNS service&#x20;
 
-3\. Select your SNS topic. Click on **Create Subscription** 1. Leave the **Topic ARN** field as is.&#x20;
+3\. Select your SNS topic. Click on **Create Subscription**&#x20;
 
-4\. In the next screen, set **Protocol** to **Amazon SQS**&#x20;
+4\. Leave the **Topic ARN** field as is.&#x20;
 
-5\. In **Endpoint** add the ARN of the SQS queue that Panther created for you in Step 1. You can infer the SQS queue ARN by the URL knowing the following:
+5\. In the next screen, set **Protocol** to **Amazon SQS**&#x20;
+
+6\. In **Endpoint** add the ARN of the SQS queue that Panther created for you in Step 1. You can infer the SQS queue ARN by the URL knowing the following:
 
 * An SQS queue ARN is in the format `arn:aws:sqs:<region>:<account id>:<queue name>`&#x20;
 *   An SQS queue URL is in the format `https://sqs.<region>.amazonaws.com/<account id>/<queue name>`
