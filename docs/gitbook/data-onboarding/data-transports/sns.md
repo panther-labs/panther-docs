@@ -12,9 +12,19 @@ Keep a note of the SQS Queue URL that Panther created for you!
 
 ## Step 2: Create SNS subscription to SQS
 
-In this step, you will configure your SNS topic to forward messages to the SQS queue. To do that: 1. Log in to the AWS account that contains your SNS topic 1. Go to SNS service 1. Select your SNS topic. Click on **Create Subscription** 1. Leave the **Topic ARN** field as is. 1. In the next screen, set **Protocol** to **Amazon SQS** 1. In **Endpoint** add the ARN of the SQS queue that Panther created for you in Step 1. You can infer the SQS queue ARN by the URL knowing the following:
+In this step, you will configure your SNS topic to forward messages to the SQS queue. To do that:&#x20;
 
-* An SQS queue ARN is in the format `arn:aws:sqs:<region>:<account id>:<queue name>` 
+1\. Log in to the AWS account that contains your SNS topic&#x20;
+
+2\. Go to SNS service&#x20;
+
+3\. Select your SNS topic. Click on **Create Subscription** 1. Leave the **Topic ARN** field as is.&#x20;
+
+4\. In the next screen, set **Protocol** to **Amazon SQS**&#x20;
+
+5\. In **Endpoint** add the ARN of the SQS queue that Panther created for you in Step 1. You can infer the SQS queue ARN by the URL knowing the following:
+
+* An SQS queue ARN is in the format `arn:aws:sqs:<region>:<account id>:<queue name>`&#x20;
 *   An SQS queue URL is in the format `https://sqs.<region>.amazonaws.com/<account id>/<queue name>`
 
     So for example a queue with URL `https://sqs.eu-central-1.amazonaws.com/123456789012/panther-source-test` has ARN `arn:aws:sqs:eu-central-1:123456789012:panther-source-test`
