@@ -31,13 +31,17 @@ The `p_source_id` and `p_source_label` fields are very useful for knowing where 
 
 In addition, the fields below are appended to log records of all tables in the `panther_rule_matches` database:
 
-| Field Name              | Type                       | Description                                              |
-| ----------------------- | -------------------------- | -------------------------------------------------------- |
-| `p_alert_id`            | `string`                   | Id of alert related to row.                              |
-| `p_alert_creation_time` | `timestamp`                | Time of alert creation related to row.                   |
-| `p_alert_update_time`   | `timestamp`                | Time of last alert update related to row.                |
-| `p_rule_reports`        | `map[string]array[string]` | List of user defined rule reporting tags related to row. |
-| `p_rule_tags`           | `array[string]`            | List of user defined rule tags related to row.           |
+| Field Name              | Type                       | Description                                                                                                                              |
+| ----------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `p_alert_id`            | `string`                   | Id of alert related to row.                                                                                                              |
+| `p_alert_creation_time` | `timestamp`                | Time of alert creation related to row.                                                                                                   |
+| `p_alert_severity`      | `string`                   | The severity level of the rule at the time of the alert. This could be different from the default severity as it can be dynamically set. |
+| `p_alert_update_time`   | `timestamp`                | Time of last alert update related to row.                                                                                                |
+| `p_rule_id`             | `string`                   | The id of the rule that generated the alert.                                                                                             |
+| `p_rule_error`          | `string`                   | The error message if there was an error running the rule.                                                                                |
+| `p_rule_reports`        | `map[string]array[string]` | List of user defined rule reporting tags related to row.                                                                                 |
+| `p_rule_severity`       | `string`                   | The default severity of the rule.                                                                                                        |
+| `p_rule_tags`           | `array[string]`            | List of user defined rule tags related to row.                                                                                           |
 
 ## Indicator Fields
 
@@ -63,7 +67,7 @@ The `all_logs` view is provided over all data sources to make queries easy for u
 | `p_any_usernames`        | `array[string]` | List of usernames related to row.                              |
 | `p_any_emails`           | `array[string]` | List of emails related to row.                                 |
 
-## The "all_logs" View
+## The "all\_logs" View
 
 Panther manages a view over all data sources with standard fields.
 
