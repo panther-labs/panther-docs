@@ -6,7 +6,7 @@ The following instructions are only intended for users who currently opt for a [
 
 ### Support for Panther Lookup Tables
 
-In v1.25, Panther supports **Lookup Tables, **a feature that allows users to import their own data for quickly enriching alerts. This requires a new database table and permissions grants to Panther Snowflake roles.
+In v1.25, Panther supports **Lookup Tables,** a feature that allows users to import their own data for quickly enriching alerts. This requires a new database table and permissions grants to Panther Snowflake roles.
 
 To update the Panther data lake, run the following script as a user with at least `SECURITYADMIN` and `SYSADMIN` privileges:
 

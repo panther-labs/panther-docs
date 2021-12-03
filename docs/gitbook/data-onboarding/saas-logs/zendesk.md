@@ -35,7 +35,7 @@ You must be signed in as a Zendesk Support administrator to register an OAuth2 a
 
     The characters may extend past the width of the text box, so make sure to select everything before copying.
 6. Click **Save**.
-7. Once the application is registered, you will be able to view the** Client ID **and then generate a new **client secret** to paste into Panther. You are done with this part!
+7. Once the application is registered, you will be able to view the **Client ID** and then generate a new **client secret** to paste into Panther. You are done with this part!
 
 ![Set up an OAuth Client here in the Zendesk UI](<../../../../.gitbook/assets/image (26).png>)
 
@@ -77,7 +77,7 @@ Once you complete one of the three options above, you can continue with the step
 6. On this page, you'll authorize Panther to receive logs from Zendesk. Depending on the option you chose above, follow the steps below:
    1. **Created an OAuth App**: Enter the **App Client ID** and the **Client Secret** that you acquired from Zendesk. You should be able to find this information on the details page of the OAuth app in your Zendesk account once you **register the application.**
    2. **Zendesk Support Admin Email and Password**: Enter in your Zendesk Support Admin Email and Password for basic authentication.
-   3. **Generate a Personal Access Token: **Copy the **personal access token key,** paste it into Panther UI and then enter in the Zendesk Support Admin email.
+   3. **Generate a Personal Access Token:** Copy the **personal access token key,** paste it into Panther UI and then enter in the Zendesk Support Admin email.
 7. Click on **Continue Setup** once you've filled out those fields
 8. Panther will verify access to Zendesk at this point. If you run into an error, be sure to review the credentials you provided to Panther. If issues persist, reach out to Panther Support for help.
 9. You should be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).

@@ -107,7 +107,7 @@ After [downloading](https://github.com/panther-labs/panther-auxiliary/blob/main/
 
 * **Create stack** _With new resources (standard)_.
 * **Specify template**, tick the _Upload a template file_
-* **Choose file **-> `panther-cloudwatch-events.yml`** **
+* **Choose file** -> `panther-cloudwatch-events.yml` ****&#x20;
 * Next
 
 ### Specify stack details
