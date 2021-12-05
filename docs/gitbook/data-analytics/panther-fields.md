@@ -60,12 +60,13 @@ The `all_logs` view is provided over all data sources to make queries easy for u
 | `p_any_aws_instance_ids` | `array[string]` | List of aws instance ids related to row.                       |
 | `p_any_aws_tags`         | `array[string]` | List of aws tags related to row as "key:value" pairs.          |
 | `p_any_domain_names`     | `array[string]` | List of domain names related to row.                           |
+| `p_any_emails`           | `array[string]` | List of emails related to row.                                 |
 | `p_any_ip_addresses`     | `array[string]` | List of ip addresses (v4 or v6 in string form) related to row. |
 | `p_any_md5_hashes`       | `array[string]` | List of MD5 hashes related to row.                             |
 | `p_any_sha1_hashes`      | `array[string]` | List of SHA1 hashes related to row.                            |
 | `p_any_sha256_hashes`    | `array[string]` | List of SHA256 hashes related to row.                          |
 | `p_any_usernames`        | `array[string]` | List of usernames related to row.                              |
-| `p_any_emails`           | `array[string]` | List of emails related to row.                                 |
+| `p_any_trace_ids`        | `array[string]` | List of ids related to row (context dependent)                 |
 
 ## The "all\_logs" View
 
