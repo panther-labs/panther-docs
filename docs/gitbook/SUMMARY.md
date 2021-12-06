@@ -120,6 +120,7 @@
   * [Saved Queries](data-analytics/saved-queries.md)
   * [Scheduled Queries](data-analytics/scheduled-queries.md)
   * [Query History](data-analytics/query-history.md)
+  * [Lookup Tables (BETA)](data-analytics/lookup-tables-beta.md)
   * [Backend](data-analytics/backend/README.md)
     * [Automatic Log Compaction](data-analytics/backend/log-compaction.md)
     * [Athena](data-analytics/backend/athena.md)
