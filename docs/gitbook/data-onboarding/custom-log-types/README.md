@@ -5,7 +5,7 @@
 Panther allows users to define their own log types by adding a _Custom Log Type_ entry. _Custom Log Types_ are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
 
 * You can use a _Custom Log Type_ when onboarding data through SQS or S3
-* You can write Rules for these _Log Types_.
+* You can write [Rules](../../writing-detections/rules.md) for these _Log Types_.
 * You can query the data in Data Explorer. Panther will create a new table for the _Custom Log Type_, once you onboard a source that uses it.
 * You can query the data through Indicator Search
 
