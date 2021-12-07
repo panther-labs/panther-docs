@@ -10,7 +10,7 @@ Get started with Panther by scheduling a [demo](https://runpanther.io/request-a-
 
 Welcome to Panther!
 
-First things first, let's make sure you get logged in. See the guidelines below to get credentials and set up your Panther account. 
+First things first, let's get you get logged in. See the guidelines below to get credentials and set up your Panther account.&#x20;
 
 Then, depending on the desired use case, follow the onboarding paths below:
 
@@ -26,7 +26,7 @@ You can use these temporary credentials to login and setup MFA:
 
 The first recommended step after initial login is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as Slack, PagerDuty, or automation platforms like Tines. You can quickly set up a destination by following the steps below:
 
-1. Go to  `Integrations` > `Alert Destinations `> `Add New Destination`
+1. Go to  `Integrations` > `Alert Destinations` > `Add New Destination`
 2. Select a destination you would like to push alert to
 3. Follow the onboarding experience, use Panther Docs to correctly configure the destination
 
