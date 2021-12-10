@@ -55,12 +55,12 @@ def dedup(event):
 Then, the following would occur:
 
 1. An alert would be generated and sent to the set of associated [destinations](../destinations/), which by default are based on the rule severity
-2. The alert would say `Successful admin panel login detected from 180.76.15.143` 
+2. The alert would say `Successful admin panel login detected from 180.76.15.143`&#x20;
 3. Similar events with the same dedup string of `180.76.15.143` would be appended to the alert
-4. The recipient of the alert could then check Panther to view all alert metadata, a summary of the events, and run SQL over all of the events to perform additional analysis 
+4. The recipient of the alert could then check Panther to view all alert metadata, a summary of the events, and run SQL over all of the events to perform additional analysis&#x20;
 
 {% hint style="success" %}
-A unique alert will be generated for each unique deduplication string, which in this case, is the IP of the requestor. 
+A unique alert will be generated for each unique deduplication string, which in this case, is the IP of the requestor.&#x20;
 {% endhint %}
 
 ## Real-Time vs Scheduled
@@ -79,7 +79,7 @@ Before enabling new detections, it's [recommended to write tests](testing.md) th
 
 ### Use Helper Functions for Reusable Code
 
-Once many detections are written, a set of patterns and repeated code will begin to emerge. This is a great use case for [global helper functions](globals.md), which provide a centralized location for this logic to exist across all detections. 
+Once many detections are written, a set of patterns and repeated code will begin to emerge. This is a great use case for [global helper functions](globals.md), which provide a centralized location for this logic to exist across all detections. For example, take a look at our [deep\_get()](https://docs.runpanther.io/writing-detections/globals#deep\_get) function!&#x20;
 
 ### Use Data Models for Generic Detections
 
@@ -94,12 +94,14 @@ By default, Panther comes installed with a number of pre-built [detection packs]
 When accessing non-required event fields, it's recommended to use the Python `get` function, which works by first checking that the key exists prior to accessing its value. This avoids the common `KeyError` scenario within a rule:
 
 ```python
-# Good
+# Good practice because it leverages a get() function.
+# get() will look for a field and if the field doesn't exist, 
+# Python will continue. 
 def rule(event):
     return event.get('field') == 'value'
 
-
-# Bad
+# Bad practice because the code is explicit about the field name.
+# If the key doesn't exist, Python will throw a KeyError message.
 def rule(event):
     return event['field'] == 'value'
 ```
