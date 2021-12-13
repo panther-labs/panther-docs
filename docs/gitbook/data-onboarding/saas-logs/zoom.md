@@ -47,7 +47,7 @@ In order to create an OAuth app in Zoom, you'll need to register the app in the 
 
 ![](../../.gitbook/assets/papaya-oarfish.runpanther.net\_integrations\_log-sources\_zoom\_a4a9f1e6-45bc-40b3-ba7b-ebd5e441e664\_edit\_.png)
 
-7\. After entering the **Redirect URL** into both fields, navigate to Scopes -> Add Scopes and Select Report with View report data ticked. Hit Done.
+7\. After entering the **Redirect URL **into both fields, navigate to Scopes -> Add Scopes and Select Report with View report data ticked. Hit Done.
 
 8\. Navigate back to step 7 of [Create a new Zoom log source in Panther](zoom.md#create-a-new-zoom-log-source-in-panther).
 

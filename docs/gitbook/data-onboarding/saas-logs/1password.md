@@ -38,7 +38,7 @@ Once you complete the step above, you can continue with the step below.
 3. Click **Add Source**
 4. Select **1Password** from the list of available log sources
 5. In the next screen, enter in a friendly name for the source e.g. `My 1Password Event logs` and then click **Next**
-6. On this page, you'll authorize Panther to receive logs from 1Password. Copy the **access token key** from your 1Password account and  paste it into Panther U..
+6. On this page, you'll authorize Panther to receive logs from 1Password. Copy the** access token key **from your 1Password account and  paste it into Panther U..
 7. Click on **Continue Setup** once you've filled out those fields
 8. Panther will verify access to 1Password at this point. If you run into an error, be sure to review the credentials you provided to Panther. If issues persist, reach out to Panther Support for help.
 9. You should be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).

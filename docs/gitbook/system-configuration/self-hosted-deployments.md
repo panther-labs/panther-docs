@@ -67,7 +67,7 @@ When Panther publishes a new release, we will notify our self-hosted customers s
 
 Before you begin an upgrade, make sure you know what version of Panther to upgrade to. We use semantic versioning, and highly recommend not skipping minor releases. So if for example, you're on version `1.10.X`  and want to upgrade to version `1.13.X`, we recommend first upgrading to the highest patch version of `1.11.X`, then `1.12.X`, and then finally `1.13.X`. This ensures there are no migration issues.
 
-Additionally, if you are using our `PantherDeploymentRole` to deploy Panther, make sure you update the `PantherDeploymentRole` to the correct version for the version of Panther you are deploying. If you are on version `1.13.X` and wish to upgrade to version  `1.14.X`,  make sure the `PantherDeploymentRole`  is also on version `1.14.X` before upgrading. Here is the `PantherDeploymentRole` template URL:
+Additionally, if you are using our `PantherDeploymentRole` to deploy Panther, make sure you update the `PantherDeploymentRole` to the correct version for the version of Panther you are deploying. If you are on version `1.13.X` and wish to upgrade to version  `1.14.X`,  make sure the `PantherDeploymentRole`  is also on version `1.14.X `before upgrading. Here is the `PantherDeploymentRole` template URL:
 
 ```
 https://panther-public-cloudformation-templates.s3.amazonaws.com/panther-deployment-role/{version}/template.yml
@@ -114,7 +114,7 @@ Change the `PipLibraries` parameter to remove the following libraries as they ar
 From 1.19.5 and on, we have attached a custom domain to our GraphQL API and require an additional certificate for it. We've also updated our deployment role in order to add the necessary permissions to support an edge-optimized custom domain on API Gateway. The changes can be summed up to:
 
 1. Pull our latest Cloudformation template and update your Panther Deployment Role (if you're using an Administrative role to deploy Panther, then this step can be omitted).
-2. Create a certificate for the the _**api.**_** ** subdomain of your existing panther domain in **us-east-1** (e.g. if your panther domain is [panther.mydomain.com](http://api.mydomain.com), then you should create a certificate for [api.panther.mydomain.com](http://api.panther.mydomain.com)), add the necessary CNAME in order to validate it and wait until validation is complete.
+2. Create a certificate for the the _**api.**_** **subdomain of your existing panther domain in **us-east-1** (e.g. if your panther domain is [panther.mydomain.com](http://api.mydomain.com), then you should create a certificate for [api.panther.mydomain.com](http://api.panther.mydomain.com)), add the necessary CNAME in order to validate it and wait until validation is complete.
 3. Use its ARN value in the "ApiCertificateArn" CloudFormation parameter of Panther's template and update your Panther deployment.
 4.  Create an "A Alias Record"  for the api subdomain you've created above. You can find the Alias Target and the Alias Hosted zone by inspecting the outputs of the the "Bootstrap" CloudFormation stack that is part of your Panther deployment. The values you'll be needing are:
 

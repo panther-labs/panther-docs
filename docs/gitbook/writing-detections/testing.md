@@ -61,7 +61,7 @@ Use as many combinations as you would like to ensure the highest reliability wit
 
 Panther's testing framework also allows for basic Python call mocking.
 
-When writing a detection that requires an external API call, mocks can be utilized to mimic the server response in the unit tests without having to actually execute an API call.&#x20;
+When writing a detection that requires an external API call, mocks can be utilized to mimic the server response in the unit tests without having to actually execute an API call. 
 
 {% hint style="info" %}
 This feature is available in Panther version 1.18
@@ -82,13 +82,13 @@ Mocks are allowed on the **global** and **built-in** python namespaces, this inc
 
 Python provides two distinct forms of importing, which can be mocked as such:
 
-* `import package`&#x20;
+* `import package` 
   * Mock Name: `package`
 * `from package import module`
   * Mock Name: `module`
 
 {% hint style="info" %}
-This example is based on the [AWS Config Global Resources](https://github.com/panther-labs/panther-analysis/blob/master/aws\_config\_policies/aws\_config\_global\_resources.py) detection.
+This example is based on the [AWS Config Global Resources](https://github.com/panther-labs/panther-analysis/blob/master/aws_config_policies/aws_config_global_resources.py) detection.
 {% endhint %}
 
 The detection utilizes a global helper function `resource_lookup` from `panther_oss_helpers` which queries the `resources-api` and returns the resource attributes. However, the unit test should be able to be performed without any external API calls.
@@ -122,7 +122,7 @@ The detection uses the `from panther_oss_helpers import resource_lookup` convent
 Mocks provide a way to leverage real world data to test the detection logic.
 
 {% hint style="info" %}
-**Used Return Value:**&#x20;
+**Used Return Value: **
 
 { "AccountId": "012345678910", "Name": "Default", "RecordingGroup": { "AllSupported": true, "IncludeGlobalResourceTypes": true, "ResourceTypes": null }, "Region": "us-east-1", "ResourceId": "012345678910:us-east-1:AWS.Config.Recorder", "ResourceType": "AWS.Config.Recorder", "RoleARN": "arn:aws:iam::012345678910:role/PantherAWSConfig", "Status": { "LastErrorCode": null, "LastErrorMessage": null, "LastStartTime": "2018-10-05T22:45:01.838Z", "LastStatus": "SUCCESS", "LastStatusChangeTime": "2021-05-28T17:45:14.916Z", "LastStopTime": null, "Name": "Default", "Recording": true }, "Tags": null, "TimeCreated": null }
 {% endhint %}

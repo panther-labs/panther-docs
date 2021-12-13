@@ -6,6 +6,10 @@ This feature will be available in version 1.22
 
 Panther has the ability to fetch [Zendesk audit logs ](https://developer.zendesk.com/api-reference/ticketing/account-configuration/audit\_logs/)by querying the [Zendesk Support API](https://developer.zendesk.com/api-reference/ticketing/introduction/).
 
+{% hint style="warning" %}
+Audit Logs may not be available depending on your Zendesk Suite Plan. You can learn more about Audit Logs availability per plan and instructions on how to view Audit Logs in Zendesk by following [this guide](https://support.zendesk.com/hc/en-us/articles/4408828001434-Viewing-the-audit-log-for-changes).
+{% endhint %}
+
 In order to set up Zendesk as a log source in Panther, you'll need to authorize Panther in Zendesk and then set up Zendesk as a log source in Panther. There are three ways to authorize Panther to receive Zendesk audit logs:
 
 * **Create a new OAuth2 App** in Zendesk and provide the app credentials to Panther

@@ -24,7 +24,7 @@ The steps below can only be performed if your G Suite user has permissions to se
 
 ![](<../../.gitbook/assets/Screen Shot 2021-10-26 at 2.32.13 PM.png>)
 
-1. In the top search bar, search for **OAuth consent screen**, **** then select it.
+1. In the top search bar, search for **OAuth consent screen**,** **then select it.
 
 ![](<../../.gitbook/assets/Screen Shot 2021-10-26 at 2.37.45 PM.png>)
 
@@ -32,13 +32,13 @@ The steps below can only be performed if your G Suite user has permissions to se
 2. In the next page fill the following information
    1. Populate the **App Name** field with a value, e.g. `Panther Integration`
    2. Populate **User support email** with your email
-   3. Populate **Developer contact information** near the bottom of the page with your desired email addresses
+   3. Populate **Developer contact information **near the bottom of the page with your desired email addresses
    4. Click on **Save And Continue**
 3. Click on **Add Or Remove Scopes**
 4. In the **Manually add scopes** section, paste `https://www.googleapis.com/auth/admin.reports.audit.readonly`. Click on **Add to Table** and **Update**.
 5. Click on **Save and Continue**
 6. Click **Back to Dashboard**
-7. You will be navigated back to the dashboard of your new application. Click **Dashboard** in the top left.
+7. You will be navigated back to the dashboard of your new application. Click **Dashboard **in the top left.
 8. Click on **Enable APIs and Services**
 
 ![](<../../.gitbook/assets/Screen Shot 2021-10-26 at 2.41.45 PM.png>)
@@ -46,7 +46,7 @@ The steps below can only be performed if your G Suite user has permissions to se
 1. In the search bar in the top, type `Admin SDK API`
 2. Click on **Admin SDK API**, then click **Enable**
 3. You will be navigated to another screen. Once this happens, just go to [Google API Console](https://console.developers.google.com) again and select your project  like you did in Step #5
-4. Click on **Create Credentials** in the menu on the left.
+4. Click on **Create Credentials **in the menu on the left.
 5. Click on **OAuth client ID**
 
 ![](<../../.gitbook/assets/Screen Shot 2021-10-26 at 2.49.24 PM.png>)
