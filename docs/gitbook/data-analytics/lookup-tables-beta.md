@@ -6,7 +6,7 @@ This feature is not available yet. It will be available in version 1.27 in 2022.
 
 Lookup Tables allow you to add important context to your detections and alerts for improved investigation workflows. With Panther's Python detections-as-code, you can use Lookup Tables to decorate the alert with metadata and context, such as identity/asset information, vulnerability context and network maps.
 
-Lookup Tables are best for data up to 5MB that are relatively static, such as AWS account IDs or CIDR IPs.
+Lookup Tables are best for data that are relatively static, such as information about AWS accounts or corporate subnets.
 
 ### Set up a Lookup Table
 
@@ -56,9 +56,9 @@ You set up the Lookup Table in Panther to distinguish developer accounts and pro
 ```python
  from panther_base_helpers import deep_get
  def rule(event):
-        isProduction = deep_get(event, 'p_enrichment', 'account_metadata',
+   isProduction = deep_get(event, 'p_enrichment', 'account_metadata',
 'recipientAccountId', 'isProduction')
-        return not event.get('mfaEnabled') and isProduction
+   return not event.get('mfaEnabled') and isProduction
 ```
 
 The Panther rules engine will take the looked up matches and append that data to the event using the key `p_enrichment` in the following JSON structure:
@@ -125,12 +125,13 @@ NOTE: the primary key column which will hold the CIDR blocks needs to have a `ci
 You'd like to receive an alert if any VPC traffic comes from a source IP address that is not part of your company's allowed CIDR blocks. Here is an example of Python rule that will send an alert in this case:
 
 ```python
-if event.get('flowDirection') == 'egress': # we care about inbound
+def rule(event):
+  if event.get('flowDirection') == 'egress': # we care about inbound
         return False
-if event.get('action') == 'REJECT': # we don't care about these either
+  if event.get('action') == 'REJECT': # we don't care about these either
         return False
-if deep_get(event, 'p_enrichment','Company CIDR Blocks','srcAddr'): # these are ok
+  if deep_get(event, 'p_enrichment','Company CIDR Blocks','srcAddr'): # these are ok
         return False 
-return True # alert if NOT from an approved network range
+  return True # alert if NOT from an approved network range
 ```
 
