@@ -88,7 +88,7 @@ CREATE database IF NOT EXISTS panther_lookups;
 #### 4. Create a read only role and an administrative role in Snowflake
 
 {% hint style="warning" %}
-_**For customers with self-hosted Snowflake deployments who are upgrading to 1.18 **_
+_**For customers with self-hosted Snowflake deployments who are upgrading to 1.18**_&#x20;
 
 Self-hosted customers using Snowflake data cloud should have their Database Administrator add the following permission set, or update their automation scripts to reflect the latest version of the setup instructions:
 {% endhint %}

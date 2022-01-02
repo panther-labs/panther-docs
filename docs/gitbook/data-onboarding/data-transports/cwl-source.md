@@ -12,7 +12,7 @@ CloudWatch Logs as a Data Transport was introduced in 1.23
 
 The steps below will enable secure access for Panther to pull security logs from CloudWatch.
 
-From **Integrations**, click **Log Sources** > **Add Source** > **Data Transport** >** CloudWatch Logs**
+From **Integrations**, click **Log Sources** > **Add Source** > **Data Transport** > **CloudWatch Logs**
 
 ![](<../../../../.gitbook/assets/image (30).png>)
 
@@ -100,4 +100,4 @@ That's it! Everything should be set up correctly and Panther can start processin
 
 ## Viewing Collected Logs
 
-After log sources are configured, your data can be searched with Data Explorer! Learn more [here](https://app.gitbook.com/@panther-labs/s/documentation/\~/drafts/-Mjpl055436mGBJXxM_u/data-analytics/data-explorer).
+After log sources are configured, your data can be searched with Data Explorer! Learn more [here](https://app.gitbook.com/@panther-labs/s/documentation/\~/drafts/-Mjpl055436mGBJXxM\_u/data-analytics/data-explorer).

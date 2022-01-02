@@ -68,6 +68,25 @@ The `all_logs` view is provided over all data sources to make queries easy for u
 | `p_any_usernames`        | `array[string]` | List of usernames related to row.                              |
 | `p_any_trace_ids`        | `array[string]` | List of ids related to row (context dependent)                 |
 
+## Enrichment Fields <a href="#enrichmentfields" id="enrichmentfields"></a>
+
+The Panther rules engine will take the looked up matches from [Lookup Tables (BETA)](lookup-tables-beta.md) and append that data to the event using the key `p_enrichment` in the following JSON structure:
+
+```json
+{ 
+    'p_enrichment': {
+        <name of lookup table>: { 
+            <key in log that matched>: <matching row looked up>,
+            ...
+	    <key in log that matched>: <matching row looked up>,
+	}    }
+} 
+```
+
+| Field Name     | Type            | Description                                            |
+| -------------- | --------------- | ------------------------------------------------------ |
+| `p_enrichment` | `array[object]` | List of lookup results where matching rows were found. |
+
 ## The "all\_logs" View
 
 Panther manages a view over all data sources with standard fields.
