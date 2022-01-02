@@ -83,17 +83,67 @@ The steps to view the dashboard:
 
 ## Tools
 
-Panther comes with some operational tools useful for managing the Panther infrastructure. These are statically compiled executables for linux, mac (AKA darwin) and windows. They can be copied/installed onto operational support hosts.
+Panther comes with some operational tools useful for managing the Panther infrastructure. The tools are statically compiled executables for linux, mac (AKA darwin) and windows.
 
-These tools require that the [AWS credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html) be set in the environment. We recommend a tool to manage these securely such as [AWS Vault](https://github.com/99designs/aws-vault).
+These tools require that [AWS credentials](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html) be set in the environment with sufficient privileges. We recommend a tool to manage these securely such as [AWS Vault](https://github.com/99designs/aws-vault).
+
+{% hint style="warning" %}
+Do not run any of these tools unless specifically advised by a Panther team member
+{% endhint %}
+
+### Panther v1.27+
+
+Each tool can be downloaded individually from an S3 URL with the following format:\
+\
+`https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{os}-{arch}-{tool}.zip`, where:
+
+* `{version}` is the version of Panther you have deployed, e.g. `v1.27.0`
+* `{os}` is one of: `darwin`, `linux` , or `windows`
+* `{arch}` is either `amd64` or `arm64`
+* `{tool}` is the name of the tool you need (see next section)
+
+&#x20;An example of a complete tool link would be: [https://panther-community-us-east-1.s3.amazonaws.com/v1.27.0/tools/darwin-amd64-snowconfig.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.23.3/tools/darwin-amd64.zip)
+
+#### Tool Names
 
 Running these commands with the `-h` flag will explain usage.
 
-Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{architecture}.zip`
+* **analytics-backfiller:** backfill backend analytics via an EventBridge bus
+* **checker:** compares detection entities to every [panther-analysis](https://github.com/panther-labs/panther-analysis) release
+* **compact**: backfill JSON-to-Parquet conversion of log data
+* **cost**: generates cost reports using the costexplorer api
+* **filegen:** writes synthetic log files to s3 for use in benchmarking
+* **flushrsc**: flush "delete pending" entries from the panther-resource table
+* **gluerecover**: scans S3 for missing AWS Glue partitions and recovers them
+* **gluesync**: update glue table and partition schemas
+* **historicalmigrate:** migrate historical data from Athena to Snowflake
+* **logprocessor:** run log processor locally for profiling purposes using pprof
+* **migrate**: utility to do a data migration for the gsuite\_reports table (log & rule table)
+* **opslambda:** invokes the `panther-ops-tools` Lambda function to handle some common ops tasks. Over time, more opstool functionality will move into this function
+  * **invite:** invites a Panther admin user
+  * **requeue:** copy messages from one SQS queue to another, typically to replay DLQ messages
+* **pantherlog:** parse logs using built-in or custom schemas
+* **s3list:** list all objects in all sources and outputs the S3 objects to a file
+* **s3queue**: list files under an S3 path and send them to the log processor input queue for processing (useful for back fill of data)
+* **s3sns**: lists S3 objects and posts S3 notifications to the Panther log processor SNS topic
+* **s3undelete:** removes S3 delete markers from a versioned bucket
+* **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
+* **snowcopy:** uses the shares created by `snowshare` to copy data into a new account
+* **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
+* **snowmelt:** uses an account-admin enabled SF user to destroy the databases and roles for the Panther users
+* **snowrepair**: generates a ddl file to configure Snowflake to ingest Panther data
+* **snowrotate**: uses an account-admin enabled SF user to rotate the credentials for the two Panther users
+* **snowshare:** creates Snowflake data shares of Panther databases between a source and a target account
+* **sources**: lists all log sources, optionally validates each log processing role can be assumed and data accessed
+* **updater:** takes the CSV output of the `checker` tool and auto-applies the recommended actions
 
-`{version}` is latest Panther version, e.g. v1.23.3
+### Panther v1.26.X and Older
 
-`{architecture}` is one of:
+In these versions of Panther, all tools were bundled together in a single zipfile: `https://panther-community-us-east-1.s3.amazonaws.com/{version}/tools/{architecture}.zip`
+
+`{version}` is the version of Panther you have deployed, e.g. `v1.23.3`
+
+`{architecture}` is one of the following:
 
 * `darwin-amd64`
 * `linux-amd64`
@@ -101,28 +151,6 @@ Both Devtools and Opstools are found at `https://panther-community-us-east-1.s3.
 * `windows-amd64`
 * `windows-arm`
 
-#### Each zip archive will contain both Ops and Dev tools
-
-Opstools:
-
-* **compact**: backfill JSON to Parquet conversion of log data (used when upgrading to Panther Enterprise)
-* **cost**: generates cost reports using the costexplorer api
-* **flushrsc**: flush delete pending entries from the panther-resource table
-* **gluerecover**: scans S3 for missing AWS Glue partitions and recovers them
-* **gluesync**: update glue table and partition schemas
-* **migrate**: utility to do a data migration for the gsuite_reports table (log & rule table)
-* **s3queue**: list files under an S3 path and send them to the log processor input queue for processing (useful for back fill of data)
-* **s3sns**: lists s3 objects and posts s3 notifications to log processor sns topic
-* **snowconfig**: uses an account-admin enabled SF user to configure the databases and roles for the Panther users
-* **snowcreate**: uses the Panther Snowflake ORG admin account and credentials to create new Snowflake accounts
-* **snowrepair**: generates a ddl file to configure Snowflake to ingest Panther data
-* **snowrotate**: uses an account-admin enabled SF user to rotate the credentials for the two Panther users
-* **sources**: lists all log sources, optionally validates each log processing role can be assumed and data accessed
-
-Devtools:
-
-* **filegen**: writes synthetic log files to s3 for use in benchmarking
-* **logprocessor**: run log processor locally for profiling purposes using pprof
-* **pantherlog**: Parse logs using built-in or custom schemas
+Each zip archive will contain the entire set of tools (see above for a list of tool names).
 
 An example of a full link to the set of tools would be: [https://panther-community-us-east-1.s3.amazonaws.com/v1.23.3/tools/darwin-amd64.zip](https://panther-community-us-east-1.s3.amazonaws.com/v1.23.3/tools/darwin-amd64.zip)
