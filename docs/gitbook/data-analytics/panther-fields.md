@@ -35,6 +35,7 @@ In addition, the fields below are appended to log records of all tables in the `
 | ----------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `p_alert_id`            | `string`                   | Id of alert related to row.                                                                                                              |
 | `p_alert_creation_time` | `timestamp`                | Time of alert creation related to row.                                                                                                   |
+| p\_alert\_context       | object                     | A JSON object returned from the rule's alert\_context() function.                                                                        |
 | `p_alert_severity`      | `string`                   | The severity level of the rule at the time of the alert. This could be different from the default severity as it can be dynamically set. |
 | `p_alert_update_time`   | `timestamp`                | Time of last alert update related to row.                                                                                                |
 | `p_rule_id`             | `string`                   | The id of the rule that generated the alert.                                                                                             |
