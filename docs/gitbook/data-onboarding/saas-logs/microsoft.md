@@ -24,7 +24,7 @@ These are the steps required to enable Panther ingest Office 365 activity logs.
 
 1. Click **App Registrations** in the left sidebar and then **New Registration**.
 2. Enter a friendly name for your application. In the **Supported account types** field, select **Accounts in this organizational directory only**. Then click **Register**.
-3. On the left sidebar, click **Certificates and Secrets**. Then click **New Client Secret**. Add a description for the secret (e.g Panther integration) and set the **Expires** field to **Never**. Then click **Add**.&#x20;
+3. On the left sidebar, click **Certificates and Secrets**. Then click **New Client Secret**. Add a description for the secret (e.g Panther integration) and set the **Expires** field to **Never**. Then click **Add**. 
    1. The client secret will be hidden after you navigate away from this page, so copy the **Value** field (not **Secret ID** field) before continuing.
 4. On the left sidebar, click **API Permissions** and then **Add a permission**. Find and click the **Office 365 Management APIs**.
 5. Click **Delegated permissions** and select all permissions: _ActivityFeed.Read, ActivityFeed.ReadDlp, ServiceHealth.Read_.
@@ -59,11 +59,11 @@ These are the steps required to enable Panther ingest Office 365 activity logs.
 
 ![](../../../../.gitbook/assets/microsoft-form.png)
 
-1. The next page asks you to enter the **Tenant Id**, **Client Id** and the **Secret ID Value**.&#x20;
+1. The next page asks you to enter the **Tenant Id**, **Client Id** and the** Secret ID Value**. 
 
 ![](../../../../.gitbook/assets/microsoft-credentials.png)
 
-1. Click on **Continue Setup**.&#x20;
+1. Click on **Continue Setup**. 
 
 You are done! You can now start writing detections and exploring your Microsoft365 activity logs.
 

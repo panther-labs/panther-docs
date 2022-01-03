@@ -1,12 +1,12 @@
 # Log Schema Reference
 
-In this guide, you will find common fields used to build YAML-based schemas when onboarding custom log types \(logs that do not have built-in support in Panther\). 
+In this guide, you will find common fields used to build YAML-based schemas when onboarding custom log types (logs that do not have built-in support in Panther).&#x20;
 
 ## LogSchema fields
 
-* **version** \(`0`,`required`\):  The version of the log schema. This field should be set to zero \(`0`\). Its purpose is to allow backwards compatibility with future versions of the log schema.
-* **fields** \([`[]FieldSchema`](reference.md#fieldschema), `required`\):  The fields in each _Log Event_.
-* **parser** \([`ParserSpec`](reference.md#parserspec)\):  Define a parser that will convert non-JSON logs to JSON.
+* **version** (`0`,`required`):  The version of the log schema. This field should be set to zero (`0`). Its purpose is to allow backwards compatibility with future versions of the log schema.
+* **fields** ([`[]FieldSchema`](reference.md#fieldschema), `required`):  The fields in each _Log Event_.
+* **parser** ([`ParserSpec`](reference.md#parserspec)):  Define a parser that will convert non-JSON logs to JSON.
 
 ### Example
 
@@ -28,41 +28,41 @@ fields:
 
 A _ParserSpec_ specifies a parser to use to convert non-JSON input to JSON. Only one of the following fields can be specified:
 
-* **fastmatch** \(`FastmatchParser{}`\): Use `fastmatch` parser
-* **regex** \(`RegexParser{}`\): Use `regex` parser
-* **csv** \(`CSVParser{}`\): Use `csv` parser
+* **fastmatch** (`FastmatchParser{}`): Use `fastmatch` parser
+* **regex** (`RegexParser{}`): Use `regex` parser
+* **csv** (`CSVParser{}`): Use `csv` parser
 
-#### Parser `fastmatch` fields <a id="parser-fastmatch-fields"></a>
+#### Parser `fastmatch` fields <a href="#parser-fastmatch-fields" id="parser-fastmatch-fields"></a>
 
-* **match** \(`[]string`, `required`, `non-empty`\): One or more patterns to match log lines against.
-* **emptyValues** \(`[]string`\): Values to consider as `null`.
-* **expandFields** \(`map[string]string`\): Additional fields to be injected by expanding text templates.
-* **trimSpace** \(`bool`\): Trim space surrounding each value
+* **match** (`[]string`, `required`, `non-empty`): One or more patterns to match log lines against.
+* **emptyValues** (`[]string`): Values to consider as `null`.
+* **expandFields** (`map[string]string`): Additional fields to be injected by expanding text templates.
+* **trimSpace** (`bool`): Trim space surrounding each value
 
-#### Parser `regex` fields <a id="parser-regex-fields"></a>
+#### Parser `regex` fields <a href="#parser-regex-fields" id="parser-regex-fields"></a>
 
-* **match** \(`[]string`, `required`, `non-empty`\): A pattern to match log lines against \(can be split it into parts for documentation purposes\).
-* **patternDefinitions** \(`map[string]string`\): Additional named patterns to use in match pattern.
-* **emptyValues** \(`[]string`\): Values to consider as `null`.
-* **expandFields** \(`map[string]string`\): Additional fields to be injected by expanding text templates.
-* **trimSpace** \(`bool`\): Trim space surrounding each value
+* **match** (`[]string`, `required`, `non-empty`): A pattern to match log lines against (can be split it into parts for documentation purposes).
+* **patternDefinitions** (`map[string]string`): Additional named patterns to use in match pattern.
+* **emptyValues** (`[]string`): Values to consider as `null`.
+* **expandFields** (`map[string]string`): Additional fields to be injected by expanding text templates.
+* **trimSpace** (`bool`): Trim space surrounding each value
 
-#### Parser `csv` <a id="parser-csv-fields"></a>
+#### Parser `csv` <a href="#parser-csv-fields" id="parser-csv-fields"></a>
 
-* **delimiter** \(`string`, `required`, `non-empty`\): A character to use as field delimiter.
-* **hasHeader** \(`bool`\): Use first row to derive column names \(unless `columns` is set also in which case the header is just skipped\).
-* **columns** \(`[]string`, `required(without hasHeader)`, `non-empty`\): Names for each column in the CSV file. If not set, the first row is used as a header.
-* **emptyValues** \(`[]string`\): Values to consider as `null`.
-* **trimSpace** \(`bool`\): Trim space surrounding each value
-* **expandFields** \(`map[string]string`\): Additional fields to be injected by expanding text templates.
+* **delimiter** (`string`, `required`, `non-empty`): A character to use as field delimiter.
+* **hasHeader** (`bool`): Use first row to derive column names (unless `columns` is set also in which case the header is just skipped).
+* **columns** (`[]string`, `required(without hasHeader)`, `non-empty`): Names for each column in the CSV file. If not set, the first row is used as a header.
+* **emptyValues** (`[]string`): Values to consider as `null`.
+* **trimSpace** (`bool`): Trim space surrounding each value
+* **expandFields** (`map[string]string`): Additional fields to be injected by expanding text templates.
 
 ### FieldSchema
 
 A _FieldSchema_ defines a field and its value. The field is defined by:
 
-* **name** \(`String`,`required`\):  The name of the field.
-* **required** \(`Boolean`\):  If the field is required or not.
-* **description** \(`String`\):  Some text documenting the field.
+* **name** (`String`,`required`):  The name of the field.
+* **required** (`Boolean`):  If the field is required or not.
+* **description** (`String`):  Some text documenting the field.
 
 And its value is defined using the fields of a [`ValueSchema`](reference.md#valueschema).
 
@@ -70,29 +70,30 @@ And its value is defined using the fields of a [`ValueSchema`](reference.md#valu
 
 A `ValueSchema` defines a value and how it should be processed. Each `ValueSchema` has a `type` field that can be of the following values:
 
-| Value Type | Description |
-| :--- | :--- |
-| `string` | A string value |
-| `int` | A 32-bit integer number in the range `-2147483648`, `2147483647` |
-| `smallint` | A 16-bit integer number in the range `-32768`, `32767` |
-| `bigint` | A 64-bit integer number in the range `-9223372036854775808`, `9223372036854775807` |
-| `float` | A 64-bit floating point number |
-| `boolean` | A boolean value `true` / `false` |
-| `timestamp` | A timestamp value |
-| `array` | A JSON array where each element is of the same type |
-| `object` | A JSON object of _known_ keys |
-| `json` | Any valid JSON value \(JSON object, array, number, string, boolean\) |
+| Value Type  | Description                                                                        |
+| ----------- | ---------------------------------------------------------------------------------- |
+| `string`    | A string value                                                                     |
+| `int`       | A 32-bit integer number in the range `-2147483648`, `2147483647`                   |
+| `smallint`  | A 16-bit integer number in the range `-32768`, `32767`                             |
+| `bigint`    | A 64-bit integer number in the range `-9223372036854775808`, `9223372036854775807` |
+| `float`     | A 64-bit floating point number                                                     |
+| `boolean`   | A boolean value `true` / `false`                                                   |
+| `timestamp` | A timestamp value                                                                  |
+| `array`     | A JSON array where each element is of the same type                                |
+| `object`    | A JSON object of _known_ keys                                                      |
+| `json`      | Any valid JSON value (JSON object, array, number, string, boolean)                 |
 
 The fields of a `ValueSchema` depend on the value of the `type` field.
 
-| Type | Field | Value | Description |
-| :--- | :--- | :--- | :--- |
-| `object` | **fields**  \(required\) | [`[]FieldSpec`](reference.md#fieldschema) | An array of `FieldSpec` objects describing the fields of the object. |
-| `array` | **element** \(required\) | [`ValueSchema`](reference.md#valueschema) | A `ValueSchema` describing the elements of an array. |
-| `timestamp` | **timeFormat** \(required\) | `String` | The format to use for parsing the timestamp. \(see [Timestamps](reference.md#timestamps)\) |
-| `timestamp` | **isEventTime** | `Boolean` | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_. |
-| `string` | **indicators** | `[]String` | Tells Panther to extract indicators from this value \(see [Indicators](reference.md#indicators)\) |
-| `string` | **validate** | [`Validation`](reference.md#validation) | Validation rules for the string value |
+| Type        | Field                     | Value                                     | Description                                                                                     |
+| ----------- | ------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `object`    | **fields**  (required)    | [`[]FieldSpec`](reference.md#fieldschema) | An array of `FieldSpec` objects describing the fields of the object.                            |
+| `array`     | **element** (required)    | [`ValueSchema`](reference.md#valueschema) | A `ValueSchema` describing the elements of an array.                                            |
+| `timestamp` | **timeFormat** (required) | `String`                                  | The format to use for parsing the timestamp. (see [Timestamps](reference.md#timestamps))        |
+| `timestamp` | **isEventTime**           | `Boolean`                                 | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_.                      |
+| `timestamp` | **isExpiration**          | `Boolean`                                 | (For lookup tables only) A flag to tell Panther to ignore all events after this timestamp       |
+| `string`    | **indicators**            | `[]String`                                | Tells Panther to extract indicators from this value (see [Indicators](reference.md#indicators)) |
+| `string`    | **validate**              | [`Validation`](reference.md#validation)   | Validation rules for the string value                                                           |
 
 ### Timestamps
 
@@ -113,7 +114,9 @@ or you can define a custom format by using [strftime](https://strftime.org) nota
   timeFormat: "%Y-%m-%d %H:%M:%S" # note the quotes required for proper YAML syntax
 ```
 
-Timestamp values can also be marked with `isEventTime: true` to tell Panther that it should use this timestamp as the `p_event_time` field. It is possible to set `isEventTime` on multiple fields. This covers the cases where some logs have optional or mutually exclusive fields holding event time information. Since there can only be a single `p_event_time` for every _Log Event_, the priority is defined using the order of fields in the schema.
+Timestamp values can be marked with `isEventTime: true` to tell Panther that it should use this timestamp as the `p_event_time` field. It is possible to set `isEventTime` on multiple fields. This covers the cases where some logs have optional or mutually exclusive fields holding event time information. Since there can only be a single `p_event_time` for every _Log Event_, the priority is defined using the order of fields in the schema.
+
+Timestamp values in Lookup Table schemas can also be marked with `isExpiration: true`. This is used to tell the Panther Rules Engine to ignore new data if the current time is after this timestamp. These can be useful to "time bound" alerts to independent indicators of compromise (IOCs) added via Lookup Tables, which make for richer alert context.
 
 ### Indicators
 
@@ -215,15 +218,13 @@ each event will be stored as:
 
 ## Using JSON Schema in an IDE
 
-If your editor/IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below as well to create custom JSON schemas:
+If your editor/IDE supports [JSON Schema](https://json-schema.org), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below as well to create custom JSON schemas:
 
 ### JetBrains
 
-You can find instructions on how to configure JetBrains IDEs to use custom JSON Schemas [here](https://www.jetbrains.com/help/phpstorm/json.html#ws_json_schema_add_custom).
+You can find instructions on how to configure JetBrains IDEs to use custom JSON Schemas [here](https://www.jetbrains.com/help/phpstorm/json.html#ws\_json\_schema\_add\_custom).
 
 ### VSCode
 
-You can find instructions on how to configure VSCode to use JSON Schema [here](https://code.visualstudio.com/Docs/languages/json#_json-schemas-and-settings).
-
-
+You can find instructions on how to configure VSCode to use JSON Schema [here](https://code.visualstudio.com/Docs/languages/json#\_json-schemas-and-settings).
 
