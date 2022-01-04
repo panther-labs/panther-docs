@@ -6,7 +6,7 @@ This feature is not available yet. It will be available in version 1.27 in 2022.
 
 Lookup Tables allow you to add important context to your detections and alerts for improved investigation workflows. With Panther's Python detections-as-code, you can use Lookup Tables to decorate the alert with metadata and context, such as identity/asset information, vulnerability context and network maps.
 
-Lookup Tables are best for data that are relatively static, such as information about AWS accounts or corporate subnets.
+Lookup Tables are best for data that is relatively static, such as information about AWS accounts or corporate subnets.
 
 ### Set up a Lookup Table
 
@@ -113,7 +113,7 @@ Follow the same setup **steps 1-3 above** first.
 5\. Associate a schema for your Lookup Table: select an existing one from your list or create a new one.
 
 {% hint style="info" %}
-NOTE: the primary key column which will hold the CIDR blocks needs to have a `cidr` validation applied in the schema to indicate this lookup table will do CIDR block matching on IP addresses.
+**NOTE:** the primary key column which will hold the CIDR blocks needs to have a `CIDR` validation applied in the schema that indicates this lookup table will do CIDR block matching on IP addresses.
 {% endhint %}
 
 6\. Import the CIDR block list via your `.csv` file.
