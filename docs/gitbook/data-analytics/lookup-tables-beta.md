@@ -12,14 +12,14 @@ Lookup Tables are best for data that is relatively static, such as information a
 
 **Example scenario:** Let's say you want to add metadata to distinguish developer accounts from production accounts in your AWS CloudTrail logs. Here's an example where `isProduction` has been added:
 
-![](<../.gitbook/assets/Screen Shot 2021-12-01 at 3.08.54 PM.png>)
+![](../.gitbook/assets/table.png)
 
 To configure a Lookup Table, follow these steps in the Panther UI:
 
 1. From the left sidebar, click **Enrichment > Lookups.**
 2. In the upper right side of the page, click **+** to add a new Lookup Table.
 
-![](<../.gitbook/assets/Screen Shot 2021-11-09 at 5.07.35 PM.png>)
+![](<../.gitbook/assets/Screen Shot 2022-01-04 at 1.46.17 PM.png>)
 
 3\. Configure the Lookup Table Basic Information:
 
