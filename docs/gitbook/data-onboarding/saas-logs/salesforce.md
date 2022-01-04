@@ -29,9 +29,9 @@ Follow the instructions in the [Salesforce documentation](https://help.salesforc
 
 ![User License and Profile](../../../../.gitbook/assets/create-user-profile.png)
 
-Complete the user registration process by setting a new password.
+Complete the user registration process by setting a new password through the link sent to your email.
 
-### Retrieve Security Token <a href="retrieve-security-token" id="retrieve-security-token"></a>
+### Retrieve Security Token <a href="#retrieve-security-token" id="retrieve-security-token"></a>
 
 Salesforce API access requires, in addition to the username and password, a credential named _Security Token_.
 
