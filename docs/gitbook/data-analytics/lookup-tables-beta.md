@@ -56,9 +56,9 @@ You set up the Lookup Table in Panther to distinguish developer accounts and pro
 ```python
  from panther_base_helpers import deep_get
  def rule(event):
-   isProduction = deep_get(event, 'p_enrichment', 'account_metadata',
+   is_production = deep_get(event, 'p_enrichment', 'account_metadata',
 'recipientAccountId', 'isProduction')
-   return not event.get('mfaEnabled') and isProduction
+   return not event.get('mfaEnabled') and is_production
 ```
 
 The Panther rules engine will take the looked up matches and append that data to the event using the key `p_enrichment` in the following JSON structure:
