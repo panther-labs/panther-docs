@@ -35,4 +35,3 @@ Panther has direct support for pulling log data from AWS EventBridge, enabling r
 * [OneLogin](onelogin.md)
 * _(Coming soon!)_ Auth0
 * _(Coming soon!)_ NewRelic
-* _(Coming soon!)_ ZenDesk

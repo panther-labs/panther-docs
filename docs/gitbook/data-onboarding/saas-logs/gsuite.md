@@ -71,3 +71,33 @@ The steps below can only be performed if your G Suite user has permissions to se
     This will open a new tab, where you to authorize the GSuite App you create earlier to pull GSuite logs from your account. Authorize the app and copy the authorization code from the screen
 9. Enter the Authorization code that you copied earlier in the Panther UI
 10. Click on **Next** and then **Save source**.
+
+## Panther-Built Detections
+
+The following detections are available for use immediately:&#x20;
+
+* Advanced Protection
+* Brute Force Login
+* Doc Ownership Transfer
+* Drive External Share
+* Drive Overly Visible
+* Drive Visibility Change
+* Drive Visibility Change Deprecated
+* External Forwarding
+* Google Access
+* Gov Attack
+* Group Banned User
+* High Severity Rule
+* Leaked Password
+* Login Type
+* Low Severity Rule
+* Medium Severity Rule
+* Mobile Device Compromise
+* Move Device Screen Unlock Fail
+* Mobile Device Suspicious Activity
+* Permissions Delegated
+* Suspicious Logins
+* Two Step Verification
+* User Suspended
+
+Please take a look at the files in the [gsuite\_activityevent\_rules](https://github.com/panther-labs/panther-analysis/tree/master/gsuite\_activityevent\_rules) __ and __ [gsuite\_reports\_rules](https://github.com/panther-labs/panther-analysis/tree/master/gsuite\_reports\_rules) repositories to see how these are built.&#x20;

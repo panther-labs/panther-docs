@@ -57,3 +57,23 @@ Once you complete one of the two options above, you can continue with the step b
 10. You should be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).
 11. Congrats, you're done!
 
+## Panther-Built Detections
+
+The following detections are available for use immediately:&#x20;
+
+* Branch Policy Override
+* Branch Protection Disabled
+* Org Auth Modified
+* Org IP Allowlist
+* Org Modified
+* Repo Collaborator Change
+* Repo Created
+* Repo Hook Modified
+* Repo Initial Access
+* Repo Visibility Change
+* Team Modified
+* User Access Key Created
+* User Role Updated
+
+Please take a look at the files in the [github\_rules](https://github.com/panther-labs/panther-analysis/tree/master/github\_rules) repository to see how these are built.&#x20;
+

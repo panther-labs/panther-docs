@@ -11,17 +11,17 @@ To create an API token with permissions to query Okta System Logs, you will need
 {% endhint %}
 
 1. Log in as Okta administrator
-2. In the Okta Admin Console, navigate to **Security** &gt; **API**
+2. In the Okta Admin Console, navigate to **Security** > **API**
 3. Click **Create Token**
 4. Enter a name for your token, e.g. `Panther API token`
-5. Keep a note of **Token value** in the pop-up screen.
+5.  Keep a note of **Token value** in the pop-up screen.
 
-   **Important**: Be sure to document and store the API token value carefully, as it cannot be retrieved later and can present a security risk if used in an unauthorized fashion.
+    **Important**: Be sure to document and store the API token value carefully, as it cannot be retrieved later and can present a security risk if used in an unauthorized fashion.
 
 ## Create a new Okta source in Panther
 
 1. Login to your Panther account.
-2. Go to **Integrations &gt; Log Sources** from the sidebar menu.
+2. Go to **Integrations > Log Sources** from the sidebar menu.
 3. Click **Add Source.**
 4. Select **Okta** from the list of available types.
 5. In the following form, fill in the following fields:
@@ -31,3 +31,14 @@ To create an API token with permissions to query Okta System Logs, you will need
 6. Click on **Next** and then **Save Source**. The **API Token** will be stored, encrypted, in Panther backend.
 7. You are done! You can now start writing detections and exploring your Okta data.
 
+## Panther-Built Detections
+
+The following detections are available for use immediately:&#x20;
+
+* Admin Role Assigned
+* API Key Created
+* API Key Revoked
+* Brute Force Logins
+* Geo Improbable Access
+
+Please take a look at the files in the [okta\_rules ](https://github.com/panther-labs/panther-analysis/tree/master/okta\_rules)repository to see how these are built.&#x20;

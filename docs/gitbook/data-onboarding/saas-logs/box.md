@@ -65,3 +65,22 @@ To read events from the entire enterprise account, the Box user performing the f
 ![](../../../../.gitbook/assets/box-finalize-page2.png)
 
 1. Your new Box Source should be healthy and ready to fetch events from Box!
+
+## Panther-Built Detections
+
+The following detections are available for use immediately:&#x20;
+
+* Access Granted
+* Anomalous Download
+* Brute Force Login
+* Event Triggered Externally
+* Item Shared Externally
+* Malicious Content
+* New Login
+* Policy Violation
+* Suspicious Login or Session
+* Untrusted Device
+* User Downloads
+* User Permission Updates
+
+Please take a look at the code and corresponding metadata in the [box\_rules](https://github.com/panther-labs/panther-analysis/tree/master/box\_rules) repository to see how these are built.&#x20;

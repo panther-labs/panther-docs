@@ -87,5 +87,19 @@ Once you complete one of the three options above, you can continue with the step
 9. You should be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).
 10. Congrats, you're done!
 
+## Panther-Built Detections
+
+The following detections are available for use immediately:&#x20;
+
+* Mobile App Access
+* New API Token
+* New Owner
+* Sensitive Data Redaction
+* User Assumption
+* User Role
+* User Suspension
+
+Please take a look at the files in the [zendesk\_rules](https://github.com/panther-labs/panther-analysis/tree/master/zendesk\_rules) repository to see how these are built.
+
 
 

@@ -60,3 +60,12 @@ OAuth2 apps can be set up by a user with the Admin role. The user authorizing th
 
 
 If you have trouble setting up the OAuth app in Zoom, be sure to check out[ Zoom's documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app).
+
+## Panther-Built Detections
+
+The following detections are available for use immediately:&#x20;
+
+* Operation Passcode Disabled
+* Operation User Granted Admin
+
+Please take a look at the files in the [zoom\_operation\_rules](https://github.com/panther-labs/panther-analysis/tree/master/zoom\_operation\_rules) repository to see how these are built.
