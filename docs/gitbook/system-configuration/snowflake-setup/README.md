@@ -81,6 +81,6 @@ USE ROLE SECURITYADMIN;
 ALTER USER PANTHERACCOUNTADMIN SET DISABLED = FALSE
 ```
 
-### Legacy Snowflake Integration
+### Customer-managed Snowflake Integration
 
-For legacy Snowflake connection options see [this page](legacy-snowflake-integration/).
+For customer-managed Snowflake connection options see [this page](legacy-snowflake-integration/).

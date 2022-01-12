@@ -1,6 +1,6 @@
-# Legacy Snowflake Integration
+# Customer-managed Snowflake Integration
 
-### Legacy Snowflake Configuration (**Deprecated**)
+### Customer-managed Snowflake Configuration (**Deprecated**)
 
 > Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the [supported methods](../) in the future.
 
@@ -477,7 +477,7 @@ Make a note of the `arn` for the secret. We will use this later.
 
 #### 9. Deploy Panther with Snowflake enabled
 
-#### SaaS Legacy Deployment Users
+#### SaaS Customer-managed Deployment Users
 
 Send to your Panther point of contact (POC):
 

@@ -137,7 +137,7 @@
   * [System Health Notifications](system-configuration/system-health-notifications.md)
   * [Runtime Environment](system-configuration/run-time.md)
   * [Snowflake Integration](system-configuration/snowflake-setup/README.md)
-    * [Legacy Snowflake Integration](system-configuration/snowflake-setup/legacy-snowflake-integration/README.md)
+    * [Customer-managed Snowflake Integration](system-configuration/snowflake-setup/legacy-snowflake-integration/README.md)
       * [Migrating to Panther v1.25](system-configuration/snowflake-setup/legacy-snowflake-integration/migrating-to-panther-v1.25.md)
   * [Configuring a Custom Domain](system-configuration/configuring-custom-domains.md)
   * [Self Hosted Deployments](system-configuration/self-hosted-deployments.md)

@@ -9,7 +9,7 @@ Panther allows users to define their own log types by adding a _Custom Log Type_
 * You can query the data in Data Explorer. Panther will create a new table for the _Custom Log Type_, once you onboard a source that uses it.
 * You can query the data through Indicator Search
 
-## Generating a Custom Log Type from Sample Logs
+## Generating a Schema for a Custom Log Type from Sample Logs
 
 {% hint style="info" %}
 This feature is available in versions 1.25 and above (1.25 only supports uploading JSON files, CSV files are supported in 1.26 and above).
@@ -17,34 +17,25 @@ This feature is available in versions 1.25 and above (1.25 only supports uploadi
 
 You can generate a schema for a custom log type by uploading sample logs into the Panther UI. To get started, follow these steps:
 
-* Navigate to the **Schemas** tab in the Panther UI under **Data.**
-* Click the **"plus"** button at the top right of the page next to the search bar.
-* Scroll to the bottom of the page where you'll find the option to upload sample log files.
-
-![](<../../.gitbook/assets/Screen Shot 2021-11-08 at 10.21.53 PM.png>)
-
-* Upload a sample set of logs into the UI by dragging them over the box or by selecting all files. (Reminder: Panther version 1.25 supports JSON files only, version 1.26 adds support for CSV files)
-* Panther will then display the raw logs in the UI. You can expand the log lines to view the entire raw log.
-
-![](<../../.gitbook/assets/Screen Shot 2021-11-08 at 10.32.25 PM.png>)
-
-* You can add another sample set (which will override the sample you previously uploaded) or you can proceed to infer a schema from the sample set displayed in the UI. To do this, click **Infer Schema from All Logs.**
-* Panther will then begin to infer a schema from the raw sample logs. Depending on the number of logs uploaded, this could take some time (e.g. 30 seconds for 100 logs).
-* Once the schema is generated, it will appear in the schema editor box above the raw logs.
-
-![](<../../.gitbook/assets/view schema.png>)
-
-* To ensure the schema works properly against the sample logs you uploaded and any changes you make to the schema, click **Validate and Test Schema.**
-* This test will validate that the syntax of your schema is correct and that the log samples you have uploaded into Panther are successfully matching against the schema. You should see the results appear below the schema editor box.
-* All successfully matched logs will appear under **Matched;** each log will display the column, field, and JSON view.
-
-![](<../../.gitbook/assets/matched logs.png>)
-
-* All unsuccessfully matched logs will appear under **Unmatched;** each log will display the error message and the raw log.
-
-![](<../../.gitbook/assets/umatched logs.png>)
-
-* You can continue to edit the schema or upload new sample logs to iterate on the schema. Once you're done testing, ensure that you've given your schema a **Schema ID, Description, and Reference URL**. After that, you can click **Save** which will then publish the scehma.
+1. Log in to your Panther account.
+2. On the left sidebar, navigate to **Data > Schemas.**
+3. At the top right of the page next to the search bar, click **+**.
+4. On the New Data Schema page, enter a Schema ID, Description, and Reference URL.
+   * The Description is meant for content about the table, while the Reference URL can be used to link to internal resources.
+5. Scroll to the bottom of the page where you'll find the option to upload sample log files.
+6. Upload a sample set of logs by dragging a file from your computer over the "Infer schema from sample logs" box or by clicking **Select file** and choosing the log file. (Reminder: Panther version 1.25 supports JSON files only, version 1.26 adds support for CSV files)\
+   ![](<../../.gitbook/assets/Screen Shot 2022-01-12 at 9.45.44 AM.png>)
+   * After uploading a file, Panther will display the raw logs in the UI. You can expand the log lines to view the entire raw log. Note that if you add another sample set, it will override the previously-uploaded sample.
+7. Click **Infer Schema from All Logs.**
+   * Panther will begin to infer a schema from the raw sample logs. Depending on the number of logs uploaded, this could take some time (e.g. 30 seconds for 100 logs).
+   * Once the schema is generated, it will appear in the schema editor box above the raw logs.\
+     ![](<../../.gitbook/assets/Screen Shot 2022-01-12 at 9.48.35 AM.png>)
+8. To ensure the schema works properly against the sample logs you uploaded and against any changes you make to the schema, click **Validate & Test Schema.**
+   * This test will validate that the syntax of your schema is correct and that the log samples you have uploaded into Panther are successfully matching against the schema. You should see the results appear below the schema editor box.
+   * All successfully matched logs will appear under **Matched;** each log will display the column, field, and JSON view.\
+     ![](../../.gitbook/assets/json-matched-logs.png)
+   * All unsuccessfully matched logs will appear under **Unmatched;** each log will display the error message and the raw log.
+9. Click **Save** to publish the schema.
 
 {% hint style="info" %}
 Note that the UI will only display up to 100 logs. This doesn't mean Panther can only infer from 100 logs, Panther will infer from all logs uploaded, this is just a performance characteristic to ensure fast response time when generating a schema.
