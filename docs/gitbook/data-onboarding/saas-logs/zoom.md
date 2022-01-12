@@ -27,13 +27,19 @@ In order to set up Zoom as a log source in Panther, you'll need to authorize Pan
 10. You will be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).
 11. Congrats, you're done!
 
-## Create a new OAuth App&#x20;
+## Create a new OAuth2 App&#x20;
 
 {% hint style="info" %}
 The steps below can only be performed if you are an account admin in your organization's Zoom account.
 {% endhint %}
 
 In order to create an OAuth app in Zoom, you'll need to register the app in the Zoom marketplace where you'll create the actually OAuth app. You can find more details on this process [here](https://marketplace.zoom.us/docs/guides/build/oauth-app). Follow the below instructions to get started.
+
+OAuth2 apps can be set up by a user with the Admin role. The user authorizing the integration must have the Reports permissions to read Operations Logs and Sign-in/Sign-out Activity. The Owner can grant these permissions to the Admin role (Role Management -> Admin -> Reports), or create a new role with these permissions enabled. For details on Zoom Reporting and the provided permissions, you can check [this guide](https://support.zoom.us/hc/en-us/articles/201363213-Getting-started-with-Zoom-reporting#h\_01FM5FHPRMBC5RFJDAZ4FBTPKC). You can verify if your user has access to the Operations Logs by following [this guide](https://support.zoom.us/hc/en-us/articles/360032748331). Reference the screenshots below. before getting started with the steps to create the OAuth2 app.
+
+![](https://lh4.googleusercontent.com/Xj9PNQ209u-5dJ9G35BOVsQzGxIf0qw6152Ysl46-aTsWeaWnjDENR1Pc\_L-veS205rIk-J\_Ga8IHmfOWdtS\_cgvhPs8tErTgEl4DkhdcVv-fraYgs7Gi9G1xZP\_3oNBwHU51use)
+
+![](https://lh3.googleusercontent.com/guz0KTMEiYF6Rpu42ERh7NAeaBPRxBwcnQ9fS3kg5euUpsagXJ0YjIMsmkefGFxBVcOr8PnoUEtgQOdjh69ZorJ-jvt5kXUmc4fvPe8bHGMlWtDANEQg9y5z\_oTxLyAD7icy-K5K)
 
 1. Log into your Zoom account
 2. To register your app, visit the [Zoom App Marketplace](https://marketplace.zoom.us) and click **Develop** in the dropdown menu in the top-right corner of the page. Select **Build App**. A new page will appear displaying the available app types. Click **Create** in the **OAuth** option to continue.

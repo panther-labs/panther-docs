@@ -9,6 +9,7 @@ The two mechanisms used are direct integrations (by querying APIs) and AWS Event
 Supported direct SaaS integrations include:
 
 * [1Password](1password.md)
+* [Atlassian](https://docs.runpanther.io/data-onboarding/saas-logs/atlassian)
 * [Box](box.md)
 * [CrowdStrike](crowdstrike.md)
 * [Duo](duo.md)

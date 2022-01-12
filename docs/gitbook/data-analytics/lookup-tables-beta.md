@@ -48,7 +48,9 @@ Note: If you have not already created a new schema, please see [our documentatio
 
 ![](<../.gitbook/assets/Screen Shot 2021-12-01 at 4.00.55 PM.png>)
 
-Note: You can upload your Lookup Table data to infer the schema if you want -- here is an example:
+{% hint style="info" %}
+**Note:** You can upload your Lookup Table data to infer the schema if you want -- here is an example:
+{% endhint %}
 
 ![](<../.gitbook/assets/Screen Shot 2021-12-01 at 3.39.14 PM.png>)
 
@@ -118,7 +120,9 @@ For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right
 
 ### Example using CIDR matching
 
-**Example scenario:** Let's say you want to write detections that consider the traffic logs from company IP space (e.g. VPNs and hosted systems) differently from others logs originating from public IP space. You have a list of your company's allowed CIDR blocks listed in a `.csv` file (e.g. `4.5.0.0/16`).
+**Example scenario:** Let's say you want to write detections that consider the traffic logs from company IP space (e.g. VPNs and hosted systems) differently from others logs originating from public IP space. You have a list of your company's allowed CIDR blocks listed in a `.csv` file (e.g. `4.5.0.0/16`):
+
+![](<../.gitbook/assets/CIDR (1).png>)
 
 #### Set up a Lookup Table with the CIDR list
 
@@ -129,13 +133,34 @@ For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right
 
 &#x20; 3\. Associate a schema for your Lookup Table: select an existing one from your list or create a new   one.
 
-{% hint style="info" %}
-**NOTE:** the primary key column which will hold the CIDR blocks needs to have a `CIDR` validation applied in the schema that indicates this lookup table will do CIDR block matching on IP addresses.
-{% endhint %}
+![](<../.gitbook/assets/Screen Shot 2022-01-05 at 5.06.56 PM.png>)
 
-4\. Drag & drop a file or click **Select File** to choose the file of your CIDR block list to import. The file must be in `.csv` or `.jsonl` format. The maximum file size supported is 5MB.
+**Note:** The primary key column which will hold the CIDR blocks needs to have a `CIDR` validation applied in the schema that indicates this lookup table will do CIDR block matching on IP addresses. [See our log schema reference](https://docs.runpanther.io/data-onboarding/custom-log-types/reference#validation-by-string-type).
 
-7\. After you successfully import a file, click **View in Data Explorer** to **** query that table data or click **Finish Setup** to go back to a list of your custom Lookup Tables.
+```json
+# Will allow valid ip6 CIDR ranges 
+# e.g. 2001:0db8:85a3:0000:0000:0000:0000:0000/64
+- name: address
+  type: string
+  validate:
+    cidr: "ipv6" 
+    
+# Will allow valid ipv4 IP addresses e.g. 100.100.100.100/00
+- name: address
+  type: string
+  validate:
+    cidr: "ipv4"  
+```
+
+![](<../.gitbook/assets/Screen Shot 2022-01-05 at 6.07.42 PM.png>)
+
+4\. Drag & drop a file or click **Select File** to choose the file of your CIDR block list to import. The file must be in `.csv` or `.jsonl` format. The maximum file size supported is 5MB.&#x20;
+
+5\. After you successfully import a file, click **View in Data Explorer** to **** query that table data or click **Finish Setup** to go back to a list of your custom Lookup Tables.
+
+![Successful upload](<../.gitbook/assets/Screen Shot 2022-01-05 at 6.11.44 PM.png>)
+
+![View uploaded data in Data Explorer](<../.gitbook/assets/Screen Shot 2022-01-05 at 6.12.03 PM.png>)
 
 #### Write a detection
 

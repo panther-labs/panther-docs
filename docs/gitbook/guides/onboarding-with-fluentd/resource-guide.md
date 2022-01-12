@@ -8,7 +8,7 @@ Fluentd supports Firehose and S3 destination plugins. We have provided sample Cl
 
 Once the template has been deployed and the resources have been created, return to the log source guide to continue configuring the log source.
 
-### Firehose to S3 Template (Recommended) <a href="firehose-to-s3-template-recommended" id="firehose-to-s3-template-recommended"></a>
+### Firehose to S3 Template (Recommended) <a href="#firehose-to-s3-template-recommended" id="firehose-to-s3-template-recommended"></a>
 
 {% hint style="info" %}
 The Fluentd Firehose plugin is generally more performant than the Fluentd S3 plugin
@@ -18,7 +18,7 @@ The Fluentd Firehose plugin is generally more performant than the Fluentd S3 plu
 
 #### **Resources**:
 
-This template creates a Kinesis Firehose resource and an S3 bucket, and configures permissions to write to the Firehose stream, the Firehose stream to send its logs to S3, and permissions for Firehose to write to the S3 bucket.
+This template creates a Kinesis Firehose resource, an S3 bucket, configures permissions to write to the Firehose stream, the Firehose stream to send its logs to S3, and permissions for Firehose to write to the S3 bucket.
 
 #### **Pipeline:**
 
@@ -26,14 +26,14 @@ After deploying the template, save the outputs for use in the Fluentd configurat
 
 The outputs of this template are:
 
-* InstanceProfileName - The profile that can be used to assume role with correct permissions
+* InstanceProfileName - The profile that can be used to assume the role with correct permissions
 * S3Bucket - The S3bucket that firehose will send events to
 * FirehoseSendDataRoleArn - Arn of the role to write to Firehose
 * FirehoseName - The firehose stream name
 
-The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/tree/main/cloudformation).
+The template can be found here: [CloudFormation Template.](https://github.com/panther-labs/panther-auxiliary/blob/main/cloudformation/panther-fluentd-firehose.yml)
 
-### S3 Template <a href="s3-template" id="s3-template"></a>
+### S3 Template <a href="#s3-template" id="s3-template"></a>
 
 {% hint style="warning" %}
 As mentioned above, this template is less performant than the Firehose template and is not recommended unless necessary
@@ -54,4 +54,4 @@ The outputs of this template are:
 * FluentdUser - IAM user to be used within the Fluentd configuration
 * S3Bucket - The bucket that was created to use within the Fluentd configuration
 
-The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/tree/main/cloudformation).
+The template can be found here: [CloudFormation Template](https://github.com/panther-labs/panther-auxiliary/blob/main/cloudformation/panther-fluentd-s3.yml).

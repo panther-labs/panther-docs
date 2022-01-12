@@ -10,7 +10,7 @@ In order to set up Github as a log source in Panther, you'll need to authorize P
 ## Create a new OAuth App (option 1)
 
 {% hint style="info" %}
-The steps below can only be performed if you have organization owner permission in your Github organization and a Github Enterprise subscription.
+The steps below can only be performed if you have organization owner permission in your Github organization and a Github Enterprise subscription. If you need to configure multiple integrations for different GitHub Organizations using the same credentials you can either use a Personal Access Token or an [OAuth2 App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) that is created on the user account, instead of the Organization account. If any Organizations [have enabled OAuth2 App Access Restrictions](https://docs.github.com/en/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization), the app must be first approved by an Organization admin.
 {% endhint %}
 
 1. Log into your Github Enterprise account

@@ -5,6 +5,7 @@
 * [Data Onboarding](data-onboarding/README.md)
   * [SaaS Logs](data-onboarding/saas-logs/README.md)
     * [1Password](data-onboarding/saas-logs/1password.md)
+    * [Atlassian](data-onboarding/saas-logs/atlassian.md)
     * [Box](data-onboarding/saas-logs/box.md)
     * [CrowdStrike](data-onboarding/saas-logs/crowdstrike.md)
     * [Duo](data-onboarding/saas-logs/duo.md)
