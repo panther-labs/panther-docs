@@ -118,7 +118,13 @@ For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right
 
 ![](<../.gitbook/assets/Screen Shot 2021-11-22 at 4.47.34 PM.png>)
 
-### Example using CIDR matching
+### Additional Examples
+
+#### Example for translating 1Password UUIDs into human readable names
+
+Please see our guide about using Lookup Tables to translate 1Password's Universally Unique Identifier (UUID) values into human readable names: [Using Lookup Tables: 1Password UUIDs](https://docs.runpanther.io/guides/using-lookup-tables-1password-uuids).
+
+#### Example using CIDR matching
 
 **Example scenario:** Let's say you want to write detections that consider the traffic logs from company IP space (e.g. VPNs and hosted systems) differently from others logs originating from public IP space. You have a list of your company's allowed CIDR blocks listed in a `.csv` file (e.g. `4.5.0.0/16`):
 

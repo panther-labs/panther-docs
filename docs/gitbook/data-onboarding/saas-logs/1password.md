@@ -44,3 +44,6 @@ Once you complete the step above, you can continue with the step below.
 9. You should be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).
 10. Congrats, you're done!
 
+
+
+Note: By default, 1Password logs do not contain human readable values for objects such as vaults and login credentials. Please see our guide about using Lookup Tables to translate 1Password's Universally Unique Identifier (UUID) values into human readable names: [Using Lookup Tables: 1Password UUIDs](https://docs.runpanther.io/guides/using-lookup-tables-1password-uuids).
