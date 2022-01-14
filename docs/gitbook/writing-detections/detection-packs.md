@@ -6,9 +6,11 @@ A single pack can group any number of detections, queries, global helpers, and d
 
 Updates to detections in these packs are tracked automatically by the Panther backend. When a new update for a detection pack is available in the `panther-analysis` repository, the list packs page will be display an `update available` flag next to the relevant items.
 
+Detections that are part of an enabled detection pack will be labeled as `MANAGED` , and detections that are not part of an enabled detection pack will be labeled as `UNMANAGED`.
+
 ## Panther Built-In Detection Packs
 
-Panther provides several detection packs out of the box. There are packs that group all the panther provided detections related to a particular log source, but there are also detections packs that are grouped on a particular focus, such as generic rules that leverage unified data models or a core set of detections for AWS. 
+Panther provides several detection packs out of the box. There are packs that group all the panther provided detections related to a particular log source, but there are also detections packs that are grouped on a particular focus, such as generic rules that leverage unified data models or a core set of detections for AWS.&#x20;
 
 | Display Name         | Description                                                           |
 | -------------------- | --------------------------------------------------------------------- |
@@ -26,9 +28,9 @@ Pack details, including a description, the enabled status, the currently enabled
 
 ## Managing Detections with Packs
 
-When a pack is enabled, panther will install and enable the detections in that pack.  When this happens, panther will update the python body, tests, and a majority of the metadata with the panther-provided version. It will not overwrite a few commonly customized fields, these include: DedupPeriodMinutes, OutputIDs, Severity, and Threshold. 
+When a pack is enabled, panther will install and enable the detections in that pack.  When this happens, panther will update the python body, tests, and a majority of the metadata with the panther-provided version. It will not overwrite a few commonly customized fields, these include: DedupPeriodMinutes, OutputIDs, Severity, and Threshold.&#x20;
 
-Packs will also create detection backups in order to prevent loss of customizations to those detections.  When enabling or updating a pack, panther will automatically create a disabled backup of that detection, if it determines there have been any changes.  These backups have the naming convention: `Backup.<original.id>.N` , where N is the number of backups already existing for that detection.  For example, `Backup.Standard.BruteForceByIp.2` is a backup for the detection `Standard.BruteForceByIp`. 
+Packs will also create detection backups in order to prevent loss of customizations to those detections.  When enabling or updating a pack, panther will automatically create a disabled backup of that detection, if it determines there have been any changes.  These backups have the naming convention: `Backup.<original.id>.N` , where N is the number of backups already existing for that detection.  For example, `Backup.Standard.BruteForceByIp.2` is a backup for the detection `Standard.BruteForceByIp`.&#x20;
 
 If you would like to maintain an enabled customization of a panther provided detection, best practice is to:
 
@@ -36,7 +38,7 @@ If you would like to maintain an enabled customization of a panther provided det
 2. Manually create a copy of the detection (with a different, unique ID)
 3. Make any modifications to the copy
 
-This will ensure there will be no conflict with the panther provided detection in the pack.  
+This will ensure there will be no conflict with the panther provided detection in the pack. &#x20;
 
 ## Enable and Disable Detection Pack
 
@@ -195,5 +197,5 @@ optional arguments:
 ```
 
 {% hint style="info" %}
-The `kms-key` argument is an optional argument that you can use to generate a signature file. If you want to use this argument, be sure to run panther_analysis_tool using the appropriate aws credentials to call `kms:Sign` on the specified key.
+The `kms-key` argument is an optional argument that you can use to generate a signature file. If you want to use this argument, be sure to run panther\_analysis\_tool using the appropriate aws credentials to call `kms:Sign` on the specified key.
 {% endhint %}
