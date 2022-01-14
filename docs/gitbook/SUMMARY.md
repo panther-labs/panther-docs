@@ -230,6 +230,7 @@
     * [AWS S3 Bucket Policy Modified](alert-runbooks/built-in-rules/aws-s3-bucket-policy-modified.md)
     * [AWS Unauthorized API Call](alert-runbooks/built-in-rules/aws-unauthorized-api-call.md)
 * [Guides](guides/README.md)
+  * [Using Lookup Tables: 1Password UUIDs](guides/using-lookup-tables-1password-uuids.md)
   * [Okta Detections and Queries](guides/okta-detections-and-queries.md)
   * [CI / CD Onboarding Guide](guides/ci-cd-onboarding-guide.md)
   * [Fluentd Onboarding Guide](guides/onboarding-with-fluentd/README.md)
