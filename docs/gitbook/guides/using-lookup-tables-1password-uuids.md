@@ -8,6 +8,7 @@ In the following example, we extracted a list of 1Password items and their assoc
 
 * An existing 1Password log source with data being ingested to your Panther account&#x20;
 * The Command Line utility jq installed
+* The [1Password command-line tool](https://1password.com/downloads/command-line/) is installed
 
 
 
