@@ -67,7 +67,7 @@ In the example below, we are writing a detection based on the name given to a sp
     `from panther_base_helpers import deep_get`
 
     `def rule(event):` \
-    &#x20;   `if deep_get(event, "p_enrichment", "OnePWItemList","item_uuid", "title") == "Sensitive Password":` \
+    &#x20;   `if deep_get(event, "p_enrichment", "1Password Translation","item_uuid", "title") == "Sensitive Password":` \
     &#x20;   `return True`
 8. [Run tests](https://docs.runpanther.io/writing-detections/testing) on your new detection. When you are finished testing, click **Save** in the upper right side of the page.
 
