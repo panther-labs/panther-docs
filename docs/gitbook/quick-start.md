@@ -56,7 +56,6 @@ Panther can be deployed to any of the following regions:
 * `ap-south-1` (Mumbai)
 * `ap-southeast-1` (Singapore)
 * `ap-southeast-2` (Sydney)
-* `ca-central-1` (Canada)
 * `eu-central-1` (Frankfurt)
 * `eu-west-1` (Ireland)
 * `eu-west-2` (London)
