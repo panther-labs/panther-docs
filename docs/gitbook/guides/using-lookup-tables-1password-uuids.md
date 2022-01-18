@@ -8,7 +8,6 @@ In the following example, we extracted a list of 1Password items and their assoc
 
 * An existing 1Password log source with data being ingested to your Panther account&#x20;
 * The Command Line utility jq installed
-* The [1Password command-line tool](https://1password.com/downloads/command-line/) is installed
 
 
 
@@ -67,7 +66,7 @@ In the example below, we are writing a detection based on the name given to a sp
     `from panther_base_helpers import deep_get`
 
     `def rule(event):` \
-    &#x20;   `if deep_get(event, "p_enrichment", "1Password Translation","item_uuid", "title") == "Sensitive Password":` \
+    &#x20;   `if deep_get(event, "p_enrichment", "OnePWItemList","item_uuid", "title") == "Sensitive Password":` \
     &#x20;   `return True`
 8. [Run tests](https://docs.runpanther.io/writing-detections/testing) on your new detection. When you are finished testing, click **Save** in the upper right side of the page.
 
