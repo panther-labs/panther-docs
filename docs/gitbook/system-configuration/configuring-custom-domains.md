@@ -2,72 +2,74 @@
 
 ## Configuring a Custom Domain
 
-Out of the box, Panther ships with a self-signed certificate generated at deployment time. While this setup is better than not having SSL/TLS enabled at all on the web server, it is still far from best practice especially for a security tool. Panther _strongly_ recommends you replace this self-signed certificate with a proper certificate before using Panther in a production environment.
+{% hint style="info" %}
+This documentation only applies to Self Hosted Deployments of Panther.
+{% endhint %}
 
-To set up a custom domain for Panther, follow these easy four steps:
+Out of the box, Panther ships with a self-signed certificate generated at deployment time. While this setup is better than not having SSL/TLS enabled at all on the web server, it is still far from best practice; especially for a security tool. **Panther strongly recommends you replace this self-signed certificate with a certificate issued by a trusted Certificate Authority (CA) before using Panther in a production environment**.&#x20;
 
-1. Register a domain
-2. Get a signed certificate for your domain into AWS
-3. Configure Panther
-4.  Setup an alias from the domain to the auto-generated load balancer URL
-
-    All of these steps can be completed from within the AWS ecosystem. This guide will walk through configuring a custom domain totally within the AWS ecosystem and should take \~45 minutes and cost less than $20/year. If you prefer to manage your certificates outside of AWS, the steps listed below still apply, although the exact details will depend on where you are registering your certificate.
+This documentation describes the process of registering a domain through Amazon Web Services (AWS) Route53, but you may use any domain registrar.
 
 ### Register a domain
 
-In this guide we'll walk through registering a domain through AWS Route53, although any domain registrar should work. If you already have a domain registered, or perhaps an internal CA that manages certificates for your organization, this step can be skipped.
+Note: If you already have a domain registered, or if you have an internal CA that manages certificates for your organization, you can skip this step
 
-1. Navigate to the [Route53](https://console.aws.amazon.com/route53/home) console and click the `Registered domains` tab.
-2. Click the `Register domain` button, and enter the name of the domain you'd like to register. Click the `Check` button, and AWS will verify the domain is available and suggest alternatives if it is not.
-3. After verifying the domain is available, click `Add to cart` and then `Continue`. On the next form, fill in the contact information. Be sure you can receive email at the email specified so that you can verify the domain in a future step. When you're done, click `Continue`.
-4. Agree to the terms and conditions, and click `Complete order`. If you have not registered a domain through route53 before, you will receive a confirmation email.
+1. Navigate to the [Route53](https://console.aws.amazon.com/route53/home) console and click the **Registered domains** tab.
+2. Click **Register domain**, and enter the name of the domain you'd like to register.
+3. Click the checkmark icon to verify that the domain is available. AWS will suggest alternatives if it is unavailable.
+4. Click **Add to cart** and then **Continue**.
+5. On the next form, fill in the contact information. Be sure to enter an email address that you have access to so that you can verify the domain in a future step. When you're done, click **Continue**.
+6. Agree to the terms and conditions, and click **Complete order**. If you have not registered a domain through Route53 before, you will receive a confirmation email.
 
-After that, the domain will take between ten minutes and an hour to complete registration. Fortunately, we can continue with the setup while we wait.
+The domain will take between 10 minutes and one hour to complete registration. You can continue to the next steps before the domain registration is complete.
 
 ### Get a signed certificate into AWS
 
-Now that you have a domain registered, you need to generate a certificate for it.
-
-1. Navigate to the [ACM](https://console.aws.amazon.com/acm/home) console. Be sure you are in the same region that Panther is deployed in.
-2. Click either `Request a certificate` or `Import a certificate`, depending on your preferred workflow. In this example, we will be going through the `Request a certificate` workflow. If you are using a private CA, you will need to follow the `Import a certificate`  workflow.
-3. Make sure the `Request a public certificate` option is selected and click `Request a certificate`.
-4. Enter the name of the domain registered above, and click `Next`.
-5. Click either `DNS Validation` or `Email validation`. In this example, we will use `Email validation`. Click the `Next` button.
-6. Optionally add tags. Adding the tag `Application:Panther` will help group this certificate with the rest of the Panther product. When you are done adding tags, click the `Review` button.
-7. Verify everything looks correct, then click the `Confirm and request` button.
-8. You will receive an email shortly requesting verification of the certificate, with a link to a verify button that will confirm the certificate.
-9. After verifying the certificate request, you will see the status of the certificate switch from `Pending validation` to `Issued`. Be sure to note down the ARN of the newly created certificate for the next step.
+1. Navigate to the[ AWS Certificate Manager (ACM) console](https://console.aws.amazon.com/acm/home). Be sure you are in the same region that Panther is deployed in.
+2. Click **Request a certificate**.&#x20;
+   * If you are using a private CA, you will need to follow the Import a certificate workflow.
+3. Make sure the **Request a public certificate** option is selected and click **Request a certificate**.
+4. Enter the name of the domain registered above, and click **Next**.
+5. Click either **DNS Validation** or **Email validation**.&#x20;
+   * In this example, we will use **Email validation**.&#x20;
+6. Click **Next**.
+7. Optionally add tags. Adding the tag `Application:Panther` will help group this certificate with the rest of the Panther product. When you are done adding tags, click **Review**.
+8. Verify everything looks correct, then click **Confirm and request**.
+9. You will receive an email shortly requesting verification of the certificate. Click the link in the email to confirm the certificate.&#x20;
+   * After verifying the certificate request, you will see the status of the certificate switch from Pending validation to Issued.
+10. Be sure to note the Amazon Resource Name (ARN) of the newly-created certificate, as you will need it in the next steps.
 
 ### Configure Panther
 
-The next step is to configure Panther to use your new certificate and domain. This can be completed with either an active Panther or a new Panther deployment.
+The next step is to configure Panther to use your new certificate and domain. This can be completed with either an active Panther account or a new Panther deployment.
 
-Navigate to the [CloudFormation](https://console.aws.amazon.com/cloudformation/home) console.
+1. Navigate to the [CloudFormation](https://console.aws.amazon.com/cloudformation/home) console.
+2. Find the Panther master stack (called `panther` by default), select this stack, and click **Update**.
+3. Select the **Use current template** option and click **Next**.
+4. Find the **Parameters** section and update the following two parameters:
+   * **CertificateArn**: Enter the full ARN of the ACM certificate created in step two. This can be retrieved from the ACM console.&#x20;
+   * **CustomDomain**: Enter the domain name you registered during the first section of this documentation.
+5. Click **Next** until you reach the final "Review" step.&#x20;
+6. On the "Review" step, verify that your configuration is correct. Check the box next to _I acknowledge that AWS CloudFormation might..._, then click **Update stack**.
 
-1. Find the Panther master stack (called `panther` by default), select this stack, and click the `Update` button.
-2. Select the `Use current template` option is selected and click `Next`.
-3. Find the `Parameters` section and update the following two parameters:
-4. `CertificateArn` - in this field, put the full ARN of the ACM certificate created in step two. This can be retrieved from the ACM console.
-5. `CustomDomain` - in this field, put the domain name you registered in step one.
-6. Click the `Next` button until you reach the final `Review` step. Double check that the fields entered above are correct, then click the `Update stack` button. You will need to check the `I acknowledge that AWS CloudFormation might...` check boxes. After clicking `Update stack`, panther will update with your new certificate. An update should only take a few minutes.
+After clicking **Update stack**, Panther will update with your new certificate. The update should take a few minutes.
 
 ### Create an alias
 
-Finally, you will need to create an alias or CNAME on your domain pointing to the load balancer's auto generated URL. If you're not using a domain registered within route53, you should still generally be able to follow along with the steps below through your registrar's web console.
+Finally, you will need to create an alias or CNAME on your domain pointing to the load balancer's auto generated URL. If you're not using a domain registered within Route53, you should still generally be able to follow along with the steps below through your registrar's web console.
 
-1. Navigate to the Hosted zones tab of Route53, and click the Hosted zone for your new domain
-2. Click the `Create Record Set` button.
+1. Navigate to the Hosted zones tab of Route53, and click the Hosted zone for your new domain.
+2. Click **Create Record Set**.
 3. In the popup, fill in the fields as follows:
-   * Leave the `name` field empty
-   * Leave the `Type` field set to `A - IPv4 address`
-   * For the `Alias` field, select `Yes`
-   *   In the `Alias Target` field, select the name of the ELB load balancer from your Panther deployment. It will be under the `ELB Application load balancers` section. You can find this manually in CloudFormation by going to the `panther-bootstrap` stack and looking for the `LoadBalancerUrl` output.
-
-       Note: the name will automatically be prefixed with "dualstack.", leave this in place
-   * Leave the `Routing Policy` field set to `Simple`
-   * Leave the `Evaluate Target Health` field set to `No`
-   * Click the `Create` button
+   * **Name**: Leave this field empty.&#x20;
+   * **Type**: `A - IPv4 address`&#x20;
+   * **Alias**: Select `Yes`&#x20;
+   * **Alias Target**: Select the name of the ELB load balancer from your Panther deployment. It will be under the ELB Application load balancers section.&#x20;
+     * You can find this manually in CloudFormation by going to the panther-bootstrap stack and looking for the LoadBalancerUrl output. Note: the name will automatically be prefixed with "dualstack". Do not modify this.&#x20;
+   * **Routing Policy**: Select `Simple`&#x20;
+   * **Evaluate Target Health**: Select `No`
+4. Click **Create**.
 
 ![](<../../../.gitbook/assets/hosted-zone-alias (9) (10) (3) (7).png>)
 
-After this, your setup is complete. You can now navigate to your new domain and reach the Panther web application over a signed and secure HTTPS connection.
+You can now navigate to your new domain and reach the Panther web application over a signed and secure HTTPS connection.
