@@ -6,13 +6,13 @@ In most cases, Panther strongly recommends using the SaaS deployment model. In s
 
 #### Have Panther approve your account
 
-Before you can deploy Panther, you will need to provide Panther with the account ID and region of the account from which you intend to deploy Panther.
+Before you can deploy Panther, you will need to provide Panther with the **account ID** and **region** of the account from which you intend to deploy Panther.
 
 #### Check IAM Permissions
 
 Deploying Panther into your own account requires creating a number of AWS resources, including the provisioning of IAM resources. To ensure you have adequate permissions to perform those actions, make sure you're using a privileged user or role when creating the panther root stack.
 
-We provide a `PantherDeploymentRole` template [here](https://github.com/panther-labs/panther/blob/master/deployments/auxiliary/cloudformation/panther-deployment-role.yml) that creates an IAM role with relatively least privilege access configured for deploying Panther. Note that this role has the ability to create arbitrary IAM entities, so privilege escalation is trivial. Panther needs this permission to create the least-privilege roles used by the Panther application itself, but the `PantherDeploymentRole` should be treated as a sensitive administrator role.
+We provide a `PantherDeploymentRole` template that creates an IAM role with relatively least privilege access configured for deploying Panther. Note that this role has the ability to create arbitrary IAM entities, so privilege escalation is trivial. Panther needs this permission to create the least-privilege roles used by the Panther application itself, but the `PantherDeploymentRole` should be treated as a sensitive administrator role.
 
 #### Check organization SCPs
 
@@ -34,8 +34,8 @@ When deploying Panther, you will be provided with a template URL to a root panth
 
 The Panther CloudFormation stack has a number of configurable deployment parameters. Pay special attention to the following options:
 
-* `FirstUserEmail` _(required)_: a Panther admin invite will be sent to this email address. Updates to this value are ignored after the first successful deploy.
-* `PulumiSecretArn` and `PulumiSecretKeyArn` (_required in v1.22+_): these values will be provided by our team - you will have a dedicated [Pulumi](https://www.pulumi.com) access token in our organization.
+* `FirstUserEmail` _**(required)**_: a Panther admin invite will be sent to this email address. Updates to this value are ignored after the first successful deploy.
+* `PulumiSecretArn` and `PulumiSecretKeyArn` **(**_**required**_**):** these values will be provided by our team - you will have a dedicated [Pulumi](https://www.pulumi.com) access token in our organization.
 * `OnboardSelf`: whether you want Panther to onboard its own AWS account for monitoring.
 * `SentryEnvironment`: by default, application errors are sent to [Sentry](https://sentry.io) for us to triage. We strongly recommend keeping this enabled with the default value (`prod`), but if that's not an option for you, you can disable the Sentry integration by setting this to a blank string.
 * `SupportRoleIdentityAccountId`: by default, a read-only SupportRole is deployed with Panther which our on-call engineers can assume to triage application errors. This role does **not** have access to your data and we’d encourage you to keep it enabled so we can deliver a better support experience. However, if you prefer, this role can be disabled by setting the `SupportRoleIdentityAccountId` to a blank string.
@@ -75,7 +75,11 @@ https://panther-public-cloudformation-templates.s3.amazonaws.com/panther-deploym
 
 #### While you upgrade
 
-In order to perform the upgrade, simply find the root Panther stack in the CloudFormation console, click the `Update` button, select `Replace template URL`, and insert the `TemplateURL` for the desired version of Panther you wish to deploy. The  template URL should be in this format:
+In order to perform the upgrade, simply find the root Panther stack in the CloudFormation console, click the `Update` button, select `Replace template URL`, and insert the `TemplateURL` for the desired version of Panther you wish to deploy. The template URL should be in this format:
+
+**SAMPLE**
+
+****[https://panther-enterprise-us-east-2.s3.amazonaws.com/v1.25.1/panther.yml](https://panther-enterprise-{region}.s3.amazonaws.com/%7Bversion%7D/panther.yml)
 
 ```
 https://panther-enterprise-{region}.s3.amazonaws.com/{version}/panther.yml
