@@ -4,7 +4,7 @@
 
 Out of the box, Panther ships with a self-signed certificate generated at deployment time. While this setup is better than not having SSL/TLS enabled at all on the web server, it is still far from best practice especially for a security tool. Panther _strongly_ recommends you replace this self-signed certificate with a proper certificate before using Panther in a production environment.
 
-To set up a custom domain for Panther, follow these easy four steps::
+To set up a custom domain for Panther, follow these easy four steps:
 
 1. Register a domain
 2. Get a signed certificate for your domain into AWS
