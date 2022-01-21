@@ -76,3 +76,11 @@ Destination failure alerts are generated when Panther fails to deliver an alert 
 * An alert is fired whenever a threshold of alert delivery retries fails to successfully send to an external destination.
 
 This type of alert is classified as a "System Error", similar to all other system health alerts referenced on this page. Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors. Additionally, you can view this alert in the "System Errors" sub-tab of the "Alerts & Errors" tab in the Panther UI.&#x20;
+
+### Cloud Security Scanning Failure Notifications
+
+Cloud security scanning failure alerts are generated when Panther fails to scan a cloud resource. When this happens, the following action takes place by default:
+
+* An alert is fired when a cloud scan fails because of an access denied error.
+
+This type of alert is classified as a "System Error", similar to all other system health alerts referenced on this page. Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors. Additionally, you can view this alert in the "System Errors" sub-tab of the "Alerts & Errors" tab in the Panther UI.&#x20;
