@@ -83,4 +83,4 @@ ALTER USER PANTHERACCOUNTADMIN SET DISABLED = FALSE
 
 ### Customer-managed Snowflake Integration
 
-For customer-managed Snowflake connection options see [this page](legacy-snowflake-integration/).
+For customer-managed Snowflake connection options see [this page](customer-managed-snowflake/).
