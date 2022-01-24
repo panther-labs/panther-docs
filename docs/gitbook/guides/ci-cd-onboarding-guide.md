@@ -54,7 +54,7 @@ Going forward this job will run every time a new pull request is created, or a n
 
 After changes have been merged to your detections repo the recommended way to upload new detections is with panther-analysis-tool. If this functionality is required please file a support request to be granted permissions to upload directly. Support will optionally create an IAM user and provide credentials or create a role that your user can assume to perform these actions.
 
-Specifically it is recommended to run `panther_analysis_tool` test to ensure your unit tests are passing, followed by `panther_analysis_tool upload` to upload new detections to your Panther instance.  Setting environment variables `AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY_ID` and `AWS_DEFAULT_REGION` (obtained from support if an IAM user is created, yours if a role was created) is necessary for these commands to execute successfully.
+Specifically it is recommended to run `panther_analysis_tool` test to ensure your unit tests are passing, followed by `panther_analysis_tool upload` to upload new detections to your Panther instance.  Setting environment variables `AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY_ID` and `AWS_DEFAULT_REGION` (obtained from support if an IAM user is created, yours if a Panther role was created) is necessary for these commands to execute successfully.
 
 It is also possible to add this step to your CircleCI workflow to automate the upload of new rules when merging into master.   Ensure that the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY_ID` and `AWS_DEFAULT_REGION` are passed into the job to allow for correct authentication. These will be provided by support in the case they created an IAM user  and can be stored encrypted as repository secrets. The process of adding repository secrets is covered more in-depth in the next section.
 
@@ -62,7 +62,7 @@ Full documentation on panther-analysis-tool can be found [here](https://docs.run
 
 ### Configuring CircleCI to Upload to Panther
 
-First you will need to create environment variables within the Project Settings in CircleCI for your forked version of `panther-analysis`. The CircleCI documentation for environment variables can be found [here](https://circleci.com/docs/2.0/env-vars/). The environment variables that need to be created are are `$INTERNAL_ACCESS_KEY_ID` (AWS Access Key), `$INTERNAL_SECRET_ACCESS_KEY` (AWS Secret Access Key), and`$INTERNAL_DEFAULT_REGION` (AWS Default Region).
+First you will need to create environment variables within the Project Settings in CircleCI for your forked version of `panther-analysis`. The CircleCI documentation for environment variables can be found [here](https://circleci.com/docs/2.0/env-vars/). The environment variables that need to be created are are `$INTERNAL_ACCESS_KEY_ID` (AWS Access Key), `$INTERNAL_SECRET_ACCESS_KEY` (AWS Secret Access Key), and`$INTERNAL_DEFAULT_REGION` (AWS Default Region). These are obtained from support if an IAM user is created, yours if a Panther role was created.
 
 ![](../.gitbook/assets/config.jpg)
 
