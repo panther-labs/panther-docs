@@ -22,21 +22,21 @@ The process outlined in this guide will use Github, Github Actions, and CircleCI
 
 If you haven’t done so already, create a repository to contain the detections that have been created “in house”. We will be using CircleCI
 
-If you do not currently use CircleCI for other projects, you can [create a free account](https://circleci.com/signup) by “Signing up with Github” which will authorize CircleCI to your Github account. 
+If you do not currently use CircleCI for other projects, you can [create a free account](https://circleci.com/signup) by “Signing up with Github” which will authorize CircleCI to your Github account.&#x20;
 
 ![](../../../.gitbook/assets/screen-shot-2021-09-09-at-12.32.35-pm.png)
 
-Once signed in click “Projects” on the left side, find the project containing the repository and click “Set Up Project” 
+Once signed in click “Projects” on the left side, find the project containing the repository and click “Set Up Project”&#x20;
 
 ![](../../../.gitbook/assets/screen-shot-2021-09-09-at-12.32.47-pm.png)
 
 {% hint style="info" %}
-NOTE: In this screenshot we’re using a fork of panther-analysis, you’ll want to select the project containing your in-house detections. If you are using this guide only to enable CI/CD for a fork of panther-analysis (discussed in more detail in the following section) select that project. 
+NOTE: In this screenshot we’re using a fork of panther-analysis, you’ll want to select the project containing your in-house detections. If you are using this guide only to enable CI/CD for a fork of panther-analysis (discussed in more detail in the following section) select that project.&#x20;
 {% endhint %}
 
 ### Configuring CircleCI Job
 
-After clicking “Set Up Project” for the desired project, you will be presented with two options.  
+After clicking “Set Up Project” for the desired project, you will be presented with two options. &#x20;
 
 ![](../../../.gitbook/assets/screen-shot-2021-09-09-at-12.32.55-pm.png)
 
@@ -60,13 +60,58 @@ It is also possible to add this step to your CircleCI workflow to automate the u
 
 Full documentation on panther-analysis-tool can be found [here](https://docs.runpanther.io/writing-detections/panther-analysis-tool#uploading-to-panther).
 
+### Configuring CircleCI to Upload to Panther
+
+First you will need to create environment variables within the Project Settings in CircleCI for your forked version of `panther-analysis`. The CircleCI documentation for environment variables can be found [here](https://circleci.com/docs/2.0/env-vars/). The environment variables that need to be created are are `$INTERNAL_ACCESS_KEY_ID` (AWS Access Key), `$INTERNAL_SECRET_ACCESS_KEY` (AWS Secret Access Key), and`$INTERNAL_DEFAULT_REGION` (AWS Default Region).
+
+![](../.gitbook/assets/config.jpg)
+
+![](<../.gitbook/assets/image (3).png>)
+
+&#x20;After the environment variables have been created, you'll need to add the lines below to your CircleCI configuration in the `panther-analysis` repo.
+
+```
+  deploy:
+    docker:
+      - image: 'circleci/python:3.7'
+    steps:
+      - checkout
+      - run:
+          name: Copy in aws config
+          command: |
+            mkdir -p ~/.aws
+            cp .circleci/aws_config ~/.aws/config
+      - run:
+          name: Setup the Virtual Environment and install dependencies
+          command: make venv
+      - run:
+          name: upload to internal security
+          command:  |
+            AWS_ACCESS_KEY_ID=$INTERNAL_ACCESS_KEY_ID \
+            AWS_SECRET_ACCESS_KEY=$INTERNAL_SECRET_ACCESS_KEY \
+            AWS_DEFAULT_REGION=$INTERNAL_DEFAULT_REGION \
+            pipenv run -- panther_analysis_tool upload --filter Tags=internal --aws-profile internal
+```
+
+You will need to create `.circleci/aws_config` within your forked version of `panther-analysis`. In the below example, you will need to update the `role_arn` which will be provided to you by Panther and `region` where your Panther instance has been deployed.
+
+```
+[default]
+region = us-east-1
+output = json
+
+[profile production]
+role_arn = arn:aws:iam::xxxxx:role/PantherAnalysis
+credential_source = Environment
+```
+
 ## Keeping up to date with Panther Built-in Detections
 
 This section of the guide is optional, but will assist you in the creation of a fork of the Panther Analysis repo for the purpose of keeping the built-in detections in Panther up to date.  The process for adding this fork to your instance of Panther can be found [here](https://docs.runpanther.io/writing-detections/detection-packs). The rest of this section is devoted to creating the fork and keeping it up to date.
 
 ### Creating a Fork
 
-Log into Github and visit [panther-labs/panther-analysis](https://github.com/panther-labs/panther-analysis).  ![](https://lh4.googleusercontent.com/0V8F9LYJ_sbnMu\_\_jK5BCxELcNxy6889QOWH2pixy815uDe0cyhCJAvx_Utjs0uiu9DDTDF2dFoTf0OVjZ8ox34zgfDifXMgUjI06pG-\_Ny9PaJlbjZa31PJ4gnJlIQd3TNq\_2P4=s0)\
+Log into Github and visit [panther-labs/panther-analysis](https://github.com/panther-labs/panther-analysis).  ![](https://lh4.googleusercontent.com/0V8F9LYJ\_sbnMu\_\_jK5BCxELcNxy6889QOWH2pixy815uDe0cyhCJAvx\_Utjs0uiu9DDTDF2dFoTf0OVjZ8ox34zgfDifXMgUjI06pG-\_Ny9PaJlbjZa31PJ4gnJlIQd3TNq\_2P4=s0)\
 
 
 In the upper right corner of the repository’s main page click “Fork”. This will create a fork of the panther-analysis repo in your organization. This will serve as your working copy of panther-analysis, and any changes required by your organization can be made here and will undergo any configured CI checks that you define. Note that as mentioned in the previous section a CircleCI config file is already present in this repository and can be used if desired, you will need to enable this new forked project in your instance of CircleCI.
@@ -93,11 +138,11 @@ Before enabling this action you must create a GitHub personal access token as a 
 ![](https://lh3.googleusercontent.com/gJogiLZuFk03fHCiFMS4s6n9RdraggLCiIkG2K2s0Ewk8KVdOkkxmJ6XLS1p6KkJGPlKrQmipaobhSMB6Dp-HU2jljUITjbmLIsEDDgKTkm-Xq031wgXNCmMYWJqmaaciy4BZ2uZ=s0)
 
 \
-Give the token a meaningful name and the scopes “repo” and “workflow”.  In my screenshot I have the token expiring after 30 days, at which time it will need to be regenerated. This setting is completely up to you, but remember that this personal access token needs to be treated as a password, and as such you should adhere to any password policies your organization has defined.  When finished click “Generate Token” at the bottom of the page and you will be presented with a token. Copy this to your clipboard in preparation for the next step. You will only see this token once, so make sure you have it copied before navigating away from this page or you will have to delete and create a new one. 
+Give the token a meaningful name and the scopes “repo” and “workflow”.  In my screenshot I have the token expiring after 30 days, at which time it will need to be regenerated. This setting is completely up to you, but remember that this personal access token needs to be treated as a password, and as such you should adhere to any password policies your organization has defined.  When finished click “Generate Token” at the bottom of the page and you will be presented with a token. Copy this to your clipboard in preparation for the next step. You will only see this token once, so make sure you have it copied before navigating away from this page or you will have to delete and create a new one.&#x20;
 
-Next navigate to the fork of panther-analysis in your GitHub org and click on “Settings”,  “Secrets”,  then “New Repository Secret” 
+Next navigate to the fork of panther-analysis in your GitHub org and click on “Settings”,  “Secrets”,  then “New Repository Secret”&#x20;
 
-You will be presented with a page to give your new secret a name and paste the token. If you are following along with the Fork Sync examples, name the secret PERSONAL_TOKEN to match the example.
+You will be presented with a page to give your new secret a name and paste the token. If you are following along with the Fork Sync examples, name the secret PERSONAL\_TOKEN to match the example.
 
 ![](https://lh4.googleusercontent.com/xFrvDaXCMkHDuU-7rkrp2OCwW3ww1XPeaTA9ZL1rzeEfh5IRNIXnMeXjCwbruU0sVmQoxFb-bhWDqnnijq3MKnoB0kVISf4EAw4Kud2VmwNbAwDLA39bX4QdCBNaDL0O2RSCV7k8=s0)
 

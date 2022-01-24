@@ -2,7 +2,7 @@
 
 ### Disclaimer
 
-The following instructions are only intended for users who currently opt for a [Customer-managed Snowflake Integration](./#legacy-snowflake-configuration-deprecated) and are looking to upgrade to Panther v1.25
+The following instructions are only intended for users who currently opt for a [Customer-managed Snowflake Integration](../customer-managed-snowflake/#legacy-snowflake-configuration-deprecated) and are looking to upgrade to Panther v1.25
 
 ### Support for Panther Lookup Tables
 
