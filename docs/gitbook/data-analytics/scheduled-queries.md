@@ -19,7 +19,9 @@ Below is an overview of the scheduled query creation process, detailed steps are
 Please note that at least one Scheduled Rule **must** be associated with the Scheduled Query for the data to be processed by Panther.
 {% endhint %}
 
-Examples can be found [here.](example-queries.md#scheduled-queries-and-rules)
+By default, new accounts will have a limit of 10 scheduled queries. This limit is only precautionary, and can be increased via a support request. There is no additional cost from Panther for raising this limit, however you may incur extra charges from the database backend depending on the volume of data processed.\
+\
+For examples of scheduled queries, please see the documentation: [Scheduled Queries and Rules](https://docs.runpanther.io/data-analytics/example-queries#scheduled-queries-and-rules).
 
 ## Creating a Scheduled Query
 
