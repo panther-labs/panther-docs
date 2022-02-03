@@ -24,6 +24,7 @@
     * [CloudWatch Logs source](data-onboarding/data-transports/cwl-source.md)
     * [SQS source](data-onboarding/data-transports/sqs.md)
     * [SNS source](data-onboarding/data-transports/sns.md)
+    * [Google Cloud Storage (GCS) source](data-onboarding/data-transports/gcs.md)
   * [Built-in Log Types](data-onboarding/supported-logs/README.md)
     * [Apache](data-onboarding/supported-logs/apache.md)
     * [AWS](data-onboarding/supported-logs/aws.md)
