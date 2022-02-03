@@ -25,8 +25,7 @@ When you create or edit a role, you are shown the following screen:
 
 ![Role Edit](<../../../.gitbook/assets/rbac-role-edit (7) (7) (8) (7).png>)
 
-(There are more available permissions than the ones shown here.)
-
 {% hint style="info" %}
-Permission changes will not take effect until the user's session expires (at most 1 hour).
+* Permission changes will not take effect until the affected user refreshes the browser where they are logged in to Panther or signs out and back in to Panther.
+* If, after updating a user's permissions, the user continues to see an _**access denied** _ error,  double-check to see if they are missing another _Read_ permission that would be required for the page they are trying to access
 {% endhint %}
