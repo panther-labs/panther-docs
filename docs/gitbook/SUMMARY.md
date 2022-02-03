@@ -136,7 +136,7 @@
     * [Okta](system-configuration/saml/okta.md)
     * [OneLogin](system-configuration/saml/onelogin.md)
     * [Generic](system-configuration/saml/generic.md)
-  * [System Health Notifications](system-configuration/system-health-notifications/README.md)
+  * [System Health Notifications](system-configuration/system-health-notifications.md)
     * [Configuring System Health Notification Alarms](system-configuration/system-health-notifications/configuring-system-health-notification-alarms.md)
     * [Log Classification Error](system-configuration/system-health-notifications/log-classification-error.md)
     * [Alert Delivery Failure](system-configuration/system-health-notifications/alert-delivery-failure.md)
