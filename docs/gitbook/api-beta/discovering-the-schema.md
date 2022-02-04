@@ -16,13 +16,13 @@ You can download the latest version of the GraphQL schema file [here](https://pa
 
 ### Using the GraphQL Playground
 
-Panther's API Playground is a user-friendly way of browsing and discovering what's supported in our API. Please refer to our [API Playground docs](https://docs.runpanther.io/api/api-playground) for information on how to use this as a discoverability mechanism.
+Panther's API Playground is a user-friendly way of browsing and discovering what's supported in our API. Please refer to our [API Playground docs](https://docs.runpanther.io/api-beta/api-playground) for information on how to use this as a discoverability mechanism.
 
 ### Performing an introspection query
 
 An introspection query yields all the GraphQL API's entities in a format that most third-party libraries can parse. This discoverability option is useful if you want to make another library or service aware of the supported operations and types that the Panther API has. These libraries typically issue their own version of an introspection query, so they only need to be pointed to an API URL.
 
-For security purposes, the introspection query is an authorized operation. This means that you'll need to add an `X-API-Key` header to your HTTP call with the value of an [API Token](https://docs.runpanther.io/api/generating-an-api-token) in order for the introspection to work. &#x20;
+For security purposes, the introspection query is an authorized operation. This means that you'll need to add an `X-API-Key` header to your HTTP call with the value of an [API Token](https://docs.runpanther.io/api-beta/generating-an-api-token) in order for the introspection to work. &#x20;
 
 ```
 $ curl -H "X-API-Key: <API_KEY>" -d <INTROSPECTION_QUERY> <YOUR_PANTHER_API_URL>

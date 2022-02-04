@@ -33,4 +33,4 @@ After generating an API Token, you can test to verify that it works as expected:
 
 You can discover the available queries, mutations, and fields by clicking **Documentation Explorer** on the right side panel of the Playground.&#x20;
 
-For additional ways to discover the schema, see the [Discovering the Schema documentation](https://docs.runpanther.io/api/discovering-the-schema).
+For additional ways to discover the schema, see the [Discovering the Schema documentation](https://docs.runpanther.io/api-beta/discovering-the-schema).

@@ -1,7 +1,7 @@
 # Using the Panther API
 
 {% hint style="info" %}
-This page assumes that you've already [generated an API Token](broken-reference) to interact with the API and that you've already experimented with it in the [Playground](broken-reference).
+This page assumes that you've already [generated an API Token](https://docs.runpanther.io/api-beta/generating-an-api-token) to interact with the API and that you've already experimented with it in the [Playground](https://docs.runpanther.io/api-beta/api-playground).
 {% endhint %}
 
 
@@ -16,7 +16,7 @@ To invoke the API using an HTTP curl operation, you will need the following info
 * The auth-related header
   * The auth-related header is called `X-API-Key` and its value should always be a valid API Token that you generated through the Panther UI.
 * A GraphQL query
-  * The GraphQL query differs from use case to use case. Please refer to our [schema discoverability page](broken-reference) or our [common operations](using-the-panther-api.md#common-operations) for more on this topic.
+  * The GraphQL query differs from use case to use case. Please refer to our [schema discoverability page](https://docs.runpanther.io/api-beta/discovering-the-schema) or our [common operations](using-the-panther-api.md#common-operations) for more on this topic.
 
 
 
@@ -180,7 +180,7 @@ fmt.Println(query.Alerts.PageInfo.HasNextPage)
 
 ## Common Operations
 
-Below are examples of some of the most common GraphQL operations in Panther. For more information on what fields and operations exist in the API, please see the [Discovering the Schema documentation](https://docs.runpanther.io/api/discoverig-the-schema).
+Below are examples of some of the most common GraphQL operations in Panther. For more information on what fields and operations exist in the API, please see the [Discovering the Schema documentation](https://docs.runpanther.io/api-beta/discovering-the-schema).
 
 #### Listing your Alerts
 
