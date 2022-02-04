@@ -233,7 +233,7 @@ query AnotherPageOfAllAlerts {
 ```graphql
 # `FilteredPageOfAlerts` is a nickname for the operation
 query FilteredPageOfAlerts {
-    alerts(input: { severity: LOW, status: OPEN }) {
+    alerts(input: { severity: [LOW], status: [OPEN] }) {
       edges {
         node { # you can ask for more alert-related fields here
           id
