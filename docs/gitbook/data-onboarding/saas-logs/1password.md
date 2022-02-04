@@ -13,19 +13,14 @@ In order to set up 1Password as a log source in Panther, you'll need to authoriz
 
 ## Generate an Access Token in 1Password
 
-{% hint style="info" %}
-The steps below can only be performed if you are an owner or administrator. You can read more on generating a Personal Access Token in 1Password [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-{% endhint %}
-
-1. [Sign in](https://start.1password.com/signin) to your 1Password account, click Integrations in the sidebar
-2. Choose "**Other**" as your SIEM
-3. Enter a name for the integration, then click Add Integration.
-4. Enter a name for the bearer token and choose when the token will expire. Select the event types the token has access to which will be **ItemUsage** and **SignInAttempts.**
-5. Click Issue Token.
-6. Click Save in 1Password and choose which vault to save your token to. Then click View Integration Details.
-7. Copy and paste the token into the Panther UI. You are done with this part!
-
-If you have trouble creating the token, be sure to reference [1Password's docs](https://support.1password.com/events-reporting/) for reference.
+1. [Sign in](https://start.1password.com/signin) to your 1Password account, then click **Integrations** in the sidebar
+2. Choose "Other" as your SIEM
+3. Enter a name for the integration, then click **Add Integration**.
+4. Enter a name for the bearer token and choose when the token will expire. Select the event types the token has access to which will be `ItemUsage` and `SignInAttempts`**.**
+   * For  information on issuing or revoking bearer tokens, please see [1Password's documentation](https://support.1password.com/events-reporting/#appendix-issue-or-revoke-bearer-tokens).
+5. Click **Issue Token**.
+6. Click **Save in 1Password** and choose which vault to save your token to. Then click **View Integration Details**.
+7. Copy and paste the token into the Panther UI.&#x20;
 
 ## Create a new 1Password log source in Panther
 
@@ -42,7 +37,6 @@ Once you complete the step above, you can continue with the step below.
 7. Click on **Continue Setup** once you've filled out those fields
 8. Panther will verify access to 1Password at this point. If you run into an error, be sure to review the credentials you provided to Panther. If issues persist, reach out to Panther Support for help.
 9. You should be taken to a confirmation screen where you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval).
-10. Congrats, you're done!
 
 
 
