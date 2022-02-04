@@ -1,8 +1,12 @@
 # Using Lookup Tables: 1Password UUIDs
 
-By default, 1Password logs do not contain human readable values for objects such as vaults and login credentials. Instead, each object is referenced by a Universally Unique Identifier (UUID). You can use Lookup Tables in Panther to translate the UUIDs to friendly names. We recommend using Command Line Interface (CLI), but it is also possible to use the API.
+By default, 1Password logs do not contain human readable values for objects such as vaults and login credentials. Instead, each object is referenced by a Universally Unique Identifier (UUID). You can use [Lookup Tables](https://docs.runpanther.io/data-analytics/lookup-tables) in Panther to translate the UUIDs to friendly names. We recommend using Command Line Interface (CLI), but it is also possible to use the API.
 
-In the following example, we extracted a list of 1Password items and their associated UUIDs via CLI, then created a Lookup Table to translate the UUIDs into their human-readable friendly names.
+{% hint style="info" %}
+For more information on Lookup Tables, please see Panther's documentation: [Lookup Tables (BETA)](https://docs.runpanther.io/data-analytics/lookup-tables)
+{% endhint %}
+
+In the following example, we extracted a list of 1Password items and their associated UUIDs via CLI, then created a Lookup Table to translate the UUIDs into their human-readable friendly names.&#x20;
 
 **Prerequisites**:
 
