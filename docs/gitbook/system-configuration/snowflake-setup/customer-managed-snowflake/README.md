@@ -412,7 +412,7 @@ Repeat the process below, once for `panther_readonly` user and once for the `pan
 | :---------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  `account`  | The name of your Snowflake account. It can be found by executing `SELECT CURRENT_ACCOUNT()`                                                                |
 |    `user`   | Snowflake user you created earlier, either `panther_readonly` or `panther_admin`                                                                           |
-|  `password` | The Snowflake user password that you created in Step 1                                                                                                     |
+|  `password` | The Snowflake user password that you created earlier                                                                                                       |
 |    `host`   | This is usually `<something>.snowflakecomputing.com` from the URL used to log into your cluster. Remove `https://` and any trailing `/` from the hostname. |
 |    `port`   | Use `443` unless you have configured differently                                                                                                           |
 | `warehouse` | The name of your Snowflake active warehouse                                                                                                                |
