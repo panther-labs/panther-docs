@@ -31,7 +31,7 @@ In this step, you will configure your SNS topic to forward messages to the SQS q
 
     So for example a queue with URL `https://sqs.eu-central-1.amazonaws.com/123456789012/panther-source-test` has ARN `arn:aws:sqs:eu-central-1:123456789012:panther-source-test`
 * Select **Enable raw message delivery**
-*   Click on **Enable subscription**
+*   Click on **Create subscription**
 
     ![](<../../../../.gitbook/assets/sns-page1 (5) (5) (7) (8).png>)
 
