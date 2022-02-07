@@ -1,7 +1,13 @@
 # Panther API (Beta)
 
 {% hint style="info" %}
-This feature is available in version 1.28.0 and newer.
+This feature is available in version 1.28.0 and newer.&#x20;
+
+The Panther API is currently in beta. This means:&#x20;
+
+* We would greatly appreciate feedback such as bug reports and feature requests.
+* The feature will gain new functionality in future versions of Panther.&#x20;
+* The UI is likely to significantly evolve over time.
 {% endhint %}
 
 Panther offers a public GraphQL-over-HTTP API, meaning you can write GraphQL queries and invoke the API using a typical HTTP request.
