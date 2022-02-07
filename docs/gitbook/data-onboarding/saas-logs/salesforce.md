@@ -1,9 +1,5 @@
 # Salesforce
 
-{% hint style="info" %}
-This is feature will be made available in version 1.17
-{% endhint %}
-
 Panther has the ability to fetch [Salesforce Event Monitoring](https://trailhead.salesforce.com/content/learn/modules/event\_monitoring/event\_monitoring\_intro) logs for the following event types:
 
 * [Login](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce\_api\_objects\_eventlogfile\_login.htm)

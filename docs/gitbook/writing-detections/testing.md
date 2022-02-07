@@ -63,10 +63,6 @@ Panther's testing framework also allows for basic Python call mocking.
 
 When writing a detection that requires an external API call, mocks can be utilized to mimic the server response in the unit tests without having to actually execute an API call.&#x20;
 
-{% hint style="info" %}
-This feature is available in Panther version 1.18
-{% endhint %}
-
 Mocks are defined by a given `Mock Name` and `Return Value` which respectively denote the name of the object to patch and the `string` to be returned when the patched object is invoked.
 
 Added mocks are defined on the unit test level allowing users to define different mocks for each unit test. The section to add mocks to a unit test is located directly underneath the unit test resource definition:

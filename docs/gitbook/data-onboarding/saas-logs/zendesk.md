@@ -1,9 +1,5 @@
 # Zendesk
 
-{% hint style="info" %}
-This feature will be available in version 1.22
-{% endhint %}
-
 Panther has the ability to fetch [Zendesk audit logs ](https://developer.zendesk.com/api-reference/ticketing/account-configuration/audit\_logs/)by querying the [Zendesk Support API](https://developer.zendesk.com/api-reference/ticketing/introduction/).
 
 {% hint style="warning" %}

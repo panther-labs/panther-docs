@@ -66,9 +66,7 @@ On the other hand, if you would like to revert a pack version, you can select th
 
 ## Pack Sources
 
-{% hint style="info" %}
-This feature is available in Panther version 1.17
-{% endhint %}
+
 
 Pack Sources provide a way to configure custom Github sources for detection packs. Once a Pack Source is configured, Panther will check for new releases once a day. Custom packs can be managed using the same functionality as Panther-provided packs.
 
