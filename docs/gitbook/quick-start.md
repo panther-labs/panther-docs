@@ -14,21 +14,30 @@ First things first, let's get you get logged in. See the guidelines below to get
 
 Then, depending on the desired use case, follow the onboarding paths below:
 
-### First Login
+### Initial Login
 
-Once your account has been provisioned, you will get an invitation email from `no-reply@verificationemail.com` with your temporary login credentials. If you don't see it, be sure to check your spam folder.
+Once your Panther environment has been provisioned, you will receive an invitation email from `no-reply@verificationemail.com` with your temporary login credentials. If you don't see it, be sure to check your spam folder or reach out to your customer support team.
 
-You can use these temporary credentials to login and setup MFA:
+After the initial login with the provided credentials, you will need to update your password and set up MFA.
 
-![Login Screen](../../.gitbook/assets/quick-start-login.png)
+![Login Screen](<.gitbook/assets/image (6).png>)
+
+### Inviting Users
+
+After you have successfully logged in, you can invite more users to the platform by navigating to **Settings** > **Users**. You may also set up [SAML integration](system-configuration/saml/).
+
+![](<.gitbook/assets/image (7).png>)
 
 ### Alert Destinations
 
-The first recommended step after initial login is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as Slack, PagerDuty, or automation platforms like Tines. You can quickly set up a destination by following the steps below:
+The first recommended step after initial login is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as [Slack](https://docs.runpanther.io/destinations/slack), [PagerDuty](https://docs.runpanther.io/destinations/pagerduty), or automation platforms like Tines with a [custom webhook](https://docs.runpanther.io/destinations/custom\_webhook). You can quickly set up a destination by following the steps below:
 
-1. Go to  `Integrations` > `Alert Destinations` > `Add New Destination`
-2. Select a destination you would like to push alert to
-3. Follow the onboarding experience, use Panther Docs to correctly configure the destination
+1. In your Panther account, go to **Integrations > Alert Destinations.**
+2. Click **+Add your first Destination**.
+3. Click a destination you would like to configure:\
+   ![](.gitbook/assets/destination-options.png)
+
+See [Panther's Destinations documentation](https://docs.runpanther.io/destinations) for configuration steps specific to each service.
 
 ### Data Onboarding
 
@@ -40,13 +49,13 @@ For data normalization, real-time analytics, and storage into the data lake, sta
 
 After onboarding, your data will be searchable with SQL via the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer) and can be correlated with the [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search). These tools can help provide samples for [custom rule](https://docs.runpanther.io/writing-detections/rules) writing.
 
-### Set Up Detections & Cloud Compliance
+### Set Up Detections and Cloud Compliance
 
 Panther comes with build-in detections that alert against common security events and monitoring of cloud infrastructure. Building on these built-on detections is easy; use Panther to create custom detections that address your organizational needs. Use the documentation below to guide you through setting up detections and cloud compliance:
 
-1. Onboard AWS accounts for [cloud security scans](https://docs.runpanther.io/data-onboarding/setup-cloud-accounts)
-2. Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs
-3. Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.runpanther.io/resources)
+* Onboard AWS accounts for [cloud security scans](https://docs.runpanther.io/data-onboarding/setup-cloud-accounts).
+* Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs.
+* Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.runpanther.io/resources).
 
 ### Supported AWS Regions
 
