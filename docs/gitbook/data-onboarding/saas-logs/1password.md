@@ -1,7 +1,7 @@
 # 1Password
 
 {% hint style="info" %}
-This feature is available in versions 1.25 and newer.
+This feature is available in Panther versions 1.25 and newer and requires a [**1Password Business**](https://1password.com/business/) account. We do not currently support onboarding logs from 1Password Enterprise accounts.
 {% endhint %}
 
 Panther has the ability to fetch 1Password event logs by querying the [1Password Events API](https://support.1password.com/events-api-reference/). Panther is specifically monitoring the following 1Password events:
