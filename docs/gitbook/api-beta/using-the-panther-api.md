@@ -1,6 +1,8 @@
 # Using the Panther API
 
-
+{% hint style="info" %}
+This page assumes that you've already [generated an API Token](https://docs.runpanther.io/api-beta/generating-an-api-token) to interact with the API and that you've already experimented with it in the [Playground](https://docs.runpanther.io/api-beta/api-playground).
+{% endhint %}
 
 ### Prerequisites
 
