@@ -247,7 +247,7 @@
   * [Okta Detections and Queries](guides/okta-detections-and-queries.md)
   * [Using Lookup Tables: 1Password UUIDs](guides/using-lookup-tables-1password-uuids.md)
 * [Panther API (Beta)](api-beta/README.md)
-  * [Generating an API Token](api-beta/generating-a-key.md)
+  * [Generating an API Token](api-beta/generating-an-api-token.md)
   * [API Playground](api-beta/api-playground.md)
   * [Using the Panther API](api-beta/using-the-panther-api.md)
   * [Discovering the Schema](api-beta/discovering-the-schema.md)
