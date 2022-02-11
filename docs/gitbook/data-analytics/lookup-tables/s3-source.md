@@ -1,7 +1,7 @@
 # Sync from S3 Source
 
 {% hint style="info" %}
-This feature is available in version 1.27 and newer.
+This feature is available in version 1.28 and newer.
 {% endhint %}
 
 ### Set up a Lookup Table
