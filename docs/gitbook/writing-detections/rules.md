@@ -35,9 +35,12 @@ As an example, let's write a rule to send an alert when an admin panel is access
 
 A basic rule would look like this:
 
-* A `rule` function that looks for 200 (OK) web requests to any URL with the `admin-panel` string
-* A `title` to say that admin panel logins have been logged into from a specific IP address
-* A `dedup` function to group all events by the same IP address
+* A `rule` function that looks for 200 (OK) web requests to any URL with the `admin-panel` string.
+  * Return type: Boolean.
+* A `title` to say that admin panel logins have been logged into from a specific IP address.
+  * Return type: String.
+* A `dedup` function to group all events by the same IP address.
+  * Return type: String.
 
 ```python
 def rule(event):
