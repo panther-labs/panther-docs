@@ -6,7 +6,7 @@ A single pack can group any number of detections, queries, global helpers, and d
 
 Updates to detections in these packs are tracked automatically by the Panther backend. When a new update for a detection pack is available in the `panther-analysis` repository, the Packs page in your Panther account under **Analysis > Packs** will display an _Update available_ flag next to the relevant items.
 
-Detections that are part of an enabled detection pack will be labeled as `MANAGED`, and detections that are not part of an enabled detection pack will be labeled as `UNMANAGED`.
+Detections that are part of an enabled detection pack will be labeled as `MANAGED`, and detections that are not part of a detection pack will be labeled as `UNMANAGED`.
 
 {% hint style="warning" %}
 Note: The process is **not** recommended if you are using a Git-Based workflow and uploading detections with Panther Analysis Tool. Doing so may result in unexpected behavior**.**&#x20;
@@ -20,7 +20,7 @@ Panther provides several Detection Packs by default. There are packs that group 
 | --------------------- | ------------------------------------------------------------------------------------- |
 | Universal Detections  | This pack groups the standard rules that leverage unified data models                 |
 | Panther Core AWS Pack | Group of the most critical and high value detections pertinent to the AWS environment |
-| Panther G Okta Pack   | Group of all Panther created detections for Okta                                      |
+| Panther Okta Pack     | Group of all Panther created detections for Okta                                      |
 
 ## Viewing Detection Packs
 
