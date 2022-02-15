@@ -6,7 +6,7 @@ Panther's System Health notifications alert users when a part of the Panther pla
 * Logs dropping off entirely from a log source
 * Alert destinations that have alerts which failed to deliver
 
-These types of alerts are classified as "System Error" in Panther. **Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors**. Additionally, you can view these alerts in your Panther account at **Alerts & Errors > System Errors**.
+These types of alerts are classified as "System Error" in Panther. System Errors will always have a "CRITICAL" severity level. **Be sure to configure a destination to receive the "System Error" alert type to keep track of these types of errors**. Additionally, you can view these alerts in your Panther account at **Alerts & Errors > System Errors**.
 
 The following pages provide more information on these errors and explain how you can configure system health notifications for your workflows.
 
