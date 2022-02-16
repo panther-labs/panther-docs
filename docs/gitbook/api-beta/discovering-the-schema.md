@@ -12,7 +12,7 @@ __
 
 ### Downloading the GraphQL schema file
 
-You can download the latest version of the GraphQL schema file [here](https://panther-community-us-east-1.s3.amazonaws.com/v1.27.0/graphql/schema.public.graphql).
+You can download the latest version of the GraphQL schema file [here](https://panther-community-us-east-1.s3.amazonaws.com/v1.28.7/graphql/schema.public.graphql).
 
 ### Using the GraphQL Playground
 
