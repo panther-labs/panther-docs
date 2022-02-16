@@ -94,12 +94,52 @@ There are three options for creating an IAM Role to use with your Panther Lookup
 **Create an IAM role manually**
 
 1. On the "Set Up an IAM role" page, during the process of creating a Lookup Table with an S3 source, click the link that says **I want to set everything up on my own**.
-2. On the "Setting up role manually" page, enter the Role ARN.&#x20;
-   * This can be found in the "Outputs" tab of the CloudFormation stack in your AWS account.
-   * Note: The IAM role policy must include at least the statements defined in our [S3 Source Documentation](../../data-onboarding/data-transports/s3.md#creating-an-iam-role-manually-or-with-other-automation).
-3. Click **Finish Setup**, and you will be redirected to the Lookup Tables list page with your new Employee Directory table listed.
+2. Create the required IAM role. You may create the required IAM role manually or through your own automation. The role must be named using the format `PantherLUTsRole-${Suffix}`(e.g., `PantherLUTsRole-MyLookupTable`).&#x20;
+   *   The IAM role policy must include the statements defined below:
 
-![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.03.43 PM.png>)
+       ```
+           "Version": "2012-10-17",
+           "Statement": [
+               {
+                   "Action": "s3:GetBucketLocation",
+                   "Resource": "arn:aws:s3:::<bucket-name>",
+                   "Effect": "Allow"
+               },
+               {
+                   "Action": "s3:GetObject",
+                   "Resource": "arn:aws:s3:::<bucket-name>/<input-file-path>",
+                   "Effect": "Allow"
+               }
+           ]
+       }
+       ```
+   *   If your S3 bucket is configured with server-side encryption using AWS KMS, you must include an additional statement granting the Panther API access to the corresponding KMS key. In this case, the policy will look something like this:
+
+       ```
+           "Version": "2012-10-17",
+           "Statement": [
+               {
+                   "Action": "s3:GetBucketLocation",
+                   "Resource": "arn:aws:s3:::<bucket-name>",
+                   "Effect": "Allow"
+               },
+               {
+                   "Action": "s3:GetObject",
+                   "Resource": "arn:aws:s3:::<bucket-name>/<input-file-path>",
+                   "Effect": "Allow"
+               },
+               {
+                   "Action": ["kms:Decrypt", "kms:DescribeKey"],
+                   "Resource": "arn:aws:kms:<region>:<your-accound-id>:key/<kms-key-id>",
+                   "Effect": "Allow"
+               }
+           ]
+       }
+       ```
+3. On the "Setting up role manually" page in Panther, enter the Role ARN.&#x20;
+   * This can be found in the "Outputs" tab of the CloudFormation stack in your AWS account.\
+     ![](../../.gitbook/assets/role-arn.png)
+4. Click **Finish Setup**, and you will be redirected to the Lookup Tables list page with your new Employee Directory table listed.
 
 ### View the Lookup Table data with Data Explorer
 

@@ -60,7 +60,7 @@ Panther allows limited **editing** of _Custom Log Types_. Specifically:
 * You _can_ modify the `parser` configuration to fix bugs or add new patterns.
 * You _can_ add new fields to the schema.
 * You _cannot_ rename existing fields.
-* You _cannot_ deleted existing fields (doing so would allow renaming in two steps).
+* You _cannot_ delete existing fields (doing so would allow renaming in two steps).
 * You _cannot_ change the `type` of an existing field (this includes the element type for `array` fields).
 
 You can edit a _Custom Log Type_ by clicking on the _Edit_ action in the details page of a _Custom Log Type_. Modify the YAML and click _Update_ to submit your change. _Validate Syntax_ can check the YAML for structural compliance but the rules described above can only be checked on _Update_. The update will be rejected if the rules are not followed.
