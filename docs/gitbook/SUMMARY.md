@@ -4,6 +4,7 @@
 * [Quick Start](quick-start.md)
 * [Data Onboarding](data-onboarding/README.md)
   * [SaaS Logs](data-onboarding/saas-logs/README.md)
+    * [Asana](data-onboarding/saas-logs/asana.md)
     * [1Password](data-onboarding/saas-logs/1password.md)
     * [Atlassian](data-onboarding/saas-logs/atlassian.md)
     * [Box](data-onboarding/saas-logs/box.md)

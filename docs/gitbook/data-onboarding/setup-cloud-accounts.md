@@ -33,7 +33,7 @@ Click `Continue Setup`, then launch the CloudFormation Console directly, downloa
 
 Clicking the `Launch Console` button will open [CloudFormation](https://aws.amazon.com/cloudformation/) in the AWS account you are currently logged into with pre-populated stack variables:
 
-![](<../.gitbook/assets/image (2) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (2) (1) (1).png>)
 
 {% hint style="info" %}
 Make sure to check the acknowledgement in the `Capabilities`box
