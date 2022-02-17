@@ -27,23 +27,22 @@ Panther requires certain configurations in Google Cloud Platform (GCP) to authen
 5. [Create a subscription](https://cloud.google.com/pubsub/docs/admin#pubsub\_create\_pull\_subscription-gcloud) to be used with the topic you created. Note that this subscription should not be used by any service other than Panther.
    * You can create a subscription using the `gcloud` CLI tool with the following command format:\
      `gcloud pubsub subscriptions create $SUBSCRIPTION_ID --topic $TOPIC_ID --topic-project $PROJECT_ID`
-6.  [Create a new Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and take note of the account email address. Panther will use this identity to be able to access the infrastructure created for this integration.&#x20;
+6. [Create a new Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and take note of the account email address. Panther will use this identity to be able to access the infrastructure created for this integration.&#x20;
+   *   The required permissions are provided below along with some conditions you can set:\
 
-    * The required permissions are provided below along with some conditions you can set:
 
-    |                             **Permissions required**                            |       **Role**      |    **Condition**    |
-    | :-----------------------------------------------------------------------------: | :-----------------: | :-----------------: |
-    | <p><code>storage.objects.get</code></p><p><code>storage.objects.list</code></p> |   `storage/viewer`  |    _bucket-name_    |
-    |                          `pubsub.subscriptions.consume`                         | `pubsub/subscriber` | _subscription-name_ |
-    |                            `pubsub.subscriptions.get`                           |   `pubsub/viewer`   | _subscription-name_ |
-    |                           `monitoring.timeSeries.list`                          | `monitoring/viewer` |       project       |
-
-* Note: You can set conditions for specific resources either in the IAM page of the service account (as seen in the example screenshot) or in the specific resource's page.\
-  ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.37.08 AM.png>)
-
-1. [Generate a JSON key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for the service account, which will be used in Panther to authenticate to the GCP infrastructure.&#x20;
+       |                             **Permissions required**                            |       **Role**      |      **Scope**      |
+       | :-----------------------------------------------------------------------------: | :-----------------: | :-----------------: |
+       | <p><code>storage.objects.get</code></p><p><code>storage.objects.list</code></p> |   `storage/viewer`  |    _bucket-name_    |
+       |                          `pubsub.subscriptions.consume`                         | `pubsub/subscriber` | _subscription-name_ |
+       |                            `pubsub.subscriptions.get`                           |   `pubsub/viewer`   | _subscription-name_ |
+       |                           `monitoring.timeSeries.list`                          | `monitoring/viewer` |       project       |
+   * Note: You can set conditions or IAM policies on permissions for specific resources. This can be done either in the IAM page of the service account (as seen in the example screenshot) or in the specific resource's page:\
+     ![](../../.gitbook/assets/gcp-grant-access.png)
+7. [Generate a JSON key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for the service account, which will be used in Panther to authenticate to the GCP infrastructure.&#x20;
    * You can create a JSON key file using the `gcloud` CLI tool with the following command format: \
-     `gcloud iam service-accounts keys create $KEYFILE_PATH --iam-account=$SERVICE_ACCOUNT_EMAIL`
+     `gcloud iam service-accounts keys create $KEYFILE_PATH --iam-account=$SERVICE_ACCOUNT_EMAIL`\
+
 
 ## Set up the GCS source in Panther
 

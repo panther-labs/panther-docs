@@ -66,7 +66,7 @@ First you will need to create environment variables within the Project Settings 
 
 ![](../.gitbook/assets/config.jpg)
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (1).png>)
 
 &#x20;After the environment variables have been created, you'll need to add the lines below to your CircleCI configuration in the `panther-analysis` repo.
 
