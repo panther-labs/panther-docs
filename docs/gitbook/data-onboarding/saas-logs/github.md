@@ -33,7 +33,9 @@ The steps below can only be performed if you have organization owner permission 
 2. Click on your profile then click on the **Settings** option
 3. Scroll to the bottom of the page and click on **Developer Settings** and then **Personal Access Token**
 4. Click **Generate new token** and **e**nter a friendly token name e.g. `Panther Integration`.&#x20;
-5. Select the scopes, or permissions, you'd like to grant this token. Be sure to **admin:org** and **read:org** boxes **** to give Panther the necessary permissions.
+5. Select the scopes, or permissions, you'd like to grant this token.&#x20;
+   * Check the boxes next to **admin:org > read:org**.&#x20;
+   * You do not need to enable the **write:org** permission.
 6. Click **Generate token**&#x20;
 7. Copy and paste the token into the Panther UI. You are done with this part!
 
