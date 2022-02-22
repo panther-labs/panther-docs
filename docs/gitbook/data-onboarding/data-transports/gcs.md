@@ -28,7 +28,7 @@ Panther requires certain configurations in Google Cloud Platform (GCP) to authen
    * You can create a subscription using the `gcloud` CLI tool with the following command format:\
      `gcloud pubsub subscriptions create $SUBSCRIPTION_ID --topic $TOPIC_ID --topic-project $PROJECT_ID`
 6. [Create a new Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and take note of the account email address. Panther will use this identity to be able to access the infrastructure created for this integration.&#x20;
-   *   The required permissions are provided below along with some conditions you can set:\
+   *   The following permissions are required for the project where the Pub/Sub subscription and topic lives:\
 
 
        |                             **Permissions required**                            |       **Role**      |      **Scope**      |
