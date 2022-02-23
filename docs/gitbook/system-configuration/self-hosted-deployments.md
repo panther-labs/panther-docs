@@ -40,6 +40,8 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `SentryEnvironment`: by default, application errors are sent to [Sentry](https://sentry.io) for us to triage. We strongly recommend keeping this enabled with the default value (`prod`), but if that's not an option for you, you can disable the Sentry integration by setting this to a blank string.
 * `SupportRoleIdentityAccountId`: by default, a read-only SupportRole is deployed with Panther which our on-call engineers can assume to triage application errors. This role does **not** have access to your data and we’d encourage you to keep it enabled so we can deliver a better support experience. However, if you prefer, this role can be disabled by setting the `SupportRoleIdentityAccountId` to a blank string.
 * `OpsRoleIdentityAccountId`: a non-empty value will deploy an OperationsRole with service-level admin permissions for migrations, data recoveries, and other operational emergencies. We recommend keeping this role disabled until necessary (it's off by default).
+* `DataLakeForwarderMemory`: Memory to use for Cloud Security DataLake Forwarder lambdas. The default setting is 256, with a maximum value of 2048 and a minimum value of 256.
+* `LogProcessorGzipLevel`: Gzip compression level to write logs. The default setting is 6, with a maximum value of 9 and a minimum value of 1.
 
 #### Minimize initial configurations
 
