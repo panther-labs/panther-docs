@@ -8,3 +8,4 @@ A data transport is a type of log source that can be used to send log types that
 * [AWS CloudWatch](cwl-source.md)&#x20;
 * [AWS SQS](sqs.md)
 * [AWS SNS](sns.md)
+* [Google Cloud Storage (GCS)](https://docs.runpanther.io/data-onboarding/data-transports/gcs)
