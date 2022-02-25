@@ -10,15 +10,13 @@ Get started with Panther by scheduling a [demo](https://runpanther.io/request-a-
 
 Welcome to Panther!
 
-First things first, let's get you get logged in. See the guidelines below to get credentials and set up your Panther account.&#x20;
-
-Then, depending on the desired use case, follow the onboarding paths below:
+First things first, let's get you get logged in to the Panther Console. See the guidelines below to get credentials and set up your Panther account.&#x20;
 
 ### Initial Login
 
-Once your Panther environment has been provisioned, you will receive an invitation email from `no-reply@verificationemail.com` with your temporary login credentials. If you don't see it, be sure to check your spam folder or reach out to your customer support team.
+Once your account has been provisioned, you will receive an invitation email from `no-reply@verificationemail.com` with your temporary Panther Console login credentials. If you don't see it, be sure to check your spam folder or reach out to your customer support team.
 
-After the initial login with the provided credentials, you will need to update your password and set up MFA.
+After the initial console login with the provided credentials, you will need to update your password and set up MFA.
 
 ![Login Screen](<.gitbook/assets/image (6).png>)
 
@@ -30,9 +28,9 @@ After you have successfully logged in, you can invite more users to the platform
 
 ### Alert Destinations
 
-The first recommended step after initial login is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as [Slack](https://docs.runpanther.io/destinations/slack), [PagerDuty](https://docs.runpanther.io/destinations/pagerduty), or automation platforms like Tines with a [custom webhook](https://docs.runpanther.io/destinations/custom\_webhook). You can quickly set up a destination by following the steps below:
+The first recommended step after initial login to the Panther Console is to configure [destinations](https://docs.runpanther.io/destinations) to receive alerts in notification systems such as [Slack](https://docs.runpanther.io/destinations/slack), [PagerDuty](https://docs.runpanther.io/destinations/pagerduty), or automation platforms like Tines with a [custom webhook](https://docs.runpanther.io/destinations/custom\_webhook). You can quickly set up a destination by following the steps below:
 
-1. In your Panther account, go to **Integrations > Alert Destinations.**
+1. In the Panther Console, go to **Integrations > Alert Destinations.**
 2. Click **+Add your first Destination**.
 3. Click a destination you would like to configure:\
    ![](.gitbook/assets/destination-options.png)
