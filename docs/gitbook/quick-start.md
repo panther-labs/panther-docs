@@ -10,7 +10,7 @@ Get started with Panther by scheduling a [demo](https://runpanther.io/request-a-
 
 Welcome to Panther!
 
-First things first, let's get you get logged in to the Panther Console. See the guidelines below to get credentials and set up your Panther account.&#x20;
+First things first, let's get you get logged in to the Panther Console. See the guidelines below to get credentials and set up your Panther account.  Then you can get started with adding integrations and more.
 
 ### Initial Login
 
