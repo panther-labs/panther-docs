@@ -5,7 +5,9 @@ description: Pull logs from Google Cloud Storage (GCS) within Google Cloud Platf
 # Google Cloud Storage (GCS) source
 
 {% hint style="info" %}
-This feature is available in versions 1.28 and newer.
+This feature is available in versions 1.28 and newer.\
+\
+Panther's direct GCS integration is currently in beta. This means the feature is not fully developed and we would greatly appreciate feedback such as bug reports and feature requests.
 {% endhint %}
 
 After you configure this integration, Panther will pull log data directly from Google Cloud Storage (GCS) buckets. You can then write rules and run queries on the processed data.
