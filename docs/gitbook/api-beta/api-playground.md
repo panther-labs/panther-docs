@@ -2,7 +2,7 @@
 
 Panther offers an API Playground to try out operations. To access the Playground:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. In the lefthand navigation in your Panther account, click **Settings > API Tokens**.
 3. In the **Resources** dropdown, select **API Playground (Dropdown Option)**.&#x20;
 

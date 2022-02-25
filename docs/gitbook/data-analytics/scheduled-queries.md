@@ -66,7 +66,9 @@ Using the crontab can allow a much greater specificity in your schedule than a s
 
 Setting up a scheduled query simply makes the data available to the rule engine, but in order for Panther to actually use the data, a Scheduled Rule must be set up to use the Scheduled Query.
 
-You can create a new detection by navigating to Detections and pressing the `+` sign to create a new Detection. ![Create a new detection](../../../.gitbook/assets/new-detection.png)
+You can create a new detection by navigating to Detections and pressing the `+` sign to create a new Detection.
+
+&#x20;![Create a new detection](../../../.gitbook/assets/new-detection.png)
 
 In the new detection menu, choose "Scheduled Rule". Give the rule a severity and a name, then select the previously saved scheduled query for the rule to run on. Under the `Functions and Tests` tab either enter your own custom Python code, or if all your filtering logic is already taken care of in the SQL, you can simply make sure that the event is set to return true for each row.
 

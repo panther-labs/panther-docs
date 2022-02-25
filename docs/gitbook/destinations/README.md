@@ -17,7 +17,7 @@ AWS destinations require IAM configurations to grant permissions for Panther to 
 |    Amazon SNS   | [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/)                                                                                     |
 |    Amazon SQS   | [https://aws.amazon.com/sqs/](https://aws.amazon.com/sqs/)                                                                                     |
 |      Asana      | [https://developers.asana.com/docs](https://developers.asana.com/docs)                                                                         |
-|  Custom Webhook | [https://docs.runpanther.io](custom_webhook.md)                                                                                                |
+|  Custom Webhook | [https://docs.runpanther.io](custom\_webhook.md)                                                                                               |
 |      Github     | [https://github.com/](https://github.com)                                                                                                      |
 |       Jira      | [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)                                                             |
 | Microsoft Teams | [https://products.office.com/en-us/microsoft-teams/group-chat-software](https://products.office.com/en-us/microsoft-teams/group-chat-software) |
@@ -36,7 +36,7 @@ Alert routing is based on the following order of precedence, from lowest precede
 
 ## Creating a New Destination
 
-To create a destination, navigate to `Integrations` > `Alert Destinations` and select `Add Destination`.
+To create a destination, log in to your Panther Console and navigate to `Integrations` > `Alert Destinations.` Select `Add Destination`.
 
 ![](../../../.gitbook/assets/screen-shot-2021-09-17-at-1.53.11-pm.png)
 
@@ -70,7 +70,7 @@ An existing destination may be modified or deleted by selecting the triple-dot b
 
 ## Workflow Automation
 
-You may use any of the above destinations for many existing workflows. However, our [Custom Webhook](custom_webhook.md) is available to provide additional flexibility for any workflow.
+You may use any of the above destinations for many existing workflows. However, our [Custom Webhook](custom\_webhook.md) is available to provide additional flexibility for any workflow.
 
 ### Alert Schema
 

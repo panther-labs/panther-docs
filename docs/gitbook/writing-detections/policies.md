@@ -35,7 +35,7 @@ def policy(resource):
 
 ## Policy Writing Workflow
 
-Panther policies can be written, tested, and deployed either with the UI or the [panther_analysis_tool](https://github.com/panther-labs/panther_analysis_tool) CLI utility.
+Panther policies can be written, tested, and deployed either with the Panther Console or the [panther\_analysis\_tool](https://github.com/panther-labs/panther\_analysis\_tool) CLI utility.
 
 Each policy takes a `resource` input of a given resource type from the [supported resources](../resources/) page.
 

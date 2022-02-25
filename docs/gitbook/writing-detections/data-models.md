@@ -20,15 +20,15 @@ event.udm('source_ip') == '127.0.0.1'
 
 ## Built-in Data Models
 
-By default, Panther comes with built-in data models for several log types, such as `AWS.S3ServerAccess`, `AWS.VPCFlow`, and `Okta.SystemLog`. All currently supported data models can be found [here](https://github.com/panther-labs/panther-analysis/tree/master/data_models).
+By default, Panther comes with built-in data models for several log types, such as `AWS.S3ServerAccess`, `AWS.VPCFlow`, and `Okta.SystemLog`. All currently supported data models can be found [here](https://github.com/panther-labs/panther-analysis/tree/master/data\_models).
 
 ## Adding New Data Models
 
-New data models are added in the Panther UI or via the [Panther Analysis Tool](panther-analysis-tool.md). Each log type can only have one enabled data model specified. If you want to change or update an existing data model, `disable` the existing one, and create a new, enabled one.
+New data models are added in the Panther Console or via the [Panther Analysis Tool](panther-analysis-tool.md). Each log type can only have one enabled data model specified. If you want to change or update an existing data model, `disable` the existing one, and create a new, enabled one.
 
 ### Add New Data Model - UI
 
-To create a new Data Model, navigate to `Data` > `Data Models`:
+To create a new Data Model, log in to your Panther Console and navigate to `Data` > `Data Models`:
 
 ![](../../../.gitbook/assets/screen-shot-2021-09-17-at-11.28.24-am.png)
 
@@ -80,7 +80,7 @@ The `Filename` specification field is _required_ if a `Method` is defined in a m
 
 Finally, use this data model in a rule by:
 
-* Adding the LogType under the Rule specification `LogType` field 
+* Adding the LogType under the Rule specification `LogType` field&#x20;
 * Add the LogType to all the Rule's `Test` cases, in the `p_log_type` field
 * Leveraging the `event.udm()` method in the Rule's python logic:
 

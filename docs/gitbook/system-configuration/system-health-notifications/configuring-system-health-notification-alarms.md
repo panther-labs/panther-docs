@@ -13,9 +13,9 @@ For instructions on configuring destinations and alarms for system health errors
 
 ### Configuring Delivery of System Health Error Alerts
 
-By default, Panther will send these alerts to the **Alerts** page in the Panther UI. To ensure these alerts are sent to a custom alert destination, follow the steps below:
+By default, Panther will send these alerts to the **Alerts** page in your Panther Console. To ensure these alerts are sent to a custom alert destination, follow the steps below:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. On the left sidebar navigation, click **Integrations** > **Alert Destinations**
 3. Choose an existing Alert Destination or add a new Alert Destination.
 4. On the configuration page for the Alert Destination, add "System Errors" to the **Alert Types** section:
@@ -30,7 +30,7 @@ You can add an alarm to a new or an existing log source.
 
 #### Setting Up an Alarm for an Existing Log Source
 
-1. &#x20;Log in to your Panther account.
+1. &#x20;Log in to your Panther Console.
 2. On the left sidebar navigation, click **Integrations** > **Log Sources**.
 3. Select the log source to configure an alarm for.
    1. Click the three dots icon on the right side of the log source tile: \
@@ -45,7 +45,7 @@ You can add an alarm to a new or an existing log source.
 
 You can also add an alarm when onboarding a new log source:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. On the left sidebar navigation, click **Integrations > Log Sources**
 3. Click **+** in the upper right side of the page to add a new log source.
 4. Complete each step of the onboarding workflow.

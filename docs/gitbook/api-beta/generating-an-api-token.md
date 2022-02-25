@@ -6,7 +6,7 @@ In order to use the Panther API, you must generate an API Key. In the Panther UI
 
 To generate an API Token:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Settings > API Tokens.**
 3. Click **Create an API Token**.\
    ![](../.gitbook/assets/create-api-token.png)

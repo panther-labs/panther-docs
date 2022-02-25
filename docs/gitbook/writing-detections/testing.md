@@ -6,7 +6,7 @@ Detection Testing ensures that detections will behave as expected and will gener
 
 Testing works by defining a "test" input to be used as the `event` for the detection and expecting whether or not an alert would be generated. A Detection can have zero or many test cases and it's recommended to have at least two (one false positive and one true positive).
 
-Tests can be defined either in the Panther UI or programmatically with the [Panther Analysis Tool](panther-analysis-tool.md).
+Tests can be defined either in the Panther Console or programmatically with the [Panther Analysis Tool](panther-analysis-tool.md).
 
 Keeping with the previous example (in [Rules](rules.md)), let's write two tests for this detection:
 

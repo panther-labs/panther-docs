@@ -314,7 +314,7 @@ def policy(resource):
 
 ## Uploading to Panther
 
-To upload your analysis packs to your Panther instance, run the following command below.
+To upload your analysis packs to your Panther Console, run the following command below.
 
 {% hint style="info" %}
 Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.

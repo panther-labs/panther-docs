@@ -12,7 +12,7 @@ In the `Access Policy` section of the new queue Basic setup, under the `Define w
 
 ![](<../../../.gitbook/assets/sqs2 (9) (3) (9).png>)
 
-You will need to enter the AWS account of your Panther deployment. You can find this in the `Settings -> General` page of your Panther deployment:
+You will need to enter the AWS account of your Panther Console. You can find this in the `Settings -> General` page of your Panther Console:
 
 ![](<../../../.gitbook/assets/sqs3 (9) (4) (21).png>)
 

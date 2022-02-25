@@ -4,7 +4,7 @@ Packs are used to logically group detections as well as enable detection updates
 
 A single pack can group any number of detections, queries, global helpers, and data models. For example, one of the provided Detections Packs, `Panther Universal Detections`, groups all the rules that rely on data models and all of their dependencies.
 
-Updates to detections in these packs are tracked automatically by the Panther backend. When a new update for a detection pack is available in the `panther-analysis` repository, the Packs page in your Panther account under **Analysis > Packs** will display an _Update available_ flag next to the relevant items.
+Updates to detections in these packs are tracked automatically by the Panther backend. When a new update for a detection pack is available in the `panther-analysis` repository, the Packs page in your Panther Console under **Analysis > Packs** will display an _Update available_ flag next to the relevant items.
 
 Detections that are part of an enabled detection pack will be labeled as `MANAGED`, and detections that are not part of a detection pack will be labeled as `UNMANAGED`.
 
@@ -24,7 +24,7 @@ Panther provides several Detection Packs by default. There are packs that group 
 
 ## Viewing Detection Packs
 
-You can view a list of Panther-provided detection packs in your Panther account under **Analysis > Packs**.
+You can view a list of Panther-provided detection packs in your Panther Console under **Analysis > Packs**.
 
 ![List Packs](../../../.gitbook/assets/pack-list.png)
 
@@ -36,12 +36,12 @@ Click on a Pack to view its details, including a description, the enabled status
 
 ## Enable and Disable Detection Pack
 
-Packs can be disabled or enabled using the Panther UI. If you enable a pack, all the detections in the pack will be enabled. If you would like to disable a single or multiple detections within it, you can do this on a one-by-one basis without having to disable the entire pack. When you update a pack that has disabled detections, the detections will be updated but they will stay disabled.
+Packs can be disabled or enabled in your Panther Console. If you enable a pack, all the detections in the pack will be enabled. If you would like to disable a single or multiple detections within it, you can do this on a one-by-one basis without having to disable the entire pack. When you update a pack that has disabled detections, the detections will be updated but they will stay disabled.
 
 To enable or disable a Pack:
 
-1. Log in to your Panther account.
-2. Navigate to Analysis > Packs.
+1. Log in to your Panther Console.
+2. Navigate to **Analysis > Packs**.
 3. Toggle the **Enabled** slider on or off.
 
 ![Enable Pack From List](../../../.gitbook/assets/pack-list-enable.png)
@@ -56,7 +56,7 @@ New updates to detection packs are periodically released to the `panther-analysi
 
 To update pack detections:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**.
 3. Select the version in the "Version" dropdown menu then click **Update Pack**.
 
@@ -64,7 +64,7 @@ To update pack detections:
 
 To revert to a previous Pack version:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**.
 3. Select the version in the "Version" dropdown menu then click **Revert Pack**.
 
@@ -89,7 +89,7 @@ Any changes you make to these fields will be preserved when the pack is updated 
 
 To make changes to the editable fields:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**.
 3. Click on the Pack that contains the detection you want to edit, then click on the detection.
 4. In the page that opens, click **Edit Rule** in the upper right side.\
@@ -104,7 +104,7 @@ To make changes to the editable fields:
 
 If a rule or policy included in a Detection Pack does not fit your needs, you can clone it and then customize the cloned copy of the Detection Pack:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**.
 3. Click on the Pack that contains the detection you want to edit, then click on the detection.
 4. In the page that opens, click **Clone & edit** in the upper right:\
@@ -161,7 +161,7 @@ In this example entry to add to the key policy, the account ID should be replace
 
 To Add a pack source:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
 3. Click **+** in the upper right.&#x20;
    * Enter the field names for each input field.
@@ -171,7 +171,7 @@ To Add a pack source:
 
 To modify the `kmsKey` or `AccessToken` fields for a pack source:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
 3. Click `...` next to a Pack Source then click **Edit**. Click on a Pack Source.&#x20;
    * Edit the fields on this page.
@@ -181,7 +181,7 @@ To modify the `kmsKey` or `AccessToken` fields for a pack source:
 
 To Delete a pack source:
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
 3. Click `...` next to a Pack Source then click **Delete**.
 

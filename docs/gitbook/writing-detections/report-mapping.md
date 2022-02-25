@@ -1,7 +1,7 @@
 # Report Mapping
 
 {% hint style="info" %}
-This feature is only available in version 1.25 and above
+This feature is available in version 1.25 and newer.
 {% endhint %}
 
 Panther supports the ability to map rules, policies, and scheduled rules to compliance frameworks for the purposes of tracking coverage against that framework. To map a detection to a framework, follow the steps below:

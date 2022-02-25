@@ -25,7 +25,7 @@ In the following example, we extracted a list of 1Password items and their assoc
 
 **Creating a Lookup Table in Panther**
 
-1. Log in to your Panther account. In the left-hand navigation, click **Enrichment > Lookup Tables**.
+1. Log in to your Panther Console. In the left-hand navigation, click **Enrichment > Lookup Tables**.
 2. In the upper right, click **+** to create a new Lookup Table.
 3. On the Lookup Table Basic Information page, add a Lookup Name, and optionally a description and reference. \
    ![](../.gitbook/assets/1pw-lookup-table-basic-info.jpg)

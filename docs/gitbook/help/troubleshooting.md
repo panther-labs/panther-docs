@@ -10,12 +10,12 @@ Don't see what you're looking for? [Contact support](./)
 
 Didn't receive the invitation email for the [first Panther user](../quick-start.md#first-login)?
 
-1. Has the deployment finished successfully? The CloudFormation stack\(s\) should be `CREATE_COMPLETE`.
+1. Has the deployment finished successfully? The CloudFormation stack(s) should be `CREATE_COMPLETE`.
 2. Check your spam folder - the email is sent from `no-reply@verificationemail.com`
 3. From the CloudFormation web console, double-check the `FirstUserEmail` parameter in your stack - you may have mistyped the email. If so, read on.
-4. \(Optional\) Check the Panther CloudWatch dashboards for any errors and/or
+4.  (Optional) Check the Panther CloudWatch dashboards for any errors and/or
 
-   search the `/aws/lambda/panther-cfn-custom-resources` for error messages to help identify the root cause of the issue.
+    search the `/aws/lambda/panther-cfn-custom-resources` for error messages to help identify the root cause of the issue.
 
 If you didn't receive the invite for whatever reason, you'll need to send another invite manually.
 
@@ -31,11 +31,11 @@ Every Panther deployment should automatically install many Python rules and poli
 To fix:
 
 1. Download the [analysis set](https://github.com/panther-labs/panther-analysis/releases/latest/download/panther-analysis-all.zip) manually
-2. Login to the Panther web app and navigate to Cloud Security &gt; Policies \(or Log Analysis &gt; Rules\)
+2. Login to your Panther Console and navigate to Cloud Security > Policies (or Log Analysis > Rules)
 3. Click "Create New" and choose "Bulk". Upload the zipfile you downloaded in step 1.
-4. \(Optional\) Check the Panther CloudWatch dashboards for any errors and/or
+4.  (Optional) Check the Panther CloudWatch dashboards for any errors and/or
 
-   search the `/aws/lambda/panther-cfn-custom-resources` for error messages to help identify the root cause of the issue.
+    search the `/aws/lambda/panther-cfn-custom-resources` for error messages to help identify the root cause of the issue.
 
 ## Cloud Security
 
@@ -44,4 +44,3 @@ To fix:
 When configuring Cloud Security for a given account, the default scan interval is 24h.
 
 To reduce this interval, onboard CloudTrail data from the given account, or configure [real-time events](../data-onboarding/setup-cloud-accounts.md#configure-real-time-monitoring).
-

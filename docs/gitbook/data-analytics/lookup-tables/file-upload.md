@@ -10,7 +10,7 @@ This feature is available in version 1.27 and newer.
 
 ![](../../.gitbook/assets/table.png)
 
-To configure a Lookup Table, follow these steps in the Panther UI:
+To configure a Lookup Table, follow these steps in your Panther Console:
 
 1. From the left sidebar, click **Enrichment > Lookups.**
 2. In the upper right side of the page, click **+** to add a new Lookup Table.\

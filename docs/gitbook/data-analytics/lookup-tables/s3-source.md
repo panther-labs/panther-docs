@@ -10,7 +10,7 @@ This feature is available in version 1.28 and newer.
 
 
 
-**To configure the Lookup Table, follow these steps in the Panther UI:**
+**To configure the Lookup Table, follow these steps in your Panther Console:**
 
 1. From the left sidebar, click **Enrichment > Lookup Tables.**
 2. In the upper right side of the page, click **+** to add a new Lookup Table.\
@@ -143,7 +143,7 @@ There are three options for creating an IAM Role to use with your Panther Lookup
 
 ### View the Lookup Table data with Data Explorer
 
-1. In your Panther account, navigate to **Enrichment > Lookups** to view your Lookup Tables list.
+1. In your Panther Console, navigate to **Enrichment > Lookups** to view your Lookup Tables list.
 2. Click **...** in the upper right corner of the Lookup Table you wish to view, then click **View In Data Explorer**.\
    ![](../../.gitbook/assets/view-in-de.png)
 
