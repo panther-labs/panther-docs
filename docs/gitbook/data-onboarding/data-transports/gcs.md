@@ -48,7 +48,7 @@ Panther requires certain configurations in Google Cloud Platform (GCP) to authen
 
 ## Set up the GCS source in Panther
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. On the left sidebar navigation, click **Integrations > Log Sources**.
 3. Click **Add New Source**.
 4. On the left side, click the **Custom Onboarding** tab, then click **Select** next to Google Cloud Storage.\

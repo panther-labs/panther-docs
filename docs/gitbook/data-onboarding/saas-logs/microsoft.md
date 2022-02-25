@@ -37,7 +37,7 @@ These are the steps required to enable Panther ingest Office 365 activity logs.
 
 ## Create a new Microsoft Source in Panther
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Go to **Integrations** > **Log Sources** from the sidebar menu.
 3. Click **+** in the upper right.
 4. Click the tile for **Microsoft**.

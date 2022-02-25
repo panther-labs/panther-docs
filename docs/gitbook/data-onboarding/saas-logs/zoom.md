@@ -15,7 +15,7 @@ In order to set up Zoom as a log source in Panther, you'll need to authorize Pan
 
 ## Create a new Zoom log source in Panther
 
-1. Login to your Panther account
+1. Login to your Panther Console
 2. Navigate to **Integrations** > **Log** **Sources** on the sidebar menu
 3. Click **Add Source**
 4. Select **Zoom** from the list of available log sources
@@ -48,7 +48,7 @@ OAuth2 apps can be set up by a user with the Admin role. The user authorizing th
    * **App Type** — choose **Account-level app** as the app type.
    * **Distribution** — Set this toggle to enabled to make the app publicly available in the Zoom App Marketplace. Set this at your discretion but the app does not need to be publicly available.
 4. When finished, click **Create**. A new window displaying your new OAuth app will appear.
-5. When you create your app, be sure to copy the **Client ID** and **Client Secret** for your app as you will need this to authenticate Zoom as a log source in the Panther UI.
+5. When you create your app, be sure to copy the **Client ID** and **Client Secret** for your app as you will need this to authenticate Zoom as a log source in the Panther Console.
 6. At this point, you will need the **Redirect URL** from Panther to paste into the **Redirect URL** field and **OAuth allow list** in the app. When creating your Zoom app within Panther, you may copy the Redirect URL within the Set Credentials step.
 
 ![](../../.gitbook/assets/papaya-oarfish.runpanther.net\_integrations\_log-sources\_zoom\_a4a9f1e6-45bc-40b3-ba7b-ebd5e441e664\_edit\_.png)

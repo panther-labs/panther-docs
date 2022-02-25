@@ -20,7 +20,7 @@ In order to set up 1Password as a log source in Panther, you'll need to authoriz
    * For  information on issuing or revoking bearer tokens, please see [1Password's documentation](https://support.1password.com/events-reporting/#appendix-issue-or-revoke-bearer-tokens).
 5. Click **Issue Token**.
 6. Click **Save in 1Password** and choose which vault to save your token to. Then click **View Integration Details**.
-7. Copy and paste the token into the Panther UI.&#x20;
+7. Copy and paste the token into the Panther Console.&#x20;
 
 ## Create a new 1Password log source in Panther
 
@@ -28,7 +28,7 @@ In order to set up 1Password as a log source in Panther, you'll need to authoriz
 Once you complete the step above, you can continue with the step below.
 {% endhint %}
 
-1. Login to your Panther account
+1. Login to your Panther Console
 2. Go to **Integrations** > **Log** **Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **1Password** from the list of available log sources

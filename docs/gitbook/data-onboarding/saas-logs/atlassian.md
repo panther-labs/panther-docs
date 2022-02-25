@@ -33,7 +33,7 @@ If you have trouble creating the API key, be sure to reference [Atlassian's docs
 Once you complete the step above, you can continue with the step below.
 {% endhint %}
 
-1. Login to your Panther account
+1. Login to your Panther Console
 2. Go to **Integrations** > **Log** **Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **Atlassian** from the list of available log sources

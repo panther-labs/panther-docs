@@ -18,7 +18,7 @@ In order for Panther to access the Slack API you need to create a new Slack sour
 
 ## Create a new Slack Source in Panther
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Go to **Integrations** > **Log** **Sources** from the sidebar menu.
 3. Click **Add Source**.
 4. Select **Slack** from the list of available types.
@@ -40,7 +40,7 @@ In the following steps, you will be creating a Slack app with permissions to pul
 
 To create an app for pulling **Audit logs**, [click here](slack.md#audit-logs). For **access** or **integration** logs, [click here](slack.md#access-logs).
 
-### Create a Slack App to pull Audit Logs <a href="audit-logs" id="audit-logs"></a>
+### Create a Slack App to pull Audit Logs <a href="#audit-logs" id="audit-logs"></a>
 
 1. Go to [Slack workspace sign-in](https://slack.com/workspace-signin).
 2. Sign in to a workspace belonging to the Enterprise grid you want to monitor. You must sign-in as an **owner** of the organization!
@@ -80,9 +80,9 @@ The App will be created in the selected workspace but later you will be able to 
 
 ![](../../../../.gitbook/assets/slack-setup-page9.png)
 
-1. [Click here](slack.md#finalize) for the steps to complete the source creation on Panther.
+1. [Click here](slack.md#finalize) for the steps to complete the source creation in Panther.
 
-### Create a Slack App to pull Access or Integration Logs <a href="access-logs" id="access-logs"></a>
+### Create a Slack App to pull Access or Integration Logs <a href="#access-logs" id="access-logs"></a>
 
 1. Go to [Slack workspace sign-in](https://slack.com/workspace-signin).
 2. Sign in to a workspace you want to monitor. You must sign-in as an **admin** of the workspace!
@@ -112,9 +112,9 @@ The App will be created in the selected workspace but later you will be able to 
 
 ![](../../../../.gitbook/assets/slack-setup-page9.png)
 
-## Finalize Slack onboarding in Panther <a href="finalize" id="finalize"></a>
+## Finalize Slack onboarding in Panther <a href="#finalize" id="finalize"></a>
 
-1. Go back to the Slack onboarding wizard in the Panther UI.
+1. Go back to the Slack onboarding wizard in the Panther Console.
 2. Paste **Client ID** and **Client Secret** credentials of the Slack App you just created.
 3. Click **Next**. The credentials will be stored, encrypted, in the Panther backend.
 4. Click **Save Source**.

@@ -19,7 +19,7 @@ Resource updates can be configured to track changes in real-time using CloudTrai
 
 ## Adding Your Account(s)
 
-The first step is to add a new AWS account source by navigating to `Integrations` > `Cloud Accounts` > `Connect an account`:
+The first step is to add a new AWS account source. In the Panther Console, navigate to `Integrations` > `Cloud Accounts` > `Connect an account`:
 
 ![](<../.gitbook/assets/papaya-oarfish.runpanther.net\_integrations\_cloud-accounts\_new\_ (2).png>)
 
@@ -45,7 +45,7 @@ Click the `Create stack` button. After about 15 seconds, the stack's `Status` sh
 
 ![](<../../../.gitbook/assets/setup-cfn-3 (9) (3) (8).png>)
 
-Back in the UI, click `Continue`, then `Save Source` to complete this setup:
+Back in the Panther Console, click `Continue`, then `Save Source` to complete this setup:
 
 ![](<../.gitbook/assets/papaya-oarfish.runpanther.net\_integrations\_cloud-accounts\_new\_ (4).png>)
 

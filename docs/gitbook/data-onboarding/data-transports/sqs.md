@@ -4,7 +4,7 @@ The steps below will setup an SQS queue and will give you permissions to send da
 
 ## Step 1: Choose SQS source
 
-From **Integrations**, click **Log Sources** > **Add Source** > **Data Transport** > **SQS Queue**
+Log in to your Panther Console and click Integrations on the left sidebar menu. Click **Log Sources** > **Add Source** > **Data Transport** > **SQS Queue**
 
 ![](<../../../../.gitbook/assets/image (4) (1) (1).png>)
 

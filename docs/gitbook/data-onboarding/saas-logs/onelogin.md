@@ -19,7 +19,7 @@ First of all, you need to keep note of the AWS Account and AWS region where Pant
 
 ## Create a new OneLogin source in Panther
 
-1. Log in to your Panther account.
+1. Log in to your Panther Console.
 2. Go to **Integrations** > **Log** **Sources** from the sidebar menu.
 3. Click **Add Source**.
 4. Select **OneLogin**.

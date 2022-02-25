@@ -6,7 +6,7 @@ In order for Panther to access the API you will need to create a new Box App and
 
 ## Create a New Box Source in Panther
 
-1. Login to your Panther account
+1. Login to your Panther Console
 2. Go to **Integrations > Log Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **Box** from the list of available types

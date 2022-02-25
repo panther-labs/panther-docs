@@ -69,7 +69,7 @@ The steps below can only be performed if you have admin permission in your Zende
 Once you complete one of the three options above, you can continue with the step below.
 {% endhint %}
 
-1. Login to your Panther account
+1. Login to your Panther Console
 2. Go to **Integrations** > **Log** **Sources** from the sidebar menu
 3. Click **Add Source**
 4. Select **Zendesk** from the list of available log sources

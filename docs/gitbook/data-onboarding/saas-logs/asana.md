@@ -8,7 +8,7 @@ Panther has the ability to fetch Asana audit logs by querying the [Asana Audit L
 
 Follow the steps below to set up an Asana source in Panther.
 
-1. Login to your Panther account.
+1. Login to your Panther Console.
 2. From the left sidebar menu, click **Integrations** > **Log** **Sources**.
 3. Click **Add Source.**
 4. Select **Asana** from the list of available log sources.
@@ -20,7 +20,7 @@ Follow the steps below to set up an Asana source in Panther.
    4. In your Asana account, click **Apps** on the left sidebar.
    5. At the bottom of the page, click **Add Service Account**.
    6. Specify a name. Copy the token and then click **Save changes**.
-7. Navigate to Panther and paste the Asana token into the **Service Account Token** field in Panther.
+7. Navigate to the Panther Console and paste the Asana token into the **Service Account Token** field in Panther.
 8. Click **Continue Setup**.
    * Panther will verify access to Asana. If you see an error, be sure to review the credentials you provided to Panther.&#x20;
 9. On the confirmation screen, you can set up a log drop-off alarm to send an error message if Panther does not receive logs within a specified time interval.

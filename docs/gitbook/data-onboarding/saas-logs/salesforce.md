@@ -51,7 +51,7 @@ After the System Permissions have been updated, you can assign the Permission Se
 
 ## Create a new Salesforce Source in Panther
 
-1. Login to your Panther deployment
+1. Login to your Panther Console
 2. Go to **Integrations** > **Log Sources**
 3. Click the "plus" icon at the top right of the page to add a new log source
 4. Select **Salesforce** from the list of available sources
