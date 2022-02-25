@@ -4,7 +4,7 @@
 
 Following the steps below, you will be able to onboard into Panther data that are sent to your SNS topics. You will be able to configure your SNS topics to send data to an SQS queue managed for you by Panther.
 
-## Step 1: Create SQS source in Panther UI
+## Step 1: Create SQS source in Panther
 
 Follow the guide on [setting up an SQS source](sqs.md). Make sure to add to the list of `Allowed Source ARNs` the ARN of your SNS topic.
 
