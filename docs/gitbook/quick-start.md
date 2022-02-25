@@ -43,6 +43,8 @@ For data normalization, real-time analytics, and storage into the data lake, sta
 
 * [Amazon S3](https://docs.runpanther.io/data-onboarding/data-transports/s3)
 * [AWS SQS](https://docs.runpanther.io/data-onboarding/data-transports/sqs)
+* [CloudWatch Logs](https://docs.runpanther.io/data-onboarding/data-transports/cwl-source)
+* [Google Cloud Storage](https://docs.runpanther.io/data-onboarding/data-transports/gcs)
 * Directly pulled from various [SaaS Services](https://docs.runpanther.io/data-onboarding/saas-logs)
 
 After onboarding, your data will be searchable with SQL via the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer) and can be correlated with the [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search). These tools can help provide samples for [custom rule](https://docs.runpanther.io/writing-detections/rules) writing.
