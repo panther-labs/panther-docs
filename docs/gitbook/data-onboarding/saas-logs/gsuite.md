@@ -38,14 +38,13 @@ The steps below can only be performed if your G Suite user has permission to see
 18. In the search bar in the top of the page, search `Admin SDK API.`
 19. Click **Admin SDK API**, then click **Enable**
     * You will be redirected to another screen.&#x20;
-20. On the left sidebar menu, click **Home > Dashboard** to navigate back to your Google Cloud Platform Dashboard.&#x20;
-21. Click **Credentials** in the left sidebar menu, then click **+Create Credentials** at to the top of the page.
-22. Click **OAuth client ID.**
+20. Click **Credentials** in the left sidebar menu, then click **+Create Credentials** at to the top of the page.
+21. Click **OAuth client ID.**
     * You will be redirected to a different page.\
       ![](../../.gitbook/assets/gcp-credentials.png)
-23. On the new page, for Application Type, select **Desktop App** and type in a friendly name e.g. `Panther.`
-24. Click **Create**
-25. A pop up screen will display the Client ID and Client Secret. **Using a secure method, make note of the ClientID and Client Secret**. You will need to provide them in the Panther Console to pull your reports.
+22. On the new page, for Application Type, select **Desktop App** and type in a friendly name e.g. `Panther.`
+23. Click **Create**
+24. A pop up screen will display the Client ID and Client Secret. **Using a secure method, make note of the ClientID and Client Secret**. You will need to provide them in the Panther Console to pull your reports.
 
 ## Create a new G Suite source in Panther
 
