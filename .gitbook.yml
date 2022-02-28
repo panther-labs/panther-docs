@@ -35,4 +35,4 @@ redirects:
   # User Guide
   user-guide/destinations: ./destinations/README.md
   # API Key to Token Update
-  api-beta/generating-a-key: ./api-beta/generating-an-api-token
+  api-beta/generating-a-key: ./api-beta/generating-an-api-token.md
