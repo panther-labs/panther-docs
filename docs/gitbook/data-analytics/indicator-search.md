@@ -12,7 +12,7 @@ The Indicator Search is designed to be simple and easy to use:
 * Find additional indicators in the Data Explorer and perform another search to gain additional context about the attack.
 * Continue to pivot through your data to map the entire attacker footprint.
 
-![Indicator Search](<../../../.gitbook/assets/indicator-search (5) (5) (7) (6) (7).png>)
+![Indicator Search](<../.gitbook/assets/indicator-search (5) (5) (7) (6) (6).png>)
 
 As with all of our features, access to the Indicator Search can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
 
@@ -24,13 +24,13 @@ Use Indicator Search to search for an indicator. Click on any of the histogram b
 
 ![Drill down on Monday, 20 September](<../.gitbook/assets/Screenshot 2021-09-24 at 12.22.10 PM.png>)
 
-![](<../../../.gitbook/assets/image (11).png>)
+![](<../.gitbook/assets/image (11).png>)
 
 After clicking on the histogram bar a new Indicator search tab will open containing detailed results for the time period you selected.
 
 ![](<../.gitbook/assets/Screenshot 2021-09-24 at 12.47.40 PM.png>)
 
-![](<../../../.gitbook/assets/image (10).png>)
+![](<../.gitbook/assets/image (10).png>)
 
 Click on the histogram bars and drill down until you find the level of detail you require.
 

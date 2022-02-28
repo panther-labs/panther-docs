@@ -45,7 +45,7 @@ Note that the UI will only display up to 100 logs. This doesn't mean Panther can
 
 You can add a _Custom Log Type_ by navigating to _Data_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
-![](<../../../../.gitbook/assets/image (22).png>)
+![](<../../.gitbook/assets/image (22).png>)
 
 Here you must enter a name for the _Custom Log Type_ (ie `Custom.SampleAPI`) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
 

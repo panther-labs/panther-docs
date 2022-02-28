@@ -6,14 +6,14 @@ With Panther Data Explorer, you are able to:
 
 * Browse collected log data, rule matches, and search standard fields across all data
 * Write SQL queries on normalized data with autocompletion on every step of the way
-* Save, tag and load your queries 
+* Save, tag and load your queries&#x20;
 * Create [scheduled queries](scheduled-queries.md) to run through the rule engine
 * View query results in a friendly way
 * Share results with their team through a shareable link
 * Select entire rows as JSON to use in the rule engine as unit tests
 * Download results in a CSV
 
-![](<../../../.gitbook/assets/data-explorer (1).png>)
+![](<../.gitbook/assets/data-explorer (1).png>)
 
 As with all of our enterprise features, access to the Data Explorer can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
 
@@ -23,7 +23,7 @@ All the tables in our supported backend databases (Athena and Snowflake) are par
 
 **Note**: that the macro expansions will only work from the Panther UI, i.e. will not work if you are using the native Database web UI.
 
-### Time range filter: p_occurs_between
+### Time range filter: p\_occurs\_between
 
 `p_occurs_between(startTime, endTime [, tableAlias])`
 
@@ -35,7 +35,7 @@ All the tables in our supported backend databases (Athena and Snowflake) are par
 
 **Note**: Please ensure that your time expression can be parsed by the database backend your team is using. Some expressions that work in Snowflake (i.e. `2021-01-21T11:15:54.346Z`) will not be accepted as valid timestamps by Athena. The default safe time format should probably look similar to this `2021-01-02 15:04:05.000` and is assumed to be in the UTC time zone.
 
-The macro p_occurs_between() takes a start time, an end time and optionally a table alias (in case you want to use the macro across one or multiple tables in a join) and filters the result set to those events in the time range, using the correct partition (minimizing I/O and speeding up the query).
+The macro p\_occurs\_between() takes a start time, an end time and optionally a table alias (in case you want to use the macro across one or multiple tables in a join) and filters the result set to those events in the time range, using the correct partition (minimizing I/O and speeding up the query).
 
 The following Snowflake command contains a macro:
 
@@ -76,7 +76,7 @@ group by p_db_name
 limit 1000
 ```
 
-### Time offset from present: p_occurs_since
+### Time offset from present: p\_occurs\_since
 
 `p_occurs_since(offsetFromPresent [, tableAlias])`
 
@@ -84,7 +84,7 @@ limit 1000
 
 `tableAlias - optional parameter, allows passing through a table alias to the filter`
 
-The macro p_occurs_since() takes a positive integer number of seconds and optionally a table alias (in case you want to use the macro across one or multiple tables in a join), and filters the result set down to those events from the current time offset by the specified number of seconds, using the correct partition or cluster key (minimizing I/O and speeding up the query).
+The macro p\_occurs\_since() takes a positive integer number of seconds and optionally a table alias (in case you want to use the macro across one or multiple tables in a join), and filters the result set down to those events from the current time offset by the specified number of seconds, using the correct partition or cluster key (minimizing I/O and speeding up the query).
 
 For convenience, we have added additional time parts that can be used:
 

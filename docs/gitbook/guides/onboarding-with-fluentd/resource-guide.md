@@ -14,7 +14,7 @@ Once the template has been deployed and the resources have been created, return 
 The Fluentd Firehose plugin is generally more performant than the Fluentd S3 plugin
 {% endhint %}
 
-![](<../../../../.gitbook/assets/image (24).png>)
+![](<../../.gitbook/assets/image (24) (1).png>)
 
 #### **Resources**:
 
@@ -39,7 +39,7 @@ The template can be found here: [CloudFormation Template.](https://github.com/pa
 As mentioned above, this template is less performant than the Firehose template and is not recommended unless necessary
 {% endhint %}
 
-![](<../../../../.gitbook/assets/image (25).png>)
+![](<../../.gitbook/assets/image (25).png>)
 
 ### **Resources**:
 

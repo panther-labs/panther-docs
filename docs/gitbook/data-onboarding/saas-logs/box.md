@@ -15,7 +15,7 @@ For Panther to access the Box API, you will need to create a new Box App and pro
 7. Click **Continue Setup**.&#x20;
 8. On the "Set credentials" page, click **Copy Redirect URL** at the bottom of the page.
 
-![](../../../../.gitbook/assets/box-setup-page3.png)
+![](../../.gitbook/assets/box-setup-page3.png)
 
 Before you continue the setup process in your Panther Console, you must create a new app in your Box Developer Console and retrieve the Client ID and Client Secret.
 

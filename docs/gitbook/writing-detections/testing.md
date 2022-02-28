@@ -67,7 +67,7 @@ Mocks are defined by a given `Mock Name` and `Return Value` which respectively d
 
 Added mocks are defined on the unit test level allowing users to define different mocks for each unit test. The section to add mocks to a unit test is located directly underneath the unit test resource definition:
 
-![](<../../../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (2).png>)
 
 Mocks are allowed on the **global** and **built-in** python namespaces, this includes:
 
@@ -89,7 +89,7 @@ This example is based on the [AWS Config Global Resources](https://github.com/pa
 
 The detection utilizes a global helper function `resource_lookup` from `panther_oss_helpers` which queries the `resources-api` and returns the resource attributes. However, the unit test should be able to be performed without any external API calls.
 
-![Example Data Without Mocking](<../../../.gitbook/assets/image (15).png>)
+![Example Data Without Mocking](<../.gitbook/assets/image (15).png>)
 
 This test fails as there is no corresponding resource mapping to the generic example data.
 
@@ -123,7 +123,7 @@ Mocks provide a way to leverage real world data to test the detection logic.
 { "AccountId": "012345678910", "Name": "Default", "RecordingGroup": { "AllSupported": true, "IncludeGlobalResourceTypes": true, "ResourceTypes": null }, "Region": "us-east-1", "ResourceId": "012345678910:us-east-1:AWS.Config.Recorder", "ResourceType": "AWS.Config.Recorder", "RoleARN": "arn:aws:iam::012345678910:role/PantherAWSConfig", "Status": { "LastErrorCode": null, "LastErrorMessage": null, "LastStartTime": "2018-10-05T22:45:01.838Z", "LastStatus": "SUCCESS", "LastStatusChangeTime": "2021-05-28T17:45:14.916Z", "LastStopTime": null, "Name": "Default", "Recording": true }, "Tags": null, "TimeCreated": null }
 {% endhint %}
 
-![Missing Mock Case](<../../../.gitbook/assets/image (19) (1).png>)
+![Missing Mock Case](<../.gitbook/assets/image (19) (1).png>)
 
 While this resource should be compliant, the unit test fails. \
 Detections that do not expect a `string` to be returned requires a small tweak for mocks.
@@ -145,7 +145,7 @@ def policy(resource):
 
 Once this modification is added, you can now test the detection logic with real data!
 
-![Successful Unit Test Mock](<../../../.gitbook/assets/image (17).png>)
+![Successful Unit Test Mock](<../.gitbook/assets/image (17).png>)
 
 #### Mocks from the CLI
 

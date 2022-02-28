@@ -27,11 +27,11 @@ For examples of scheduled queries, please see the documentation: [Scheduled Quer
 
 In `Data -> Data Explorer` create a new query or open a saved query.
 
-![Edit a Query](../../../.gitbook/assets/edit-schedule-query.png)
+![Edit a Query](../.gitbook/assets/edit-schedule-query.png)
 
 Click the `Save as` button which will popup a window. Toggle the `Is this a Scheduled Query?` indicator toggle to `On`.
 
-![Schedule a Query](../../../.gitbook/assets/schedule-query.png)
+![Schedule a Query](../.gitbook/assets/schedule-query.png)
 
 You will have the option of using a crontab or a simpler period-based frequency scheduler. If using the Period radio option, you can enter the number of days and/or minutes after which the SQL query should be run again. For example: setting a period of 0 days and 30 minutes will mean that the query will run every day, every 30 minutes (give or take a few seconds). You will also be asked to set a timeout period in minutes, with a maximum currently allowed value of 10 minutes. If your query does not complete inside the allowed time window, Panther will automatically cancel it.
 
@@ -60,7 +60,7 @@ If you want to specify day by day, you can separate days with dashes (`1-5` is M
 
 Using the crontab can allow a much greater specificity in your schedule than a simple frequency does:
 
-![Schedule a Query](../../../.gitbook/assets/scheduled-query-crontab.png)
+![Schedule a Query](../.gitbook/assets/scheduled-query-crontab.png)
 
 ## Create a Scheduled Rule
 
@@ -68,7 +68,7 @@ Setting up a scheduled query simply makes the data available to the rule engine,
 
 You can create a new detection by navigating to Detections and pressing the `+` sign to create a new Detection.
 
-&#x20;![Create a new detection](../../../.gitbook/assets/new-detection.png)
+&#x20;![Create a new detection](../.gitbook/assets/new-detection.png)
 
 In the new detection menu, choose "Scheduled Rule". Give the rule a severity and a name, then select the previously saved scheduled query for the rule to run on. Under the `Functions and Tests` tab either enter your own custom Python code, or if all your filtering logic is already taken care of in the SQL, you can simply make sure that the event is set to return true for each row.
 
@@ -79,11 +79,11 @@ def rule(event):
 
 After the scheduled query has a chance to run again, if the SQL returned any rows and the python rule conditions were met, you should see rule matches starting to populate:
 
-![Scheduled Rule Matches](../../../.gitbook/assets/scheduled-rule-matches.png)
+![Scheduled Rule Matches](../.gitbook/assets/scheduled-rule-matches.png)
 
 As soon as you click `Save`, the rule will become active and be run over the SQL at an interval detected by the run frequency of the scheduled query, assuming any rows are returned by the query.
 
-![Create a Scheduled Rule](../../../.gitbook/assets/new-scheduled-rule.png)
+![Create a Scheduled Rule](../.gitbook/assets/new-scheduled-rule.png)
 
 {% hint style="warning" %}
 We recommend doing as much of the data processing as possible in SQL. That way you can take advantage of all the database optimizations and improve rule performance. In an ideal case, your rule would be a simple `return true`
@@ -93,6 +93,6 @@ We recommend doing as much of the data processing as possible in SQL. That way y
 
 Navigate to `Data -> Saved Queries`. By using the checkbox next to the query name to select multiple queries, you may also delete queries, individually or in bulk. Please note that scheduled queries must be unlinked from their respective rules in order to be deleted. This is to prevent users from accidentally erasing queries used by scheduled rules.
 
-![Delete Query](../../../.gitbook/assets/delete-query.png)
+![Delete Query](../.gitbook/assets/delete-query.png)
 
 You may also deactivate a scheduled query by updating it and toggling the `Is Active` toggle to off

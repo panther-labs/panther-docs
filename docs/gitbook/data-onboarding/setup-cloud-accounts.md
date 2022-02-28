@@ -33,17 +33,17 @@ Click `Continue Setup`, then launch the CloudFormation Console directly, downloa
 
 Clicking the `Launch Console` button will open [CloudFormation](https://aws.amazon.com/cloudformation/) in the AWS account you are currently logged into with pre-populated stack variables:
 
-![](<../.gitbook/assets/image (2) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (50).png>)
 
 {% hint style="info" %}
 Make sure to check the acknowledgement in the `Capabilities`box
 {% endhint %}
 
-![](<../../../.gitbook/assets/setup-cfn-2 (9) (2) (1) (14).png>)
+![](<../.gitbook/assets/setup-cfn-2 (9) (2) (1) (13).png>)
 
 Click the `Create stack` button. After about 15 seconds, the stack's `Status` should change to `CREATE_COMPLETE`. If there is an error creating the stack, then an IAM role with the same name may already exist in your account.
 
-![](<../../../.gitbook/assets/setup-cfn-3 (9) (3) (8).png>)
+![](<../.gitbook/assets/setup-cfn-3 (9) (3) (12).png>)
 
 Back in the Panther Console, click `Continue`, then `Save Source` to complete this setup:
 
