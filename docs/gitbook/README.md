@@ -2,15 +2,15 @@
 
 _Panther is a security analytics platform designed to alleviate the problems of traditional SIEMs._
 
-![Architecture](.gitbook/assets/e2e-diagram.png)
+![Architecture](../../.gitbook/assets/e2e-diagram.png)
 
 It works by normalizing security logs from various places:
 
-![Normalization](.gitbook/assets/parsing.png)
+![Normalization](../../.gitbook/assets/parsing.png)
 
 And alerting your team when suspicious activity happens:
 
-![Detection](.gitbook/assets/detection.png)
+![Detection](../../.gitbook/assets/detection.png)
 
 ## Benefits
 

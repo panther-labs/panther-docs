@@ -40,7 +40,7 @@ Panther requires certain configurations in Google Cloud Platform (GCP) to authen
        |                            `pubsub.subscriptions.get`                           |   `pubsub/viewer`   | _subscription-name_ |
        |                           `monitoring.timeSeries.list`                          | `monitoring/viewer` |       project       |
    * Note: You can set conditions or IAM policies on permissions for specific resources. This can be done either in the IAM page of the service account (as seen in the example screenshot) or in the specific resource's page:\
-     ![](../../.gitbook/assets/gcp-grant-access.png)
+     ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.37.08 AM.png>)
 7. [Generate a JSON key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for the service account, which will be used in Panther to authenticate to the GCP infrastructure.&#x20;
    * You can create a JSON key file using the `gcloud` CLI tool with the following command format: \
      `gcloud iam service-accounts keys create $KEYFILE_PATH --iam-account=$SERVICE_ACCOUNT_EMAIL`\

@@ -30,11 +30,11 @@ New data models are added in the Panther Console or via the [Panther Analysis To
 
 To create a new Data Model, log in to your Panther Console and navigate to `Data` > `Data Models`:
 
-![](<../.gitbook/assets/Screen Shot 2021-09-17 at 11.28.24 AM.png>)
+![](../../../.gitbook/assets/screen-shot-2021-09-17-at-11.28.24-am.png)
 
 Click `CREATE NEW`:
 
-![Create New Data Model](../.gitbook/assets/data-model-create.png)
+![Create New Data Model](../../../.gitbook/assets/data-model-create.png)
 
 Set all the necessary Data Model attributes, such as the ID, DisplayName, the applicable LogType, the field `Mappings`, and any python logic. Click `SAVE`. This data model can now be accessed in your rule logic with the `event.udm()` method
 

@@ -585,13 +585,13 @@ Since the output of a Scheduled Query flows through a Scheduled Rule (in Python)
 
 To implement this you create a Saved Query with a Schedule, in this case will use a period schedule of every 30 minutes:
 
-![Console Query](../.gitbook/assets/console-login-query.png)
+![Console Query](../../../.gitbook/assets/console-login-query.png)
 
 Once that is running we now make a Scheduled Rule targeted at the output of the Scheduled Query:
 
-![Console Rule Desc](../.gitbook/assets/console-login-rule-desc.png)
+![Console Rule Desc](../../../.gitbook/assets/console-login-rule-desc.png)
 
-![Console Rule](../.gitbook/assets/console-login-rule.png)
+![Console Rule](../../../.gitbook/assets/console-login-rule.png)
 
 A Scheduled Rule has all the capability of a streaming rule, allowing you to customize alerts and direct the destinations. The deduping in Panther prevents alert storms, in the above rule we use the `sourceIPAddress` dedupe which will only create 1 alert per 30 minutes.
 
@@ -628,13 +628,13 @@ LIMIT 20 -- avoid alert storms!
 
 To implement this you create a Saved Query with a Schedule, in this case will use a cron expression to have this run at 1 minute after midnight every day:
 
-![C2 Beacon](../.gitbook/assets/c2-beacon.png)
+![C2 Beacon](../../../.gitbook/assets/c2-beacon.png)
 
 Once that is running we now make a Scheduled Rule targeted at the output of the scheduled query:
 
-![C2 Beacon Desc](../.gitbook/assets/c2-beacon-rule-desc.png)
+![C2 Beacon Desc](../../../.gitbook/assets/c2-beacon-rule-desc.png)
 
-![C2 Beacon Code](../.gitbook/assets/c2-beacon-rule.png)
+![C2 Beacon Code](../../../.gitbook/assets/c2-beacon-rule.png)
 
 ### How Well is My Endpoint Monitoring Working?
 
@@ -671,11 +671,11 @@ ORDER BY 2 desc
 
 To implement this you create a Saved Query with a Schedule, in this case will use a cron expression to have this run at 1 minute after midnight every day:
 
-![CrowdStrikeQuery](../.gitbook/assets/crowdstrike-query.png)
+![CrowdStrikeQuery](../../../.gitbook/assets/crowdstrike-query.png)
 
 Once that is running we now make a Scheduled Rule targeted at the output of the scheduled query:
 
-![CrowdStrikeRule](../.gitbook/assets/crowdstrike-rule.png)
+![CrowdStrikeRule](../../../.gitbook/assets/crowdstrike-rule.png)
 
 The events associated with the alert can be reviewed by an analyst which will be at most one per employee group. The "hits" are accumulated in `endpoints` using the employee info for easy vetting. As with all Panther rules, you have the flexibility to customize destinations of alert. For example, if the `employee_group` is `C-Suite` then perhaps that generates a page to the oncall, while the default alerts simply go to a work queue for vetting the next day.
 

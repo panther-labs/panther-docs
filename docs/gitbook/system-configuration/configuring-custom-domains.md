@@ -70,6 +70,6 @@ Finally, you will need to create an alias or CNAME on your domain pointing to th
    * **Evaluate Target Health**: Select `No`
 4. Click **Create**.
 
-![](<../.gitbook/assets/hosted-zone-alias (9) (10) (3) (11).png>)
+![](<../../../.gitbook/assets/hosted-zone-alias (9) (10) (3) (1) (11).png>)
 
 You can now navigate to your new domain and reach the Panther web application over a signed and secure HTTPS connection.

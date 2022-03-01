@@ -37,9 +37,9 @@ You must be signed in as a Zendesk Support administrator to register an OAuth2 a
 6. Click **Save**.
 7. Once the application is registered, you will be able to view the **Client ID** and then generate a new **client secret** to paste into Panther. You are done with this part!
 
-![Set up an OAuth Client here in the Zendesk UI](<../../.gitbook/assets/image (23).png>)
+![Set up an OAuth Client here in the Zendesk UI](<../../../../.gitbook/assets/image (26).png>)
 
-![Find the URL redirect here in the Panther UI](<../../.gitbook/assets/image (14).png>)
+![Find the URL redirect here in the Panther UI](<../../../../.gitbook/assets/image (23).png>)
 
 ## Provide Zendesk Email and Password (option 2)
 
@@ -59,7 +59,7 @@ The steps below can only be performed if you have admin permission in your Zende
 6. Copy the token (in red), and paste it somewhere secure. Once you close this window, the full token will never be displayed again.
 7. Copy and paste the token into the Panther UI as well as your Zendesk Support Admin Email. You are done with this part!
 
-![Create a API token here in the Zendesk UI](<../../.gitbook/assets/image (26).png>)
+![Create a API token here in the Zendesk UI](<../../../../.gitbook/assets/image (14).png>)
 
 ![Find the API token here in the Zendesk UI](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/token\_created.png)
 

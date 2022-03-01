@@ -114,25 +114,25 @@ Then, configure the built in policies by searching for the `Configuration Requir
 
 Navigate to Cloud Security > Policies, and click `Create New` in the top right corner. You have the option of creating a single new policy, or uploading a zip file containing policies created with the `panther_analysis_tool`. Clicking single will take you to the policy editor page.
 
-![Policy Editor](<../.gitbook/assets/policy-creation1 (5) (3).png>)
+![Policy Editor](<../../../.gitbook/assets/policy-creation1 (5) (1) (3).png>)
 
 ### Set Attributes
 
 Keeping with the Password Policy example above, set all the necessary rule attributes:
 
-![Attributes Set](<../.gitbook/assets/policy-creation2 (6) (3).png>)
+![Attributes Set](<../../../.gitbook/assets/policy-creation2 (6) (1) (3).png>)
 
 ### Write Policy Body
 
 Then write our policy logic in the `policy()` function.
 
-![Policy Body](<../.gitbook/assets/policy-creation3 (7) (4).png>)
+![Policy Body](<../../../.gitbook/assets/policy-creation3 (7) (1) (4).png>)
 
 ### Configure Tests
 
 Next, configure test cases to ensure our policy works as expected:
 
-![Unit Tests](<../.gitbook/assets/policy-creation4 (7) (2) (8).png>)
+![Unit Tests](<../../../.gitbook/assets/policy-creation4 (7) (2) (1) (8).png>)
 
 ## Policy Writing Tips
 
