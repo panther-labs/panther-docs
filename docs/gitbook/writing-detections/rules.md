@@ -1,6 +1,10 @@
 # Rules
 
-**Rules** are Python functions for detecting suspicious activity in logs and generating alerts. Common examples of rules include analyzing for:
+**Rules** are Python functions for detecting suspicious activity in logs and generating alerts. Although similar, Rules apply to security logs while [Policies](policies.md) apply to cloud resources.
+
+
+
+Common examples of rules include analyzing logs for:
 
 * Authentication from unknown or unexpected locations
 * Sensitive API calls, such as administrative changes to SaaS services
@@ -10,15 +14,15 @@
 
 Rules may be written directly with Panther's Rule Editor or locally in an IDE and uploaded with the [Panther Analysis Tool](panther-analysis-tool.md).
 
-{% hint style="info" %}
-Although similar, Rules apply to security logs while [Policies](policies.md) apply to cloud resources.
-{% endhint %}
-
 ## Concepts
 
 Rules run on a defined set of log types such as Okta, Box, or your own [custom data](../data-onboarding/custom-log-types/).
 
 Rules analyze one event at a time and can use thresholds, deduplication, and event grouping to analyze logs within windows of time. By default, each rule has a threshold of `1` and a deduplication period of `1h`, meaning all events returning `True` from a rule would be appended to the alert within the hour after first being generated.
+
+
+
+#### Rule Example
 
 As an example, let's write a rule to send an alert when an admin panel is accessed on a web server. The following NGINX log below will be used:
 
@@ -62,9 +66,7 @@ Then, the following would occur:
 3. Similar events with the same dedup string of `180.76.15.143` would be appended to the alert
 4. The recipient of the alert could then check Panther to view all alert metadata, a summary of the events, and run SQL over all of the events to perform additional analysis&#x20;
 
-{% hint style="success" %}
 A unique alert will be generated for each unique deduplication string, which in this case, is the IP of the requestor.&#x20;
-{% endhint %}
 
 ## Real-Time vs Scheduled
 
@@ -73,6 +75,10 @@ Panther has two core mechanisms of analyzing data with rules, real-time and sche
 Real-Time rules are the default mechanism of analyzing data sent to Panther and have the benefit of low-latency detection and alerting. High-signal logs that do not require joins with other data are best suited for real-time detection.
 
 For querying windows of time further in the past, running statistical analysis over data, or joining separate data streams, use a [scheduled ](../data-analytics/scheduled-queries.md)rule. This works by running a SQL query on a defined interval (or cron) and using the result of that query as input into a Python-based rule. All other functionality described on this page remains the same.
+
+## Rule Errors
+
+A rule error will use the [destination](https://docs.runpanther.io/destinations) overrides configured for the rule. If there are no destination overrides for the rule itself, it will route to any destinations configured for rule errors. In the event of a query timeout, the Python code for Destinations will not run.&#x20;
 
 ## Best Practices
 
