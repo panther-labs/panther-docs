@@ -14,7 +14,7 @@ Common examples of rules include analyzing logs for:
 
 Rules may be written directly with Panther's Rule Editor or locally in an IDE and uploaded with the [Panther Analysis Tool](panther-analysis-tool.md).
 
-## Concepts
+## How rules work
 
 Rules run on a defined set of log types such as Okta, Box, or your own [custom data](../data-onboarding/custom-log-types/).
 
