@@ -64,8 +64,13 @@ Finally, you will need to create an alias or CNAME on your domain pointing to th
    * **Name**: Leave this field empty.&#x20;
    * **Type**: `A - IPv4 address`&#x20;
    * **Alias**: Select `Yes`&#x20;
-   * **Alias Target**: Select the name of the ELB load balancer from your Panther deployment. It will be under the ELB Application load balancers section.&#x20;
-     * You can find this manually in CloudFormation by going to the panther-bootstrap stack and looking for the LoadBalancerUrl output. Note: the name will automatically be prefixed with "dualstack". Do not modify this.&#x20;
+   * **Alias Target**: Fill in the URL of the Elastic Load Balancer from your Panther deployment. To get this value:
+     1. Go to the **EC2** service on the AWS console.
+     2. Click **Load Balancers** in the left sidebar menu.
+     3. Select **web** (if not already selected).
+     4. On the bottom of your screen, click the **Description** tab.&#x20;
+     5. Locate the **DNS Name**. Copy the value from this field into the Alias Target field while creating an alias.
+        * The value should be something like `web-1xxxxxxxx.us-east-1.elb.amazonaws.com.`
    * **Routing Policy**: Select `Simple`&#x20;
    * **Evaluate Target Health**: Select `No`
 4. Click **Create**.
