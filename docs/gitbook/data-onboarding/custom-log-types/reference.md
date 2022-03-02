@@ -120,7 +120,7 @@ Timestamp values in Lookup Table schemas can also be marked with `isExpiration: 
 
 ### Indicators
 
-Values of `string` type can be used as indicators. In order to mark a field as an indicator, you must set the `indicators` field to an array of [indicator scanner names](../../development/writing-parsers.md#indicator-strings). This will instruct Panther to parse the string and store any indicator values it finds to the relevant field. For example:
+Values of `string` type can be used as indicators. In order to mark a field as an indicator, you must set the `indicators` field to an array of indicator scanner names. This will instruct Panther to parse the string and store any indicator values it finds to the relevant field. For example:
 
 ```yaml
 # Will scan the value as IP address and store it to `p_any_ip_addresses`

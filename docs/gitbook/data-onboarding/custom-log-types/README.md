@@ -230,7 +230,7 @@ $ cat sample_logs.jsonl | ./pantherlog parse --path schema.yml
 
 ### Running tests for a Schema
 
-You can use the tool to run unit tests. You can define unit tests for your Custom Schema in YAML files. The format for the unit tests is described in [writing parsers](../../development/writing-parsers.md#step-0-writing-a-test). To run tests defined in a `schema_tests.yml` file for a custom schema defined in `schema.yml` use:
+You can use the tool to run unit tests. You can define unit tests for your Custom Schema in YAML files. To run tests defined in a `schema_tests.yml` file for a custom schema defined in `schema.yml` use:
 
 ```
 $ ./pantherlog test schema.yml schema_tests.yml

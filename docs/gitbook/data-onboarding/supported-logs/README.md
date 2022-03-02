@@ -108,6 +108,3 @@ Panther currently supports 80 security log types across 26 different categories:
   * [RFC5424](syslog.md#syslog-rfc5424)
 * [Zeek](zeek.md)
   * [DNS](zeek.md#zeek-dns)
-
-If you don't see what you need listed here, you can [write your own parser](../../development/writing-parsers.md) or [upgrade to Panther Enterprise](https://runpanther.io/pricing).
-
