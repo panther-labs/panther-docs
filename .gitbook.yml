@@ -39,4 +39,4 @@ redirects:
   #Operations Updates
   help/ops-home: ./help/operations.md
   development: ./help/operations/architecture.md
-  development/writing-parsers: ./data-onboarding/custom-log-types.md
+  development/writing-parsers: ./data-onboarding/custom-log-types/README.md
