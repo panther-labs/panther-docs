@@ -18,13 +18,13 @@ Once your account has been provisioned, you will receive an invitation email fro
 
 After the initial console login with the provided credentials, you will need to update your password and set up MFA.
 
-![Login Screen](<.gitbook/assets/image (40).png>)
+![Login Screen](<.gitbook/assets/image (6).png>)
 
 ### Inviting Users
 
 After you have successfully logged in, you can invite more users to the platform by navigating to **Settings** > **Users**. You may also set up [SAML integration](system-configuration/saml/).
 
-![](<.gitbook/assets/image (43).png>)
+![](<.gitbook/assets/image (7).png>)
 
 ### Alert Destinations
 

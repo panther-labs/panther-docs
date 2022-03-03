@@ -14,7 +14,7 @@ Once the template has been deployed and the resources have been created, return 
 The Fluentd Firehose plugin is generally more performant than the Fluentd S3 plugin
 {% endhint %}
 
-![](<../../../../.gitbook/assets/image (24) (1) (1).png>)
+![](<../../../../.gitbook/assets/image (24).png>)
 
 #### **Resources**:
 

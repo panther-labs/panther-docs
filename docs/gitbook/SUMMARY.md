@@ -256,7 +256,7 @@
   * [Operations](help/operations/README.md)
     * [Architecture](help/operations/architecture.md)
   * [Troubleshooting](help/troubleshooting.md)
-  * [Security and Privacy](help/security-privacy/README.md)
+  * [Security and Privacy](help/security-privacy.md)
     * [Security Without AWS External ID](help/security-privacy/security-without-aws-external-id.md)
   * [FAQ](help/faqs.md)
   * [Glossary](help/glossary.md)
