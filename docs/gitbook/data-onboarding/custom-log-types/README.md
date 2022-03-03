@@ -186,7 +186,7 @@ Panther handles logs that are not structured as JSON by using a 'parser' that tr
 
 ## Pantherlog CLI
 
-Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/operations/#tools).&#x20;
+Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/ops-home.md#tools).&#x20;
 
 ### Generating a Schema from JSON samples
 
