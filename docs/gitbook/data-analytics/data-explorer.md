@@ -13,7 +13,7 @@ With Panther Data Explorer, you are able to:
 * Select entire rows as JSON to use in the rule engine as unit tests
 * Download results in a CSV
 
-![](<../../../.gitbook/assets/data-explorer (1).png>)
+![](<../.gitbook/assets/data-explorer (1).png>)
 
 As with all of our enterprise features, access to the Data Explorer can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
 

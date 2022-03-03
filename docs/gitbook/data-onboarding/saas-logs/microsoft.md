@@ -49,7 +49,7 @@ These are the steps required to enable Panther ingest Office 365 activity logs.
 10. Panther will verify access to Microsoft 365. On the Verify Setup screen, you can set up a log drop-off alarm (this will send an error message if logs aren't received within a specified time interval.)&#x20;
 11. Click **Finish Setup**.
 
-![ ](../../../../.gitbook/assets/microsoft-credentials.png)
+![ ](../../.gitbook/assets/microsoft-credentials.png)
 
 You are done! You can now start writing detections and exploring your Microsoft 365 activity logs.
 

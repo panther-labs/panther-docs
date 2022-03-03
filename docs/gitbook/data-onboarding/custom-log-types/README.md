@@ -45,7 +45,7 @@ Note that the UI will only display up to 100 logs. This doesn't mean Panther can
 
 You can add a _Custom Log Type_ by navigating to _Data_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
-![](<../../../../.gitbook/assets/image (22).png>)
+![](<../../.gitbook/assets/image (22).png>)
 
 Here you must enter a name for the _Custom Log Type_ (ie `Custom.SampleAPI`) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
 
@@ -87,7 +87,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (2).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1).png>)
 
 &#x20;
 
@@ -186,7 +186,7 @@ Panther handles logs that are not structured as JSON by using a 'parser' that tr
 
 ## Pantherlog CLI
 
-Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/ops-home.md#tools).&#x20;
+Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/operations/#tools).&#x20;
 
 ### Generating a Schema from JSON samples
 

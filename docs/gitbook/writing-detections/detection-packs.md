@@ -26,11 +26,11 @@ Panther provides several Detection Packs by default. There are packs that group 
 
 You can view a list of Panther-provided detection packs in your Panther Console under **Analysis > Packs**.
 
-![List Packs](../../../.gitbook/assets/pack-list.png)
+![List Packs](../.gitbook/assets/pack-list.png)
 
 Click on a Pack to view its details, including a description, the enabled status, the currently enabled version, and which detections are in the pack.&#x20;
 
-![Pack Details](../../../.gitbook/assets/pack-details.png)
+![Pack Details](../.gitbook/assets/pack-details.png)
 
 
 
@@ -44,11 +44,11 @@ To enable or disable a Pack:
 2. Navigate to **Analysis > Packs**.
 3. Toggle the **Enabled** slider on or off.
 
-![Enable Pack From List](../../../.gitbook/assets/pack-list-enable.png)
+![Enable Pack From List](../.gitbook/assets/pack-list-enable.png)
 
 The **Enabled** slider also appears on Pack detail pages:
 
-![Enable Pack From Details](../../../.gitbook/assets/pack-details-enable.png)
+![Enable Pack From Details](../.gitbook/assets/pack-details-enable.png)
 
 ## Update or Rollback Detection Pack
 
@@ -60,7 +60,7 @@ To update pack detections:
 2. Navigate to **Analysis > Packs**.
 3. Select the version in the "Version" dropdown menu then click **Update Pack**.
 
-![Update Pack](../../../.gitbook/assets/pack-update.png)
+![Update Pack](../.gitbook/assets/pack-update.png)
 
 To revert to a previous Pack version:
 
@@ -68,7 +68,7 @@ To revert to a previous Pack version:
 2. Navigate to **Analysis > Packs**.
 3. Select the version in the "Version" dropdown menu then click **Revert Pack**.
 
-![Revert Pack](../../../.gitbook/assets/pack-revert.png)
+![Revert Pack](../.gitbook/assets/pack-revert.png)
 
 ## Managing Detections with Packs
 
@@ -167,7 +167,7 @@ To Add a pack source:
    * Enter the field names for each input field.
 4. Click **Save**.
 
-![Add Pack Source](../../../.gitbook/assets/pack-source-add.png)
+![Add Pack Source](../.gitbook/assets/pack-source-add.png)
 
 To modify the `kmsKey` or `AccessToken` fields for a pack source:
 
@@ -185,7 +185,7 @@ To Delete a pack source:
 2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
 3. Click `...` next to a Pack Source then click **Delete**.
 
-![Delete Pack Source](../../../.gitbook/assets/pack-source-delete.png)
+![Delete Pack Source](../.gitbook/assets/pack-source-delete.png)
 
 {% hint style="info" %}
 Deleting a Pack Source will delete the packs originating from it, along with all of the detections in it.

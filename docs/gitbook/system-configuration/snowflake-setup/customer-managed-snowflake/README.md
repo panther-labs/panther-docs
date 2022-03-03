@@ -32,7 +32,7 @@ Go to the `Settings` page of Panther and select `General Settings`. There you wi
 * Snowflake ReadOnly Lambda Role ARN
 * Snowflake Admin Lambda Role ARN
 
-![](../../../../../.gitbook/assets/snowflake-settings.png)
+![](../../../.gitbook/assets/snowflake-settings.png)
 
 Keep these ARNs handy, we will use this later.
 
@@ -425,22 +425,22 @@ SELECT panther_stored_procedures.public.generate_secret(<user>,<password>,<wareh
 
 You can then copy-paste the result into each of the 2 secrets "plaintext" editor tab.
 
-![](../../../../../.gitbook/assets/snowflake-secrets-page1a.png)
+![](../../../.gitbook/assets/snowflake-secrets-page1a.png)
 
 _**NOTE**_: Check to make sure that all 6 fields (_account, host, password, port, user, warehouse_) are filled out and have the correct values, otherwise the Panther lambdas may encounter issues connecting to snowflake.
 
 * Select `panther-secret` from the dropdown under `Select the encryption key`.
 * Click `Next`.
 
-![](../../../../../.gitbook/assets/snowflake-secrets-page1b.png)
+![](../../../.gitbook/assets/snowflake-secrets-page1b.png)
 
 * You will be presented with a screen asking for the name and description of the secret. Fill these in and click `Next`.
 
-![](<../../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (1) (9).png>)
+![](<../../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (1) (1) (8).png>)
 
 * The next screen concerns autorotation, just click the `Next` button.
 
-![](<../../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (1) (9).png>)
+![](<../../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (1) (1) (8).png>)
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 

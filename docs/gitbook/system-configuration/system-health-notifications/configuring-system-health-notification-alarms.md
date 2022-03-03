@@ -20,7 +20,7 @@ By default, Panther will send these alerts to the **Alerts** page in your Panthe
 3. Choose an existing Alert Destination or add a new Alert Destination.
 4. On the configuration page for the Alert Destination, add "System Errors" to the **Alert Types** section:
 
-![](<../../../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 ### Configuring Alarms for Log Drop-offs for your Log Sources
 
@@ -39,7 +39,7 @@ You can add an alarm to a new or an existing log source.
 4. Next to _Set an alarm in case this source does not process any events for 24 hours?_, toggle the setting to **YES** to enable alarms.&#x20;
    * On this page, you can also view which destinations will receive the alerts from this alarm.
 
-![](<../../../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (9).png>)
 
 #### Setting up Alarms for New Log Sources
 
