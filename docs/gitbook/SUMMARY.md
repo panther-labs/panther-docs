@@ -254,7 +254,7 @@
   * [Using Lookup Tables: 1Password UUIDs](guides/using-lookup-tables-1password-uuids.md)
 * [Help](help/README.md)
   * [Operations](help/operations/README.md)
-    * [Architecture](help/operations/development.md)
+    * [Architecture](help/operations/architecture.md)
   * [Troubleshooting](help/troubleshooting.md)
   * [Security and Privacy](help/security-privacy/README.md)
     * [Security Without AWS External ID](help/security-privacy/security-without-aws-external-id.md)
