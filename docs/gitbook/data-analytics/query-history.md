@@ -2,7 +2,7 @@
 
 The Query History page displays the last 30 days of SQL queries run through the Panther UI. Clicking on the query name will send you to the data explorer where you can see the results and rerun the query.&#x20;
 
-![Query history](../.gitbook/assets/query-history.png)
+![Query history](../../../.gitbook/assets/query-history.png)
 
 In the query history, you'll see the following details:
 

@@ -23,7 +23,7 @@ In order to create and add permissions to the new user, the ['Manage Users' perm
 
 Follow the instructions in the [Salesforce documentation](https://help.salesforce.com/articleView?id=sf.adding\_new\_users.htm\&type=5) to add a new user. For the **User License** and **Profile** fields, make sure "Salesforce" and Read Only" are selected, respectively. (see below)
 
-![User License and Profile](../../.gitbook/assets/create-user-profile.png)
+![User License and Profile](../../../../.gitbook/assets/create-user-profile.png)
 
 Complete the user registration process by setting a new password through the link sent to your email.
 
@@ -39,13 +39,13 @@ In order to assign permissions to the new user we need to create a new [Permissi
 
 After creating the permission set, go to **System Permissions** by clicking on the link:
 
-![System Permissions Link](../../.gitbook/assets/system-permissions.png)
+![System Permissions Link](../../../../.gitbook/assets/system-permissions.png)
 
 Click on the **Edit** button and select the following permissions:
 
-**API Enabled** ![API Enabled](../../.gitbook/assets/api-enabled-permission.png)
+**API Enabled** ![API Enabled](../../../../.gitbook/assets/api-enabled-permission.png)
 
-**Event Log Files** ![Event Log Files](../../.gitbook/assets/view-event-log-files-permission.png)
+**Event Log Files** ![Event Log Files](../../../../.gitbook/assets/view-event-log-files-permission.png)
 
 After the System Permissions have been updated, you can assign the Permission Set to the designated user by following the instructions [here](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/perm\_sets\_assigning.htm).
 

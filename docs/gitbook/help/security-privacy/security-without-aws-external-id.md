@@ -10,9 +10,9 @@ Panther does not need to use external IDs because it is a single-tenant SaaS off
 
 ### What is an external ID and what problem does it solve?&#x20;
 
-This AWS blog post offers an excellent explanation of what external IDs are and how they’re used to solve problems for multi-tenant offerings. To summarize, an external ID is a piece of information that can be added to a request to assume an IAM role. That role’s trust policy may (but is not required to) specify what external IDs it will accept when granting access to that IAM role. External IDs do not need to be secret or hard to guess to be effective, they merely need to be unique.
+[This AWS blog post](https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/) offers an excellent explanation of what external IDs are and how they’re used to solve problems for multi-tenant offerings. To summarize, an external ID is a piece of information that can be added to a request to assume an IAM role. That role’s trust policy may (but is not required to) specify what external IDs it will accept when granting access to that IAM role. External IDs do not need to be secret or hard to guess to be effective, they merely need to be unique.
 
-The primary function of external IDs is to solve for the “confused deputy” problem. The basic premise of the “confused deputy” problem in the context of AWS is: If a SaaS Service Provider has access to assume roles in multiple customer AWS accounts, it may be possible for one customer to trick the Service Provider into assuming a role in another customer’s account.
+The primary function of external IDs is to solve for the ["confused deputy" problem](http://en.wikipedia.org/wiki/Confused\_deputy\_problem). The basic premise of the “confused deputy” problem in the context of AWS is: If a SaaS Service Provider has access to assume roles in multiple customer AWS accounts, it may be possible for one customer to trick the Service Provider into assuming a role in another customer’s account.
 
 
 
