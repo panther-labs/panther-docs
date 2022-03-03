@@ -20,6 +20,8 @@ Rules run on a defined set of log types such as Okta, Box, or your own [custom d
 
 Rules analyze one event at a time and can use thresholds, deduplication, and event grouping to analyze logs within windows of time. By default, each rule has a threshold of `1` and a deduplication period of `1h`, meaning all events returning `True` from a rule would be appended to the alert within the hour after first being generated.
 
+Provided a threshold of `5` and a deduplication period of `15m`, an alert would not trigger until 5 or more rule matches have occurred within 15 minutes.
+
 
 
 #### Rule Example
