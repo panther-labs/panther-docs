@@ -8,7 +8,7 @@ Integrate any SAML Identity Provider (IdP) with Panther in three easy steps:
 
 1.  [Deploy](../../quick-start.md) Panther and navigate to the General Settings page. Note the values shown for "Audience" and "ACS URL":
 
-    ![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (6).png>)
+    ![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (1) (1) (11) (22).png>)
 2. Add a "test" or "manual" SAML integration to your IdP with the following settings:
    * Audience: `urn:amazon:cognito:sp:USER_POOL_ID` (copied from the General Settings in Panther)
    * ACS / Consumer URL: `https://USER_POOL_HOST/saml2/idpresponse` (copied from the General Settings in Panther)
@@ -29,6 +29,6 @@ We are working on support for direct metadata uploads in the near future.
 
 Click "Save" in the Panther settings page and then you're done! Now, clicking the "Login with SSO" button will redirect you to your Identity Provider:
 
-![](<../../../../.gitbook/assets/panther-login-sso (6) (1).png>)
+![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (22).png>)
 
 For examples, see the [OneLogin](onelogin.md) and [Okta](okta.md) integration guides.

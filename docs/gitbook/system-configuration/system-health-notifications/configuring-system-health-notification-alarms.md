@@ -39,7 +39,7 @@ You can add an alarm to a new or an existing log source.
 4. Next to _Set an alarm in case this source does not process any events for 24 hours?_, toggle the setting to **YES** to enable alarms.&#x20;
    * On this page, you can also view which destinations will receive the alerts from this alarm.
 
-![](<../../../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (9).png>)
 
 #### Setting up Alarms for New Log Sources
 
