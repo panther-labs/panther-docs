@@ -40,3 +40,5 @@ redirects:
   help/ops-home: ./help/operations.md
   development: ./help/operations/architecture.md
   development/writing-parsers: ./data-onboarding/custom-log-types/README.md
+  #Moving Alert Runbooks to Triaging Alerts
+  alert-runbooks*: ./writing-detections/triaging-alerts/alert-runbooks/*
