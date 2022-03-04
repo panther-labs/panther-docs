@@ -36,9 +36,9 @@ redirects:
   user-guide/destinations: ./destinations/README.md
   # API Key to Token Update
   api-beta/generating-a-key: ./api-beta/generating-an-api-token.md
-  #Operations Updates
+  # Operations Updates
   help/ops-home: ./help/operations.md
   development: ./help/operations/architecture.md
   development/writing-parsers: ./data-onboarding/custom-log-types/README.md
-  #Nesting SNS under SQS Source
+  # Nesting SNS under SQS Source
   data-onboarding/data-transports/sns: ./data-onboarding/data-transports/sqs/sns.md
