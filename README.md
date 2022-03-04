@@ -1,2 +1,2 @@
 # panther-docs
-Documentation for Panther Enterprise
+Documentation for Panther
