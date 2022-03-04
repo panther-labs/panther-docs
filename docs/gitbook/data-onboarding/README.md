@@ -1,6 +1,6 @@
 # Data Onboarding
 
-Panther offers several options to onboard data, including SaaS Logs, Data Transports, Cloud Accounts, and Custom Log Types
+Panther offers several options to onboard data, including SaaS Logs, Data Transports, Cloud Accounts, and Custom Log Types. You can also [request support for a specific log source](https://docs.runpanther.io/data-onboarding#request).&#x20;
 
 ### SaaS Logs
 
@@ -29,5 +29,13 @@ Do you have a log type you would like to monitor that Panther does not have [sch
 
 For more information, see [Custom Log Types](custom-log-types/).
 
+### Request support for a log source <a href="#request" id="request"></a>
 
+If you do not see the log source you want in the list at **Integrations > Log Sources**, you can request support of a new log source:
 
+1. Log in to your Panther Console.
+2. Navigate to **Integrations > Log Sources**.
+3. Scroll to the bottom of the page and click **Request it here**.
+4. Fill in the form then click **Create Request**.
+
+![](../.gitbook/assets/request-log-source.png)
