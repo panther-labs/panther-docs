@@ -43,3 +43,15 @@ If you opt in to error reporting, the following information will be sent to the 
     > This helps us identify the code associated with the issue and gaining insight on the preceding function calls. **All sensitive parameters or variables are excluded**.
 
 The Panther team greatly benefits from understanding runtime issues that occur in installations and can enable us to resolve them quickly. You can always change your error reporting preferences through the **General Settings** page.
+
+
+
+### Related Content:
+
+* [Privacy Policy](https://runpanther.io/privacy-policy/)
+* [Terms of Service](https://runpanther.io/terms-of-service/)
+* [Enterprise Subscription Agreement](https://runpanther.io/enterprise-subscription-agreement/)
+* [Security Annex](https://runpanther.io/security-annex/)
+* [Subprocessors](https://runpanther.io/subprocessors/)
+* [Service Level Agreement](https://runpanther.io/sla/)
+* [Data Processing Agreement](https://runpanther.io/data-processing-agreement/)
