@@ -1,6 +1,6 @@
 # Panther Analysis Tool
 
-The `panther_analysis_tool` is an [open source](https://github.com/panther-labs/panther\_analysis\_tool) utility for testing, packaging, and deploying Panther detections from source code.
+The `panther_analysis_tool` (PAT) is an [open source](https://github.com/panther-labs/panther\_analysis\_tool) utility for testing, packaging, and deploying Panther detections from source code.
 
 It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
 
