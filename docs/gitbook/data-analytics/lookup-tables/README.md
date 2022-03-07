@@ -32,7 +32,17 @@ This option is best for a larger amount of data that updates more frequently fro
 
 For instructions, please see the documentation: [Sync data from an S3 Source](s3-source.md).
 
+### Query via Data Explorer
 
+`p_enrichment` is not stored in the Data Lake, but you can join against the Lookup Table directly in the Data Explorer with a query similar to the following:&#x20;
+
+```
+with logs as 
+(select * from my_logs), 
+lookup as (select * from my_lookup_table) 
+select logs.* as , lookup. as enrichment.* 
+from logs join lookup on logs.selector_field = lookup.key_field
+```
 
 ### Examples
 
