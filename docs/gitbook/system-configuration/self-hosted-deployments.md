@@ -6,7 +6,7 @@ In most cases, Panther strongly recommends using the SaaS deployment model. In s
 
 #### Have Panther approve your account
 
-Before you can deploy Panther, you will need to provide Panther with the **account ID** and **region** of the account from which you intend to deploy Panther.
+Before you can deploy Panther, you will need to provide Panther with the **account ID** and **region** of the account from which you intend to deploy Panther. We maintain [a list of supported regions](https://docs.runpanther.io/help/operations/architecture#supported-aws-regions) in our documentation.
 
 #### Check IAM Permissions
 
