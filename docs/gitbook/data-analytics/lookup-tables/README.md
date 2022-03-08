@@ -40,7 +40,7 @@ For instructions, please see the documentation: [Sync data from an S3 Source](s3
 with logs as 
 (select * from my_logs), 
 lookup as (select * from my_lookup_table) 
-select logs.* as , lookup. as enrichment.* 
+select logs.fieldA, lookup.fieldB 
 from logs join lookup on logs.selector_field = lookup.key_field
 ```
 
