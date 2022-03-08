@@ -56,18 +56,3 @@ Panther comes with build-in detections that alert against common security events
 * Onboard AWS accounts for [cloud security scans](https://docs.runpanther.io/data-onboarding/setup-cloud-accounts).
 * Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs.
 * Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.runpanther.io/resources).
-
-### Supported AWS Regions
-
-Panther can be deployed to any of the following regions:
-
-* `ap-northeast-1` (Tokyo)
-* `ap-south-1` (Mumbai)
-* `ap-southeast-1` (Singapore)
-* `ap-southeast-2` (Sydney)
-* `eu-central-1` (Frankfurt)
-* `eu-west-1` (Ireland)
-* `eu-west-2` (London)
-* `us-east-1` (N. Virginia)
-* `us-east-2` (Ohio)
-* `us-west-2` (Oregon)

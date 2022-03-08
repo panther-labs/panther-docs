@@ -1,8 +1,21 @@
 # Architecture
 
-Panther is a collection of serverless applications deployed on an AWS instance managed by Panther. The frontend is a React application which runs in a Docker container (via ECS), and the backend is a collection of compute (Lambda), storage (DynamoDB / S3), and other supporting services.
+Panther is a collection of server-less applications deployed on an AWS instance managed by Panther. The frontend is a React application which runs in a Docker container (via ECS), and the backend is a collection of compute (Lambda), storage (DynamoDB / S3), and other supporting services.
 
-The sections below cover how Panther works under the hood: an architectural overview and how your data is stored/processed.
+## Supported AWS Regions
+
+Panther can be deployed to any of the following regions:
+
+* `ap-northeast-1` (Tokyo)
+* `ap-south-1` (Mumbai)
+* `ap-southeast-1` (Singapore)
+* `ap-southeast-2` (Sydney)
+* `eu-central-1` (Frankfurt)
+* `eu-west-1` (Ireland)
+* `eu-west-2` (London)
+* `us-east-1` (N. Virginia)
+* `us-east-2` (Ohio)
+* `us-west-2` (Oregon)
 
 ## Architecture Diagram
 
