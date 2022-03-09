@@ -94,7 +94,7 @@ You will be prompted to click through a few pages verifying your CloudFormation 
 
 We recommend not skipping minor versions of Panther while upgrading, but upgrading to the most recent patch version instead. Here are the most recent patch versions of Panther that we recommend upgrading to:
 
-* `v1.30.3`
+* `v1.30.4`
 * `v1.29.1`
 * `v1.28.7`
 * `v1.27.8`
