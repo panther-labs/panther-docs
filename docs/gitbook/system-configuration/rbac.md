@@ -8,7 +8,7 @@ When you first deploy Panther, the following three roles are automatically creat
 
 ![](<../.gitbook/assets/image (3) (1) (1).png>)
 
-* The "Admin" role will be automatically assigned to all existing users when upgrading from the community edition and has all available permissions.
+* The "Admin" role will be automatically assigned to all existing users and has all available permissions.
 * The "Analyst" role can use all the cloud security and log analysis features, but can't modify settings.
 * The "AnalystReadOnly" role can view resources and alerts and Python code, but can't change anything.
 
