@@ -1,15 +1,12 @@
 # Policies
 
-Panther enables easy scanning, evaluating, and remediation of cloud infrastructure configurations.
+Panther enables easy scanning and evaluation of cloud infrastructure configurations.
 
 **Policies** are Python3 functions used to identify misconfigured infrastructure and generate alerts for your team.
-
-Optionally, policies can call automatic remediations to fix insecure infrastructure.
 
 ## Policy Components
 
 * A `policy` function with a `resource` argument that returns `True` if the resource is compliant and the policy should not send an alert, or `False` if the resource is not complaint and the policy should send an alert
-* Optionally, an automatic remediation configuration
 * Metadata containing context for triage
 * An association with a specific Resource Type
 
@@ -102,7 +99,7 @@ def policy(resource):
     return resource['MaxPasswordAge'] <= 90
 ```
 
-In the `policy()` body, returning a value of `True` indicates the resource is compliant and no alert should be sent. Returning a value of `False` indicates the resource is non-compliant and an alert or automatic remediation should be sent.
+In the `policy()` body, returning a value of `True` indicates the resource is compliant and no alert should be sent. Returning a value of `False` indicates the resource is non-compliant.
 
 ## First Steps with Policies
 
