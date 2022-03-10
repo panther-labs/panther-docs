@@ -10,9 +10,16 @@ Get started with Panther by scheduling a [demo](https://runpanther.io/request-a-
 
 Welcome to Panther!
 
-First things first, let's get you get logged in to the Panther Console. See the guidelines below to get credentials and set up your Panther account.  Then you can get started with adding integrations and more.
+This guide will walk you through:
+
+* Your initial login and how to invite other users to your Panther Console
+* Setting up a destination where you will receive alerts&#x20;
+* Onboarding logs you want to monitor
+* Setting up detections to alert you against common security threats&#x20;
 
 ### Initial Login
+
+To access your Panther Console, you need an instance. An instance is created when the Panther team provisions your account.
 
 Once your account has been provisioned, you will receive an invitation email from `no-reply@verificationemail.com` with your temporary Panther Console login credentials. If you don't see it, be sure to check your spam folder or reach out to your customer support team.
 
