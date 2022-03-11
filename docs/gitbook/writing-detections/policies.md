@@ -107,7 +107,7 @@ When starting your policy writing/editing journey, your team should decide betwe
 
 Then, configure the built in policies by searching for the `Configuration Required` tag. These policies are designed to be modified by you, the security professional, based on your organization's business logic.
 
-## Writing Policies in the Panther UI
+## Writing Policies in the Panther Console
 
 Navigate to Cloud Security > Policies, and click `Create New` in the top right corner. You have the option of creating a single new policy, or uploading a zip file containing policies created with the `panther_analysis_tool`. Clicking single will take you to the policy editor page.
 
