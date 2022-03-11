@@ -1,5 +1,5 @@
 ---
-description: Get started with Panther in 15 minutes
+description: Get started with your new Panther account
 ---
 
 # Quick Start
@@ -32,6 +32,10 @@ After the initial console login with the provided credentials, you will need to 
 After you have successfully logged in, you can invite more users to the platform by navigating to **Settings** > **Users**. You may also set up [SAML integration](system-configuration/saml/).
 
 ![](<.gitbook/assets/image (43).png>)
+
+**We strongly recommend having at least two users with** [**Admin role**](https://docs.runpanther.io/system-configuration/rbac) **set up.** This will help your organization regain access to the Panther Console if needed. ****&#x20;
+
+It is also recommended to routinely audit the users who have access to your Panther Console.
 
 ### Alert Destinations
 
