@@ -6,7 +6,7 @@ In order for Panther to process your OneLogin logs, you need to configure your O
 
 ## Configure OneLogin to send data to Panther
 
-First of all, you need to keep note of the AWS Account and AWS region where Panther is deployed. You can find this information from your Panther UI, going to **Settings** > **General** > **About Panther**.
+First of all, you need to keep note of the AWS Account and AWS region where Panther is deployed. You can find this information from your Panther Console, going to **Settings** > **General,** in the footer of the page.
 
 1. Log in to OneLogin Administration console
 2. Go to **Developers** > **Webhooks**
