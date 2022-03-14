@@ -23,7 +23,7 @@ First of all, you need to keep note of the AWS Account and AWS region where Pant
 2. Go to **Integrations** > **Log** **Sources** from the sidebar menu.
 3. Click **Add Source**.
 4. Select **OneLogin**.
-5. Select **Amazon EventBridge** from the list of available Data Transports if you would like to pull logs directly from OneLogin. You can also select S3 or SNS if you would like to retrieve logs from those sources.
+5. Select **Amazon EventBridge** from the list of available Data Transports.
 6. In the following form, fill in the following fields:
    1. **Name**: A friendly name for the source e.g. `My OneLogin events`
    2. **Log Type**: Select `OneLogin`
