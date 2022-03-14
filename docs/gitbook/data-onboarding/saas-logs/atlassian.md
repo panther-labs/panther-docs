@@ -1,7 +1,7 @@
 # Atlassian
 
 {% hint style="info" %}
-This feature is available in versions 1.27 and newer.
+This feature is available in Panther versions 1.27 and newer and it requires a subscription to [Atlassian Access](https://support.atlassian.com/security-and-access-policies/docs/understand-atlassian-access/).
 {% endhint %}
 
 Panther has the ability to fetch Atlassian event logs by querying the [Atlassian Organizations REST API](https://developer.atlassian.com/cloud/admin/organization/rest/intro/). Panther is specifically monitoring the following Atlassian events:
