@@ -14,7 +14,7 @@ All appended standard fields begin with `p_`
 
 The fields below are appended to all log records:
 
-| Field Name       | Type        | Description                                                                      |
+| **Field Name**   | **Type**    | **Description**                                                                  |
 | ---------------- | ----------- | -------------------------------------------------------------------------------- |
 | `p_log_type`     | `string`    | The type of log.                                                                 |
 | `p_row_id`       | `string`    | Unique id (UUID) for the row.                                                    |
@@ -31,7 +31,7 @@ The `p_source_id` and `p_source_label` fields are very useful for knowing where 
 
 In addition, the fields below are appended to log records of all tables in the `panther_rule_matches` database:
 
-| Field Name              | Type                       | Description                                                                                                                              |
+| **Field Name**          | **Type**                   | **Description**                                                                                                                          |
 | ----------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `p_alert_id`            | `string`                   | Id of alert related to row.                                                                                                              |
 | `p_alert_creation_time` | `timestamp`                | Time of alert creation related to row.                                                                                                   |
@@ -46,28 +46,17 @@ In addition, the fields below are appended to log records of all tables in the `
 
 ## Indicator Fields
 
-A common security question is often of the form of: “was some-indicator ever observed in our logs?”
+A common security question is often of the form of: “was `some-indicator` ever observed in our logs?”
 
 Notice that the relationship of the indicator is not a concern initially, simply the presence or absence of activity is of interest.
 
-To allow this question to be answered over all data sources the "any" fields below are appended to rows of data as appropriate.
+To allow this question to be answered over all data sources, the `any` fields below are appended to rows of data as appropriate.
 
 The `all_logs` view is provided over all data sources to make queries easy for users to find activity for an indicator in a single query.
 
-| Field Name               | Type            | Description                                                    |
-| ------------------------ | --------------- | -------------------------------------------------------------- |
-| `p_any_aws_account_ids`  | `array[string]` | List of aws account ids related to row.                        |
-| `p_any_aws_arns`         | `array[string]` | List of aws arns related to row.                               |
-| `p_any_aws_instance_ids` | `array[string]` | List of aws instance ids related to row.                       |
-| `p_any_aws_tags`         | `array[string]` | List of aws tags related to row as "key:value" pairs.          |
-| `p_any_domain_names`     | `array[string]` | List of domain names related to row.                           |
-| `p_any_emails`           | `array[string]` | List of emails related to row.                                 |
-| `p_any_ip_addresses`     | `array[string]` | List of ip addresses (v4 or v6 in string form) related to row. |
-| `p_any_md5_hashes`       | `array[string]` | List of MD5 hashes related to row.                             |
-| `p_any_sha1_hashes`      | `array[string]` | List of SHA1 hashes related to row.                            |
-| `p_any_sha256_hashes`    | `array[string]` | List of SHA256 hashes related to row.                          |
-| `p_any_usernames`        | `array[string]` | List of usernames related to row.                              |
-| `p_any_trace_ids`        | `array[string]` | List of ids related to row (context dependent)                 |
+Each indicator name implies a data extraction into one or more `p_any` fields.
+
+**Please see the Indicator Fields and their corresponding Indicator Strings here:** [**Log Schema Reference: Indicators**](https://docs.runpanther.io/data-onboarding/custom-log-types/reference#indicators)**.**
 
 ## Enrichment Fields <a href="#enrichmentfields" id="enrichmentfields"></a>
 
