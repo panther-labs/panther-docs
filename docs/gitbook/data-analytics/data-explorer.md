@@ -1,21 +1,31 @@
 # Data Explorer
 
-Data explorer gives Panther deployments access to a panel where they can perform SQL queries on their Panther data. It adds a clean UI powered by a robust backend, with persistence and autocomplete goodies that will enhance your querying experience.
+The Data Explorer in your Panther Console is where you can view your normalized Panther data and perform SQL queries (with autocompletion).&#x20;
 
-With Panther Data Explorer, you are able to:
+In the Data Explorer, you can:
 
 * Browse collected log data, rule matches, and search standard fields across all data
-* Write SQL queries on normalized data with autocompletion on every step of the way
 * Save, tag and load your queries&#x20;
 * Create [scheduled queries](scheduled-queries.md) to run through the rule engine
-* View query results in a friendly way
-* Share results with their team through a shareable link
-* Select entire rows as JSON to use in the rule engine as unit tests
-* Download results in a CSV
+* Share results with your team through a shareable link
+* Select entire rows of JSON to use in the rule engine as unit tests
+* Download results in a CSV\
+
+
+**To access the Data Explorer**:
+
+1. Log in to your Panther Console.
+2. In the left sidebar, click **Data > Data Explorer**.
 
 ![](<../.gitbook/assets/data-explorer (1).png>)
 
-As with all of our enterprise features, access to the Data Explorer can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
+You can limit access to the Data Explorer through [Role-Based Access Control](../system-configuration/rbac.md) (RBAC).
+
+#### Preview Table Data
+
+As of Panther versions 1.31 and newer, you can preview example table data without writing SQL. To generate a sample SQL query for that log source, click the eye icon next to the table type:
+
+![](../.gitbook/assets/eye-icon-data-explorer.png)
 
 ## Macros
 
