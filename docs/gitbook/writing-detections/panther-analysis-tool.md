@@ -4,9 +4,9 @@ The `panther_analysis_tool` (PAT) is an [open source](https://github.com/panther
 
 It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
 
-For more information on tailoring detections with dynamic alert fields, see [alert field overrides](broken-reference)
-
 ## Installation
+
+PAT is installable with a Python package into your current environment:
 
 ```bash
 pip3 install panther_analysis_tool
@@ -314,24 +314,20 @@ def policy(resource):
 
 ## Uploading to Panther
 
-To upload your analysis packs to your Panther Console, run the following command below.
-
 {% hint style="info" %}
-Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.
+**Panther SaaS customers**: Please file a support ticket to gain upload access to your Panther environment.
 {% endhint %}
+
+Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.
+
+To upload your analysis packs to your Panther Console, run the following command:
 
 ```bash
 panther_analysis_tool upload --path <path-to-your-rules> --out tmp
 ```
 
-{% hint style="warning" %}
-Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to `false` instead of deleting policies or rules for CLI driven workflows.
-{% endhint %}
-
-{% hint style="info" %}
-For Panther Cloud customers, file a support ticket to gain upload access to your Panther environment.
-{% endhint %}
+Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
 
 ## Pack Source
 
-See [here](detection-packs.md) for details on using `panther_analysis_tool` with detection packs and pack sources.
+See the [Detection Packs documentation](https://docs.runpanther.io/writing-detections/detection-packs) for details on using `panther_analysis_tool` with detection packs and pack sources.
