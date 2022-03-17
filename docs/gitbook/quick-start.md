@@ -17,6 +17,12 @@ This guide will walk you through:
 * Onboarding logs you want to monitor
 * Setting up detections to alert you against common security threats&#x20;
 
+### Overview Video
+
+{% embed url="https://panther.wistia.com/medias/vxn8h7c6fq" %}
+Tour of getting started in the Panther Console
+{% endembed %}
+
 ### Initial Login
 
 To access your Panther Console, you need an instance. An instance is created when the Panther team provisions your account.
@@ -50,7 +56,19 @@ See [Panther's Destinations documentation](https://docs.runpanther.io/destinatio
 
 ### Data Onboarding
 
-For data normalization, real-time analytics, and storage into the data lake, start by onboarding data through one (or multiple) of the transport methods below:
+Next up is to onboard data sources for data normalization, which will also allow you to query the logs in the data lake and perform real-time analysis with Python.
+
+This Quick Start guide provides the general steps required to onboard data. To view instructions for specific integrations, please see the [Data Onboarding](https://docs.runpanther.io/data-onboarding) documentation.
+
+#### Create a new log source
+
+To start onboarding data, navigate to **Integrations** > **Log Sources** and click **Onboard your logs**.&#x20;
+
+Here you will be able to choose from a list of services we currently support (or select **Custom Onboarding** on the left to view the available transport methods.)
+
+![](.gitbook/assets/image.png)
+
+The most common data source methods are ingesting data from an Amazon S3 bucket or directly pulling the logs from a supported SaaS service. For more information on each transport method visit the links below:&#x20;
 
 * [Amazon S3](https://docs.runpanther.io/data-onboarding/data-transports/s3)
 * [AWS SQS](https://docs.runpanther.io/data-onboarding/data-transports/sqs)
@@ -58,11 +76,19 @@ For data normalization, real-time analytics, and storage into the data lake, sta
 * [Google Cloud Storage](https://docs.runpanther.io/data-onboarding/data-transports/gcs)
 * Directly pulled from various [SaaS Services](https://docs.runpanther.io/data-onboarding/saas-logs)
 
-After onboarding, your data will be searchable with SQL via the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer) and can be correlated with the [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search). These tools can help provide samples for [custom rule](https://docs.runpanther.io/writing-detections/rules) writing.
+{% hint style="info" %}
+If the log source you want to ingest is not natively supported yet, visit the [Custom Log Types](data-onboarding/custom-log-types/) documentation to upload logs and infer a schema.
+{% endhint %}
+
+After following the onboarding steps, your data will begin to be ingested into Panther. Your logs will be checked against the built-in Python detections and will be searchable within the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer). You can now query [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search) for investigations on common indicators for your various data sources.
+
+![](<.gitbook/assets/image (6).png>)
+
+
 
 ### Set Up Detections and Cloud Compliance
 
-Panther comes with build-in detections that alert against common security events and monitoring of cloud infrastructure. Building on these built-on detections is easy; use Panther to create custom detections that address your organizational needs. Use the documentation below to guide you through setting up detections and cloud compliance:
+Panther comes with built-in detections that alert against common security events and monitoring of cloud infrastructure. Building on these built-in detections is easy; use Panther to create custom detections that address your organizational needs. Use the documentation below to guide you through setting up detections and cloud compliance:
 
 * Onboard AWS accounts for [cloud security scans](https://docs.runpanther.io/data-onboarding/setup-cloud-accounts).
 * Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs.
