@@ -13,9 +13,8 @@ For Panther to access the Box API, you will need to create a new Box App and pro
 5. Click **Start Source Setup**.
 6. Enter a name for the source (e.g. `My Box logs`)
 7. Click **Continue Setup**.&#x20;
-8. On the "Set credentials" page, click **Copy Redirect URL** at the bottom of the page.
-
-![](../../.gitbook/assets/box-setup-page3.png)
+8. On the "Set Credentials" page, click **Copy** under Step 1 to copy your redirect URL.\
+   ![](../../.gitbook/assets/box-redirect-url.png)
 
 Before you continue the setup process in your Panther Console, you must create a new app in your Box Developer Console and retrieve the Client ID and Client Secret.
 
