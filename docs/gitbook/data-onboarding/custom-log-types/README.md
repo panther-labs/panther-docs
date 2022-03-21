@@ -212,6 +212,10 @@ Note that YAML keys and values are case sensitive.
 >
 > Make sure to review the schema generated and edit it appropriately before deploying to your production environment!
 
+{% embed url="https://www.loom.com/share/5479e9c46f914c03bff4da0464f30956" %}
+Pantherlog CLI example
+{% endembed %}
+
 ### Trying out a Schema
 
 You can use the tool to validate a schema file and use it to parse log files. Note that the events in the log files need to be separated by new line. Processed logs are writen to `stdout` and errors to `stderr`.
