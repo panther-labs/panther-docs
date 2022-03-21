@@ -188,6 +188,8 @@ Panther handles logs that are not structured as JSON by using a 'parser' that tr
 
 Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/operations/#tools).&#x20;
 
+[![](https://cdn.loom.com/sessions/thumbnails/5479e9c46f914c03bff4da0464f30956-with-play.gif)](https://www.loom.com/share/5479e9c46f914c03bff4da0464f30956)
+
 ### Generating a Schema from JSON samples
 
 You can use the tool to generate a schema file out of sample files in [new-line delimited JSON](http://ndjson.org) format. The tool will scan the provided logs and print the inferred schema to `stdout`.
