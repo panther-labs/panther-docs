@@ -18,10 +18,10 @@ The **Alerts** page will default to listing alerts by latest to oldest. You can 
 
 There are several options for triaging alerts in Panther:
 
-* **Open**: this is the default state of an alert.&#x20;
-* **Invalid**: use this to triage noisy alerts that might have been generated in error.
-* **Resolved**: use this to triage alerts that are valid but resolved.
-* **Triaged**: use this to triage alerts that are valid but still in process of being resolved due to further investigation.
+* **Open**: This is the default state of new alerts with a Severity level of Low, Medium, High, or Critical.
+* **Invalid**: Use this to triage noisy alerts that might have been generated in error.
+* **Resolved**: Use this to triage alerts that are valid but resolved. This is the default state of alerts with a Severity level of Info.
+* **Triaged**: Use this to triage alerts that are valid but still in process of being resolved due to further investigation.
 
 Once an alert is triaged, it'll disappear from the default view of the alert listing page. If you're looking to find the previously resolved alert, be sure to edit the filter to include resolved alerts.
 
