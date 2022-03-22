@@ -205,7 +205,7 @@ Athena SQL:&#x20;
   client.geographicalContext.city as city,
   client.geographicalContext.country as country,
   client.useragent.rawUserAgent as user_agent
-  FROM okta_systemlog
+  FROM panther_logs.okta_systemlog
   WHERE 
   (
   eventType = 'user.session.impersonation.grant' OR 
@@ -265,7 +265,7 @@ Athena SQL:
   client.geographicalContext.city as city,
   client.geographicalContext.country as country,
   client.useragent.rawUserAgent as user_agent
-  FROM okta_systemlog
+  FROM panther_logs.okta_systemlog
   WHERE 
   (
   eventType = 'user.account.privilege.grant' OR 
