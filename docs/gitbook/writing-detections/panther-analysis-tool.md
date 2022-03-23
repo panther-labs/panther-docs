@@ -4,6 +4,8 @@ The `panther_analysis_tool` (PAT) is an [open source](https://github.com/panther
 
 It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
 
+For additional information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#readme).
+
 ## Installation
 
 PAT is installable with a Python package into your current environment:
@@ -11,6 +13,8 @@ PAT is installable with a Python package into your current environment:
 ```bash
 pip3 install panther_analysis_tool
 ```
+
+For information on updating the version, please see the [Github page](https://github.com/panther-labs/panther\_analysis\_tool#updating-versions).
 
 ## File Organization
 
@@ -24,8 +28,9 @@ We recommend creating folders based on log/resource type, such as `suricata_rule
 
 Each analysis consists of:
 
-1. A Python file containing your detection/audit logic
-2. A valid YAML or JSON specification file containing attributes of the detection. By convention, we give this file the same name as the Python file.
+* A Python file containing your detection/audit logic
+* A valid YAML or JSON specification file containing attributes of the detection.&#x20;
+  * By convention, we give this file the same name as the Python file.
 
 ## Writing Rules
 
@@ -327,6 +332,10 @@ panther_analysis_tool upload --path <path-to-your-rules> --out tmp
 ```
 
 Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
+
+## Delete Rules, Policies, or Saved Queries
+
+For more information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#readme).&#x20;
 
 ## Pack Source
 
