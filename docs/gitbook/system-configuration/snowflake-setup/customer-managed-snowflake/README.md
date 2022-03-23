@@ -31,8 +31,9 @@ Go to the `Settings` page of Panther and select `General Settings`. There you wi
 
 * Snowflake ReadOnly Lambda Role ARN
 * Snowflake Admin Lambda Role ARN
+* Lookup Tables  Lambda Role ARN
 
-![](../../../.gitbook/assets/snowflake-settings.png)
+![](<../../../.gitbook/assets/image (42).png>)
 
 Keep these ARNs handy, we will use this later.
 
@@ -450,10 +451,14 @@ We need to configure the permissions for the two Panther AWS secrets such that o
 
 The Panther `panther-snowflake-api` will use the `panther_readonly` user for user queries while the `panther-snowflake-admin-api` will use the `panther_admin` user to create tables when new log sources are onboarded.
 
-Go to the console and select each of the secrets you created above. On the overview screen click on the `Edit Permissions` button. Copy the below policy JSON, substituting the appropriate `<lambda role>`, either:
+The `panther-lookup-tables-api` will use the the permissions to manage look up tables in Snowflake.
+
+Go to the console and select each of the secrets you created above. On the overview screen click on the `Edit Permissions` button. Copy the below policy JSON, substituting the appropriate `<snowflake lambda role>`, either:
 
 * `panther-snowflake-api` role collected in the first step
 * `panther-snowflake-admin-api` role collected in the first step
+
+Substitute `<lookup tables lambda role>` with the `panther-lookup-tables-api` role collected in the first step.
 
 For the value of `<secret ARN>` use the ARN of the secret you are updating.
 
@@ -463,7 +468,13 @@ For the value of `<secret ARN>` use the ARN of the secret you are updating.
     "Statement": [
         {
             "Effect": "Allow",
-            "Principal": {"AWS": "<lambda role>" },
+            "Principal": {"AWS": "<snowflake lambda role>" },
+            "Action": "secretsmanager:GetSecretValue",
+            "Resource": "<secret ARN>"
+        },
+        {
+            "Effect": "Allow",
+            "Principal": {"AWS": "<lookup tables lambda role>" },
             "Action": "secretsmanager:GetSecretValue",
             "Resource": "<secret ARN>"
         }
@@ -471,7 +482,7 @@ For the value of `<secret ARN>` use the ARN of the secret you are updating.
 }
 ```
 
-Then click the `Save` button.
+Then click **Save**.
 
 Make a note of the `arn` for the secret. We will use this later.
 
