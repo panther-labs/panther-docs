@@ -12,7 +12,7 @@ Lookup Tables are currently in beta. This means:&#x20;
 
 ### Overview
 
-Lookup Tables allow you to add important context to your detections and alerts for improved investigation workflows. Use Lookup Tables to enhance alerts with identity/asset information, vulnerability context, network maps, and more.
+Lookup Tables allow you to add important context to your detections and alerts for improved investigation workflows. Use Lookup Tables to enhance alerts with identity/asset information, vulnerability context, network maps, and more. You can associate one or more log types with your Lookup Table, and then all logs of those log types will contain enrichment data from your Lookup Table.
 
 
 

@@ -75,9 +75,9 @@ def is_ip_in_network(ip_addr, networks):
 
 ## Queries
 
-Below are a few queries to get started with investigating and learning about your Okta events.&#x20;
+Below are a few queries to get started with investigating and learning about your Okta events. These queries are meant to investigate existing log data. If you are interested in detecting new data that flows in, we recommend trying out the [detections shown above.](okta-detections-and-queries.md#native-detections)
 
-These queries are written for Snowflake SQL syntax, unless noted otherwise.&#x20;
+The following queries are written for Snowflake SQL syntax, unless noted otherwise.&#x20;
 
 #### Top logins by user last 7 days
 
@@ -199,8 +199,6 @@ Athena SQL:&#x20;
   actor.displayName as actor_name,
   displayMessage,
   eventType,
-  json_extract(debugcontext.debugdata, '$.privilegeGranted') as priv_granted,
-  target as target_name,
   client.ipAddress as src_ip,
   client.geographicalContext.city as city,
   client.geographicalContext.country as country,
@@ -259,8 +257,6 @@ Athena SQL:
   actor.displayName as actor_name,
   displayMessage,
   eventType,
-  json_extract(debugcontext.debugdata, '$.privilegeGranted') as priv_granted,
-  target as target_name,
   client.ipAddress as src_ip,
   client.geographicalContext.city as city,
   client.geographicalContext.country as country,
@@ -269,8 +265,7 @@ Athena SQL:
   WHERE 
   (
   eventType = 'user.account.privilege.grant' OR 
-  eventType = 'group.privilege.grant' AND
-  cast(json_extract(debugcontext.debugdata, '$.privilegeGranted') as varchar) LIKE '%Admin%'
+  eventType = 'group.privilege.grant'
   ) AND
   p_occurs_between('YYYY-MM-DD','YYYY-MM-DD')
   ORDER BY
