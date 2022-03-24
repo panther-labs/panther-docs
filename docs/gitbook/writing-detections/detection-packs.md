@@ -87,7 +87,7 @@ Any changes you make to these fields will be preserved when the pack is updated 
 
 
 
-To make changes to the editable fields:
+You can make changes to the editable fields in the Panther Console:
 
 1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**.
