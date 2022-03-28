@@ -2,6 +2,8 @@
 
 A common pattern in programming is to extract repeated code into helper functions, and Panther supports this pattern with the `global` analysis type.
 
+Global helpers are not best suited to frequent changes. [Lookup Tables](https://docs.panther.com/data-analytics/lookup-tables) support automatic syncing with S3, which means they don't require code changes within Panther for updates.
+
 ## Built-in Globals
 
 By default, Panther comes with built-in global helpers such as `panther` and `panther_oss_helpers`. `panther` is a default and already set up for you to define your custom logic, and `panther_oss_helpers` provides boilerplate helpers to common [caching](caching.md) and other use cases.

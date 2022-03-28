@@ -14,7 +14,7 @@ Lookup Tables are currently in beta. This means:&#x20;
 
 Lookup Tables allow you to add important context to your detections and alerts for improved investigation workflows. Use Lookup Tables to enhance alerts with identity/asset information, vulnerability context, network maps, and more. You can associate one or more log types with your Lookup Table, and then all logs of those log types will contain enrichment data from your Lookup Table.
 
-
+Consider using [Global helpers](https://docs.panther.com/writing-detections/globals) instead when extra information is only needed for a few specific detections and will not be frequently updated.
 
 ### Configuring a Lookup Table
 
