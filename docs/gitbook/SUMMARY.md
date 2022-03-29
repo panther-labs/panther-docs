@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Home](README.md)
+* [Overview](README.md)
 * [Quick Start](quick-start.md)
 * [Data Onboarding](data-onboarding/README.md)
   * [SaaS Logs](data-onboarding/saas-logs/README.md)
