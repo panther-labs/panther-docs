@@ -21,10 +21,10 @@ After expanding the `Access policy` section, add the following statement to the 
       "Sid": "AllowPantherAlarming",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::<PANTHER-ACCOUNT-ID>:root"
+        "AWS": "arn:aws:iam::<YOUR-PANTHER-ACCOUNT-ID>:root"
       },
       "Action": "sns:Publish",
-      "Resource": "arn:aws:sns:us-west-2:123456789012:example-topic"
+      "Resource": "arn:aws:sns:us-west-2:<YOUR-PANTHER-ACCOUNT-ID>:<YOUR-TOPIC-NAME>"
     }
 ```
 
