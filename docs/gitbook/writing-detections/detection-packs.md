@@ -162,17 +162,17 @@ In this example entry to add to the key policy, the account ID should be replace
 To Add a pack source:
 
 1. Log in to your Panther Console.
-2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
-3. Click **+** in the upper right.&#x20;
+2. Navigate to **Analysis > Packs**, then click the Detection Pack Sources tab.
+3. Click **Create New** in the upper right.&#x20;
    * Enter the field names for each input field.
 4. Click **Save**.
 
-![Add Pack Source](../.gitbook/assets/pack-source-add.png)
+![](<../.gitbook/assets/Screen Shot 2022-03-29 at 10.16.36 AM.png>)
 
 To modify the `kmsKey` or `AccessToken` fields for a pack source:
 
 1. Log in to your Panther Console.
-2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
+2. Navigate to **Analysis > Packs**, then click the Detection Pack Sources tab.
 3. Click `...` next to a Pack Source then click **Edit**. Click on a Pack Source.&#x20;
    * Edit the fields on this page.
 4. Click **Save**.
@@ -182,10 +182,10 @@ To modify the `kmsKey` or `AccessToken` fields for a pack source:
 To Delete a pack source:
 
 1. Log in to your Panther Console.
-2. Navigate to **Settings > General**, then click the Detection Pack Sources tab.
+2. Navigate to **Analysis > Packs**, then click the Detection Pack Sources tab.
 3. Click `...` next to a Pack Source then click **Delete**.
 
-![Delete Pack Source](../.gitbook/assets/pack-source-delete.png)
+![](<../.gitbook/assets/Screen Shot 2022-03-29 at 10.18.35 AM.png>)
 
 {% hint style="info" %}
 Deleting a Pack Source will delete the packs originating from it, along with all of the detections in it.
