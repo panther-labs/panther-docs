@@ -120,7 +120,7 @@ The Cloned rule will not be managed by Panther or receive automatic updates when
 
 ## Pack Sources
 
-Pack Sources provide a way to configure custom Github sources for Detection Packs. Once a Pack Source is configured, Panther will check for new releases once a day. Custom packs can be managed using the same functionality as Panther-provided packs.
+Pack Sources provide a way to configure custom Github sources for Detection Packs. Once a Pack Source is configured, Panther will check for new releases every day with an asset named `panther-analysis-all.zip`. The `panther_analysis_tool` (PAT) can be used to generate the required release assets as well as publish a draft release (see [Creating a Github Release - Panther Analysis Tool](detection-packs.md#creating-a-github-release-panther-analysis-tool) for additional details.) You can manage custom packs using the same functionality as Panther-provided packs.
 
 Pack source fields are described in the following table.
 
