@@ -90,6 +90,6 @@ After following the onboarding steps, your data will begin to be ingested into P
 
 Panther comes with built-in detections that alert against common security events and monitoring of cloud infrastructure. Building on these built-in detections is easy; use Panther to create custom detections that address your organizational needs. Use the documentation below to guide you through setting up detections and cloud compliance:
 
-* Onboard AWS accounts for [cloud security scans](https://docs.runpanther.io/data-onboarding/setup-cloud-accounts).
+* Onboard AWS accounts for [cloud security scans](https://docs.panther.com/cloud-scanning).
 * Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs.
-* Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.runpanther.io/resources).
+* Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.panther.com/cloud-scanning/cloud-resource-attributes).
