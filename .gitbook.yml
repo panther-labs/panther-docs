@@ -42,3 +42,6 @@ redirects:
   development/writing-parsers: ./data-onboarding/custom-log-types/README.md
   # Nesting SNS under SQS Source
   data-onboarding/data-transports/sns: ./data-onboarding/data-transports/sqs/sns.md
+  # Cloud-Scanning overhaul
+  data-onboarding/setup-cloud-accounts: ./cloud-scanning/README.md
+  resources: ./cloud-scanning/cloud-resource-attributes.md
