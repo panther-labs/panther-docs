@@ -20,7 +20,7 @@ The following example demonstrates sending Panther alerts to a custom webhook wh
 
 Create an ngrok account, install, and and start the service on port `8081`:
 
-![](<../../../.gitbook/assets/webhook1 (1).png>)
+![](../../../.gitbook/assets/webhook1.png)
 
 ### Step 2
 
@@ -68,16 +68,16 @@ server is listening on 8081
 
 Create a Custom Webhook Destination in Panther, copy either the `http` or `https` forwarding URL from the `ngrok` output in Step 1 and paste it into the form. Optionally, select the desired severity levels and click `Add Destination`:
 
-![](<../../../.gitbook/assets/webhook2 (1).png>)
+![](../../../.gitbook/assets/webhook2.png)
 
 ### Step 4
 
 At this stage, the destination has been added and we can test the integration using a test payload. Click on `Send Test Alert`:
 
-![](<../../../.gitbook/assets/webhook3 (1).png>)
+![](../../../.gitbook/assets/webhook3.png)
 
 Inspect the terminal running the `node.js` server to see the result!
 
-![](<../../../.gitbook/assets/webhook4 (1).png>)
+![](../../../.gitbook/assets/webhook4.png)
 
 Click `Finish Setup` to finalize the destination configuration. This destination is now ready to receive alerts!

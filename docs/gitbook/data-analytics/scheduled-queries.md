@@ -28,7 +28,7 @@ To create a Scheduled Query:
    ![](<../.gitbook/assets/Screen Shot 2022-03-21 at 10.15.07 AM.png>)
 3. Click **Save As**.&#x20;
    * In the window that opens, toggle the indicator to **ON** next to **Is this a Scheduled Query?**.\
-     ![](<../.gitbook/assets/schedule-query (1).png>)
+     ![](../.gitbook/assets/schedule-query.png)
 4. Click **Save**.
 
 You will have the option of using a Cron Expression or a period-based frequency scheduler.&#x20;
@@ -105,7 +105,7 @@ You can delete queries individually or in bulk. Please note that scheduled queri
 1. Log in to the Panther Console, then navigate to **Data > Saved Queries**.&#x20;
 2. In the list of Scheduled Queries, check the box next to the queries you want to delete.
 3. In the upper right, click the **Mass Action** dropdown and select **Delete**. \
-   ![](<../.gitbook/assets/delete-query (1).png>)
+   ![](<../.gitbook/assets/delete-query (2).png>)
 4. In the upper right, click **Apply**.
 5. In the popup that appears, click **Confirm**.\
    ![](<../.gitbook/assets/Screen Shot 2022-03-21 at 10.24.17 AM.png>)

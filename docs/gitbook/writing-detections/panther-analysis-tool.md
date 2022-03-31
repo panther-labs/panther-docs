@@ -244,7 +244,7 @@ Tests:
     Name: Test With Mock
     LogType: LogType.Custom
     ExpectedResult: true
-    Mock:
+    Mocks:
       - objectName: get_counter
         returnValue: 1
       - objectName: geoinfo_from_ip
