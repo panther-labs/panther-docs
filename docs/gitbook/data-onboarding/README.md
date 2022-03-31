@@ -21,7 +21,7 @@ For more information, see [Data Transports](data-transports/).
 
 Panther may scan your AWS environment to create a model of each AWS resource within. Customers may then compare each model against a policy and Panther can be configured to trigger an alert if the model does not adhere to the policy.
 
-For more information, see [Cloud Accounts](../cloud-scanning/).
+For more information, see [Cloud Accounts](https://docs.panther.com/cloud-scanning).
 
 ### Custom Log Types
 
