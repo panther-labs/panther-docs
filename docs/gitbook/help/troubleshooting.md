@@ -43,4 +43,4 @@ To fix:
 
 When configuring Cloud Security for a given account, the default scan interval is 24h.
 
-To reduce this interval, onboard CloudTrail data from the given account, or configure [real-time events](../data-onboarding/setup-cloud-accounts.md#configure-real-time-monitoring).
+To reduce this interval, onboard CloudTrail data from the given account, or configure [real-time events](../cloud-scanning/#configure-real-time-monitoring).

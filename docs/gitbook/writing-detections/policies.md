@@ -34,7 +34,7 @@ def policy(resource):
 
 Panther policies can be written, tested, and deployed either with the Panther Console or the [panther\_analysis\_tool](https://github.com/panther-labs/panther\_analysis\_tool) CLI utility.
 
-Each policy takes a `resource` input of a given resource type from the [supported resources](../resources/) page.
+Each policy takes a `resource` input of a given resource type from the [supported resources](../cloud-scanning/cloud-resource-attributes/) page.
 
 ### Policy Body
 
@@ -61,11 +61,11 @@ The Python body MAY:
 * Define additional helper functions as needed
 * Define variables and classes outside the scope of the rule function
 
-Using the schemas in [supported resources](../resources/) provides details on all available fields in resources. Top level keys are always present, although they may contain `NoneType` values.
+Using the schemas in [supported resources](../cloud-scanning/cloud-resource-attributes/) provides details on all available fields in resources. Top level keys are always present, although they may contain `NoneType` values.
 
 #### Example Policy
 
-For example, let's write a Policy on an [IAM Password Policy](../resources/aws/password-policy.md) resource:
+For example, let's write a Policy on an [IAM Password Policy](../cloud-scanning/cloud-resource-attributes/aws/password-policy.md) resource:
 
 ```javascript
 {
@@ -138,7 +138,7 @@ Next, configure test cases to ensure our policy works as expected:
 Manually building test cases is tedious and error prone. We suggest one of two alternatives:
 
 1. Open `Cloud Security` > `Resources`, and apply a filter of the resource type you intend to emulate in your test. Select a resource in your environment, and on the `Attributes` card you can copy the full JSON representation of that resource by selecting copy button next to the word `root`.
-2. Open the Panther [Resources documentation](../resources/), and navigate to the section for the resource you are trying to emulate. Copy the provided example resource.
+2. Open the Panther [Resources documentation](../cloud-scanning/cloud-resource-attributes/), and navigate to the section for the resource you are trying to emulate. Copy the provided example resource.
 
 Paste this in to the resource editor if you're working in the web UI, or into the `Resource` field if you are working locally. Now you can manually modify the fields relevant to your policy and the specific test case you are trying to emulate.
 
