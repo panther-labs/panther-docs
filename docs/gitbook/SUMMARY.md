@@ -128,7 +128,6 @@
     * [Import via File Upload](data-analytics/lookup-tables/file-upload.md)
     * [Sync from S3 Source](data-analytics/lookup-tables/s3-source.md)
   * [Backend](data-analytics/backend/README.md)
-    * [Automatic Log Compaction](data-analytics/backend/log-compaction.md)
     * [Athena](data-analytics/backend/athena.md)
     * [Snowflake](data-analytics/backend/snowflake.md)
   * [Example Queries](data-analytics/example-queries.md)
