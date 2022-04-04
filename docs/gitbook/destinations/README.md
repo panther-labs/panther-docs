@@ -1,8 +1,12 @@
+---
+description: Alert destinations
+---
+
 # Destinations
 
 Destinations are integrations that receive alerts from rules and policies.
 
-Alerts are routed based on severity (by default) and can dispatch to multiple destinations simultaneously, such as creating a Jira ticket, sending an email, and creating a PagerDuty Incident.
+By default, alerts are routed based on severity and can dispatch to multiple destinations simultaneously. For example, a single alert might create a Jira ticket, send an email, and create a PagerDuty Incident.
 
 Destinations can be overridden on a per-rule or per-policy basis by using the detection metadata or overrides.
 
@@ -12,65 +16,64 @@ AWS destinations require IAM configurations to grant permissions for Panther to 
 
 ## Supported Destinations
 
-|       Name      | Homepage                                                                                                                                       |
-| :-------------: | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-|    Amazon SNS   | [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/)                                                                                     |
-|    Amazon SQS   | [https://aws.amazon.com/sqs/](https://aws.amazon.com/sqs/)                                                                                     |
-|      Asana      | [https://developers.asana.com/docs](https://developers.asana.com/docs)                                                                         |
-|  Custom Webhook | [https://docs.runpanther.io](custom\_webhook.md)                                                                                               |
-|      Github     | [https://github.com/](https://github.com)                                                                                                      |
-|       Jira      | [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)                                                             |
-| Microsoft Teams | [https://products.office.com/en-us/microsoft-teams/group-chat-software](https://products.office.com/en-us/microsoft-teams/group-chat-software) |
-|     OpsGenie    | [https://www.atlassian.com/software/opsgenie/what-is-opsgenie](https://www.atlassian.com/software/opsgenie/what-is-opsgenie)                   |
-|    PagerDuty    | [https://www.pagerduty.com/](https://www.pagerduty.com)                                                                                        |
-|      Slack      | [https://slack.com/](https://slack.com)                                                                                                        |
+Panther has supported integrations for the following destinations:&#x20;
+
+* [Amazon SNS](sns.md)
+* [Amazon SQS](sqs.md)
+* [Asana](asana.md)
+* [Github](https://docs.panther.com/destinations/github)
+* [Jira](https://docs.panther.com/destinations/jira)
+* [Microsoft Teams](https://docs.panther.com/destinations/microsoft-teams)
+* [OpsGenie](https://docs.panther.com/destinations/opsgenie)
+* [PagerDuty](https://docs.panther.com/destinations/pagerduty)
+* [Slack](https://docs.panther.com/destinations/slack)
+
+You can also use a **Custom Webhook**. This destination type is designed to allow Panther to communicate with other third-party integrations, such as ServiceNow or Tines. Read more in the [Custom Webhook documentation](https://docs.panther.com/destinations/custom\_webhook).
 
 ## Routing Order Precedence
 
-Alert routing is based on the following order of precedence, from lowest precedence to highest:
+Alerts are routed based on the following, from highest precedence to lowest:
 
-1. **Static Severity** - Default alert routing based on the severity metadata field set for the detection.
-2. **Generated Severity** - Destinations associated with the returned `severity` function defined in the Python body.
-3. **Static Destination List** - Destinations based on the Destination Override metadata field set for the detection.
-4. **Generated Destination List** - Destinations returned by the `destinations` function defined in the Python body.
+1. **Generated Destination List** - Destinations returned by the `destinations` function defined in the Python body.
+2. **Static Destination List** - Destinations based on the Destination Override metadata field set for the detection.
+3. **Generated Severity** - Destinations associated with the returned `severity` function defined in the Python body.
+4. **Static Severity** - Default alert routing based on the severity metadata field set for the detection.
 
 ## Creating a New Destination
 
-To create a destination, log in to your Panther Console and navigate to `Integrations` > `Alert Destinations.` Select `Add Destination`.
+To create a destination:
 
-![](../.gitbook/assets/screen-shot-2021-09-17-at-1.53.11-pm.png)
-
-You will then be prompted to select a destination type.
-
-Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine-grained control of destination routing.
-
-![](<../../../.gitbook/assets/readme-destination-types (8) (2) (1) (1) (2) (1) (8).png>)
-
-Next, add a `Display Name` to distinguish the destination from others in the Panther UI and optionally select the associated severities for this destination.
-
-Each destination type will have specific configuration options based on the system's API. See the destination-specific setup instructions in the following pages for more details.
-
-![](<../../../.gitbook/assets/readme-settings-example (8) (2) (1) (1) (2) (1) (8).png>)
-
-Finally, click the `Add Destination` button to save the configuration. You will be prompted to optionally send a test alert to check if everything was set up correctly.
+1. Log in to your Panther Console.
+2. In the left sidebar click **Integrations > Alert Destinations**.
+3. Click **+Add your first Destination**.
+4. Click on the service provider you want to configure as an Alert Destination.\
+   ![](../.gitbook/assets/alert-dest.png)
+   * Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine-grained control of destination routing.
+5. Add a **Display Name** to distinguish the destination from others in your Panther Console, and optionally select the associated severities for this destination.
+   * Each destination type will have specific configuration options based on the system's API. See the destination-specific setup instructions in the following pages for more details.
+6. Click **Add Destination** to save the configuration.&#x20;
+   * You can optionally click **Send test alert** to verify that your destination was configured correctly.
+7. Click Finish Setup.
 
 ![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (3).png>)
 
-Let's send a test to make sure everything is working as expected.
-
-![](../../../.gitbook/assets/readme-test-success.png)
-
-If successful, click `Finish Setup`. You are now ready to receive alerts!
+You are now ready to receive alerts!
 
 ## Modifying or Deleting Destinations
 
-An existing destination may be modified or deleted by selecting the triple-dot button. From here, you can modify the display name, the severities, and the specific configurations. Alternatively, you can also delete the destination.
+To modify or delete an existing destination:
 
-![](../../../.gitbook/assets/readme-modify.png)
+1. Log in to the Panther Console.
+2. In the left sidebar menu, click **Integrations > Alert Destinations**.&#x20;
+3. Click the triple dot icon on the right side of the Destination.
+   * In the dropdown menu that appears, click **Delete** to delete the Destination.
+   * Click **Edit** to modify the display name, the severity level, and other configurations.&#x20;
+
+![](../.gitbook/assets/example-alert-modify.png)
 
 ## Workflow Automation
 
-You may use any of the above destinations for many existing workflows. However, our [Custom Webhook](custom\_webhook.md) is available to provide additional flexibility for any workflow.
+The [Custom Webhook](custom\_webhook.md) option is available to provide additional flexibility for any workflow.
 
 ### Alert Schema
 
