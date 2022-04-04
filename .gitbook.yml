@@ -45,3 +45,7 @@ redirects:
   # Cloud-Scanning overhaul
   data-onboarding/setup-cloud-accounts: ./cloud-scanning/README.md
   resources: ./cloud-scanning/cloud-resource-attributes.md
+  # Lookup Tables move
+  data-analytics/lookup-tables: ./enrichment/lookup-tables.md
+  data-analytics/lookup-tables/file-upload: ./enrichment/lookup-tables/file-upload.md
+  data-analytics/lookup-tables/s3-source: ./enrichment/lookup-tables/s3-source.md
