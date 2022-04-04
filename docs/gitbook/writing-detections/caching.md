@@ -21,7 +21,7 @@ from panther_oss_helpers import increment_counter
 To implement a counter-based rule, use one or more of the following functions:
 
 * `get_counter`: Get the latest counter value
-* `increment_counter`: Add to the counter \(default of 1\)
+* `increment_counter`: Add to the counter (default of 1)
 * `reset_counter`: Reset the counter to 0
 * `set_key_expiration`: Set the lifetime of the counter
 
@@ -87,10 +87,4 @@ def rule(event):
 
     return False
 ```
-
-## Testing
-
-{% hint style="warning" %}
-Currently, CLI testing does not support mocking function calls.
-{% endhint %}
 

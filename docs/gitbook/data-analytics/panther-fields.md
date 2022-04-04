@@ -60,7 +60,7 @@ Each indicator name implies a data extraction into one or more `p_any` fields.
 
 ## Enrichment Fields <a href="#enrichmentfields" id="enrichmentfields"></a>
 
-The Panther rules engine will take the looked up matches from [Lookup Tables (BETA)](../enrichment/lookup-tables/) and append that data to the event using the key `p_enrichment` in the following JSON structure:
+The Panther rules engine will take the looked up matches from [Lookup Tables (BETA)](lookup-tables/) and append that data to the event using the key `p_enrichment` in the following JSON structure:
 
 ```json
 { 
