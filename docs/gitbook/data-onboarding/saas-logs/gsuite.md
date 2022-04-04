@@ -44,7 +44,7 @@ The steps below can only be performed if your G Suite user has permission to see
       ![](../../.gitbook/assets/gcp-credentials.png)
 22. On the new page, for Application Type, select **Web application** and type in a friendly name e.g. `Panther.`
     * Scroll down to the the section labeled "Authorized redirect URIs." In the **URIs 1** field, paste the redirect URL provided in the source's **Set Credentials** page.\
-      ![](<../../.gitbook/assets/image (1) (1) (2).png>)
+      ![](<../../.gitbook/assets/gsuite-oauth (1) (3).png>)
 23. Click **Create**
 24. A pop up screen will display the Client ID and Client Secret. **Using a secure method, make note of the ClientID and Client Secret**. You will need to provide them in the Panther Console to pull your reports.
 
