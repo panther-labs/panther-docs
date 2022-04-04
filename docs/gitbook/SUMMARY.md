@@ -132,7 +132,7 @@
   * [Lookup Tables (BETA)](enrichment/lookup-tables/README.md)
     * [Import via File Upload](enrichment/lookup-tables/file-upload.md)
     * [Sync from S3 Source](enrichment/lookup-tables/s3-source.md)
-  * [GreyNoise](enrichment/greynoise/README.md)
+  * [GreyNoise (BETA)](enrichment/greynoise/README.md)
     * [Basic vs. Advanced](enrichment/greynoise/basic-vs.-advanced.md)
     * [GreyNoise Helper Function Usage and Methods](enrichment/greynoise/greynoise-helper-function-usage-and-methods.md)
     * [How to Use GreyNoise to Enhance Detections](enrichment/greynoise/how-to-use-greynoise-to-enhance-detections.md)
