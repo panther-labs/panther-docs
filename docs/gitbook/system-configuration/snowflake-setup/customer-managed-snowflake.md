@@ -2,7 +2,7 @@
 
 ### Customer-managed Snowflake Configuration (**Deprecated**)
 
-> Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the [supported methods](../) in the future.
+> Note: Panther no longer supports this method for new customers, and will be migrating existing customers towards one of the [supported methods](./) in the future.
 
 This guide assumes you already have a Snowflake instance in AWS.
 
@@ -33,7 +33,7 @@ Go to the `Settings` page of Panther and select `General Settings`. There you wi
 * Snowflake Admin Lambda Role ARN
 * Lookup Tables  Lambda Role ARN
 
-![](<../../../.gitbook/assets/image (42).png>)
+![](<../../.gitbook/assets/image (42).png>)
 
 Keep these ARNs handy, we will use this later.
 
@@ -426,22 +426,22 @@ SELECT panther_stored_procedures.public.generate_secret(<user>,<password>,<wareh
 
 You can then copy-paste the result into each of the 2 secrets "plaintext" editor tab.
 
-![](../../../.gitbook/assets/snowflake-secrets-page1a.png)
+![](../../.gitbook/assets/snowflake-secrets-page1a.png)
 
 _**NOTE**_: Check to make sure that all 6 fields (_account, host, password, port, user, warehouse_) are filled out and have the correct values, otherwise the Panther lambdas may encounter issues connecting to snowflake.
 
 * Select `panther-secret` from the dropdown under `Select the encryption key`.
 * Click `Next`.
 
-![](../../../.gitbook/assets/snowflake-secrets-page1b.png)
+![](../../.gitbook/assets/snowflake-secrets-page1b.png)
 
 * You will be presented with a screen asking for the name and description of the secret. Fill these in and click `Next`.
 
-![](<../../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (1) (1) (2) (1) (8).png>)
+![](<../../../../.gitbook/assets/snowflake-secrets-page2 (8) (1) (1) (1) (2) (1) (8).png>)
 
 * The next screen concerns autorotation, just click the `Next` button.
 
-![](<../../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (1) (1) (2) (1) (8).png>)
+![](<../../../../.gitbook/assets/snowflake-secrets-page3 (8) (2) (1) (1) (2) (1) (8).png>)
 
 * Finally, you will be presented with an overview screen. Scroll to the bottom and click the `Store` button.
 
@@ -530,7 +530,7 @@ You can quickly test if the data ingestion is working by running a simple query:
 SELECT count(1) AS c FROM panther_views.public.all_logs ;
 ```
 
-The configuration can be tested from the [Data Explorer](../../../data-analytics/data-explorer.md). Run some same queries over a table that you know has data (check via Snowflake console).
+The configuration can be tested from the [Data Explorer](../../data-analytics/data-explorer.md). Run some same queries over a table that you know has data (check via Snowflake console).
 
 #### Rotating Secrets
 
