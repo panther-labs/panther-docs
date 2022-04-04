@@ -34,11 +34,11 @@ New globals can be created from the [Panther Analysis Tool](panther-analysis-too
 
 To create a new global, navigate to `Analysis` > `Helpers`:
 
-![List Globals](<../../../.gitbook/assets/globals-list (7) (3) (1) (1) (3) (1) (7).png>)
+![List Globals](<../../../.gitbook/assets/globals-list (7) (3) (1) (1) (3) (8).png>)
 
 Click `CREATE NEW`:
 
-![Create New Global](<../../../.gitbook/assets/globals-create (7) (1) (1) (1) (3) (1) (7).png>)
+![Create New Global](<../../../.gitbook/assets/globals-create (7) (1) (1) (1) (3) (8).png>)
 
 Type your Python functions, then click `CREATE`. This global can now be imported in your rules or policies.
 

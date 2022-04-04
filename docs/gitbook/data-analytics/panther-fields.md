@@ -60,7 +60,7 @@ Each indicator name implies a data extraction into one or more `p_any` fields.
 
 ## Enrichment Fields <a href="#enrichmentfields" id="enrichmentfields"></a>
 
-The Panther rules engine will take the looked up matches from [Lookup Tables (BETA)](lookup-tables/) and append that data to the event using the key `p_enrichment` in the following JSON structure:
+The Panther rules engine will take the looked up matches from [Lookup Tables (BETA)](../enrichment/lookup-tables/) and append that data to the event using the key `p_enrichment` in the following JSON structure:
 
 ```json
 { 
@@ -99,4 +99,4 @@ From these results, you can pivot to the specific logs where activity is indicat
 
 The Panther standard fields can be used in rules. For example, this rule triggers when any GuardDuty alert is on a resource tagged as 'critical':
 
-![Example Panther Rule](<../../../.gitbook/assets/panther-fields (7) (7) (9) (2) (1) (1) (3) (1) (7).png>)
+![Example Panther Rule](<../../../.gitbook/assets/panther-fields (7) (7) (9) (2) (1) (1) (3) (8).png>)

@@ -38,27 +38,27 @@ Alert routing is based on the following order of precedence, from lowest precede
 
 To create a destination, log in to your Panther Console and navigate to `Integrations` > `Alert Destinations.` Select `Add Destination`.
 
-![](../.gitbook/assets/screen-shot-2021-09-17-at-1.53.11-pm.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-17 at 1.53.11 PM.png>)
 
 You will then be prompted to select a destination type.
 
 Multiple destinations of the same type may be configured, such as several Slack channels or email addresses. This allows for fine-grained control of destination routing.
 
-![](<../../../.gitbook/assets/readme-destination-types (8) (2) (1) (1) (2) (1) (8).png>)
+![](<../../../.gitbook/assets/readme-destination-types (8) (2) (1) (1) (2) (9).png>)
 
 Next, add a `Display Name` to distinguish the destination from others in the Panther UI and optionally select the associated severities for this destination.
 
 Each destination type will have specific configuration options based on the system's API. See the destination-specific setup instructions in the following pages for more details.
 
-![](<../../../.gitbook/assets/readme-settings-example (8) (2) (1) (1) (2) (1) (8).png>)
+![](<../../../.gitbook/assets/readme-settings-example (8) (2) (1) (1) (2) (9).png>)
 
 Finally, click the `Add Destination` button to save the configuration. You will be prompted to optionally send a test alert to check if everything was set up correctly.
 
-![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (3).png>)
+![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (4).png>)
 
 Let's send a test to make sure everything is working as expected.
 
-![](../../../.gitbook/assets/readme-test-success.png)
+![](<../../../.gitbook/assets/readme-test-success (1).png>)
 
 If successful, click `Finish Setup`. You are now ready to receive alerts!
 
@@ -66,7 +66,7 @@ If successful, click `Finish Setup`. You are now ready to receive alerts!
 
 An existing destination may be modified or deleted by selecting the triple-dot button. From here, you can modify the display name, the severities, and the specific configurations. Alternatively, you can also delete the destination.
 
-![](../../../.gitbook/assets/readme-modify.png)
+![](<../../../.gitbook/assets/readme-modify (1).png>)
 
 ## Workflow Automation
 

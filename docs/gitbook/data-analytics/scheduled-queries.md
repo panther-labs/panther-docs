@@ -28,7 +28,7 @@ To create a Scheduled Query:
    ![](<../.gitbook/assets/Screen Shot 2022-03-21 at 10.15.07 AM.png>)
 3. Click **Save As**.&#x20;
    * In the window that opens, toggle the indicator to **ON** next to **Is this a Scheduled Query?**.\
-     ![](../.gitbook/assets/schedule-query.png)
+     ![](<../.gitbook/assets/schedule-query (1).png>)
 4. Click **Save**.
 
 You will have the option of using a Cron Expression or a period-based frequency scheduler.&#x20;

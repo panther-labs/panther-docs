@@ -6,7 +6,7 @@ description: Integrating GSuite with Panther
 
 First, [deploy](../../quick-start.md) Panther and go to the General Settings page. Note the values for "Audience" and "ACS URL":
 
-![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (1) (1) (11) (1) (22).png>)
+![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (1) (1) (11) (23).png>)
 
 ## Create GSuite App
 
@@ -67,7 +67,7 @@ From the Panther settings page, enable SAML with a default [Panther role](../rba
 
 Don't forget to switch to "Enabled", click "Save", and then you're done! Now, clicking the "Login with SSO" button will redirect you to GSuite:
 
-![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (22).png>)
+![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (23).png>)
 
 {% hint style="info" %}
 Amazon Cognito (which powers Panther's user management) does not yet support IdP-initiated login, meaning you cannot login to Panther from GSuite. The login must be initiated from Panther, the service provider.

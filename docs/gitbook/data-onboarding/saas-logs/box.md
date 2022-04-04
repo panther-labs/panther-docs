@@ -33,7 +33,7 @@ To read events from the entire enterprise account, the Box user performing the f
    ****![](../../.gitbook/assets/box-new-app.png)****
 3. Select **Custom App** for the app type then click **Next.**
 4. Select **User Authentication (OAuth 2.0)**, enter a name for your app (e.g. `Panther`), then click **Create App.**\
-   ****![](../../.gitbook/assets/box-custom-app.png)****
+   ****![](../../../../.gitbook/assets/box-new-app-page3.png)****
 5. In your new app's Configuration tab, scroll down to the **OAuth 2.0 Redirect URI** section and paste the redirect URL you copied from your Panther console.\
    ![](../../.gitbook/assets/box-oauth-redirect.png)
 6. On the **Application Scopes** section make sure **Manage enterprise properties** is selected (it is **not** selected by default)\
