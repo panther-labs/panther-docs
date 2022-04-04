@@ -4,7 +4,7 @@
 
 GreyNoise data sets are stored as Panther-managed Lookup Tables in bulk. The Basic GreyNoise data sets are available to all Panther accounts and are disabled by default.&#x20;
 
-If you are using a CI/CD workflow, please see [the CI/CD Users section below](https://docs.panther.com/enrichment/greynoise/how-to-use-greynoise-to-enhance-detections#ci-cd-users) to learn about additional considerations.
+If you are using a CI/CD workflow, please see [the CI/CD Users section below](how-to-use-greynoise-to-enhance-detections.md#ci-cd-users) to learn about additional considerations.
 
 To enable GreyNoise data sets:
 
@@ -31,6 +31,7 @@ Please note the following considerations:
 
 * CI/CD users do not need to use Detection Packs to get GreyNoise Lookup Tables. You can pull in the latest release of `panther-analysis` and use the `panther_analysis_tool` (PAT) to upload the GreyNoise Lookup Tables.
 * It is possible for CI/CD users to enable GreyNoise Lookup Tables via Detection Packs, as long as you do not customize the GreyNoise tables using PAT.
+  * If you choose to manage GreyNoise through PAT after enabling it in the Panther Console, you must first disable the Detection Packs in the Panther Console. Simultaneous use of both the Panther Console and PAT to manage GreyNoise is not supported.
 * For more information on how to manage GreyNoise Lookup Tables, please see the [GreyNoise files in Panther's Github repository](https://github.com/panther-labs/panther-analysis/tree/master/lookup\_tables/greynoise).&#x20;
 
 ### Example: Modify an Alert's severity based on GreyNoise classification
