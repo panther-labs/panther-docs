@@ -25,7 +25,7 @@ To enable GreyNoise data sets:
 GreyNoise data (both Basic and Advanced) is **not** available to view or query in the Data Explorer. The "View in Data Explorer" option is hidden for GreyNoise tables, but may be shown for other Panther managed lookup sources.
 {% endhint %}
 
-#### CI/CD Users
+### CI/CD Users
 
 Please note the following considerations:
 
