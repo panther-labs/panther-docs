@@ -12,9 +12,31 @@ Panther's direct GCS integration is currently in beta. This means the feature is
 
 After you configure this integration, Panther will pull log data directly from Google Cloud Storage (GCS) buckets. You can then write rules and run queries on the processed data.
 
+Panther requires certain configurations in Google Cloud Platform (GCP) to authenticate and pull logs. A bucket and a subscription for a topic set up with notifications are required. Panther will ingest new files through [Pub/Sub notifications](https://cloud.google.com/pubsub).&#x20;
+
+## Set up the GCS source in Panther
+
+1. Log in to your Panther Console.
+2. On the left sidebar navigation, click **Integrations > Log Sources**.
+3. Click **Add New Source**.
+4. On the left side, click the **Custom Onboarding** tab, then click **Select** next to Google Cloud Storage.\
+   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.48.04 AM.png>)
+5. Enter a descriptive name for the source and select the log types you will use, then click **Continue Setup**.\
+   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.50.45 AM.png>)
+6. On the "Infrastructure & Credentials" page, follow the instructions on screen to create the infrastructure component with a Terraform template.\
+   ![](../../.gitbook/assets/terraform.png)
+   * Alternatively, you can [follow the documentation](https://docs.panther.com/data-onboarding/data-transports/gcs#configuring-the-integration-in-google-cloud-platform-gcp) to complete this process manually.
+7. Upload your JSON key file, then enter the GCS bucket name and the Pub/Sub subscription ID.
+   * The subscription ID can be found in the **Subscriptions** section of your Google Cloud account.
+8. Click **Continue Setup**.&#x20;
+   * The message "Everything looks good" will appear at the top of the screen.&#x20;
+9. Click **Finish Setup**.
+
+Panther will now start processing the new files that arrive to your GCS bucket.
+
 ## Configuring the Integration in Google Cloud Platform (GCP)&#x20;
 
-Panther requires certain configurations in Google Cloud Platform (GCP) to authenticate and pull logs. A bucket and a subscription for a topic set up with notifications are required. Panther will ingest new files through [Pub/Sub notifications](https://cloud.google.com/pubsub).&#x20;
+If you choose to create the infrastructure components manually rather than using a Terraform template during the GCP setup in the Panther Console, follow the instructions below.
 
 1. Log in to your Google Cloud console.
 2. Determine which bucket Panther will pull logs from.
@@ -43,24 +65,7 @@ Panther requires certain configurations in Google Cloud Platform (GCP) to authen
      ![](../../.gitbook/assets/gcp-grant-access.png)
 7. [Generate a JSON key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for the service account, which will be used in Panther to authenticate to the GCP infrastructure.&#x20;
    * You can create a JSON key file using the `gcloud` CLI tool with the following command format: \
-     `gcloud iam service-accounts keys create $KEYFILE_PATH --iam-account=$SERVICE_ACCOUNT_EMAIL`\
-
-
-## Set up the GCS source in Panther
-
-1. Log in to your Panther Console.
-2. On the left sidebar navigation, click **Integrations > Log Sources**.
-3. Click **Add New Source**.
-4. On the left side, click the **Custom Onboarding** tab, then click **Select** next to Google Cloud Storage.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.48.04 AM.png>)
-5. Enter a descriptive name for the source and select the log types you will use, then click **Continue Setup**.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.50.45 AM.png>)
-6. On the "Infrastructure & Credentials" page, upload your JSON key file, enter the GCS bucket name and the Pub/Sub subscription ID, then click **Continue Setup**.
-   * The subscription ID can be found in the **Subscriptions** section of your Google Cloud account.\
-     ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.54.00 AM.png>)
-7. The message "Everything looks good" will appear at the top of the screen. Click **Finish Setup**.
-
-Panther will now start processing the new files that arrive to your GCS bucket.
+     `gcloud iam service-accounts keys create $KEYFILE_PATH --iam-account=$SERVICE_ACCOUNT_EMAIL`
 
 ## Viewing Collected Logs
 
