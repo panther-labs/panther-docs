@@ -241,7 +241,7 @@
     * [AWS Root Activity](alert-runbooks/built-in-rules/aws-root-activity.md)
     * [AWS S3 Bucket Policy Modified](alert-runbooks/built-in-rules/aws-s3-bucket-policy-modified.md)
     * [AWS Unauthorized API Call](alert-runbooks/built-in-rules/aws-unauthorized-api-call.md)
-* [Panther API (Beta)](api-beta/README.md)
+* [Panther API (BETA)](api-beta/README.md)
   * [Generating an API Token](api-beta/generating-an-api-token.md)
   * [API Playground](api-beta/api-playground.md)
   * [Using the Panther API](api-beta/using-the-panther-api.md)
