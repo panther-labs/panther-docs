@@ -33,8 +33,5 @@ We will continue to build integrations for more services in the future. If you d
 
 ## EventBridge
 
-Panther has direct support for pulling log data from AWS EventBridge, enabling real-time streaming, and simple ingestion of [supported SaaS integrations](https://aws.amazon.com/eventbridge/integrations/).
+Panther has direct support for pulling log data from AWS EventBridge for [OneLogin](onelogin.md).
 
-* [OneLogin](onelogin.md)
-* _(Coming soon!)_ Auth0
-* _(Coming soon!)_ NewRelic
