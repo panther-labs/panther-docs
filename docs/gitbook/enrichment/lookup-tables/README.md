@@ -34,7 +34,7 @@ For instructions, please see the documentation: [Sync data from an S3 Source](s3
 
 ### Query via Data Explorer
 
-`p_enrichment` is not stored in the Data Lake, but you can join against the Lookup Table directly in the Data Explorer with a query similar to the following:&#x20;
+`p_enrichment` is not stored in the Data Lake, but you can join against the Lookup Table directly to any table in the Data Explorer with a query similar to the following:&#x20;
 
 ```
 with logs as 
