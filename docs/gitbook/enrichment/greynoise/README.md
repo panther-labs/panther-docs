@@ -29,7 +29,7 @@ The video below shows a demo of the GreyNoise functionality in Panther using the
 Overview of using GreyNoise data sets with Panther
 {% endembed %}
 
-GreyNoise helps security analysts save time by revealing which events and alerts they can ignore. They do this by curating data on IPs that saturate security tools with noise. This unique perspective helps analysts ignore irrelevant or harmless activity, creating more time to uncover and investigate true threats. This data is delivered through SIEM, SOAR and TIP integrations, API, command-line tool, bulk data and visualizer. GreyNoise is trusted by the DoD, Fortune 500 enterprises, top security vendors and thousands of threat researchers. For more information, please visit [greynoise.io](https://www.greynoise.io).
+GreyNoise helps security analysts save time by revealing which events and alerts they can ignore. They do this by curating data on IPs that saturate security tools with noise. This perspective helps analysts ignore irrelevant or harmless activity, creating more time to uncover and investigate true threats. For more information, please visit [greynoise.io](https://www.greynoise.io).
 
 ### GreyNoise Data Sets
 
