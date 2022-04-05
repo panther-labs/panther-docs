@@ -78,7 +78,7 @@ In this example, the rule has already been modified to detect _Brute Force By IP
 
     ```
       def alert_context(event): 
-         context ={"message": "No GreyNoise Data Available"}
+        context ={"message": "No GreyNoise Data Available"}
         if noise.classification:
             context = {
                 "actor": noise.actor("client.ipAddress"),
@@ -163,7 +163,7 @@ This example uses the same detection from the previous section. We will modify i
 
     ```
       def rule(event): 
-         global noise
+        global noise
         noise = GetGreyNoiseObject(event)
         riot = GetGreyNoiseRiotObject(event)
         
