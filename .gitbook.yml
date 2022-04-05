@@ -49,3 +49,5 @@ redirects:
   data-analytics/lookup-tables: ./enrichment/lookup-tables.md
   data-analytics/lookup-tables/file-upload: ./enrichment/lookup-tables/file-upload.md
   data-analytics/lookup-tables/s3-source: ./enrichment/lookup-tables/s3-source.md
+  # Gravitational name change to Teleport
+  data-onboarding/supported-logs/gravitational: ./data-onboarding/supported-logs/teleport.md
