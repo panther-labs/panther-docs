@@ -6,6 +6,10 @@ GreyNoise data sets are stored as Panther-managed Lookup Tables in bulk. The Bas
 
 If you are using a CI/CD workflow, please see [the CI/CD Users section below](how-to-use-greynoise-to-enhance-detections.md#ci-cd-users) to learn about additional considerations.
 
+{% hint style="info" %}
+To enable Analyst roles to view and manage GreyNoise packages in the Panther Console, they will need to be assigned the **View Lookups** and **Manage Lookups** permissions.
+{% endhint %}
+
 To enable GreyNoise data sets:
 
 1. Log in to your Panther Console.
@@ -78,7 +82,7 @@ In this example, the rule has already been modified to detect _Brute Force By IP
 
     ```
       def alert_context(event): 
-         context ={"message": "No GreyNoise Data Available"}
+        context ={"message": "No GreyNoise Data Available"}
         if noise.classification:
             context = {
                 "actor": noise.actor("client.ipAddress"),
@@ -163,7 +167,7 @@ This example uses the same detection from the previous section. We will modify i
 
     ```
       def rule(event): 
-         global noise
+        global noise
         noise = GetGreyNoiseObject(event)
         riot = GetGreyNoiseRiotObject(event)
         
