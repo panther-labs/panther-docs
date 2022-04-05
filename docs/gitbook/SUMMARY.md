@@ -51,7 +51,7 @@
     * [Slack](data-onboarding/supported-logs/slack.md)
     * [Suricata](data-onboarding/supported-logs/suricata.md)
     * [Syslog](data-onboarding/supported-logs/syslog.md)
-    * [Teleport](data-onboarding/supported-logs/gravitational.md)
+    * [Teleport](data-onboarding/supported-logs/teleport.md)
     * [Zeek](data-onboarding/supported-logs/zeek.md)
   * [Custom Log Types](data-onboarding/custom-log-types/README.md)
     * [Log Schema Reference](data-onboarding/custom-log-types/reference.md)
