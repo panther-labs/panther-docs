@@ -42,7 +42,9 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `OpsRoleIdentityAccountId`: a non-empty value will deploy an OperationsRole with service-level admin permissions for migrations, data recoveries, and other operational emergencies. We recommend keeping this role disabled until necessary (it's off by default).
 * `DataLakeForwarderMemory`: Memory to use for Cloud Security DataLake Forwarder lambdas. The default setting is 256, with a maximum value of 2048 and a minimum value of 256.
 * `LogProcessorGzipLevel`: Gzip compression level to write logs. The default setting is 6, with a maximum value of 9 and a minimum value of 1.
-* `MaxLookupTableCompressedSizeMB`: The maximum size (in MB) of the Gzip-compressed data backing a Lookup Table. The default setting is 200, with a  maximum value of 400.
+* `MaxLookupTableCompressedSizeMB`: The maximum size (in MB) of the Gzip-compressed data backing a Lookup Table. The default setting is 200, with a maximum value of 400.
+* `CloudSecurityScanSegments`: Segments to use in table scans. The default setting is 5, with a minimum value of 5.
+* `ReplayAPIReservedConcurrency`: Reserved concurrency for `panther-replay-log-pusher` Lambda function. The default setting is 40, with a minimum value of 0.
 
 #### Minimize initial configurations
 
