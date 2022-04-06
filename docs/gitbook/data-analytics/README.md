@@ -1,6 +1,6 @@
 # Data Analytics
 
-Panther's Data Analytics allow for freely searching collected and normalized log data using SQL via [AWS Athena](https://aws.amazon.com/athena/) and [Snowflake](https://www.snowflake.com).
+Panther's Data Analytics allow for freely searching collected and normalized log data using SQL via [Snowflake](https://docs.panther.com/data-analytics/backend/snowflake) and [AWS Athena](https://docs.panther.com/data-analytics/backend/athena).
 
 This is necessary for investigations, baselining behaviors, writing rules, and generating analytics on logs in the context of days, weeks, or months of data.
 
