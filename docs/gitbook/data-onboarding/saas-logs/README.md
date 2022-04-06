@@ -1,6 +1,6 @@
 # SaaS Logs
 
-Panther supports pulling logs directly from SaaS platforms such as Okta, CrowdStrike, Google Workspaces (G Suite), and more. By default, we poll for new logs every minute. &#x20;
+Panther supports pulling logs directly from SaaS platforms such as Okta, CrowdStrike, Google Workspace (G Suite), and more. By default, we poll for new logs every minute. &#x20;
 
 Panther provides two mechanisms for various integrations:&#x20;
 
