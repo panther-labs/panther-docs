@@ -32,6 +32,8 @@ A _ParserSpec_ specifies a parser to use to convert non-JSON input to JSON. Only
 * **`regex`** (`RegexParser{}`): Use `regex` parser
 * **`csv`** (`CSVParser{}`): Use `csv` parser
 
+See the fields for `fastmatch`, `regex`, and `csv` in the tabs below.
+
 {% tabs %}
 {% tab title="fastmatch" %}
 #### Parser `fastmatch` fields
@@ -93,15 +95,15 @@ A `ValueSchema` defines a value and how it should be processed. Each `ValueSchem
 
 The fields of a `ValueSchema` depend on the value of the `type` field.
 
-| Type        | Field                     | Value                                     | Description                                                                                     |
-| ----------- | ------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `object`    | **fields**  (required)    | [`[]FieldSpec`](reference.md#fieldschema) | An array of `FieldSpec` objects describing the fields of the object.                            |
-| `array`     | **element** (required)    | [`ValueSchema`](reference.md#valueschema) | A `ValueSchema` describing the elements of an array.                                            |
-| `timestamp` | **timeFormat** (required) | `String`                                  | The format to use for parsing the timestamp. (see [Timestamps](reference.md#timestamps))        |
-| `timestamp` | **isEventTime**           | `Boolean`                                 | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_.                      |
-| `timestamp` | **isExpiration**          | `Boolean`                                 | (For lookup tables only) A flag to tell Panther to ignore all events after this timestamp       |
-| `string`    | **indicators**            | `[]String`                                | Tells Panther to extract indicators from this value (see [Indicators](reference.md#indicators)) |
-| `string`    | **validate**              | [`Validation`](reference.md#validation)   | Validation rules for the string value                                                           |
+| Type        | Field                       | Value                                     | Description                                                                                     |
+| ----------- | --------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `object`    | **`fields`**  (required)    | [`[]FieldSpec`](reference.md#fieldschema) | An array of `FieldSpec` objects describing the fields of the object.                            |
+| `array`     | **`element`** (required)    | [`ValueSchema`](reference.md#valueschema) | A `ValueSchema` describing the elements of an array.                                            |
+| `timestamp` | **`timeFormat`** (required) | `String`                                  | The format to use for parsing the timestamp. (see [Timestamps](reference.md#timestamps))        |
+| `timestamp` | **`isEventTime`**           | `Boolean`                                 | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_.                      |
+| `timestamp` | **`isExpiration`**          | `Boolean`                                 | (For lookup tables only) A flag to tell Panther to ignore all events after this timestamp       |
+| `string`    | **`indicators`**            | `[]String`                                | Tells Panther to extract indicators from this value (see [Indicators](reference.md#indicators)) |
+| `string`    | **`validate`**              | [`Validation`](reference.md#validation)   | Validation rules for the string value                                                           |
 
 ### Timestamps
 
