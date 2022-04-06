@@ -1,12 +1,12 @@
 # Log Schema Reference
 
-In this guide, you will find common fields used to build YAML-based schemas when onboarding custom log types (logs that do not have built-in support in Panther).&#x20;
+In this guide, you will find common fields used to build YAML-based schemas when onboarding [Custom Log Types](https://docs.panther.com/data-onboarding/custom-log-types) and [Lookup Table](https://docs.panther.com/enrichment/lookup-tables) schemas.&#x20;
 
 ## LogSchema fields
 
-* **version** (`0`,`required`):  The version of the log schema. This field should be set to zero (`0`). Its purpose is to allow backwards compatibility with future versions of the log schema.
-* **fields** ([`[]FieldSchema`](reference.md#fieldschema), `required`):  The fields in each _Log Event_.
-* **parser** ([`ParserSpec`](reference.md#parserspec)):  Define a parser that will convert non-JSON logs to JSON.
+* **`version`** (`0,`_required_):  The version of the log schema. This field should be set to zero (`0`). Its purpose is to allow backwards compatibility with future versions of the log schema.
+* **`fields`** ([`[]FieldSchema`](reference.md#fieldschema), _required_):  The fields in each _Log Event_.
+* **`parser`** ([`ParserSpec`](reference.md#parserspec)):  Define a parser that will convert non-JSON logs to JSON.
 
 ### Example
 
@@ -28,43 +28,51 @@ fields:
 
 A _ParserSpec_ specifies a parser to use to convert non-JSON input to JSON. Only one of the following fields can be specified:
 
-* **fastmatch** (`FastmatchParser{}`): Use `fastmatch` parser
-* **regex** (`RegexParser{}`): Use `regex` parser
-* **csv** (`CSVParser{}`): Use `csv` parser
+* **`fastmatch`** (`FastmatchParser{}`): Use `fastmatch` parser
+* **`regex`** (`RegexParser{}`): Use `regex` parser
+* **`csv`** (`CSVParser{}`): Use `csv` parser
 
-#### Parser `fastmatch` fields <a href="#parser-fastmatch-fields" id="parser-fastmatch-fields"></a>
+{% tabs %}
+{% tab title="fastmatch" %}
+#### Parser `fastmatch` fields
 
-* **match** (`[]string`, `required`, `non-empty`): One or more patterns to match log lines against.
-* **emptyValues** (`[]string`): Values to consider as `null`.
-* **expandFields** (`map[string]string`): Additional fields to be injected by expanding text templates.
-* **trimSpace** (`bool`): Trim space surrounding each value
+* **`match`** (_required_, `[]string`): One or more patterns to match log lines against. This field cannot be empty.
+* **`emptyValues`** (`[]string`): Values to consider as `null`.
+* **`expandFields`** (`map[string]string`): Additional fields to be injected by expanding text templates.
+* **`trimSpace`** (`bool`): Trim space surrounding each value.
+{% endtab %}
 
+{% tab title="regex" %}
 #### Parser `regex` fields <a href="#parser-regex-fields" id="parser-regex-fields"></a>
 
-* **match** (`[]string`, `required`, `non-empty`): A pattern to match log lines against (can be split it into parts for documentation purposes).
-* **patternDefinitions** (`map[string]string`): Additional named patterns to use in match pattern.
-* **emptyValues** (`[]string`): Values to consider as `null`.
-* **expandFields** (`map[string]string`): Additional fields to be injected by expanding text templates.
-* **trimSpace** (`bool`): Trim space surrounding each value
+* **`match`** (_required_, `[]string`): A pattern to match log lines against (can be split it into parts for documentation purposes). This field cannot be empty.
+* **`patternDefinitions`** (`map[string]string`): Additional named patterns to use in match pattern.
+* **`emptyValues`** (`[]string`): Values to consider as `null`.
+* **`expandFields`** (`map[string]string`): Additional fields to be injected by expanding text templates.
+* **`trimSpace`** (`bool`): Trim space surrounding each value.
+{% endtab %}
 
+{% tab title="csv" %}
 #### Parser `csv` <a href="#parser-csv-fields" id="parser-csv-fields"></a>
 
-* **delimiter** (`string`, `required`, `non-empty`): A character to use as field delimiter.
-* **hasHeader** (`bool`): Use first row to derive column names (unless `columns` is set also in which case the header is just skipped).
-* **columns** (`[]string`, `required(without hasHeader)`, `non-empty`): Names for each column in the CSV file. If not set, the first row is used as a header.
-* **emptyValues** (`[]string`): Values to consider as `null`.
-* **trimSpace** (`bool`): Trim space surrounding each value
-* **expandFields** (`map[string]string`): Additional fields to be injected by expanding text templates.
+* **`delimiter`** (_required_, string): A character to use as field delimiter.
+* **`hasHeader`** (bool): Use first row to derive column names (unless `columns` is set also in which case the header is just skipped).
+* **`columns`** (`[]string`, `required(without hasHeader)`, `non-empty`): Names for each column in the CSV file. If not set, the first row is used as a header.
+* **`emptyValues`** (`[]string`): Values to consider as `null`.
+* **`trimSpace`** (`bool`): Trim space surrounding each value.
+* **`expandFields`** (`map[string]string`): Additional fields to be injected by expanding text templates.
+{% endtab %}
+{% endtabs %}
 
 ### FieldSchema
 
 A _FieldSchema_ defines a field and its value. The field is defined by:
 
-* **name** (`String`,`required`):  The name of the field.
-* **required** (`Boolean`):  If the field is required or not.
-* **description** (`String`):  Some text documenting the field.
+* **`name`** (_required_, `String`):  The name of the field.
+* **`required`** (`Boolean`):  If the field is required or not.
+* **`description`** (`String`):  Some text documenting the field.
 
-And its value is defined using the fields of a [`ValueSchema`](reference.md#valueschema).
+Its value is defined using the fields of a [`ValueSchema`](reference.md#valueschema).
 
 ### ValueSchema
 
@@ -99,11 +107,13 @@ The fields of a `ValueSchema` depend on the value of the `type` field.
 
 Timestamps are defined by setting the `type` field to `timestamp` and specifying the timestamp format using the `timeFormat` field. Timestamp formats can be either one of the built-in timestamp formats:
 
-* `rfc3339` The most common timestamp format.
-* `unix` Timestamp expressed in seconds since UNIX epoch time. It can handle fractions of seconds as a decimal part.
-* `unix_ms` Timestamp expressed in milliseconds since UNIX epoch time.
-* `unix_us` Timestamp expressed in microseconds since UNIX epoch time.
-* `unix_ns` Timestamp expressed in nanoseconds since UNIX epoch time.
+| timeFormat | Example                       | Description                                                                                                 |
+| ---------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `rfc3339`  | 2022-04-04 17:09:17.386345000 | The most common timestamp format.                                                                           |
+| `unix`     | 1649097448                    | Timestamp expressed in seconds since UNIX epoch time. It can handle fractions of seconds as a decimal part. |
+| `unix_ms`  | 1649097491531                 | Timestamp expressed in milliseconds since UNIX epoch time.                                                  |
+| `unix_us`  | 1649097442000000              | Timestamp expressed in microseconds since UNIX epoch time.                                                  |
+| `unix_ns`  | 1649097442000000000           | Timestamp expressed in nanoseconds since UNIX epoch time.                                                   |
 
 or you can define a custom format by using [strftime](https://strftime.org) notation. For example:
 
@@ -176,9 +186,7 @@ Values of `string` type can be further restricted by declaring a list of values 
 
 ### Validation by string type
 
-{% hint style="info" %}
-This feature will be available in 1.24
-{% endhint %}
+
 
 Values of `string` type can be restricted to match well-known formats. Currently, Panther supports the `ip` and `cidr` formats to require that a string value be a valid IP address or CIDR range. Note that the `ip` and `cidr` validation types can be combined with `allow` or `deny` rules but it is somewhat redundant, for example, if you allow two IP addresses, then adding an `ip` validation will simply ensure that your validation will not include false positives if the IP addresses in your list are not valid.
 
