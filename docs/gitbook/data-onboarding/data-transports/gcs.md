@@ -24,7 +24,7 @@ Panther requires certain configurations in Google Cloud Platform (GCP) to authen
 5. Enter a descriptive name for the source and select the log types you will use, then click **Continue Setup**.\
    ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.50.45 AM.png>)
 6. On the "Infrastructure & Credentials" page, follow the instructions on screen to create the infrastructure component with a Terraform template.\
-   ![](../../.gitbook/assets/terraform.png)
+   ![](../../.gitbook/assets/terraform-gcs.png)
    * Alternatively, you can [follow the documentation](https://docs.panther.com/data-onboarding/data-transports/gcs#configuring-the-integration-in-google-cloud-platform-gcp) to complete this process manually.
 7. Upload your JSON key file, then enter the GCS bucket name and the Pub/Sub subscription ID.
    * The subscription ID can be found in the **Subscriptions** section of your Google Cloud account.
