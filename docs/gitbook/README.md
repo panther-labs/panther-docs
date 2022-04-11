@@ -28,7 +28,7 @@ Learn more about the advantages of [running Panther instead of a traditional SIE
 
 ## Key Features
 
-* ****[**Effortless Data Ingestion**](data-onboarding/)**:** Built-in support for common data transports such as S3, SQS, SNS, and out-of-the-box integrations for critical log sources like Duo, Okta, Slack, G Workspaces, and more.
+* ****[**Effortless Data Ingestion**](data-onboarding/)**:** Built-in support for common data transports such as S3, SQS, SNS, and out-of-the-box integrations for critical log sources like Duo, Okta, Slack, Google WorkSpaces, and more.
 * ****[**Log normalization**](data-analytics/)**:** Logs are parsed and IoC fields like domains and IPs are normalized to support analysis, searches and correlations across all log types.
 * **Detection-as-Code:** Highly customizable [Python-based detections](writing-detections/), a built-in testing framework, and the ability to create detections directly in the Panther Console or with a [CLI-based workflows including CI/CD](guides/ci-cd-onboarding-guide.md).
 * **Security data lake:** Normalized security data is aggregated in a high-performance, scalable, and cost-effective data lake capable of running queries over massive data sets in minutes.
