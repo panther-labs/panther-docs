@@ -120,7 +120,16 @@ The Cloned rule will not be managed by Panther or receive automatic updates when
 
 ## Pack Sources
 
-Pack Sources provide a way to configure custom Github sources for Detection Packs. Once a Pack Source is configured, Panther will check for new releases every day with an asset named `panther-analysis-all.zip`. The `panther_analysis_tool` (PAT) can be used to generate the required release assets as well as publish a draft release (see [Creating a Github Release - Panther Analysis Tool](detection-packs.md#creating-a-github-release-panther-analysis-tool) for additional details.) You can manage custom packs using the same functionality as Panther-provided packs.
+Pack Sources provide a way to configure custom Github sources for Detection Packs. Once a Pack Source is configured, Panther will check the source repository for new tagged releases every 24 hours. In order for Panther to find your custom Pack(s) from your Pack Source, you must:
+
+* Ensure that your release is finalized, and not in a draft state
+* Ensure that your release is named according to [SemVer format](https://semver.org), and the tag of the release must be the same as the name of the release
+* Ensure that the artifact of the release is named `panther-analysis-all.zip` (and a corresponding `panther-analysis-all.sig` if you are signing your release)&#x20;
+* Ensure that your `panther-analysis-all.zip` contains at least one Pack Manifest file ([see section on Pack Manifests below](detection-packs.md#undefined))
+
+![](<../.gitbook/assets/Screen Shot 2022-04-05 at 4.15.00 PM.png>)
+
+You can use the `panther_analysis_tool` (PAT) to generate the required release assets, as well as publish a draft release (see [Creating a Github Release - Panther Analysis Tool](detection-packs.md#creating-a-github-release-panther-analysis-tool) for additional details.) You can manage custom packs using the same functionality as Panther-provided packs.
 
 Pack source fields are described in the following table.
 
@@ -130,6 +139,22 @@ Pack source fields are described in the following table.
 | `Repository`   | Yes          | The name of the repository                                       | String         |
 | `kmsKey`       | No           | The ARN for a sign/verify kms key to validate release signatures | String         |
 | `AccessToken`  | No           | Personal Access Token used to access a private repository        | String         |
+
+### Pack Manifests
+
+Packs are defined by creating Pack Manifest yaml files, which contain metadata about your Pack (such as its name, description, and the detections/files that are included in your Pack).&#x20;
+
+Your `panther-analysis-all.zip` release artifact can contain many different Pack Manifests along with other files from your repository such as detections, global helpers, data models, etc. If you add your GitHub repository as a Pack Source in the Panther Console, then each of these Pack Manifest files will show up as a Pack in the Panther Console that can be separately enabled/disabled.
+
+The following table is a reference of the different keys that are valid in your Pack Manifest. You can find additional examples of the Pack Manifests that Panther uses in our [Panther-provided Packs on Github](https://github.com/panther-labs/panther-analysis/tree/32f815266776ef7b3e7f609a0213032ff42c72f0/packs).
+
+| Field Name     | Required | Description                                                                                                                                                        | Expected Value     |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| AnalysisType   | true     | Indicates the analysis type this file is                                                                                                                           | `pack`             |
+| PackID         | true     | The unique ID of this pack                                                                                                                                         | String             |
+| Description    | false    | Extra information about this Pack that will be displayed in the Panther Console                                                                                    | String             |
+| PackDefinition | true     | A mapping with a single field called `IDs` which is a list of strings. Each string in the `IDs` list should be a unique ID of a file that is included in this Pack | { IDs: \[string] } |
+| DisplayName    | true     | The user-friendly title that will be displayed for this Pack in the Panther Console                                                                                | String             |
 
 ### Accessing Private Repositories
 
@@ -223,6 +248,10 @@ optional arguments:
 ```
 
 To automatically create a draft release in your Github repository, first set the `GITHUB_TOKEN` environment variable to a personal access token with appropriate permissions to access the target repository. Then, use the `publish` command.
+
+{% hint style="warning" %}
+Note: Using the `panther_analysis_tool publish` command creates a draft release. Before Panther is able to pull in this release artifact, you must go to your Github repository and manually finalize the draft into a release.
+{% endhint %}
 
 ```bash
 % panther_analysis_tool publish --help
