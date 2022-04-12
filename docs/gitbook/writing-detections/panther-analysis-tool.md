@@ -335,7 +335,21 @@ Analysis with the same ID are overwritten. Additionally, locally deleted rules/p
 
 ## Delete Rules, Policies, or Saved Queries
 
-For more information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#readme).&#x20;
+While `panther_analysis_tool upload --path <directory>` will upload everything from `<directory>`, it will not delete anything in your Panther instance if you simply remove a local file from `<directory>`. Instead, you can use the `panther_analysis_tool delete` command to explicitly delete detections from your Panther instance.\
+\
+To delete a specific detection, you can run the following command:
+
+```
+panther_analysis_tool delete --analysis-id MyRuleId
+```
+
+This will interactively ask you for a confirmation before it deletes the detection. If you would like to delete without confirming, you can use the following command:
+
+```
+panther_analysis_tool delete --analysis-id MyRuleId --no-confirm
+```
+
+For more information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#delete-rules-policies-or-saved-queries-from-a-panther-deployment).&#x20;
 
 ## Pack Source
 
