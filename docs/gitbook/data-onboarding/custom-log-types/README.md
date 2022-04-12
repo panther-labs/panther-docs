@@ -33,7 +33,7 @@ You can generate a schema for a custom log type by uploading sample logs into th
 8. To ensure the schema works properly against the sample logs you uploaded and against any changes you make to the schema, click **Validate & Test Schema.**
    * This test will validate that the syntax of your schema is correct and that the log samples you have uploaded into Panther are successfully matching against the schema. You should see the results appear below the schema editor box.
    * All successfully matched logs will appear under **Matched;** each log will display the column, field, and JSON view.\
-     ![](../../.gitbook/assets/json-matched-logs.png)
+     <img src="../../.gitbook/assets/json-matched-logs.png" alt="" data-size="original">
    * All unsuccessfully matched logs will appear under **Unmatched;** each log will display the error message and the raw log.
 9. Click **Save** to publish the schema.
 
@@ -93,13 +93,15 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 
 ## Writing a Log Schema for JSON logs
 
-> You can make use of our [CLI tool](./#generating-a-schema-from-json-samples) to help you generate your Log Schema
+> You can make use of our `pantherlog` [CLI tool](./#generating-a-schema-from-json-samples) to help you generate your Log Schema
 
 To parse log files where each line is JSON you have to define a _Log Schema_ that describes the structure of each log entry.
 
-For example, suppose you have logs that adhere to the following JSON structure:
+In the example below, the first tab displays the JSON log structure and the second tab shows the Log Schema.
 
-```javascript
+{% tabs %}
+{% tab title="JSON Log Example" %}
+```json
 {
   "method": "GET",
   "path": "/-/metrics",
@@ -122,9 +124,9 @@ For example, suppose you have logs that adhere to the following JSON structure:
   "time": "2019-11-14T13:12:46.156Z"
 }
 ```
+{% endtab %}
 
-You can define a _Log Schema_ for these logs using:
-
+{% tab title="Log Schema Example" %}
 ```yaml
 version: 0
 fields:
@@ -171,8 +173,10 @@ fields:
   description: UserAgent header
   type: string
 ```
+{% endtab %}
+{% endtabs %}
 
-The YAML specification can either be edited directly in the Panther UI or [prepared offline in your editor/IDE of choice](reference.md#using-json-schema-in-an-ide). For more information on the structure and fields in a _Log Schema_, see the [Log Schema Reference](reference.md).
+You can edit the YAML specifications directly in the Panther Console or they can be [prepared offline in your editor/IDE of choice](reference.md#using-json-schema-in-an-ide). For more information on the structure and fields in a _Log Schema_, see the [Log Schema Reference](reference.md).
 
 ## Writing a Log Schema for text logs
 
@@ -241,6 +245,119 @@ $ ./pantherlog test schema.yml schema_tests.yml
 ```
 
 The first argument is a file or directory containing schema YAML files. The rest of the arguments are test files to run. If you don't specify any test files arguments, and the first argument is a directory, the tool will look for tests in YAML files with a `_tests.yml` suffix.
+
+Below is an example of a test using the [previous JSON log sample](./#writing-a-log-schema-for-json-logs), testing against our inferred schema with the added flag `isEventTime: true` under the `time` field to ensure the correct timestamp:
+
+{% tabs %}
+{% tab title="schema_tests.yml" %}
+```json
+# Make sure to use camelCase when naming the schema or log type
+name: Custom Log Test Name
+logType: Custom.SampleLog.V1
+input: |
+  {
+    "method": "GET",
+    "path": "/-/metrics",
+    "format": "html",
+    "controller": "MetricsController",
+    "action": "index",
+    "status": 200,
+    "params": [],
+    "remote_ip": "1.1.1.1",
+    "user_id": null,
+    "username": null,
+    "ua": null,
+    "queue_duration_s": null,
+    "correlation_id": "c01ce2c1-d9e3-4e69-bfa3-b27e50af0268",
+    "cpu_s": 0.05,
+    "db_duration_s": 0,
+    "view_duration_s": 0.00039,
+    "duration_s": 0.0459,
+    "tag": "test",
+    "time": "2019-11-14T13:12:46.156Z"
+  }
+
+result: |
+  {
+    "action": "index",
+    "controller": "MetricsController",
+    "correlation_id": "c01ce2c1-d9e3-4e69-bfa3-b27e50af0268",
+    "cpu_s": 0.05,
+    "db_duration_s": 0,
+    "duration_s": 0.0459,
+    "format": "html",
+    "method": "GET",
+    "path": "/-/metrics",
+    "remote_ip": "1.1.1.1",
+    "status": 200,
+    "tag": "test",
+    "time": "2019-11-14T13:12:46.156Z",
+    "view_duration_s": 0.00039,
+    "p_log_type": "Custom.SampleLog.V1",
+    "p_row_id": "acde48001122a480ca9eda991001",
+    "p_event_time": "2019-11-14T13:12:46.156Z",
+    "p_parse_time": "2022-04-04T16:12:41.059224Z",
+    "p_any_ip_addresses": [
+        "1.1.1.1"
+    ]
+  }
+```
+{% endtab %}
+
+{% tab title="schema.yml" %}
+```yaml
+version: 0
+schema: Custom.SampleLog.V1
+fields:
+- name: action
+  required: true
+  type: string
+- name: controller
+  required: true
+  type: string
+- name: correlation_id
+  required: true
+  type: string
+- name: cpu_s
+  required: true
+  type: float
+- name: db_duration_s
+  required: true
+  type: bigint
+- name: duration_s
+  required: true
+  type: float
+- name: format
+  required: true
+  type: string
+- name: method
+  required: true
+  type: string
+- name: path
+  required: true
+  type: string
+- name: remote_ip
+  required: true
+  type: string
+  indicators:
+  - ip
+- name: status
+  required: true
+  type: bigint
+- name: tag
+  required: false
+  type: string
+- name: time
+  required: true
+  type: timestamp
+  timeFormat: rfc3339
+  isEventTime: true
+- name: view_duration_s
+  required: true
+  type: float
+```
+{% endtab %}
+{% endtabs %}
 
 ## Uploading Log Schemas with the Panther Analysis Tool
 
