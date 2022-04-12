@@ -26,9 +26,9 @@ First of all, you need to keep note of the AWS Account and AWS region where Pant
 5. Select **Amazon EventBridge** from the list of available Data Transports.
 6. In the following form, fill in the following fields:
    1. **Name**: A friendly name for the source e.g. `My OneLogin events`
-   2. **Log Type**: Select `OneLogin`
+   2. **Log Types**: Select `OneLogin.Events`
    3. **Bus Name**: The field you noted in the previous text (in the form `aws.partner/onelogin.com/US-123456/ffffffffff`)
-7. Click on **Next** and then **Save Source**
+7. Click on **Continue Setup** and then **View Log Source**
 8. You are done! You can now start writing detections and exploring your OneLogin data.
 
 ## Panther-Built Detections
