@@ -1,25 +1,30 @@
 # Amazon SQS
 
-## Step 1: SQS Queue Setup
+This page will walk you through configuring Amazon Simple Queue Service (SQS) as a destination for your Panther alerts.&#x20;
 
-An SQS Queue can be connected to Panther by creating a queue and granting Panther permission to send to it:
+### SQS Queue Setup
 
-Navigate to the AWS [SQS Console](https://console.aws.amazon.com/sqs/home) and select `Create New Queue` to create a new queue, then set the name of the new queue.
+First, you need to create an SQS queue and grant Panther permission to send to it.&#x20;
 
-![](<../../../.gitbook/assets/sqs1 (9) (2) (1) (1) (11) (1) (14).png>)
+1. Navigate to the [AWS SQS Console](https://console.aws.amazon.com/sqs/home) and click **Create New Queue** to create a new queue. In the **Name** field, enter a name of the new queue.
+2. In the "Access Policy" section of your new queue's Basic setup options, under "Define who can send messages to the queue," select **Only the specified AWS Accounts, IAM users and roles**.\
+   ![](<../.gitbook/assets/sqs2 reup.png>)
+3. In the field below "Only the specified AWS Accounts, IAM users and roles," enter the AWS Account ID from your Panther Console.&#x20;
+   * You can find your account ID at the bottom of the **Settings > General** page in the Console.\
+     ![](<../../../.gitbook/assets/sqs3 (9) (4) (1) (1) (11) (1) (20).png>)
+4. Click the **Save** button at the bottom of the SQS Create Queue page to save your new queue.
 
-In the `Access Policy` section of the new queue Basic setup, under the `Define who can send messages to the queue` heading, select `Only the specified AWS Accounts, IAM users and role` radio button.
+### Setting Up the Destination in Panther
 
-![](<../../../.gitbook/assets/sqs2 (9) (3) (1) (1) (11) (1) (14).png>)
+Next, add your SQS Queue destination to Panther.
 
-You will need to enter the AWS account of your Panther Console. You can find this in the `Settings -> General` page of your Panther Console:
+1. Log in to your Panther Console and navigate to **Integrations > Alert Destinations**.&#x20;
+2. Click **+Add your first Destination**.&#x20;
+   * If you have already created Destinations, click **+** in the upper right side of the page to add a new Destination.
+3. Click **Amazon SQS** from the list of options.
+4. Fill in the form to configure the SQS destination.
+   * **Display Name**: Enter a descriptive name.
+   * **Queue UR**L: Enter your SQS Queue URL. This can be found in the "Details" tab in your AWS SQS console.
+5. Click **Add Destination**.
+6. Click **Finish Setup** to complete your setup, or click **Send Test Alert** to test your setup.
 
-![](<../../../.gitbook/assets/sqs3 (9) (4) (1) (1) (11) (1) (16).png>)
-
-Save the new queue by clicking on the Save button at the bottom of the AWS `Create queue` page.
-
-## Step 2: Add Destination to Panther
-
-The SQS Queue will have a `URL` field under the `Details` tab. Paste the copied URL into the Panther Destination configuration settings:
-
-![](<../../../.gitbook/assets/sqs-panther (7) (7) (4) (1) (1) (3) (1) (7).png>)
