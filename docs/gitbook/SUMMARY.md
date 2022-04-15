@@ -58,6 +58,7 @@
     * [Text logs with fastmatch](data-onboarding/custom-log-types/example-fastmatch.md)
     * [Text logs with regular expressions](data-onboarding/custom-log-types/example-regex.md)
     * [Text logs in CSV format](data-onboarding/custom-log-types/example-csv.md)
+  * [Monitoring Log Sources](data-onboarding/monitoring-log-sources.md)
 * [Writing Detections](writing-detections/README.md)
   * [Rules](writing-detections/rules.md)
   * [Policies](writing-detections/policies.md)
