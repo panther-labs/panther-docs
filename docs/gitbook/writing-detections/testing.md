@@ -8,7 +8,7 @@ Testing works by defining a "test" input to be used as the `event` for the detec
 
 Tests can be defined either in the Panther Console or programmatically with the [Panther Analysis Tool](panther-analysis-tool.md).
 
-Keeping with the previous example (in [Rules](rules.md)), let's write two tests for this detection:
+Keeping with the previous example (in [Rules](rules/)), let's write two tests for this detection:
 
 ```python
 def rule(event):

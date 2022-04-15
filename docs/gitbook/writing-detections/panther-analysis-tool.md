@@ -36,7 +36,7 @@ Each analysis consists of:
 
 Rules are Python functions to detect suspicious behaviors. Returning a value of `True` indicates suspicious activity, which triggers an alert.
 
-First, [write your rule](rules.md) and save it (in your folder of choice) as `my_new_rule.py`:
+First, [write your rule](rules/) and save it (in your folder of choice) as `my_new_rule.py`:
 
 ```python
 def rule(event):
