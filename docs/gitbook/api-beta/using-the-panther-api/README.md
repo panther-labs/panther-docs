@@ -14,7 +14,7 @@ To invoke the API using an HTTP curl operation, you will need the following info
 * The auth-related header
   * The auth-related header is called `X-API-Key` and its value should always be a valid API Token that you generated through the Panther UI.
 * A GraphQL query
-  * The GraphQL query differs from use case to use case. Please refer to our [schema discoverability page](https://docs.runpanther.io/api-beta/discovering-the-schema) or our [common operations](using-the-panther-api.md#common-operations) for more on this topic.
+  * The GraphQL query differs from use case to use case. Please refer to our [schema discoverability page](https://docs.runpanther.io/api-beta/discovering-the-schema) or our [common operations](./#common-operations) for more on this topic.
 
 
 
