@@ -353,7 +353,8 @@ const getQueryResults = gql`
       sql: 'select * from panther_logs.public.aws_alb limit 5',
     });
 
-    // Keep fetching pages until there are no more left
+    // Start polling the query until it returns results. From there,
+    // keep fetching pages until there are no more left
     do {
       const queryData = await client.request(getQueryResults, {
         id: mutationData.executeDataLakeQuery.id,
@@ -435,20 +436,22 @@ get_query_results = gql(
 
 # an accumulator that holds all results that we fetch from all pages
 all_results = []
-# a helper to know when to exit the loop
+# a helper to know when to exit the loop.
 has_more = True
 # the pagination cursor
 cursor = None
 
-# Keep fetching pages until there are no more left
+# Issue a Data Lake (Data Explorer) query
+mutation_data = client.execute(
+    issue_query,
+    variable_values={
+        "sql": "select * from panther_logs.public.aws_alb limit 5"
+    }
+)
+
+# Start polling the query until it returns results. From there,
+# keep fetching pages until there are no more left
 while has_more:
-    mutation_data = client.execute(
-        issue_query,
-        variable_values={
-            "sql": "select * from panther_logs.public.aws_alb limit 5"
-        }
-    )
-    
     query_data = client.execute(
         get_query_results,
         variable_values = {
@@ -625,20 +628,22 @@ has_more = True
 # the pagination cursor
 cursor = None
 
-# Keep fetching pages until there are no more left
-while has_more:
-    mutation_data = client.execute(
-        issue_query,
-        variable_values={
-            "input": {         
-                "indicators": ["226103014039"],
-                "startTime": "2022-03-29T00:00:00.001Z",
-                "endTime": "2022-03-30T00:00:00.001Z",
-                "indicatorName": "p_any_aws_account_ids"
-            }
+# Issue an Indicator Search query
+mutation_data = client.execute(
+    issue_query,
+    variable_values={
+        "input": {         
+            "indicators": ["226103014039"],
+            "startTime": "2022-03-29T00:00:00.001Z",
+            "endTime": "2022-03-30T00:00:00.001Z",
+            "indicatorName": "p_any_aws_account_ids"
         }
-    )
-    
+    }
+)
+
+# Start polling the query until it returns results. From there,
+# keep fetching pages until there are no more left
+while has_more:    
     query_data = client.execute(
         get_query_results,
         variable_values = {
