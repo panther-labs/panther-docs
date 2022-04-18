@@ -41,10 +41,15 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `SupportRoleIdentityAccountId`: by default, a read-only SupportRole is deployed with Panther which our on-call engineers can assume to triage application errors. This role does **not** have access to your data and we’d encourage you to keep it enabled so we can deliver a better support experience. However, if you prefer, this role can be disabled by setting the `SupportRoleIdentityAccountId` to a blank string.
 * `OpsRoleIdentityAccountId`: a non-empty value will deploy an OperationsRole with service-level admin permissions for migrations, data recoveries, and other operational emergencies. We recommend keeping this role disabled until necessary (it's off by default).
 * `DataLakeForwarderMemory`: Memory to use for Cloud Security DataLake Forwarder lambdas. The default setting is 256, with a maximum value of 2048 and a minimum value of 256.
-* `LogProcessorGzipLevel`: Gzip compression level to write logs. The default setting is 6, with a maximum value of 9 and a minimum value of 1.
 * `MaxLookupTableCompressedSizeMB`: The maximum size (in MB) of the Gzip-compressed data backing a Lookup Table. The default setting is 200, with a maximum value of 400.
 * `CloudSecurityScanSegments`: Segments to use in table scans. The default setting is 5, with a minimum value of 5.
 * `ReplayAPIReservedConcurrency`: Reserved concurrency for `panther-replay-log-pusher` Lambda function. The default setting is 40, with a minimum value of 0.
+* `EnablePantherAuditLogIngestion`: Enable ingestion of Audit Logs from this instance of Panther, within this instance of Panther. The default setting is `false`, with allowed values of `true` or `false`.
+* `PantherAuditLogsExpirationDays`: The expiration in days for Panther Audit Logs - applies to an S3 lifecycle policy. The default setting is 1825, with a minimum value of 30.
+* `SnapshotScanWindowMinutes`: If non-zero, deduplicate scan requests in minutes. The default setting is 0, with a minimum value of 0.
+* `SnowflakeRBACSecretARN`: ARN pointing at the AWS secret with configuration and credentials for the PANTHER\_RBAC Snowflake user. The allowed pattern is `'^(arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z]{2}-[a-z]{4,9}-[1-9]:[0-9]{12}:secret:\S+)?$'`
+* `MessageForwarderReservedConcurrency`: Reserved concurrency for panther-message-forwarder Lambda function (has no effect if EnableLambdaReservedConcurrency=false). The default setting is 50, with a minimum value of 0.&#x20;
+* `EnableReplays`: Enables or disables the ability to run replays. The default value is `true`, with allowed values of `true` or `false`.
 
 #### Minimize initial configurations
 
