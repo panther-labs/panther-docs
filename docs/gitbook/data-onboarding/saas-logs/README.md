@@ -13,6 +13,7 @@ View the lists of Direct integrations and EventBridge integrations below.
 
 Panther offers direct integrations to pull in logs from the following service providers:&#x20;
 
+* [Asana](asana.md)
 * [1Password](1password.md)
 * [Atlassian](https://docs.runpanther.io/data-onboarding/saas-logs/atlassian)
 * [Box](box.md)
