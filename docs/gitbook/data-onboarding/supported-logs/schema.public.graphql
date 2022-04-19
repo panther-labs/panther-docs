@@ -1,0 +1,1068 @@
+"""
+An Actor is an entity that performs a CRUD operation in Panther
+"""
+union Actor = User | APIToken
+
+"""
+The top-level Query type. Queries are used to fetch data.
+"""
+type Query {
+  """
+  Returns the details of a Panther alert
+  """
+  alert(id: ID!): Alert
+
+  """
+  Returns an - optionally filtered - paginated set of all Panther alerts
+  """
+  alerts(input: AlertsInput): AlertsOutput!
+
+  """
+  Retrieves the details of a single data lake database
+  """
+  dataLakeDatabase(name: String!): DataLakeDatabase!
+
+  """
+  Retrieves the details of a table from a single data lake database
+  """
+  dataLakeDatabaseTable(input: DataLakeDatabaseTableInput!): DataLakeDatabaseTable!
+
+  """
+  Lists the details of all available data lake databases
+  """
+  dataLakeDatabases: [DataLakeDatabase!]!
+
+  """
+  Returns a paginated list of all your previously executed data lake or indicator search queries
+  """
+  dataLakeQueries(input: DataLakeQueriesInput): DataLakeQueriesOutput!
+
+  """
+  Returns information around previously executed data lake or indicator search query
+  """
+  dataLakeQuery(id: ID!): DataLakeQuery!
+}
+
+"""
+The top-level Mutation type. Mutations are used to make requests that create or modify data.
+"""
+type Mutation {
+  """
+  Cancels a data lake or indicator search query that's currently running
+  """
+  cancelDataLakeQuery(input: CancelDataLakeQueryInput!): CancelDataLakeQueryOutput!
+
+  """
+  Executes an SQL query against a selected data lake database
+  """
+  executeDataLakeQuery(input: ExecuteDataLakeQueryInput!): ExecuteDataLakeQueryOutput!
+
+  """
+  Executes an Indicator Search query against Panther's data lake
+  """
+  executeIndicatorSearchQuery(
+    input: ExecuteIndicatorSearchQueryInput!
+  ): ExecuteIndicatorSearchQueryOutput!
+
+  """
+  Updates the status of one or more alerts via a list of IDs
+  """
+  updateAlertStatusById(input: UpdateAlertStatusByIdInput!): UpdateAlertStatusByIdOutput!
+}
+
+"""
+The (optional) filters of the `alerts` query
+"""
+input AlertsInput {
+  """
+  Only return alerts created after this date
+  """
+  createdAtAfter: DateTime
+
+  """
+  Only return alerts created before this date
+  """
+  createdAtBefore: DateTime
+
+  """
+  An opaque string used when paginating across multiple pages of results
+  """
+  cursor: String
+
+  """
+  A detection (rule, scheduled rule or policy) ID that all returned alerts should originate from
+  """
+  detectionId: ID
+
+  """
+  A maximum number of events that the returned alerts must have
+  """
+  eventCountMax: Int
+
+  """
+  A minimum number of events that the returned alerts must have
+  """
+  eventCountMin: Int
+
+  """
+  A list of log source IDs to filter alerts by
+  """
+  logSources: [String!]
+
+  """
+  A list of log type names (custom or not) to filter alerts by
+  """
+  logTypes: [String!]
+
+  """
+  A string/text to look for in the alert's title
+  """
+  nameContains: String
+
+  """
+  The size of each page of results. Defaults to `25`
+  """
+  pageSize: Int = 25
+
+  """
+  A list of AWS resource type names to filter alerts by
+  """
+  resourceTypes: [String!]
+
+  """
+  A list of severities to filter alerts by
+  """
+  severities: [Severity!]
+
+  """
+  The field to used for sorting purposes. Currently, `createdAt` is the only option
+  """
+  sortBy: AlertsSortFieldsEnum
+
+  """
+  The direction to sort alerts by, based on the value of the `sortBy` filter. Defaults to `descending`
+  """
+  sortDir: SortDirEnum = descending
+
+  """
+  A list of statuses to filter alerts by
+  """
+  statuses: [AlertStatus!]
+
+  """
+  A type to filter alerts by
+  """
+  types: [AlertType!]
+}
+
+"""
+The payload to the `updateAlertStatusById` mutation
+"""
+input UpdateAlertStatusByIdInput {
+  """
+  A list of alert IDs to update the status for
+  """
+  ids: [ID!]!
+
+  """
+  The new/updated status that those alerts should have
+  """
+  status: AlertStatus!
+}
+
+"""
+The response of the updateAlertStatusById mutation
+"""
+type UpdateAlertStatusByIdOutput {
+  alerts: [Alert!]!
+}
+
+"""
+The different status that an Alert can have
+"""
+enum AlertStatus {
+  """
+  The alert has been flagged as a false-positive. This is shown as Invalid in the Panther UI.
+  """
+  CLOSED
+
+  """
+  The alert is still open & pending triage
+  """
+  OPEN
+
+  """
+  The alert has been resolved along with the issue that caused it
+  """
+  RESOLVED
+
+  """
+  The alert has been successfully triaged, but it hasn't yet been closed or resolved
+  """
+  TRIAGED
+}
+
+"""
+The metadata around an Alert
+"""
+type Alert {
+  """
+  Date and time when the Alert got created
+  """
+  createdAt: DateTime!
+
+  """
+  The metadata around the alert's delivery attempts
+  """
+  deliveries: [AlertDelivery]!
+
+  """
+  The type of this Alert, as extracted from its origin
+  """
+  description: String!
+
+  """
+  The unique identifier of this Alert
+  """
+  id: ID!
+
+  """
+  Date and time that the last event related to this Alert was received
+  """
+  lastReceivedEventAt: DateTime!
+
+  """
+  The reference for this Alert, as extracted from its origin
+  """
+  reference: String!
+
+  """
+  The runbook for this Alert, as extracted from its origin
+  """
+  runbook: String!
+
+  """
+  The severity of this Alert
+  """
+  severity: Severity!
+
+  """
+  The status of this Alert
+  """
+  status: AlertStatus!
+
+  """
+  The title of this Alert
+  """
+  title: String!
+
+  """
+  The type of this Alert
+  """
+  type: AlertType!
+
+  """
+  Date and time when the Alert got last updated
+  """
+  updatedAt: DateTime
+
+  """
+  The Actor that last updated the state of this alert
+  """
+  updatedBy: Actor
+}
+
+"""
+The response of the `alerts` query
+"""
+type AlertsOutput {
+  """
+  A list of paginated alert edges
+  """
+  edges: [AlertsOutputEdge!]!
+
+  """
+  Metadata around this page of results
+  """
+  pageInfo: AlertsOutputPageInfo!
+}
+
+"""
+The edge shape of the `AlertsOutput` type
+"""
+type AlertsOutputEdge {
+  """
+  An alert node
+  """
+  node: Alert!
+}
+
+"""
+The metadata around a page of results for the `alerts` query
+"""
+type AlertsOutputPageInfo {
+  """
+  The cursor that the next page of results should start from or `null` if this is the last page
+  """
+  endCursor: String
+
+  """
+  A boolean indicating whether more results exist
+  """
+  hasNextPage: Boolean!
+
+  """
+  A boolean indicating whether this is the first page of results or not
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  The cursor that this page of results started from or `null` if this is the first page
+  """
+  startCursor: String
+}
+
+"""
+The different type of alerts that Panther Supports
+"""
+enum AlertType {
+  """
+  Alert that got created due to a Policy failure
+  """
+  POLICY
+
+  """
+  Alert that got created due to a Rule match
+  """
+  RULE
+
+  """
+  Alert that got created due to an error in the python code of the associated Rule
+  """
+  RULE_ERROR
+
+  """
+  Alert that got created due to a Scheduled Rule match
+  """
+  SCHEDULED_RULE
+
+  """
+  Alert that got created due to an error in the python code of the associated Scheduled Rule
+  """
+  SCHEDULED_RULE_ERROR
+
+  """
+  Alert that got created by Panther due to an issue with the data ingestion process
+  """
+  SYSTEM_ERROR
+}
+
+"""
+The metadata around a single Alert delivery attempt
+"""
+type AlertDelivery {
+  dispatchedAt: DateTime!
+  message: String!
+  outputId: ID!
+  statusCode: Int!
+  success: Boolean!
+}
+
+"""
+The available permissions that an API Token or a Role (and thus a User) can hold
+"""
+enum Permission {
+  AlertModify
+  AlertRead
+  DataAnalyticsRead
+  OrganizationAPITokenRead
+  UserRead
+}
+
+"""
+The supported sorting field when listing alerts
+"""
+enum AlertsSortFieldsEnum {
+  createdAt
+}
+
+"""
+The metadata of an API token that can act upon Panther resources.
+"""
+type APIToken {
+  """
+  Date and time when the API token got created
+  """
+  createdAt: DateTime!
+
+  """
+  The physical User that created this API token
+  """
+  createdBy: User!
+
+  """
+  Date and time when the API token will expire. Will be `null` if the token is non-expiring.
+  """
+  expiresAt: DateTime
+
+  """
+  The unique identifier of this token
+  """
+  id: ID!
+
+  """
+  The name given to this token during its creation
+  """
+  name: String!
+
+  """
+  The set of permissions associated with this token
+  """
+  permissions: [Permission!]!
+
+  """
+  Date and time when the API token last got updated
+  """
+  updatedAt: DateTime
+
+  """
+  The physical User that last updated this API token
+  """
+  updatedBy: User
+}
+
+"""
+The internationalized email address.<blockquote><strong>Note:</strong> Up to 64
+characters are allowed before and 255 characters are allowed after the
+<code>@</code> sign.
+However, the generally accepted maximum length for an email address is 254 characters.
+The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
+
+minLength: 3
+maxLength: 254
+pattern: <code>^.+@[^\"\\-].+$</code>.
+"""
+scalar Email
+
+"""
+A date in UTC with a format of YYYY-MM-DD hh:mm:ss.000Z.
+"""
+scalar DateTime
+
+"""
+An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Times) timestamp in UTC.
+"""
+scalar Timestamp
+
+"""
+A JSON map of key/value pairs
+"""
+scalar JSON
+
+"""
+An integer that can accept values that are bigger than 2^32
+"""
+scalar Long
+
+"""
+The available severity levels that can be associated with a detection or an alert
+"""
+enum Severity {
+  INFO
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+"""
+The available sorting direction on a listing operation
+"""
+enum SortDirEnum {
+  ascending
+  descending
+}
+
+"""
+The input to the indicator search query
+"""
+input ExecuteIndicatorSearchQueryInput {
+  """
+  The end of the indicator search period
+  """
+  endTime: DateTime!
+
+  """
+  The type of the indicator to search for
+  """
+  indicatorName: IndicatorType = AutoDetectType
+
+  """
+  An array of indicators to search for
+  """
+  indicators: [String!]!
+
+  """
+  The start of the indicator search period
+  """
+  startTime: DateTime!
+}
+
+"""
+The input to a data lake query cancellation operation
+"""
+input CancelDataLakeQueryInput {
+  """
+  The ID of the query to cancel
+  """
+  id: ID!
+}
+
+"""
+The input to a data lake query execution
+"""
+input ExecuteDataLakeQueryInput {
+  """
+  The name of the database that the query should be executed against. This is optional you prefix all tables with
+  their corresponding database names in your SQL queries. Defaults to `panther_logs`
+  """
+  databaseName: String = "panther_logs"
+
+  """
+  The SQL code of the data lake query
+  """
+  sql: String!
+}
+
+"""
+The input used to describe a data lake table
+"""
+input DataLakeDatabaseTableInput {
+  """
+  The name of the database that the table belongs in
+  """
+  databaseName: String!
+
+  """
+  The name of the table
+  """
+  tableName: String!
+}
+
+"""
+The optional input filters to the `dataLakeQueries` query
+"""
+input DataLakeQueriesInput {
+  """
+  Filter queries by their name and/or SQL statement
+  """
+  contains: String
+
+  """
+  An opaque string used when paginating across multiple pages of results
+  """
+  cursor: String
+
+  """
+  Only return queries that are either scheduled or not (i.e. issued by a user). Leave blank to return both.
+  """
+  isScheduled: Boolean
+
+  """
+  Only return queries issued by those user IDs
+  """
+  issuedBy: [ID!]
+
+  """
+  The number of results that each page will contain. Defaults to 25 with a maximum value of 999.
+  """
+  pageSize: Int = 25
+
+  """
+  Field used for sorting purposes. Currently, `startedAt` is the only option
+  """
+  sortBy: DataLakeQueriesSortFields = startedAt
+
+  """
+  The direction to sort results by
+  """
+  sortDir: SortDirEnum = descending
+
+  """
+  Only return queries that started after this fdate
+  """
+  startedAtAfter: DateTime
+
+  """
+  Only return queries that started after this fdate
+  """
+  startedAtBefore: DateTime
+
+  """
+  A list of query statuses to filter queries by
+  """
+  status: [DataLakeQueryStatus!]
+}
+
+"""
+The input to the `results` field of the `DataLakeQuery` type
+"""
+input DataLakeQueryResultsInput {
+  """
+  The pagination cursor used to fetch more pages. `null` if you're fetching the first page of results
+  """
+  cursor: String
+
+  """
+  The number of results that each page will contain. Defaults to the maximum value of 999.
+  """
+  pageSize: Int = 999
+}
+
+"""
+The metadata around a data lake or indicator search query
+"""
+type DataLakeQuery {
+  """
+  The datetime at which the query completed or errored. This value is empty if the query is still running
+  """
+  completedAt: DateTime
+
+  """
+  The ID of this query
+  """
+  id: ID!
+
+  """
+  A boolean denoting whether this was a scheduled query or not
+  """
+  isScheduled: Boolean!
+
+  """
+  The entity that issued this query
+  """
+  issuedBy: Actor
+
+  """
+  A message that describes the current status of this query
+  """
+  message: String!
+
+  """
+  The name of this query or empty if it's an ad-hoc query
+  """
+  name: String
+
+  """
+  The results this query yielded. This field is `null` if the query hasn't successfully completed
+  """
+  results(input: DataLakeQueryResultsInput): DataLakeQueryResults
+
+  """
+  The SQL statement that was ran
+  """
+  sql: String!
+
+  """
+  The datetime at which the query started executing
+  """
+  startedAt: DateTime!
+
+  """
+  The current status of this query
+  """
+  status: DataLakeQueryStatus!
+}
+
+"""
+The return value of a `dataLakeQueries` query
+"""
+type DataLakeQueriesOutput {
+  """
+  A list of paginated query edges
+  """
+  edges: [DataLakeQueryEdge!]!
+
+  """
+  Metadata around this page of results
+  """
+  pageInfo: DataLakeQueriesOutputPageInfo!
+}
+
+"""
+The edge shape of the `DataLakeQueryEdge` type
+"""
+type DataLakeQueryEdge {
+  """
+  A data lake query node
+  """
+  node: DataLakeQuery!
+}
+
+"""
+The metadata around a page of results for the `dataLakeQueries` query
+"""
+type DataLakeQueriesOutputPageInfo {
+  """
+  The cursor that the next page of results should start from or `null` if this is the last page
+  """
+  endCursor: String
+
+  """
+  A boolean indicating whether more results exist
+  """
+  hasNextPage: Boolean!
+
+  """
+  A boolean indicating whether this is the first page of results or not
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  The cursor that this page of results started from or `null` if this is the first page
+  """
+  startCursor: String
+}
+
+"""
+The shape of a data lake query results
+"""
+type DataLakeQueryResults {
+  """
+  Metadata around the data lake columns returned in this page of results
+  """
+  columnInfo: DataLakeQueryResultsColumnInfo!
+
+  """
+  A list of paginated data lake result edges
+  """
+  edges: [DataLakeQueryResultEdge!]!
+
+  """
+  Metadata around this page of results
+  """
+  pageInfo: DataLakeQueryResultRecordsPageInfo!
+
+  """
+  Stats around the data lake or indicator search query results
+  """
+  stats: DataLakeQueryStats!
+}
+
+"""
+Metadata related to the underlying database columns returned as part of a data lake or indicator search query
+"""
+type DataLakeQueryResultsColumnInfo {
+  """
+  The ordered name of the columns as returned by the underlying database
+  """
+  order: [String!]!
+
+  """
+  A mapping of column name to column type. The type of each column is directly related to the underlying database
+  and varies from one backend to another (e.g. Athena, Snowflake, etc.)
+  """
+  types: JSON!
+}
+
+"""
+Data lake query execution stats
+"""
+type DataLakeQueryStats {
+  """
+  The amount of data scanned (expressed in bytes) during this data lake or indicator query execution
+  """
+  bytesScanned: Float!
+
+  """
+  The amount of time (expressed in milliseconds) that the data lake or indicator search query ran for
+  """
+  executionTime: Float!
+}
+
+"""
+The edge shape of the `DataLakeQueryResultRecords` type
+"""
+type DataLakeQueryResultEdge {
+  """
+  A data lake record object
+  """
+  node: JSON!
+}
+
+"""
+Pagination metadata for the records returned by a data lake or indicator search query
+"""
+type DataLakeQueryResultRecordsPageInfo {
+  """
+  The cursor that the next page of results should start from or `null` if this is the last page
+  """
+  endCursor: String
+
+  """
+  A boolean indicating whether more results exist
+  """
+  hasNextPage: Boolean!
+
+  """
+  A boolean indicating whether this is the first page of results or not
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  The cursor that this page of results started from or `null` if this is the first page
+  """
+  startCursor: String
+}
+
+"""
+The return value of a data lake or indicator search query cancellation request
+"""
+type CancelDataLakeQueryOutput {
+  """
+  The ID of the query that just got cancelled
+  """
+  id: ID!
+}
+
+"""
+The return value of a data lake query execution request
+"""
+type ExecuteDataLakeQueryOutput {
+  """
+  The ID of the data lake sql query that started executing
+  """
+  id: ID!
+}
+
+"""
+The return value of a data lake indicator search query execution request
+"""
+type ExecuteIndicatorSearchQueryOutput {
+  """
+  The ID of the indicator search query that started executing
+  """
+  id: ID!
+}
+
+"""
+A Panther data lake database
+"""
+type DataLakeDatabase {
+  """
+  A description for this database
+  """
+  description: String
+
+  """
+  The name of this database
+  """
+  name: String!
+
+  """
+  The tables that this database has
+  """
+  tables: [DataLakeDatabaseTable!]!
+}
+
+"""
+A table within a Panther data lake database
+"""
+type DataLakeDatabaseTable {
+  """
+  The column that this table has
+  """
+  columns: [DataLakeDatabaseTableColumn!]!
+
+  """
+  A description for this table
+  """
+  description: String
+
+  """
+  The name of the table
+  """
+  name: String!
+}
+
+"""
+The column of a Panther data lake table
+"""
+type DataLakeDatabaseTableColumn {
+  """
+  A description for this column
+  """
+  description: String
+
+  """
+  The name of the column
+  """
+  name: String!
+
+  """
+  The column's type. Exact values depend on your choice of data lake.
+  """
+  type: String
+}
+
+"""
+The available statuses for a data lake or indicator search query
+"""
+enum DataLakeQueryStatus {
+  """
+  The status when the query was cancelled by the user
+  """
+  cancelled
+
+  """
+  The status when the query has errored out
+  """
+  failed
+
+  """
+  The status when the query is running
+  """
+  running
+
+  """
+  The status when the query has successfully completed
+  """
+  succeeded
+}
+
+"""
+The available sort values for sorting a paginated list of data lake queries
+"""
+enum DataLakeQueriesSortFields {
+  startedAt
+}
+
+"""
+The available indicator types used in an Indicator Search Query
+"""
+enum IndicatorType {
+  AutoDetectType
+  p_any_aws_account_ids
+  p_any_aws_arns
+  p_any_aws_instance_ids
+  p_any_aws_tags
+  p_any_domain_names
+  p_any_emails
+  p_any_ip_addresses
+  p_any_md5_hashes
+  p_any_sha1_hashes
+  p_any_sha256_hashes
+  p_any_trace_ids
+  p_any_usernames
+}
+
+"""
+The details of a Role entity in Panther
+"""
+type Role {
+  """
+  Date and time when the Role got created
+  """
+  createdAt: Timestamp!
+
+  """
+  The unique identifier of this Role
+  """
+  id: ID!
+
+  """
+  The set of log types the Role is allowed/denied access to, according to the `logTypeAccessKind` field.
+  Null if logTypeAccessKind is ALLOW_ALL or DENY_ALL.
+  """
+  logTypeAccess: [String!]
+
+  """
+  Indicates whether the Role is allowed or denied to query the selected log types
+  """
+  logTypeAccessKind: LogTypeAccessKind!
+
+  """
+  The name given to this Role
+  """
+  name: String!
+
+  """
+  The set of permissions associated with the Role (and it's holder)
+  """
+  permissions: [Permission!]!
+
+  """
+  Date and time when the Role got last updated
+  """
+  updatedAt: Timestamp!
+
+  """
+  The Actor that last updated this Role
+  """
+  updatedBy: Actor
+}
+
+"""
+The supported types for log types access management
+"""
+enum LogTypeAccessKind {
+  """
+  Allow access to selected log types
+  """
+  ALLOW
+
+  """
+  Allow access to all log types
+  """
+  ALLOW_ALL
+
+  """
+  Deny access to the selected log types
+  """
+  DENY
+
+  """
+  Deny access to all log types
+  """
+  DENY_ALL
+}
+
+"""
+The details around a physical User entity in Pantheer
+"""
+type User {
+  """
+  Date and time when the User got created
+  """
+  createdAt: Timestamp!
+
+  """
+  The email address of the User
+  """
+  email: Email!
+
+  """
+  The family/last name of the User
+  """
+  familyName: String
+
+  """
+  The given/first name of the User
+  """
+  givenName: String
+
+  """
+  The unique identifier of this User
+  """
+  id: ID!
+
+  """
+  The details of the Role that this User has
+  """
+  role: Role!
+
+  """
+  The Cognito auth-related status of this User
+  """
+  status: String!
+}
