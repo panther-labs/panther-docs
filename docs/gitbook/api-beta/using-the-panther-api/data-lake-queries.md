@@ -1,9 +1,9 @@
 # Data Lake Queries
 
-The Panther API supports the following Data Lake operations:
+The Panther API supports the following data lake operations:
 
 * Listing your data lake databases, tables, and columns
-* Executing a Data Lake (Data Explorer) query using SQL
+* Executing a data lake (Data Explorer) query using SQL
 * Executing an Indicator Search query&#x20;
 * Canceling any currently-running query
 * Fetching the details of any previously executed query
@@ -66,7 +66,7 @@ query DatabaseEntities {
 #### Executing queries
 
 {% tabs %}
-{% tab title="Executing a Data Lake (Data Explorer) query" %}
+{% tab title="Executing a data lake (Data Explorer) query" %}
 ```graphql
 # `IssueIndicatorSearchQuery` is a nickname for the operation
 mutation IssueDataLakeQuery {
@@ -107,9 +107,9 @@ mutation AbandonQuery {
 {% endtab %}
 {% endtabs %}
 
-#### Fetching Results for a Data Lake or Indicator Search query
+#### Fetching results for a data lake or Indicator Search query
 
-When you execute a Data Lake or Indicator Search query, it can take a few seconds to a few minutes for results to come back. To confirm that the query has completed, you must check the status of the query (polling).
+When you execute a data lake or Indicator Search query, it can take a few seconds to a few minutes for results to come back. To confirm that the query has completed, you must check the status of the query (polling).
 
 You can use the following query to check the query status, while also fetching its results if available:
 
@@ -165,7 +165,7 @@ The expected values of `status` and `results` depend on the query's status:
 
 All of the above (along with the possible values for `status)` , along with additional fields you are allowed to request can be found in our [Documentation Explorer](../api-playground.md#documentation-explorer) or [GraphQL schema file](../discovering-the-schema.md#downloading-the-graphql-schema-file)).
 
-#### Fetching metadata around a Data Lake or Indicator Search query
+#### Fetching metadata around a data lake or Indicator Search query
 
 In the example above, we requested the `results` of a Panther query. It is also possible to request additional metadata around the query.&#x20;
 
@@ -198,7 +198,7 @@ query QueryMetadata {
   }
 ```
 
-#### Listing Data Lake and Indicator Search queries
+#### Listing data lake and Indicator Search queries
 
 {% tabs %}
 {% tab title="Fetching the first page" %}
@@ -297,7 +297,7 @@ query ListDataLakeQueries {
 
 Below, we will build on the [Common Operations](data-lake-queries.md#common-operations) examples to showcase an end-to-end flow.
 
-#### Execute a Data Lake (Data Explorer) Query
+#### Execute a data lake (Data Explorer) Query
 
 {% tabs %}
 {% tab title="NodeJS" %}
@@ -480,7 +480,7 @@ print(f'Query returned {len(all_results)} results(s)!')
 {% endtab %}
 {% endtabs %}
 
-#### Execute an Indicator Search Query
+#### Execute an Indicator Search query
 
 {% tabs %}
 {% tab title="NodeJS" %}

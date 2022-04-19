@@ -1,6 +1,6 @@
 # G Suite
 
-Panther has the ability to fetch events by querying the [G Suite Reports API](https://developers.google.com/admin-sdk/reports/v1/get-start/getting-started). Panther will query the G Suite Reports API for new events every 60 seconds.
+Panther can fetch G Suite (now named Google Workspace) events by querying the [Google Workspace Admin Reports API](https://developers.google.com/admin-sdk/reports/v1/get-start/getting-started). Panther will query the Reports API for new events every 60 seconds.
 
 In order for Panther to access the API, you need to create a new G Suite App and provide the app credentials to Panther.
 
