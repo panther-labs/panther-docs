@@ -19,7 +19,7 @@ Panther offers direct integrations to pull in logs from the following service pr
 * [Box](box.md)
 * [CrowdStrike](crowdstrike.md)
 * [Duo](duo.md)
-* [Google WorkSpaces (formerly G Suite](gsuite.md))
+* [Google WorkSpace (formerly G Suite](gsuite.md))
 * [Github](github.md)
 * [Okta](okta.md)
 * [OneLogin](onelogin.md)
