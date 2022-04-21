@@ -19,9 +19,9 @@ For more information, see [Data Transports](data-transports/).
 
 ### Cloud Accounts
 
-Panther may scan your AWS environment to create a model of each AWS resource within. Customers may then compare each model against a policy and Panther can be configured to trigger an alert if the model does not adhere to the policy.
+Onboard your AWS account to allow Panther to scan its resources and check for potential vulnerabilities. For more information, see [Cloud Accounts](https://docs.panther.com/cloud-scanning).
 
-For more information, see [Cloud Accounts](https://docs.panther.com/cloud-scanning).
+In addition to onboarding AWS accounts for Cloud Scanning, we also advise you to onboard the same AWS account as a log source so you can configure Detections and receive alerts for active incidents and breaches. For more information, see [Built-in Log Types > AWS](supported-logs/aws.md).
 
 ### Custom Log Types
 
