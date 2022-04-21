@@ -68,7 +68,7 @@ query DatabaseEntities {
 {% tabs %}
 {% tab title="Executing a data lake (Data Explorer) query" %}
 ```graphql
-# `IssueIndicatorSearchQuery` is a nickname for the operation
+# `IssueDataLakeQuery` is a nickname for the operation
 mutation IssueDataLakeQuery {
   executeDataLakeQuery(input: {
     sql: "select * from panther_logs.public.aws_alb limit 50"
