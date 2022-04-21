@@ -29,7 +29,7 @@ Before getting started, note the following constraints:
 * Time range is configurable but must be within the last 30 days.
 * Time range must be older than 24 hours.
 * Replay must complete in under an hour.
-* Network calls from within a rule are not supported and will be blocked in future releases.
+* Network calls from within a rule are currently not blocked, but are not supported and will be blocked in future releases.
 
 #### How to use Data Replay:
 
