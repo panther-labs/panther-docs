@@ -3,11 +3,7 @@
 {% hint style="info" %}
 This feature is available in version 1.27 and newer.
 
-Lookup Tables are currently in beta. This means:&#x20;
-
-* We would greatly appreciate feedback such as bug reports and feature requests.
-* The feature will gain new functionality in future versions of Panther.&#x20;
-* The UI is likely to significantly evolve over time.
+Lookup Tables are currently in public beta. Please share any bug reports and feature requests with your account team.
 {% endhint %}
 
 ### Overview
