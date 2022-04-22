@@ -15,14 +15,16 @@ In order to set up 1Password as a log source in Panther, you'll need to authoriz
 
 ## Generate an Access Token in 1Password
 
-1. [Sign in](https://start.1password.com/signin) to your 1Password account, then click **Integrations** in the sidebar
-2. Choose "Other" as your SIEM
-3. Enter a name for the integration, then click **Add Integration**.
-4. Enter a name for the bearer token and choose when the token will expire. Select the event types the token has access to which will be `ItemUsage` and `SignInAttempts`**.**
+1. [Sign in](https://start.1password.com/signin) to your 1Password account, then click **Integrations** in the sidebar.
+2. Click **Directory** at the top of the page.
+3. Scroll down to the "Events Reporting" section then click **Other**. \
+   ![](../../.gitbook/assets/1pw-other.png)
+4. Enter a System Name for the integration, then click **Add Integration**.
+5. Enter a name for the bearer token and choose when the token will expire. Select the event types the token has access to which will be `ItemUsage` and `SignInAttempts`**.**
    * For  information on issuing or revoking bearer tokens, please see [1Password's documentation](https://support.1password.com/events-reporting/#appendix-issue-or-revoke-bearer-tokens).
-5. Click **Issue Token**.
-6. Click **Save in 1Password** and choose which vault to save your token to. Then click **View Integration Details**.
-7. Copy and paste the token into the Panther Console.&#x20;
+6. Click **Issue Token**.
+7. Click **Save in 1Password** and choose which vault to save your token to. Then click **View Integration Details**.
+8. Copy and paste the token into the Panther Console.&#x20;
 
 ## Create a new 1Password log source in Panther
 
