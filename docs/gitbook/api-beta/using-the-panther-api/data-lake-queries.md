@@ -127,6 +127,7 @@ query QueryResults {
       }
     }
   }
+}
 ```
 {% endtab %}
 
