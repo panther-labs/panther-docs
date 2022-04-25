@@ -4,7 +4,11 @@
 This page assumes that you've already [generated an API Token](https://docs.runpanther.io/api-beta/generating-an-api-token) to interact with the API and that you've already experimented with it in the [Playground](https://docs.runpanther.io/api-beta/api-playground).
 {% endhint %}
 
-### Prerequisites
+This page contains instructions on how to invoke the API, and common operations and end-to-end examples.&#x20;
+
+For information specific to alerting or data lake operations, please see the documentation pages: [Alerts & Errors](alerts-and-errors.md) | [Data Lake Queries](data-lake-queries.md)
+
+## Prerequisites
 
 To invoke the API using an HTTP curl operation, you will need the following information:
 
@@ -18,7 +22,7 @@ To invoke the API using an HTTP curl operation, you will need the following info
 
 
 
-### Invoking the API
+## Invoking the API
 
 There are two ways to invoke a GraphQL-over-HTTP API:
 
