@@ -10,7 +10,7 @@ Panther audit logs are available in version 1.34 and newer.&#x20;
 
 ## Overview
 
-Panther audit logs provide a read-only history of activity within your Panther deployment.  With Panther audit logs as a log source enabled, you can write detections or query the data lake for audit logs the same way you would with any other security events ingested by Panther. Audit logs are automatically generated, but must be enabled by by your Panther support team to use them as a log source.
+Panther audit logs provide a read-only history of activity within your Panther deployment.  With Panther audit logs as a log source enabled, you can write detections or query the data lake for audit logs the same way you would with any other security events ingested by Panther. Audit logs are automatically generated, but must be enabled by your Panther support team to use them as a log source.
 
 Learn [how to query and write Detections for Panther audit logs](querying-and-writing-detections-for-panther-audit-logs.md) in the documentation.
 
