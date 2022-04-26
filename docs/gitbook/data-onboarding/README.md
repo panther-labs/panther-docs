@@ -2,6 +2,8 @@
 
 Panther offers several options to onboard data, including SaaS Logs, Data Transports, Cloud Accounts, and Custom Log Types. You can also [request support for a specific log source](https://docs.runpanther.io/data-onboarding#request).&#x20;
 
+For information on ingesting Panther Console audit logs, please see the documentation: [Panther Audit Logs](../system-configuration/panther-audit-logs/).
+
 ### SaaS Logs
 
 Panther leverages two mechanisms to pull logs from SaaS vendors:&#x20;
