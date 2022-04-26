@@ -8,7 +8,7 @@ description: Onboarding Apache logs to your Panther Console
 
 Panther supports ingesting Apache logs via common [Data Transport](https://docs.panther.com/data-onboarding/data-transports) options: Amazon Web Services (AWS) S3 and AWS SQS.
 
-## How to onboard logs
+## How to onboard Apache logs to Panther
 
 To pull these logs into Panther:
 
