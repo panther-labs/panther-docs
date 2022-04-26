@@ -93,7 +93,7 @@ Example:
 
 For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right side of the JSON code editor to populate it with your Lookup Table data. This allows you to test a Python function with an event that contains `p_enrichment.`
 
-![](<../../.gitbook/assets/Screen Shot 2021-11-22 at 4.47.34 PM.png>)
+![](<../../.gitbook/assets/Screen Shot 2021-11-22 at 4.47.34 PM (1).png>)
 
 ### Additional Examples
 

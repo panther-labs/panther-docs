@@ -5,15 +5,15 @@ Panther is a cloud-native threat detection platform that transforms terabytes of
 With detection-as-code in Python and out-of-the-box integrations for dozens of critical log sources, Panther solves the challenges of security operations at scale.\
 
 
-![](.gitbook/assets/overview-diagram-new.png)
+![](.gitbook/assets/e2e-diagram.png)
 
 It works by normalizing security logs from various places:
 
-![](<.gitbook/assets/parsing (2).png>)
+![](<.gitbook/assets/parsing (1) (1).png>)
 
 And alerting your team when suspicious activity happens:
 
-![](<.gitbook/assets/detection (2).png>)
+![](<.gitbook/assets/detection (1) (1).png>)
 
 ## Benefits
 

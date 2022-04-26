@@ -30,7 +30,7 @@ New data models are added in the Panther Console or via the [Panther Analysis To
 
 To create a new Data Model, log in to your Panther Console and navigate to `Data` > `Data Models`:
 
-![](../.gitbook/assets/screen-shot-2021-09-17-at-11.28.24-am.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-17 at 11.28.24 AM.png>)
 
 Click `CREATE NEW`:
 

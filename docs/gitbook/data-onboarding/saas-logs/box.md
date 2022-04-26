@@ -14,7 +14,7 @@ For Panther to access the Box API, you will need to create a new Box App and pro
 6. Enter a name for the source (e.g. `My Box logs`)
 7. Click **Continue Setup**.&#x20;
 8. On the "Set Credentials" page, click **Copy** under Step 1 to copy your redirect URL.\
-   ![](../../.gitbook/assets/box-redirect-url.png)
+   ![](<../../.gitbook/assets/Screen Shot 2022-03-16 at 2.19.06 PM.png>)
 
 Before you continue the setup process in your Panther Console, you must create a new app in your Box Developer Console and retrieve the Client ID and Client Secret.
 
@@ -33,7 +33,7 @@ To read events from the entire enterprise account, the Box user performing the f
    ****![](../../.gitbook/assets/box-new-app.png)****
 3. Select **Custom App** for the app type then click **Next.**
 4. Select **User Authentication (OAuth 2.0)**, enter a name for your app (e.g. `Panther`), then click **Create App.**\
-   ****![](../../.gitbook/assets/box-custom-app.png)****
+   ****![](../../../../.gitbook/assets/box-new-app-page3.png)****
 5. In your new app's Configuration tab, scroll down to the **OAuth 2.0 Redirect URI** section and paste the redirect URL you copied from your Panther console.\
    ![](../../.gitbook/assets/box-oauth-redirect.png)
 6. On the **Application Scopes** section make sure **Manage enterprise properties** is selected (it is **not** selected by default)\
