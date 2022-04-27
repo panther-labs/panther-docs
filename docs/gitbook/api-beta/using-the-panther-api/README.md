@@ -293,6 +293,16 @@ mutation UpdateAlertStatus {
   }
 ```
 
+#### Getting your Panther Version
+
+```graphql
+query PantherVersion {
+    generalSettings {
+        pantherVersion
+    }
+}
+```
+
 ## End-to-end Example
 
 The examples above show common operations and show how you can use a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;

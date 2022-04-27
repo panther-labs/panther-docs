@@ -138,14 +138,14 @@ There are three options for creating an IAM Role to use with your Panther Lookup
        ```
 3. On the "Setting up role manually" page in Panther, enter the Role ARN.&#x20;
    * This can be found in the "Outputs" tab of the CloudFormation stack in your AWS account.\
-     ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.03.43 PM.png>)
+     ![](../../.gitbook/assets/role-arn.png)
 4. Click **Finish Setup**, and you will be redirected to the Lookup Tables list page with your new Employee Directory table listed.
 
 ### View the Lookup Table data with Data Explorer
 
 1. In your Panther Console, navigate to **Enrichment > Lookups** to view your Lookup Tables list.
 2. Click **...** in the upper right corner of the Lookup Table you wish to view, then click **View In Data Explorer**.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.18.03 PM.png>)
+   ![](../../.gitbook/assets/view-in-de.png)
 
 For more information on using Data Explorer, please see the documentation: [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer).
 

@@ -63,23 +63,23 @@ The steps to view the dashboard:
 * Select `CloudWatch` from the Services menu
 * Select `Dashboards` from the left pane of the CloudWatch console
 
-![](<../../../../.gitbook/assets/cloudwatch-dashboards (6) (6) (8) (9) (1) (1) (3) (1) (1) (6).png>)
+![](<../../../../.gitbook/assets/cloudwatch-dashboards (6) (6) (8) (9) (1) (1) (3) (1) (6).png>)
 
 * Select the dashboard beginning with `PantherLogAnalysis`
 
-![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis (6) (6) (4) (1) (1) (3) (1) (1) (6).png>)
+![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis (6) (6) (4) (1) (1) (3) (1) (6).png>)
 
 * Select the vertical `...` of the pane entitled `Input MBytes (Uncompressed) by Log Type` and select from the menu `View in CloudWatch Insights`
 
-![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select (6) (6) (8) (5) (1) (1) (3) (1) (1) (6).png>)
+![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select (6) (6) (8) (5) (1) (1) (3) (1) (6).png>)
 
 * Set the time period for 4 weeks and click `Apply`
 
-![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select-time (6) (6) (8) (9) (1) (1) (3) (1) (1) (6).png>)
+![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-select-time (6) (6) (8) (9) (1) (1) (3) (1) (6).png>)
 
 * Click `Run Query`
 
-![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-show (6) (6) (8) (6) (1) (1) (3) (1) (1) (6).png>)
+![](<../../../../.gitbook/assets/cloudwatch-dashboards-log-analysis-input-show (6) (6) (8) (6) (1) (1) (3) (1) (6).png>)
 
 ## Tools
 

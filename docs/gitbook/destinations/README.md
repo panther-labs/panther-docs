@@ -55,7 +55,7 @@ To create a destination:
    * You can optionally click **Send test alert** to verify that your destination was configured correctly.
 7. Click Finish Setup.
 
-![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (3).png>)
+![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (3).png>)
 
 You are now ready to receive alerts!
 
