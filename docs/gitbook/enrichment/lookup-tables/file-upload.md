@@ -17,6 +17,7 @@ To configure a Lookup Table, follow these steps in your Panther Console:
    ![](../../.gitbook/assets/add-lookup-table.png)
 3. Configure the Lookup Table Basic Information:
    1. &#x20;Enter a descriptive Lookup Name.&#x20;
+      * For this example, we will use `account_metadata`.
    2. Enter a Description (optional) and a Reference (optional). Description is meant for content about the table, while Reference can be used to hyperlink to an internal resource.
    3. Next to **Enabled?** toggle the setting to **Yes**. Note: This is required to import your data later in this process.&#x20;
    4. Click **Continue**.\
@@ -49,6 +50,16 @@ Continuing the example mentioned above where you configure a Lookup Table to dis
 
 * A user logged in who did not have MFA enabled.
 * The AWS account is a production (not a developer) account.&#x20;
+
+You can use the [deep\_get helper function](../../writing-detections/globals.md#deep\_get) to retrieve the looked up field from `p_enrichment` using the foreign key field in the log. The pattern looks like this:
+
+```python
+deep_get(event, 'p_enrichment', <Lookup Table name>, <foreign key in log>, <field in Lookup Table>)
+```
+
+{% hint style="info" %}
+The Lookup Table name, foreign key and field name are all optional parameters. If not specified, `deep_get` will return a hierarchical dictionary with all the enrichment data available. Specifying the parameters will ensure that only the data you care about is returned.
+{% endhint %}
 
 See an example of a Python rule to detect this:
 
@@ -89,7 +100,7 @@ Example:
 }
 ```
 
-#### Unit testing
+#### Detection Testing
 
 For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right side of the JSON code editor to populate it with your Lookup Table data. This allows you to test a Python function with an event that contains `p_enrichment.`
 
@@ -109,11 +120,13 @@ Please see our guide about using Lookup Tables to translate 1Password's Universa
 
 #### Set up a Lookup Table with the CIDR list
 
-1. Follow the steps above under "Set up a Lookup Table" to add a new Lookup Table and configure its basic information.
-2. On the Associated Log Types page, choose the Log Type and Selectors. For this example, we used `AWS.VPCFlow` logs and associated the source IP (`srcAddr`) and destination (`dstAddr`) keys.\
-   ![](../../.gitbook/assets/lookup-table-cidr-log-type.png)
+1. Follow the steps above under "Set up a Lookup Table" to add a new Lookup Table and configure its basic information.&#x20;
+   * The name of the Lookup Table in this example is `Company CIDR Blocks`.
+2. On the Associated Log Types page, choose the Log Type and Selectors.&#x20;
+   * For this example, we used `AWS.VPCFlow` logs and associated the source IP (`srcAddr`) and destination (`dstAddr`) keys.\
+     ![](../../.gitbook/assets/lookup-table-cidr-log-type.png)
 3. &#x20;Associate a schema for your Lookup Table: Select an existing one from your list or [create a new schema](https://docs.runpanther.io/data-onboarding/custom-log-types#generating-a-schema-for-a-custom-log-type-from-sample-logs).
-   1.  **Note:** The primary key column which will hold the CIDR blocks needs to have a `CIDR` validation applied in the schema to indicate that this lookup table will do CIDR block matching on IP addresses. [See our log schema reference](https://docs.runpanther.io/data-onboarding/custom-log-types/reference#validation-by-string-type).
+   *   **Note:** The primary key column which will hold the CIDR blocks needs to have a `CIDR` validation applied in the schema to indicate that this lookup table will do CIDR block matching on IP addresses. [See our log schema reference](https://docs.runpanther.io/data-onboarding/custom-log-types/reference#validation-by-string-type).
 
        ```
        # Will allow valid ip6 CIDR ranges
@@ -149,5 +162,4 @@ def rule(event):
   return True # alert if NOT from an approved network range
 ```
 
-
-
+**Note**: The CIDR [validation](file-upload.md#set-up-a-lookup-table-with-the-cidr-list) applied in the Lookup Table schema in this example will enable the system to match IP addresses in VPC flow log to CIDR blocks in the lookup.

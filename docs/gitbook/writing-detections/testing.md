@@ -150,3 +150,13 @@ Once this modification is added, you can now test the detection logic with real 
 #### Mocks from the CLI
 
 Unit test mocking is also supported with CLI based workflows for writing detections. For details on adding unit test mocks to a CLI based detection, see the [unit test mocking](panther-analysis-tool.md#unit-test-mocking) section of the Panther Analysis Tool docs.
+
+## Enrich Test Data
+
+If you have [Lookup Table(s)](../enrichment/lookup-tables/) configured and created a detection to leverage them, click **Enrich Test Data** in the upper right side of the JSON event editor to ensure that `p_enrichment` is populated correctly.
+
+{% hint style="info" %}
+This example is based on the [Account Metadata](../enrichment/lookup-tables/file-upload.md#write-a-detection-using-lookup-table-data) Lookup Table scenario.
+{% endhint %}
+
+![](<../.gitbook/assets/image (4).png>)
