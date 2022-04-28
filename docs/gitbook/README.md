@@ -1,7 +1,4 @@
 ---
-description: >-
-  Documentation overview highlighting key features and benefits of Panther's
-  cloud-native threat detection platform
 cover: .gitbook/assets/Panth_DocsRepo_Banner22.jpg
 coverY: 0
 ---
