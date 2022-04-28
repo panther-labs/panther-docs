@@ -2,17 +2,26 @@
 description: Logs of audited activity within your instance of Panther
 ---
 
-# Panther Audit Logs
+# Panther Audit Logs (BETA)
 
 {% hint style="info" %}
-Panther audit logs are available in version 1.34 and newer.&#x20;
+This feature is available in version 1.34 and newer. \
+Panther Audit Logs are currently in public beta. Please share any bug reports and feature requests with your account team.&#x20;
 {% endhint %}
 
 ## Overview
 
-Panther audit logs provide a read-only history of activity within your Panther deployment.  With Panther audit logs as a log source enabled, you can write detections or query the data lake for audit logs the same way you would with any other security events ingested by Panther. Audit logs are automatically generated, but must be enabled by your Panther support team to use them as a log source.
+Panther audit logs provide a read-only history of activity within your Panther deployment.  With Panther audit logs as a log source enabled, you can write detections or query the data lake for audit logs the same way you would with any other security events ingested by Panther.&#x20;
 
 Learn [how to query and write Detections for Panther audit logs](querying-and-writing-detections-for-panther-audit-logs.md) in the documentation.
+
+{% hint style="info" %}
+Audit logging does not currently include an exhaustive list of all activity in Panther (such as sign in/sign out activity and references to specific log sources, cloud accounts, and destinations). If you have any questions about this feature, reach out to Panther Support.
+{% endhint %}
+
+### Enabling audit logs
+
+Audit logs are automatically generated, but must be enabled by your Panther support team to use them as a log source.
 
 ### Retention
 
