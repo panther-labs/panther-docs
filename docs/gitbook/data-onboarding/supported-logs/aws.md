@@ -8,23 +8,24 @@ description: Onboarding AWS logs to your Panther Console
 
 Panther supports ingesting Amazon Web Services (AWS) logs via common [Data Transport](https://docs.panther.com/data-onboarding/data-transports) options: Amazon Web Services (AWS) S3 and AWS SQS.
 
-## How to onboard logs
+## How to onboard AWS logs to Panther
 
-To pull these logs into Panther:
+To pull these logs into Panther, set up an S3 bucket or SQS queue in the Panther Console to stream data from your AWS account. Please follow Panther’s documentation for configuring S3 or SQS:
 
-Set up your Data Transport in the Panther Console.
+* [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
+* [AWS SQS](aws.md#aws.s3serveraccess)
 
-* Please follow Panther’s documentation for configuring the Data Transport option you will use:
-  * [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
-  * [AWS SQS](aws.md#aws.s3serveraccess)
+#### AWS CloudTrail log latency
 
-When you onboard your AWS logs as a log source integration, you can configure Detections and receive alerts for active incidents and breaches. Additionally, we recommend onboarding AWS as a Cloud Account for [Cloud Security Scanning](../../cloud-scanning/), which enables Panther to scan the resources to check for potential vulnerabilities.&#x20;
+The latency between an event occurring in AWS and the event being sent to CloudTrail can be up to 15 minutes, but we commonly see data coming in at an average of 3.5 minutes. For more information, please see Amazon's documentation: [How CloudTrail works](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html).
 
-## Supported log types
+### Cloud Security Scanning for AWS resources
 
-{% hint style="info" %}
-Required fields are in **bold**.
-{% endhint %}
+In addition to monitoring AWS logs for active security events, incidents, and breaches, we recommend onboarding your AWS environment as a Cloud Account for [Cloud Security Scanning](../../cloud-scanning/). Cloud Security Scanning scans cloud resources in your AWS account to check for potential vulnerabilities. Panther comes with several built-in policies that will alert you to vulnerabilities in your AWS environment.&#x20;
+
+To learn more about how to set up Cloud Security Scanning for AWS, please see the documentation: [Onboarding Cloud Accounts](../../cloud-scanning/onboarding-cloud-accounts.md).
+
+## Supported AWS log types
 
 Panther supports the following AWS log types:
 
@@ -39,6 +40,12 @@ Panther supports the following AWS log types:
 * [AWS.VPCDns](aws.md#aws.vpcdns)
 * [AWS.VPCFlow](aws.md#aws.vpcflow)
 * [AWS.WAFWebACL](aws.md#aws.wafwebacl)
+
+
+
+{% hint style="info" %}
+In the tables below, required fields are in **bold**.
+{% endhint %}
 
 ### AWS.ALB
 

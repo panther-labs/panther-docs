@@ -1,12 +1,10 @@
 # Onboarding Cloud Accounts
 
-On this page, you will learn how to:
+On this page, you will learn how to onboard AWS as a Cloud Account in Panther, which will automatically enable Cloud Security Scanning. Panther will scan the resources to check for potential vulnerabilities.
 
-* [Configure a Cloud Account in Panther](onboarding-cloud-accounts.md#configure-the-cloud-account-in-panther)
-* [Set up real-time monitoring via CloudTrail log source](onboarding-cloud-accounts.md#real-time-monitoring-via-cloudtrail-log-source)
-* [Set up real-time monitoring via CloudWatch events](onboarding-cloud-accounts.md#real-time-monitoring-via-cloudwatch-events)
+Additionally, we recommend [onboarding your CloudTrail or CloudWatch logs as a log source integration](../data-onboarding/supported-logs/aws.md) so you can configure Detections and receive alerts for active incidents and breaches.
 
-### Configure the Cloud Account in Panther
+## Configure the Cloud Account in Panther
 
 1. Log in to your Panther Console.
 2. In the left sidebar, click **Integrations > Cloud Accounts** then click **Connect an account**.
@@ -50,7 +48,7 @@ If you wish to create an IAM role via some other mechanism, ensure it has the na
 1. On the "Set Up an IAM role" page, click the link that says **I want to set everything up on my own**.
 2. Create the required IAM role. You may create the required IAM role manually or through your own automation.
 
-### Finishing the Cloud Account setup process
+## Finishing the Cloud Account setup process
 
 The Setup Verification page verifies whether the IAM role has been successfully created.
 
@@ -58,60 +56,21 @@ The Setup Verification page verifies whether the IAM role has been successfully 
    * If you have already configured a Log Source containing CloudTrail Logs or if you would like to configure this later, you may skip this step.
 2. Click **Finish Setup**.
 
-See the available options for setting up Real-Time monitoring [via CloudTrail](onboarding-cloud-accounts.md#real-time-monitoring-via-cloudtrail-log-source) or [via CloudWatch events](onboarding-cloud-accounts.md#real-time-monitoring-via-cloudwatch-events).
-
 ![](../.gitbook/assets/finish-cloud-account-setup.png)
 
 {% hint style="info" %}
 _By default, Panther will perform scans daily._
 {% endhint %}
 
-## Set up Real-Time Monitoring
+## Real-time monitoring
 
-There are two options for Real-Time Monitoring:
+### CloudTrail logs
 
-* [CloudTrail log source](onboarding-cloud-accounts.md#real-time-monitoring-via-cloudtrail-log-source)&#x20;
-* [CloudWatch events](onboarding-cloud-accounts.md#real-time-monitoring-via-cloudwatch-events)
+To set up real-time monitoring via CloudTrail logs, follow the instructions to [onboard CloudTrail logs](../data-onboarding/supported-logs/aws.md).
 
-### Real-Time Monitoring via CloudTrail Log source
+### CloudWatch events
 
-{% hint style="info" %}
-If you have already created a Log Source containing CloudTrail logs for the account(s) you are interested in monitoring, you do not need to follow the steps below.&#x20;
-{% endhint %}
-
-#### Prerequisites
-
-* An S3 bucket is configured to receive CloudTrail events.
-
-#### To set up monitoring via a CloudTrail log source:
-
-1. Log in to your Panther Console and click **Integrations** in the left sidebar menu.&#x20;
-2. Click **Log Sources** > **Add Source** > **Data Transport.**
-3. In the tile for **AWS S3 Bucket**, click Select.\
-   ![](../.gitbook/assets/select-s3.png)
-4. Enter the Bucket details:
-   * **Name**: Enter a friendly name for the S3 source.
-   * **Account ID**: Enter the 12-digit AWS Account ID where the S3 buckets are located.
-   * **Bucket Name**: Enter the S3 Bucket ID/name to onboard.
-   * **KMS Key (optional)**: If your data is encrypted using KMS-SSE, provide the ARN of the KMS key.
-   * **Stream Type**: Events could be in line delimited, JSON Array format or they could be delivered to S3 from CloudWatch Logs. If an incorrect stream type is chosen, Panther will trigger an S3 Get.Object system error alert.
-   * **S3 Prefix Filter**: Leave this field blank if you want to allow ingestion of all files.
-   * **S3 Exclusion Filter**: Indicate which Prefixes to exclude.
-   * **Log Types**: Choose `AWS.CloudTrail`, `AWS.CloudTrailDigest`, and `AWS.CloudTrailInsight`.&#x20;
-5. Click **Continue Setup**.
-6. [Create the IAM role](onboarding-cloud-accounts.md#set-up-an-iam-role).
-7. On the "Setup IAM Role" page, enter the Role ARN.
-8. Click **Continue Setup**.
-9. On the "Verify Setup" page, you can optionally create an alarm that will trigger an alert if this log source does not receive any events within the interval you choose.
-10. Click **Finish Setup**.
-
-The latency between an event occurring in AWS and the event being sent to CloudTrail can be up to 15 minutes, but we commonly see data coming in at an average of 3.5 minutes. For more information, please see Amazon's documentation: [How CloudTrail works](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html).
-
-### Real-Time Monitoring via CloudWatch Events
-
-{% hint style="info" %}
-Using this method doesn't require a CloudTrail Log Source within Panther.&#x20;
-{% endhint %}
+To leverage CloudWatch events for resource scanning and monitoring, you must configure a template in AWS and then onboard your Cloud Account.
 
 Within [panther-auxiliary](https://github.com/panther-labs/panther-auxiliary/blob/main/cloudformation/panther-cloudwatch-events.yml), review the `panther-cloudwatch-events.yml` file. This YAML file contains the CloudFormation stack information necessary to configure Panther's real-time CloudWatch Event collection.
 
@@ -131,4 +90,4 @@ It works by creating CloudWatch Event rules which feed to Panther's SQS Queue pr
 8. On the **Configure stack options** page, click **Next**.
 9. On the **Review** page, make sure you have configured your settings correctly. Click **Next**.
 
-This will take a few minutes to complete. Once it is done, you may onboard your Cloud Account!
+After configuring the template, follow the instructions to [onboard your cloud account](onboarding-cloud-accounts.md#configure-the-cloud-account-in-panther).
