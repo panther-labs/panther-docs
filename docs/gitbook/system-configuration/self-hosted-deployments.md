@@ -50,6 +50,9 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `SnowflakeRBACSecretARN`: ARN pointing at the AWS secret with configuration and credentials for the PANTHER\_RBAC Snowflake user. The allowed pattern is `'^(arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z]{2}-[a-z]{4,9}-[1-9]:[0-9]{12}:secret:\S+)?$'`
 * `MessageForwarderReservedConcurrency`: Reserved concurrency for panther-message-forwarder Lambda function (has no effect if EnableLambdaReservedConcurrency=false). The default setting is 50, with a minimum value of 0.&#x20;
 * `EnableReplays`: Enables or disables the ability to run replays. The default value is `true`, with allowed values of `true` or `false`.
+* `PythonRuntime`: The python runtime for AWS Lambda functions. The default value is `python3.7`, with allowed values of `python3.7` and `python3.9`.
+* `ReplayProcessorReservedConcurrency`: Reserved concurrency for panther-replay-results-processor Lambda function. The default value is 40, with a minimum value of 0.
+* `SnapshotPollerLambdaMemorySize`: Snapshot Poller (Cloud Security) Lambda memory size in MB. The default value is 1024, with a minimum value of 1024 and a maximum value of 10240.
 
 #### Minimize initial configurations
 
