@@ -67,6 +67,8 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - GET_LOG_SOURCE_JOB
 - GET_LOG_SOURCE_RAW_DATA
 - GET_LOOKUP_TABLE
+- GET_MITRE_MATRIX
+- GET_MITRE_MATRIX_TREE
 - GET_ORGANIZATION_COMPLIANCE_STATS
 - GET_ORGANIZATION_METRICS
 - GET_POLICY
@@ -131,6 +133,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - UPDATE_GLOBAL_HELPER
 - UPDATE_LOG_SOURCE
 - UPDATE_LOOKUP_TABLE
+- UPDATE_MITRE_REPORT_SETTING
 - UPDATE_POLICY
 - UPDATE_RULE
 - UPDATE_SAML_SETTINGS
