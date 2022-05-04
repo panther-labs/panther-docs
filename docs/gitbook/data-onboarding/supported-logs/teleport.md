@@ -1,10 +1,29 @@
+---
+description: Onboarding Teleport logs to your Panther Console
+---
+
 # Teleport
 
-{% hint style="info" %}
-Required fields are in **bold**.
-{% endhint %}
+## Overview
 
-## Gravitational.TeleportAudit
+Panther supports ingesting Teleport logs via common [Data Transport](https://docs.panther.com/data-onboarding/data-transports) options: Amazon Web Services (AWS) S3 and SQS.
+
+## How to onboard Teleport logs to Panther
+
+To pull these logs into Panther:
+
+1. Set up your Data Transport in the Panther Console.
+   * Please follow Panther’s documentation for configuring the Data Transport option you will use:
+     * [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
+     * [AWS SQS](https://docs.panther.com/data-onboarding/data-transports/sqs)
+2. Configure your Data Transport source to pull in logs from Teleport.
+   * See the Data Transport service provider's documentation for instructions on pulling in logs.
+
+## Supported log types
+
+### Gravitational.TeleportAudit
+
+Required fields are in **bold**.
 
 Teleport logs events like successful user logins along with the metadata like remote IP address, time and the session ID. Please see [Teleport's Cluster Administration Guide](https://goteleport.com/docs/setup/admin/#audit-log) for more information.
 
