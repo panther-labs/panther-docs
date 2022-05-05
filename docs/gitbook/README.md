@@ -39,7 +39,7 @@ Learn more about the advantages of [running Panther instead of a traditional SIE
 
 ## Getting Started
 
-[Sign up for a demo of Panther](https://runpanther.io/request-a-demo/)!\
+[Sign up for a demo of Panther](https://panther.com/product/request-a-demo/)!\
 
 
 Follow the [quick start](quick-start.md) guide to get your new Panther account up and running.

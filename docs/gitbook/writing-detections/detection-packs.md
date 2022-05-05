@@ -81,6 +81,7 @@ After a pack has been enabled, there are a subset of fields that you can edit:
 * Events Threshold
 * Deduplication Period
 * Destination Override&#x20;
+* Report Mappings
 
 Any changes you make to these fields will be preserved when the pack is updated or reverted to a previous version. All other fields will be greyed out in the UI, and the "Functions and Tests" editor will be read-only. &#x20;
 
@@ -94,6 +95,7 @@ You can make changes to the editable fields in the Panther Console:
 4. In the page that opens, click **Edit Rule** in the upper right side.\
    ![](../.gitbook/assets/edit-rule.png)
    * You will be presented with all the fields that you can edit.
+   * Note that the Report Mapping fields are located on the tab labeled Report Mapping.
 5. Click **Update** to save your changes.&#x20;
 
 ![](../.gitbook/assets/UpdateButton.jpg)
