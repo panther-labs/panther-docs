@@ -73,27 +73,47 @@ When this rule is uploaded, each of the fields you would normally populate in th
 
 ### Rule Specification Reference
 
+Required fields are in **bold**.
+
 A complete list of rule specification fields:
 
-| Field Name           | Required | Description                                                                                                                                                 | Expected Value                                                               |
-| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `AnalysisType`       | Yes      | Indicates whether this analysis is a rule, policy, or global                                                                                                | `rule`                                                                       |
-| `Enabled`            | Yes      | Whether this rule is enabled                                                                                                                                | Boolean                                                                      |
-| `FileName`           | Yes      | The path (with file extension) to the python rule body                                                                                                      | String                                                                       |
-| `RuleID`             | Yes      | The unique identifier of the rule                                                                                                                           | String                                                                       |
-| `LogTypes`           | Yes      | The list of logs to apply this rule to                                                                                                                      | List of strings                                                              |
-| `Severity`           | Yes      | What severity this rule is                                                                                                                                  | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
-| `Description`        | No       | A brief description of the rule                                                                                                                             | String                                                                       |
-| `DedupPeriodMinutes` | No       | The time period (in minutes) during which similar events of an alert will be grouped together                                                               | `15`,`30`,`60`,`180` (3 hours),`720` (12 hours), or `1440` (24 hours)        |
-| `DisplayName`        | No       | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set.                                                      | String                                                                       |
-| `OutputIds`          | No       | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings                                                              |
-| `Reference`          | No       | The reason this rule exists, often a link to documentation                                                                                                  | String                                                                       |
-| `Reports`            | No       | A mapping of framework or report names to values this rule covers for that framework                                                                        | Map of strings to list of strings                                            |
-| `Runbook`            | No       | The actions to be carried out if this rule returns an alert, often a link to documentation                                                                  | String                                                                       |
-| `SummaryAttributes`  | No       | A list of fields that alerts should summarize.                                                                                                              | List of strings                                                              |
-| `Threshold`          | No       | How many events need to trigger this rule before an alert will be sent.                                                                                     | Integer                                                                      |
-| `Tags`               | No       | Tags used to categorize this rule                                                                                                                           | List of strings                                                              |
-| `Tests`              | No       | Unit tests for this rule.                                                                                                                                   | List of maps                                                                 |
+| Field Name           | Description                                                                                                                                                 | Expected Value                                                               |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, or global                                                                                                | `rule`                                                                       |
+| **`Enabled`**        | Whether this rule is enabled                                                                                                                                | Boolean                                                                      |
+| **`FileName`**       | The path (with file extension) to the python rule body                                                                                                      | String                                                                       |
+| **`RuleID`**         | The unique identifier of the rule                                                                                                                           | String                                                                       |
+| **`LogTypes`**       | The list of logs to apply this rule to                                                                                                                      | List of strings                                                              |
+| **`Severity`**       | What severity this rule is                                                                                                                                  | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
+| `Description`        | A brief description of the rule                                                                                                                             | String                                                                       |
+| `DedupPeriodMinutes` | The time period (in minutes) during which similar events of an alert will be grouped together                                                               | `15`,`30`,`60`,`180` (3 hours),`720` (12 hours), or `1440` (24 hours)        |
+| `DisplayName`        | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set.                                                      | String                                                                       |
+| `OutputIds`          | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings                                                              |
+| `Reference`          | The reason this rule exists, often a link to documentation                                                                                                  | String                                                                       |
+| `Reports`            | A mapping of framework or report names to values this rule covers for that framework                                                                        | Map of strings to list of strings                                            |
+| `Runbook`            | The actions to be carried out if this rule returns an alert, often a link to documentation                                                                  | String                                                                       |
+| `SummaryAttributes`  | A list of fields that alerts should summarize.                                                                                                              | List of strings                                                              |
+| `Threshold`          | How many events need to trigger this rule before an alert will be sent.                                                                                     | Integer                                                                      |
+| `Tags`               | Tags used to categorize this rule                                                                                                                           | List of strings                                                              |
+| `Tests`              | Unit tests for this rule.                                                                                                                                   | List of maps                                                                 |
+
+### Scheduled Query Specification Reference
+
+Required fields are in **bold**.
+
+A complete list of scheduled query specification fields:
+
+| Field Name           | Description                                                                                                                                          | Expected Value    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, scheduled query, or global.                                                                       | `scheduled_query` |
+| **`QueryName`**      | A friendly name to show in the UI.                                                                                                                   | String            |
+| **`Enabled`**        | Whether this rule is enabled.                                                                                                                        | Boolean           |
+| `Tags`               | Tags used to categorize this rule.                                                                                                                   | List of strings   |
+| `Description`        | A brief description of the rule.                                                                                                                     | String            |
+| **`Query`**          | A query that can run on any backend. If this field is specified, you should not specify a SnowflakeQuery or a AthenaQuery.                           | String            |
+| **`SnowflakeQuery`** | A query specifically for a snowflake backend.                                                                                                        | String            |
+| **`AthenaQuery`**    | A query specifically for Athena.                                                                                                                     | String            |
+| **`Schedule`**       | The schedule that this this query should run. Can be expressed as a cron or in rate minutes. Note that cron and rate minutes are mutually exclusive. | Map               |
 
 ### Rule Tests
 
@@ -149,26 +169,28 @@ Reference: https://www.link-to-info.io
 
 ### Policy Specification Reference
 
+Required fields are in **bold**.
+
 A complete list of policy specification fields:
 
-| Field Name                  | Required | Description                                                                                           | Expected Value                                                               |
-| --------------------------- | -------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `AnalysisType`              | Yes      | Indicates whether this specification is defining a policy or a rule                                   | `policy`                                                                     |
-| `Enabled`                   | Yes      | Whether this policy is enabled                                                                        | Boolean                                                                      |
-| `FileName`                  | Yes      | The path (with file extension) to the python policy body                                              | String                                                                       |
-| `PolicyID`                  | Yes      | The unique identifier of the policy                                                                   | String                                                                       |
-| `ResourceTypes`             | Yes      | What resource types this policy will apply to                                                         | List of strings                                                              |
-| `Severity`                  | Yes      | What severity this policy is                                                                          | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
-| `ActionDelaySeconds`        | No       | How long (in seconds) to delay auto-remediations and alerts, if configured                            | Integer                                                                      |
-| `AutoRemediationID`         | No       | The unique identifier of the auto-remediation to execute in case of policy failure                    | String                                                                       |
-| `AutoRemediationParameters` | No       | What parameters to pass to the auto-remediation, if one is configured                                 | Map                                                                          |
-| `Description`               | No       | A brief description of the policy                                                                     | String                                                                       |
-| `DisplayName`               | No       | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String                                                                       |
-| `Reference`                 | No       | The reason this policy exists, often a link to documentation                                          | String                                                                       |
-| `Reports`                   | No       | A mapping of framework or report names to values this policy covers for that framework                | Map of strings to list  of strings                                           |
-| `Runbook`                   | No       | The actions to be carried out if this policy fails, often a link to documentation                     | String                                                                       |
-| `Tags`                      | No       | Tags used to categorize this policy                                                                   | List of strings                                                              |
-| `Tests`                     | No       | Unit tests for this policy.                                                                           | List of maps                                                                 |
+| Field Name                  | Description                                                                                           | Expected Value                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **`AnalysisType`**          | Indicates whether this specification is defining a policy or a rule                                   | `policy`                                                                     |
+| **`Enabled`**               | Whether this policy is enabled                                                                        | Boolean                                                                      |
+| **`FileName`**              | The path (with file extension) to the python policy body                                              | String                                                                       |
+| **`PolicyID`**              | The unique identifier of the policy                                                                   | String                                                                       |
+| **`ResourceTypes`**         | What resource types this policy will apply to                                                         | List of strings                                                              |
+| **`Severity`**              | What severity this policy is                                                                          | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
+| `ActionDelaySeconds`        | How long (in seconds) to delay auto-remediations and alerts, if configured                            | Integer                                                                      |
+| `AutoRemediationID`         | The unique identifier of the auto-remediation to execute in case of policy failure                    | String                                                                       |
+| `AutoRemediationParameters` | What parameters to pass to the auto-remediation, if one is configured                                 | Map                                                                          |
+| `Description`               | A brief description of the policy                                                                     | String                                                                       |
+| `DisplayName`               | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String                                                                       |
+| `Reference`                 | The reason this policy exists, often a link to documentation                                          | String                                                                       |
+| `Reports`                   | A mapping of framework or report names to values this policy covers for that framework                | Map of strings to list  of strings                                           |
+| `Runbook`                   | The actions to be carried out if this policy fails, often a link to documentation                     | String                                                                       |
+| `Tags`                      | Tags used to categorize this policy                                                                   | List of strings                                                              |
+| `Tests`                     | Unit tests for this policy.                                                                           | List of maps                                                                 |
 
 ### Policy Tests
 
