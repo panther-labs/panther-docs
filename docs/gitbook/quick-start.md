@@ -17,11 +17,27 @@ This guide will walk you through:
 * Onboarding logs you want to monitor
 * Setting up detections to alert you against common security threats&#x20;
 
+## Overview
+
 ### Overview Video
 
 {% embed url="https://panther.wistia.com/medias/vxn8h7c6fq" %}
 Tour of getting started in the Panther Console
 {% endembed %}
+
+### Using Panther
+
+You can manage your account and workflows in the Panther Console or using Panther Developer Workflows.
+
+#### Panther Console
+
+The Panther Console is Panther's web-based UI where Panther admins manage their account.&#x20;
+
+#### Panther Developer Workflows
+
+Panther Developer Workflows are non-console workflows you can use to interact with your Panther account, including CI/CD, API, and the Panther Analysis Tool (PAT).&#x20;
+
+## Getting Started in Panther
 
 ### Initial Login
 
