@@ -1,10 +1,11 @@
 # CrowdStrike
 
-Panther has the ability to fetch CrowdStrike events by integrating with the [CrowdStrike Falcon Data Replicator](https://developer.crowdstrike.com/crowdstrike/docs/falcon-data-replicator-guide).
+Panther supports pulling logs directly from CrowdStrike events by integrating with the [CrowdStrike Falcon Data Replicator](https://developer.crowdstrike.com/crowdstrike/docs/falcon-data-replicator-guide).
 
-{% hint style="info" %}
-CrowdStrike customers must have the [Falcon Data Replicator](https://developer.crowdstrike.com/crowdstrike/docs/falcon-data-replicator-guide#section-overview-of-falcon-data-replicator) enabled before setting up this integration.
-{% endhint %}
+### Prerequisites
+
+* You must have an active subscription to [Falcon Data Replicator](https://developer.crowdstrike.com/crowdstrike/docs/falcon-data-replicator-guide#section-overview-of-falcon-data-replicator) and it must be enabled in Crowdstrike.
+* There is no minimum version of Falcon Data Replicator required.
 
 ## Create FDR API Keys
 
