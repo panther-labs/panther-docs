@@ -22,7 +22,7 @@ To pull these logs into Panther:
 ## Supported log types
 
 {% hint style="info" %}
-Required fields are in **bold.**
+Required fields in all tables are in **bold.**
 {% endhint %}
 
 ### CiscoUmbrella.CloudFirewall
@@ -60,7 +60,7 @@ Reference: [Cisco documentation on Log Formats and Versioning](https://docs.umbr
 | `p_any_md5_hashes`    | `[string]`  | Panther added field with collection of MD5 hashes associated with the row                                                                                       |
 | `p_any_sha256_hashes` | `[string]`  | Panther added field with collection of SHA256 hashes of any algorithm associated with the row                                                                   |
 
-## CiscoUmbrella.DNS
+### CiscoUmbrella.DNS
 
 DNS logs show traffic that has reached our DNS resolvers.&#x20;
 
@@ -93,7 +93,7 @@ Reference: [Cisco documentation on DNS Logs.](https://docs.umbrella.com/deployme
 | `p_any_md5_hashes`    | `[string]`  | Panther added field with collection of MD5 hashes associated with the row                                                              |
 | `p_any_sha256_hashes` | `[string]`  | Panther added field with collection of SHA256 hashes of any algorithm associated with the row                                          |
 
-## CiscoUmbrella.IP
+### CiscoUmbrella.IP
 
 IP logs show traffic that has been handled by the IP Layer Enforcement feature.&#x20;
 
@@ -121,7 +121,7 @@ Reference: [Cisco documentation on IP Logs.](https://docs.umbrella.com/deploymen
 | `p_any_md5_hashes`    | `[string]`  | Panther added field with collection of MD5 hashes associated with the row                                                        |
 | `p_any_sha256_hashes` | `[string]`  | Panther added field with collection of SHA256 hashes of any algorithm associated with the row                                    |
 
-## CiscoUmbrella.Proxy
+### CiscoUmbrella.Proxy
 
 Proxy logs show traffic that has passed through the Umbrella Secure Web Gateway (SWG) or the Selective Proxy.&#x20;
 

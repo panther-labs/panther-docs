@@ -19,17 +19,17 @@ To pull these logs into Panther:
 2. Configure your Data Transport source to pull in logs from Apache.
    * See the Data Transport service provider's documentation for instructions on pulling in logs.
 
-## Supported  log types
+## Supported log types
+
+{% hint style="info" %}
+Required fields in all tables are in **bold.**
+{% endhint %}
 
 ### Apache.AccessCombined
 
 Apache HTTP server access logs using the `combined` format.
 
 Reference: [Apache documentation on Combined Log Format](https://httpd.apache.org/docs/current/logs.html#combined).
-
-{% hint style="info" %}
-Required fields are in **bold**.
-{% endhint %}
 
 
 
