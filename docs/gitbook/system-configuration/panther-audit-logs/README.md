@@ -15,9 +15,9 @@ Panther audit logs provide a read-only history of activity within your Panther d
 
 Learn [how to query and write Detections for Panther audit logs](querying-and-writing-detections-for-panther-audit-logs.md) in the documentation.
 
-{% hint style="info" %}
-Audit logging does not currently include an exhaustive list of all activity in Panther (such as sign in/sign out activity and references to specific log sources, cloud accounts, and destinations). If you have any questions about this feature, reach out to Panther Support.
-{% endhint %}
+Audit logging does not currently include an exhaustive list of all activity in Panther (such as sign in/sign out activity and references to specific log sources, cloud accounts, and destinations). While it's not currently possible to see sign-in events, you can infer that a user signed in based on other Panther Console activity associated with the user.&#x20;
+
+If you have any questions about this feature, reach out to Panther Support.
 
 ### Enabling audit logs
 
