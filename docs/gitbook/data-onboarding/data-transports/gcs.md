@@ -1,8 +1,10 @@
 ---
-description: Pull logs from Google Cloud Storage (GCS) within Google Cloud Platform (GCP).
+description: >-
+  Pull logs from Google Cloud Storage (GCS) within Google Cloud Platform (GCP)
+  to use as a Data Transport log source in the Panther Console
 ---
 
-# Google Cloud Storage (GCS) source
+# Google Cloud Storage (GCS) Source
 
 {% hint style="info" %}
 This feature is available in versions 1.28 and newer.\

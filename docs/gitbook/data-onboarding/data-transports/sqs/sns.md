@@ -1,4 +1,8 @@
-# SNS source
+---
+description: Onboarding SNS Logs as a Data Transport log source in the Panther Console
+---
+
+# SNS Source
 
 ## SNS Source Setup
 

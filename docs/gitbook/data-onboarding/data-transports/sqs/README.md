@@ -1,4 +1,8 @@
-# SQS source
+---
+description: Onboarding SQS Logs as a Data Transport log source in the Panther Console
+---
+
+# SQS Source
 
 The steps below will setup an SQS queue and will give you permissions to send data to that queue. Panther will pull events from that queue and will allow you to write rules and run queries on the processed data.
 

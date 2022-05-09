@@ -1,8 +1,10 @@
 ---
-description: Learn how to onboard CloudWatch Logs as a data transport
+description: >-
+  Onboarding CloudWatch Logs as a Data Transport log source in the Panther
+  Console
 ---
 
-# CloudWatch Logs source
+# CloudWatch Logs Source
 
 {% hint style="info" %}
 CloudWatch Logs as a Data Transport was introduced in 1.23
