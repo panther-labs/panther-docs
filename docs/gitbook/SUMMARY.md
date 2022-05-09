@@ -20,7 +20,7 @@
     * [Zendesk](data-onboarding/saas-logs/zendesk.md)
     * [Zoom](data-onboarding/saas-logs/zoom.md)
   * [Data Transports](data-onboarding/data-transports/README.md)
-    * [S3 source](data-onboarding/data-transports/s3.md)
+    * [S3 Source](data-onboarding/data-transports/s3.md)
     * [CloudWatch Logs source](data-onboarding/data-transports/cwl-source.md)
     * [SQS source](data-onboarding/data-transports/sqs/README.md)
       * [SNS source](data-onboarding/data-transports/sqs/sns.md)
