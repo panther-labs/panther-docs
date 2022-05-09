@@ -19,9 +19,19 @@ In the following example, we extracted a list of 1Password items and their assoc
 **Obtaining a list of 1Password items with their associated UUIDs**
 
 1. Log in to 1Password via CLI.
-2. Use the following function to extract a list of 1Password items including their associated UUIDs and save it to a JSON file called _1password\_lookup.json_: `op list items | jq -c '.[] | {uuid:.uuid,title:.overview.title,updatedAt:.updatedAt}' >> 1password_lookup.json`
+2.  Use the following function to extract a list of 1Password items including their associated UUIDs and save it to a JSON file called _1password\_lookup.json_:\
+    &#x20;`op item list --format json | jq -c '.[] | {uuid:.id,title:.title,updatedAt:.updatedat}' >> 1passwordlookup.json`
 
-``
+    \
+    Or, if you're using the 1Password CLI v1, use the following command:
+
+    * `op list items | jq -c '.[] | {uuid:.uuid,title:.overview.title,updatedAt:.updatedAt}' >> 1password_lookup.json`
+
+{% hint style="info" %}
+Note that you will need to create a schema using this 1password\_lookup.json in a later step.
+
+For more information on creating a schema, see [Generating a Schema for a Custom Log Type from Sample Logs](../data-onboarding/custom-log-types/#generating-a-schema-for-a-custom-log-type-from-sample-logs)
+{% endhint %}
 
 **Creating a Lookup Table in Panther**
 
