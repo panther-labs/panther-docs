@@ -12,17 +12,36 @@ Lookup Tables allow you to add important context to your detections and alerts f
 
 Consider using [Global helpers](https://docs.panther.com/writing-detections/globals) instead when extra information is only needed for a few specific detections and will not be frequently updated.
 
+### How Lookup Tables work
+
+![](../../.gitbook/assets/Panther\_LUT1\_Diagram.png)
+
+Lookup Tables are associated with one or more log types, connected by a foreign key fields called Selectors. Once you [configure a Lookup Table](./#configuring-a-lookup-table), the real-time detection engine will attempt to find a lookup match for incoming data of the associated log types. If there is a match, then the event associated with the alert will contain a `p_enrichment` field with:
+
+* One or more Lookup Table name(s) that matched the incoming log event
+* The name of the selector from the incoming log that matched the Lookup Table
+* The data from the Lookup Table that matched via the Lookup Table's primary key
+
 ## Configuring a Lookup Table
+
+### Prerequisites for configuring a Lookup Table
+
+* A schema specifically for your Lookup Table data.&#x20;
+  * This describes the shape of your Lookup Table data.
+* Selector(s) from your incoming logs.&#x20;
+  * The values from these selectors will be used to search for matches in your Lookup Table data.
+* A primary key for your Lookup Table data.&#x20;
+  * This primary key is one of the fields that you defined in your schema for your Lookup Table. The value of the primary key is what will be compared with the value of the selector(s) from your incoming logs.
 
 You can populate your Lookup Table data using the following methods:
 
-#### Import via File Upload
+### Import via File Upload
 
 This option is best for data that is relatively static, such as information about AWS accounts or corporate subnets.&#x20;
 
 For instructions, please see the documentation: [Import via File Upload](file-upload.md).
 
-#### Sync Data from an S3 Source
+### Sync Data from an S3 Source
 
 This option is best for a larger amount of data that updates more frequently from an S3 bucket. Any changes in the S3 bucket will sync to Panther.
 
