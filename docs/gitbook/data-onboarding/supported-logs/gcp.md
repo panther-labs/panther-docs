@@ -6,7 +6,7 @@ description: Onboarding GCP logs to your Panther Console
 
 ## Overview
 
-Panther supports ingesting Fluentd logs via common [Data Transport](https://docs.panther.com/data-onboarding/data-transports) options: Amazon Web Services (AWS) S3, AWS SQS, and Google Cloud Storage (GCS).
+Panther supports ingesting Google Cloud Platform (GCP) logs via common [Data Transport](https://docs.panther.com/data-onboarding/data-transports) options: Amazon Web Services (AWS) S3, AWS SQS, and Google Cloud Storage (GCS).
 
 ## How to onboard GCP logs to Panther
 
