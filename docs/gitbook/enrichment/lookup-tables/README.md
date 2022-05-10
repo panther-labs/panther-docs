@@ -16,7 +16,7 @@ Consider using [Global helpers](https://docs.panther.com/writing-detections/glob
 
 ![](../../.gitbook/assets/Panther\_LUT1\_Diagram.png)
 
-Lookup Tables are associated with one or more log types, connected by a foreign key fields called Selectors. Once you [configure a Lookup Table](./#configuring-a-lookup-table), the real-time detection engine will attempt to find a lookup match for incoming data of the associated log types. If there is a match, then the event associated with the alert will contain a `p_enrichment` field with:
+Lookup Tables are associated with one or more log types, connected by foreign key fields called Selectors. Once you [configure a Lookup Table](./#configuring-a-lookup-table), the real-time detection engine will attempt to find a lookup match for incoming data of the associated log types. If there is a match, then the event associated with the alert will contain a `p_enrichment` field with:
 
 * One or more Lookup Table name(s) that matched the incoming log event
 * The name of the selector from the incoming log that matched the Lookup Table
