@@ -62,6 +62,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - GET_DETECTION_PACK_SOURCE
 - GET_GENERAL_SETTINGS
 - GET_GLOBAL_HELPER
+- GET_HOLDING_TANK_SOURCE_RUNNING_TASK
 - GET_LOG_SCHEMA_TEST_RESULTS
 - GET_LOG_SOURCE
 - GET_LOG_SOURCE_JOB
@@ -84,6 +85,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - GET_USER_ROLE
 - IMPORT_LOOKUP_TABLE_DATA
 - INFER_CUSTOM_SCHEMA
+- INFER_SCHEMA_FROM_RAW_DATA
 - ISSUE_ALERT_SUMMARY_QUERIES
 - LIST_ALERTS
 - LIST_ALERT_DESTINATIONS
@@ -98,6 +100,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - LIST_DETECTION_PACKS
 - LIST_DETECTION_PACK_SOURCES
 - LIST_GLOBAL_HELPERS
+- LIST_HOLDING_TANK_TEST_TASKS
 - LIST_LOG_SOURCES
 - LIST_LOG_TYPES
 - LIST_LOOKUP_TABLES
