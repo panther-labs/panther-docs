@@ -10,7 +10,7 @@ Panther supports ingesting Juniper logs via common [Data Transport](https://docs
 
 ## How to onboard Juniper logs to Panther
 
-To pull these logs into Panther:
+To connect these logs into Panther:
 
 1. Set up your Data Transport in the Panther Console.
    * Please follow Panther’s documentation for configuring the Data Transport option you will use:
