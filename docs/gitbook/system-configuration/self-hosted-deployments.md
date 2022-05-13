@@ -35,9 +35,9 @@ When deploying Panther, you will be provided with a template URL to a root panth
 The Panther CloudFormation stack has a number of configurable deployment parameters. Pay special attention to the following options:
 
 * `FirstUserEmail` _**(required)**_: a Panther admin invite will be sent to this email address. Updates to this value are ignored after the first successful deploy.
-* `PulumiSecretArn` and `PulumiSecretKeyArn` **(**_**required**_**):** these values will be provided by our team - you will have a dedicated [Pulumi](https://www.pulumi.com) access token in our organization.
+* `PulumiSecretArn` and `PulumiSecretKeyArn` **(**_**required**_**):** these values will be provided by our team - you will have a dedicated [Pulumi](https://www.pulumi.com/) access token in our organization.
 * `OnboardSelf`: whether you want Panther to onboard its own AWS account for monitoring.
-* `SentryEnvironment`: by default, application errors are sent to [Sentry](https://sentry.io) for us to triage. We strongly recommend keeping this enabled with the default value (`prod`), but if that's not an option for you, you can disable the Sentry integration by setting this to a blank string.
+* `SentryEnvironment`: by default, application errors are sent to [Sentry](https://sentry.io/) for us to triage. We strongly recommend keeping this enabled with the default value (`prod`), but if that's not an option for you, you can disable the Sentry integration by setting this to a blank string.
 * `SupportRoleIdentityAccountId`: by default, a read-only SupportRole is deployed with Panther which our on-call engineers can assume to triage application errors. This role does **not** have access to your data and we’d encourage you to keep it enabled so we can deliver a better support experience. However, if you prefer, this role can be disabled by setting the `SupportRoleIdentityAccountId` to a blank string.
 * `OpsRoleIdentityAccountId`: a non-empty value will deploy an OperationsRole with service-level admin permissions for migrations, data recoveries, and other operational emergencies. We recommend keeping this role disabled until necessary (it's off by default).
 * `DataLakeForwarderMemory`: Memory to use for Cloud Security DataLake Forwarder lambdas. The default setting is 256, with a maximum value of 2048 and a minimum value of 256.
@@ -134,7 +134,7 @@ Change the `PipLibraries` parameter to remove the following libraries as they ar
 From 1.19.5 and on, we have attached a custom domain to our GraphQL API and require an additional certificate for it. We've also updated our deployment role in order to add the necessary permissions to support an edge-optimized custom domain on API Gateway. The changes can be summed up to:
 
 1. Pull our latest Cloudformation template and update your Panther Deployment Role (if you're using an Administrative role to deploy Panther, then this step can be omitted).
-2. Create a certificate for the the _**api.**_** ** subdomain of your existing panther domain in **us-east-1** (e.g. if your panther domain is [panther.mydomain.com](http://api.mydomain.com), then you should create a certificate for [api.panther.mydomain.com](http://api.panther.mydomain.com)), add the necessary CNAME in order to validate it and wait until validation is complete.
+2. Create a certificate for the the _**api.**_** ** subdomain of your existing panther domain in **us-east-1** (e.g. if your panther domain is [panther.mydomain.com](http://api.mydomain.com/), then you should create a certificate for [api.panther.mydomain.com](http://api.panther.mydomain.com)), add the necessary CNAME in order to validate it and wait until validation is complete.
 3. Use its ARN value in the "ApiCertificateArn" CloudFormation parameter of Panther's template and update your Panther deployment.
 4.  Create an "A Alias Record"  for the api subdomain you've created above. You can find the Alias Target and the Alias Hosted zone by inspecting the outputs of the the "Bootstrap" CloudFormation stack that is part of your Panther deployment. The values you'll be needing are:
 

@@ -194,7 +194,7 @@ Panther provides a simple CLI tool to help work with Custom Logs feature. The to
 
 ### Generating a Schema from JSON samples
 
-You can use the tool to generate a schema file out of sample files in [new-line delimited JSON](http://ndjson.org) format. The tool will scan the provided logs and print the inferred schema to `stdout`.
+You can use the tool to generate a schema file out of sample files in [new-line delimited JSON](http://ndjson.org/) format. The tool will scan the provided logs and print the inferred schema to `stdout`.
 
 For example, to infer the schema of logs `sample_logs.jsonl` and output to `schema.yml`, use:
 

@@ -9,7 +9,7 @@ You will need to accept new Terms of Service for Panther and GreyNoise in the Pa
 Panther's GreyNoise integration is currently in public beta. Please share any bug reports and feature requests with your account team.
 {% endhint %}
 
-Panther has partnered with [GreyNoise Intelligence](https://www.greynoise.io), a cybersecurity platform that collects and analyzes Internet-wide data, to provide integrated threat intelligence to Panther customers.&#x20;
+Panther has partnered with [GreyNoise Intelligence](https://www.greynoise.io/), a cybersecurity platform that collects and analyzes Internet-wide data, to provide integrated threat intelligence to Panther customers.&#x20;
 
 Use Panther detection capabilities with GreyNoise threat intelligence data to reduce false-positive alerts by:
 
@@ -25,7 +25,7 @@ The video below shows a demo of the GreyNoise functionality in Panther using the
 Overview of using GreyNoise data sets with Panther
 {% endembed %}
 
-GreyNoise helps security analysts save time by revealing which events and alerts they can ignore. They do this by curating data on IPs that saturate security tools with noise. This perspective helps analysts ignore irrelevant or harmless activity, creating more time to uncover and investigate true threats. For more information, please visit [greynoise.io](https://www.greynoise.io).
+GreyNoise helps security analysts save time by revealing which events and alerts they can ignore. They do this by curating data on IPs that saturate security tools with noise. This perspective helps analysts ignore irrelevant or harmless activity, creating more time to uncover and investigate true threats. For more information, please visit [greynoise.io](https://www.greynoise.io/).
 
 ### GreyNoise Data Sets
 

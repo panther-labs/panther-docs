@@ -121,7 +121,7 @@ The Cloned rule will not be managed by Panther or receive automatic updates when
 Pack Sources provide a way to configure custom Github sources for Detection Packs. Once a Pack Source is configured, Panther will check the source repository for new tagged releases every 24 hours. In order for Panther to find your custom Pack(s) from your Pack Source, you must:
 
 * Ensure that your release is finalized, and not in a draft state
-* Ensure that your release is named according to [SemVer format](https://semver.org), and the tag of the release must be the same as the name of the release
+* Ensure that your release is named according to [SemVer format](https://semver.org/), and the tag of the release must be the same as the name of the release
 * Ensure that the artifact of the release is named `panther-analysis-all.zip` (and a corresponding `panther-analysis-all.sig` if you are signing your release)&#x20;
 * Ensure that your `panther-analysis-all.zip` contains at least one Pack Manifest file ([see section on Pack Manifests below](detection-packs.md#undefined))
 

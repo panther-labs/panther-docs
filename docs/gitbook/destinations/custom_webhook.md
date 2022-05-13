@@ -14,7 +14,7 @@ In the event of a permanent delivery failure, Panther logs and provides workflow
 
 ## Example
 
-The following example demonstrates sending Panther alerts to a custom webhook which forwards the payload to a simple [Node.js](https://nodejs.org/en/) server proxied via [Ngrok](https://ngrok.com).
+The following example demonstrates sending Panther alerts to a custom webhook which forwards the payload to a simple [Node.js](https://nodejs.org/en/) server proxied via [Ngrok](https://ngrok.com/).
 
 ### Step 1
 

@@ -1,6 +1,6 @@
 # PagerDuty
 
-[PagerDuty](https://www.pagerduty.com) is a service to manage on-call rotations for critical systems.
+[PagerDuty](https://www.pagerduty.com/) is a service to manage on-call rotations for critical systems.
 
 To configure a PagerDuty Destination, Panther requires an `Integration Key`. When an alert is forwarded to a PagerDuty Destination, it creates an incident:
 

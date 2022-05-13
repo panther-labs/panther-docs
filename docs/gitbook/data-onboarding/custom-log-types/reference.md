@@ -250,7 +250,7 @@ each event will be stored as:
 
 ## Using JSON Schema in an IDE
 
-If your editor/IDE supports [JSON Schema](https://json-schema.org), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below as well to create custom JSON schemas:
+If your editor/IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below as well to create custom JSON schemas:
 
 ### JetBrains
 

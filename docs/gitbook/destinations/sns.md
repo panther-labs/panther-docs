@@ -1,6 +1,14 @@
+---
+description: Configuring Amazon SNS as an alert destination in your Panther Console
+---
+
 # Amazon SNS
 
-This page will walk you through configuring [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/) as a Destination for your Panther alerts. This is a simple way to send notifications to email addresses, multiple queues, and more.
+## Overview
+
+Destinations are integrations that receive alerts from rules, policies, system health notifications, and rule errors. Panther supports configuring [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/) as the destination where you will receive alerts.
+
+## How to set up Amazon SNS alert destinations in Panther
 
 ### SNS Prerequisites
 
@@ -24,19 +32,18 @@ The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS
         }
 
     ```
-4. When specifying the `Principal`, you can find the account ID at the bottom of the **Settings > General** page in the Panther Console.\
-   &#x20;![](../.gitbook/assets/2022-04-13\_14-20-52.png)\
-   \
-   Enter this account ID as part of the `principal`:\
-   &#x20;![](<../../../.gitbook/assets/sns3 (9) (1) (1) (11) (1) (1) (14).png>)\
 
+    * To find your AWS account ID, go to **Settings > General** in the Panther Console. It is located in the footer:\
+      &#x20;![](../.gitbook/assets/aws-account-id.png)
 
-### Setting up the Destination in Panther
+### Configure the Destination in Panther
 
 1. Log in to the Panther Console and navigate to **Integrations > Alert Destinations**.
 2. Click **Create New** and select **AWS SNS**.
-3. Fill out the required fields, including the `Topic ARN` from the SNS Prerequisites section. ![](<../.gitbook/assets/Screen Shot 2022-04-13 at 2.25.45 PM.png>)
-4. Click **Add Destination.** On the next screen, click **Finish Setup** to complete your setup, or click **Send Test Alert** to test your setup.&#x20;
+3. Fill out the required fields, including the `Topic ARN` from the SNS [Prerequisites](sns.md#sns-prerequisites) section.\
+   &#x20;![](<../.gitbook/assets/Screen Shot 2022-04-13 at 2.25.45 PM.png>)
+4. Click **Add Destination.**&#x20;
+5. On the next screen, click **Finish Setup** to complete your setup, or click **Send Test Alert** to test your setup.&#x20;
    * Your SNS Topic will now be able to receive Panther alerts. If your goal is to set up email notifications with this topic, continue below.
 
 ### Optional: Creating Email Notifications
@@ -46,3 +53,8 @@ The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS
 2. Select **Email** in the protocol dropdown menu and enter the email address you would like to receive alerts to.
 3. Click **Create subscription**
 4. Confirm the subscription sent to your email before receiving alerts from this topic.\
+
+
+## Additional Information on Destinations
+
+For more information on alert routing order, modifying or deleting destinations, and workflow automation, please see the Panther docs: [Destinations](https://docs.panther.com/destinations).

@@ -38,7 +38,7 @@ You must be an Admin user in your organization's Zoom account to create the OAut
 
 1. Log into your Zoom account.
 2. Register your app.
-   1. Go to the [Zoom App Marketplace](https://marketplace.zoom.us) .
+   1. Go to the [Zoom App Marketplace](https://marketplace.zoom.us/) .
    2. Click **Develop** in the dropdown menu in the top-right corner of the page.&#x20;
    3. Select **Build App**.&#x20;
       * A new page will appear displaying the available app types.&#x20;

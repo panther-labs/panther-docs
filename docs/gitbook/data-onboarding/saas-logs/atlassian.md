@@ -17,7 +17,7 @@ In order to set up Atlassian as a log source in Panther, you'll need to authoriz
 The steps below can only be performed if you are an owner or administrator. You can read more on generating an API Key in Atlassian [here](https://support.atlassian.com/organization-administration/docs/manage-an-organization-with-the-admin-apis/).
 {% endhint %}
 
-1. From your organization at [admin.atlassian.com](http://admin.atlassian.com), select **Settings** > **API keys**.
+1. From your organization at [admin.atlassian.com](http://admin.atlassian.com/), select **Settings** > **API keys**.
 2. Click **Create API key** in the top right.
 3. Enter a name that you’ll remember to identify the API key.
 4. By default, the key expires one week from today. If you’d like to change the expiration date, pick a new date under **Expires on**. You’re unable to select a date longer than a year from the date of creation.

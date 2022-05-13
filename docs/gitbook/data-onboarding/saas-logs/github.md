@@ -18,7 +18,7 @@ The steps below can only be performed if you have organization owner permission 
 3. Scroll to the bottom of the page and click on **Developer Settings** and then **OAuth Apps**
 4. Click on **Register an application**
 5. Enter a friendly application name e.g. `Panther Integration`.&#x20;
-6. Copy and paste your Panther instance's primary URL into the **Homepage URL** field e.g. [`https://test.runpanther.xyz`](https://snowflake.staging.runpanther.xyz)
+6. Copy and paste your Panther instance's primary URL into the **Homepage URL** field e.g. [`https://test.runpanther.xyz`](https://snowflake.staging.runpanther.xyz/)
 7. At this point, you will need the **Redirect URL** from Panther to paste into the **Authorization Callback URL** field. In order to do this, you will need to log into Panther and set up Github as a log source by following the directions below. Once you've made it to Step 5, you should be able to find the **Redirect URL** and continue setting up your Github app.
 8. Once all necessary fields are filled in, click on **Register Application.**
 9. Once the application is registered, you will be able to view the **Client ID** and then generate a new **client secret** to paste into Panther. You are done with this part!
