@@ -39,7 +39,7 @@
     * [GitLab](data-onboarding/supported-logs/gitlab.md)
     * [GSuite](data-onboarding/supported-logs/gsuite.md)
     * [Juniper](data-onboarding/supported-logs/juniper.md)
-    * [Lacework](data-onboarding/supported-logs/lacework.md)
+    * [Lacework Logs](data-onboarding/supported-logs/lacework.md)
     * [Microsoft365](data-onboarding/supported-logs/microsoft365.md)
     * [Nginx](data-onboarding/supported-logs/nginx.md)
     * [Okta](data-onboarding/supported-logs/okta.md)

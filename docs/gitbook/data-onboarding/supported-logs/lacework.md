@@ -1,10 +1,31 @@
-# Lacework
+---
+description: Connecting Lacework logs in your Panther Console
+---
+
+# Lacework Logs
+
+## Overview
+
+Panther supports ingesting Lacework logs via common [Data Transport](https://docs.panther.com/data-onboarding/data-transports) options: Amazon Web Services (AWS) S3 and SQS.
+
+## How to onboard Lacework logs to Panther
+
+To connect these logs into Panther:
+
+1. Set up your Data Transport in the Panther Console.
+   * Please follow Panther's documentation for configuring the Data Transport option you will use:
+     * [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
+     * [AWS SQS](https://docs.panther.com/data-onboarding/data-transports/sqs)
+2. Configure Lacework to push logs to the Data Transport source.
+   * See Lacework's documentation for instructions on pushing logs to your selected Data Transport source.
+
+## Supported log types
 
 {% hint style="info" %}
-Required fields are in **bold**.
+Required fields in all tables are in **bold**.
 {% endhint %}
 
-## Lacework.Events
+### Lacework.Events
 
 Lacework.Events represents the content of an exported Lacework Alert S3 Object.&#x20;
 
