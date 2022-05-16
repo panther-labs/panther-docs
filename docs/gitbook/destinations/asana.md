@@ -1,10 +1,20 @@
+---
+description: Configuring Asana as an alert destination in your Panther Console
+---
+
 # Asana
 
-This page will walk you through configuring [Asana](https://asana.com) as a destination for your Panther alerts. When an alert is forwarded to an Asana destination, a new task is created in the configured Asana project(s).
+## Overview
 
-The Asana destination requires a **Service Account Token** for Asana Enterprise customers (or a **Personal Access Token** for a basic Asana account)  and one or more **Project GID**.&#x20;
+Destinations are integrations that receive alerts from rules, policies, system health notifications, and rule errors. Panther supports configuring Asana as the destination where you will receive alerts.
 
-### Asana Prerequisites
+When an alert is forwarded to an Asana destination, a new task is created in the configured Asana project(s).
+
+The Asana destination requires a **Service Account Token** for Asana Enterprise customers (or a **Personal Access Token** for a basic Asana account) and one or more **Project GID**.&#x20;
+
+## How to set up Asana alert destinations in Panther
+
+### Completing prerequisites in Asana
 
 1. Determine which Asana user you will use to be the reporter of issues.
    * To ensure continuity, we recommend creating a [service account](https://asana.com/guide/help/premium/service-accounts) specifically for this purpose.
@@ -22,8 +32,6 @@ The Asana destination requires a **Service Account Token** for Asana Enterprise 
 
 Note: This token should be treated as sensitively as a password, and you will not be able to access it again in the future.
 
-
-
 ### Setting up the Destination in Panther
 
 1. Log in to your Panther Console and navigate to **Integrations > Alert Destinations**.&#x20;
@@ -40,3 +48,7 @@ Note: This token should be treated as sensitively as a password, and you will no
     ![](../.gitbook/assets/asana-form.png)
 5. Click **Add Destination**.
 6. Click **Finish Setup** to complete your setup, or click **Send Test Alert** to test your setup.
+
+## Additional Information on Destinations
+
+For more information on alert routing order, modifying or deleting destinations, and workflow automation, please see the Panther docs: [Destinations](https://docs.panther.com/destinations).
