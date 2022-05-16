@@ -1,71 +1,47 @@
+---
+description: Configuring Jira as an alert destination in your Panther Console
+---
+
 # Jira
 
-This page will walk you through configuring Jira as a Destination for your Panther alerts.
+## Overview
 
-The Jira Destination requires the following:
-
-* `Display Name`
-* `Organization Domain`
-* `Project Key`
-* `Email`
-* `Jira API Key`
+Destinations are integrations that receive alerts from rules, policies, system health notifications, and rule errors. Panther supports configuring Jira as the destination where you will receive alerts.
 
 When an alert is forwarded to a Jira Destination, a bug, story, or task is created and assigned to the specified assignee in the specified project.
 
-## Example
+## How to set up Jira alert destinations in Panther
 
-![](<../../../.gitbook/assets/jira-issue (2) (2) (4) (3) (1) (1) (3) (1) (1) (2).png>)
+### Creating a Jira API key
 
-### Integration fields
+1. Log in to your Atlassian account and navigate to the [API Token management page](https://id.atlassian.com/manage/api-tokens).&#x20;
+2. Click **Create API Token**, add a descriptive label, and click **Create**:\
+   ![](../.gitbook/assets/jira-api.png)
+3. Click **Copy** and store the token in a secure location.
+   * Note: The token is sensitive information and you will not be able to view the token again.
 
-The `Organization Domain` is everything up to and including `.atlassian.net` in the project URL. In the case of our example, this would be `https://example.atlassian.net`.
+### Configuring the Jira alert destination in Panther
 
-The `Project Key` is the project identifier within your organization, which can be retrieved from the project settings page or by browsing your organizations projects and identifying the `key` column:
+1. Log in to the Panther Console.
+2. On the left sidebar, click **Integrations > Alert Destinations**.
+3. Click **Create New**.
+4. Click **Jira**.
+5. Fill out the form:
+   * **Display Name**: Enter a descriptive name.
+   * **Organization Domain**: Enter your organization's Jira domain.&#x20;
+     * For example: https://example.atlassian.net.
+   * **Project Key**: Enter the project identifier within your organization. You can find this in Jira in your project settings page or by browsing [your organizations' Jira projects](https://example.atlassian.net/projects) and locating the `key` column.
+   * **Email**: Enter the email address of the Jira user who has permissions to create the new issues with the corresponding Jira API Key.
+   * **Jira API Key**: Enter the API token you generated in the earlier steps of this documentation.
+   * **Issue Type**: Enter the Issue type from Jira. This can be Bug, Story, Task, or any custom type.
+   * **Assignee ID**: Enter the unique ID of the user or group that the Issue will be assigned to.
+     * To find the ID, go to a user or group's public Jira profile and locate the trailing string from the URL of their profile. Example: If a user's profile URL is `https://example.atlassian.net/jira/people/5f8f26dabd12345678910abcd`, their ID is `5f8f26dabd12345678910abcd`.
+   * **Labels**: Enter the associated Jira labels.
+   * **Severity**: Select the severity level of alerts to send to this Destination.
+   * **Alert Types**: Select the alert types to send to this Destination.
+6. Click **Add Destination**.
+7. On the final page, optionally click **Send Test Alert** to test the integration using a test payload. When you are finished, click **Finish Setup**.
 
-`https://example.atlassian.net/projects`
+## Additional Information on Destinations
 
-The `Email` is the Jira user's email of the account which has permissions to create the new issues with the corresponding `Jira API Key`. If possible, a service account should be created specifically for this purpose in order to ensure continuity.
-
-The `Jira API Key` represents the API key of the user that will be used for creating the issues.
-
-The `Assignee ID` is optional. If specified, issues created will automatically be assigned to this user. Otherwise, the issue will be `unassigned`.
-
-The `Issue Type` is the label to tag for Jira issues.
-
-![](<../../../.gitbook/assets/jira1 (9) (5) (1) (1) (11) (1) (1) (14).png>)
-
-### Create a Jira API key
-
-To create a new API key, please visit [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens) while logged in as the user. click the `Create API Token` button, provide a memorable label, and click `Create`:
-
-![](<../../../.gitbook/assets/jira-key1 (1).png>)
-
-After creating the token, you will have an opportunity to copy it. Jira warns this token is sensitive and you will not be able to access it again in the future. Click `Copy`:
-
-![](<../../../.gitbook/assets/jira-key2 (1).png>)
-
-Navigate back to the onboarding process inside Panther and paste in the key inside the appropriate field.
-
-The assignee ID is the name of the user or group that the issue will be assigned to.
-
-### Assignee ID
-
-This field accepts the unique string ID called the user's `accountID`. You need to navigate to a user's public profile page to quickly extract the ID. For example, we can visit the organization's people page, find a user we want to assign, and click to get to their public profile:
-
-`https://example.atlassian.net/jira/people/search`
-
-Click on a desired user: ![](<../../../.gitbook/assets/jira-user1 (2) (2) (4) (5) (1) (1) (3) (1) (1) (2).png>)
-
-Inspect the URL and copy the trailing string. This is the `accountId`. For example, in the following URL, `5f8f26dabd138600693d7fb8` would be the `accountId`:
-
-`https://example.atlassian.net/jira/people/5f8f26dabd138600693d7fb8`
-
-![](<../../../.gitbook/assets/jira-user2 (1).png>)
-
-Navigate back to the onboarding process and paste this into the `Assignee ID` field.
-
-Once you've filled out the form, click `Add Destination`. You may optionally send a test alert: ![](<../../../.gitbook/assets/jira2 (9) (6) (1) (1) (11) (1) (1) (13).png>) ![](<../../../.gitbook/assets/jira3 (1).png>)
-
-Click `Finish Setup` to finalize the destination configuration. This destination is now ready to receive alerts!
-
-![](<../../../.gitbook/assets/jira4 (1).png>)
+For more information on alert routing order, modifying or deleting destinations, and workflow automation, please see the Panther docs: [Destinations](https://docs.panther.com/destinations).
