@@ -1,25 +1,40 @@
+---
+description: Configuring PagerDuty as an alert destination in your Panther Console
+---
+
 # PagerDuty
 
-[PagerDuty](https://www.pagerduty.com/) is a service to manage on-call rotations for critical systems.
+Destinations are integrations that receive alerts from rules, policies, system health notifications, and rule errors. Panther supports configuring PagerDuty as the destination where you will receive alerts.
 
-To configure a PagerDuty Destination, Panther requires an `Integration Key`. When an alert is forwarded to a PagerDuty Destination, it creates an incident:
+[PagerDuty](https://www.pagerduty.com/) is a service to manage on-call rotations for critical systems. You can use the PagerDuty alert destination to page an on-call team. We typically only recommend this Destination for `High` and `Critical` severity issues that need to be addressed immediately.
 
-![](<../../../.gitbook/assets/pagerduty-panther (7) (7) (8) (1) (1) (3) (1) (1) (7).png>)
+## How to set up PagerDuty alert destinations in Panther
 
-The PagerDuty Destination allows you to page an on-call team. We typically only recommend this Destination for `High` and `Critical` severity issues that need to be addressed immediately.
+### Configure the integration in PagerDuty
 
-To configure the PagerDuty Destination, go to the PagerDuty Service Directory configuration page `(https://<your-domain>.pagerduty.com/service-directory)` and select the `New Service` button:
+1. Log in to your PagerDuty account.
+2. Navigate to the Service Directory configuration page then click **+New Service**.\
+   ![](../.gitbook/assets/pagerduty-service.png)
+3. Fill out the form on the service configuration page.
+   * For Integration Type, choose **Use our API directly**.\
+     ![](../.gitbook/assets/pagerduty-add-service.png)
+4. You will be redirected to the Integrations page for that service. On this page, copy out the Integration Key and store it in a secure location. You will need this in the next steps.\
+   ![](../.gitbook/assets/pagerduty-api.png)
 
-![](<../../../.gitbook/assets/pagerduty1 (6) (1) (1) (11) (1) (1) (3).png>)
+### Configure the PagerDuty alert destination in Panther
 
-You will be presented with a service configuration page. Select the `Use our API directly` option for the Integration Type, then configure the service with a name, description, escalation policy, and any other settings as you see fit:
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Integrations > Destinations**. Click **Create New** in the upper right.
+3. Click **PagerDuty**.
+4. Fill out the form to configure the Destination:
+   * **Display Name**: Enter a descriptive name.
+   * **Integration Key**: Enter the PagerDuty Integration Key you generated in the earlier steps of this documentation.
+   * **Severity**: Select the severity level of alerts to send to this Destination.
+   * **Alert Types**: Select the alert types to send to this Destination.\
+     ![](../.gitbook/assets/pagerduty-panther.png)
+5. Click **Add Destination**.
+6. On the final page, optionally click **Send Test Alert** to test the integration. When you are finished, click **Finish Setup**.
 
-![](<../../../.gitbook/assets/pagerduty2 (7) (1) (1) (11) (1) (10).png>)
+## Additional Information on Destinations
 
-After the service has been created, you will be redirected to the Integrations page for that service from which you can copy out the integration key for the Panther Destinations configuration:
-
-![](<../../../.gitbook/assets/pagerduty3 (8) (1) (1) (11) (1) (1).png>)
-
-{% hint style="success" %}
-The PagerDuty configuration is now set and ready to receive alerts from Panther!
-{% endhint %}
+For more information on alert routing order, modifying or deleting destinations, and workflow automation, please see the Panther docs: [Destinations](https://docs.panther.com/destinations).
