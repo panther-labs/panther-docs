@@ -1,5 +1,5 @@
 ---
-description: Onboarding Juniper logs into your Panther Console
+description: Connect Juniper logs into your Panther Console
 ---
 
 # Juniper

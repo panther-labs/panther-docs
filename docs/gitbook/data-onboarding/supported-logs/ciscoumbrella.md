@@ -1,5 +1,5 @@
 ---
-description: Onboarding Cisco Umbrella logs to your Panther Console
+description: Connecting Cisco Umbrella logs to your Panther Console
 ---
 
 # Cisco Umbrella
@@ -10,14 +10,14 @@ Panther supports ingesting Cisco Umbrella logs via common [Data Transport](https
 
 ## How to onboard Cisco Umbrella logs to Panther
 
-To pull these logs into Panther:
+To connect these logs into Panther:
 
 1. Set up your Data Transport in the Panther Console.
    * Please follow Panther’s documentation for configuring the Data Transport option you will use:
      * [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
      * [AWS SQS](https://docs.panther.com/data-onboarding/data-transports/sqs)
-2. Configure your Data Transport source to pull in logs from Cisco Umbrella.
-   * See the Data Transport service provider's documentation for instructions on pulling in logs.
+2. Configure Cisco Umbrella to push logs to the Data Transport source.
+   * See Cisco's documentation for instructions on pushing logs to your selected Data Transport source.
 
 ## Supported log types
 

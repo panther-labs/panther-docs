@@ -1,5 +1,5 @@
 ---
-description: Onboarding GCP logs to your Panther Console
+description: Connecting GCP logs to your Panther Console
 ---
 
 # GCP
@@ -10,15 +10,15 @@ Panther supports ingesting Google Cloud Platform (GCP) logs via common [Data Tra
 
 ## How to onboard GCP logs to Panther
 
-To pull these logs into Panther:
+To connect these logs into Panther:
 
 1. Set up your Data Transport in the Panther Console.
    * Please follow Panther’s documentation for configuring the Data Transport option you will use:
      * [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
      * [AWS SQS](https://docs.panther.com/data-onboarding/data-transports/sqs)
      * [GCS](https://docs.panther.com/data-onboarding/data-transports/gcs)
-2. Configure your Data Transport source to pull in logs from GCP.
-   * See the Data Transport service provider's documentation for instructions on pulling in logs.
+2. Configure GCP to push logs to the Data Transport source.
+   * See GCP's documentation for instructions on pushing logs to your selected Data Transport source.
 
 ## Supported log types
 

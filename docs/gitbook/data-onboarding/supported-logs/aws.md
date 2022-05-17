@@ -1,5 +1,5 @@
 ---
-description: Onboarding AWS logs to your Panther Console
+description: Connecting AWS logs to your Panther Console
 ---
 
 # AWS

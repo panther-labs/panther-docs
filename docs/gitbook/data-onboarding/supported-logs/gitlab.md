@@ -1,5 +1,5 @@
 ---
-description: Onboarding GitLab logs to your Panther Console
+description: Connecting GitLab logs to your Panther Console
 ---
 
 # GitLab
@@ -10,14 +10,14 @@ Panther supports ingesting GitLab logs via common [Data Transport](https://docs.
 
 ## How to onboard GitLab logs to Panther
 
-To pull these logs into Panther:
+To connect these logs into Panther:
 
 1. Set up your Data Transport in the Panther Console.
    * Please follow Panther’s documentation for configuring the Data Transport option you will use:
      * [AWS S3 bucket](https://docs.panther.com/data-onboarding/data-transports/s3)
      * [AWS SQS](https://docs.panther.com/data-onboarding/data-transports/sqs)
-2. Configure your Data Transport source to pull in logs from GitLab.
-   * See the Data Transport service provider's documentation for instructions on pulling in logs.
+2. Configure GitLab to push logs to the Data Transport source.
+   * See GitLab's documentation for instructions on pushing logs to your selected Data Transport source.
 
 ## Supported log types
 

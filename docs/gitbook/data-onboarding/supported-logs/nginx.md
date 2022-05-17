@@ -1,5 +1,5 @@
 ---
-description: Onboarding Nginx logs to your Panther Console
+description: Connecting Nginx logs to your Panther Console
 ---
 
 # Nginx

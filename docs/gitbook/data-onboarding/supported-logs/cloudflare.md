@@ -1,5 +1,5 @@
 ---
-description: Onboarding Cloudfare logs to your Panther Console
+description: Connecting Cloudfare logs to your Panther Console
 ---
 
 # Cloudflare
@@ -10,14 +10,14 @@ Panther supports ingesting Cloudfare logs via common [Data Transport](https://do
 
 ## How to onboard Cloudfare logs to Panther
 
-To pull these logs into Panther:
+To connect these logs into Panther:
 
 1. Set up your Data Transport in the Panther Console.
    * Please follow Panther’s documentation for configuring the Data Transport option you will use:
      * [AWS S3 bucket](../data-transports/s3.md)
      * [AWS SQS](../data-transports/sqs/)
-2. Configure your Data Transport source to pull in logs from Cloudfare.
-   * See the Data Transport service provider's documentation for instructions on pulling in logs.
+2. Configure Cloudflare to push logs to the Data Transport source.
+   * See Cloudflare's documentation for instructions on pushing logs to your selected Data Transport source.
 
 ## Supported log types
 

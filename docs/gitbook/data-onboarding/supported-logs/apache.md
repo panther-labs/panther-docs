@@ -1,5 +1,5 @@
 ---
-description: Onboarding Apache logs to your Panther Console
+description: Connecting Apache logs to your Panther Console
 ---
 
 # Apache
@@ -10,20 +10,18 @@ Panther supports ingesting Apache logs via common [Data Transport](https://docs.
 
 ## How to onboard Apache logs to Panther
 
-To pull these logs into Panther:
+To connect these logs into Panther:
 
 1. Set up your Data Transport in the Panther Console.
    * Please follow Panther’s documentation for configuring the Data Transport option you will use:
      * [AWS S3 bucket](../data-transports/s3.md)
      * [AWS SQS](../data-transports/sqs/)
-2. Configure your Data Transport source to pull in logs from Apache.
-   * See the Data Transport service provider's documentation for instructions on pulling in logs.
+2. Configure Apache to push logs to the Data Transport source.
+   * See Apache's documentation for instructions on pushing logs to your selected Data Transport source.
 
 ## Supported log types
 
-{% hint style="info" %}
 Required fields in all tables are in **bold.**
-{% endhint %}
 
 ### Apache.AccessCombined
 
