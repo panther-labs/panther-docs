@@ -1,31 +1,48 @@
+---
+description: Configuring Microsoft Teams as an alert destination in your Panther Console
+---
+
 # Microsoft Teams
 
-This page will walk you through configuring MS Teams as a Destination for your Panther alerts.
+## Overview
 
-The MS Teams Destination requires a `Microsoft Teams Webhook URL`. When an alert is forwarded to an MS Teams Destination, it sends a message to the specified Webhook URL:
+Destinations are integrations that receive alerts from rules, policies, system health notifications, and rule errors. Panther supports configuring Microsoft Teams as the destination where you will receive alerts.
 
-![](<../../../.gitbook/assets/msteams-panther (7) (5) (1) (1) (3) (1) (1) (7).png>)
+The MS Teams Destination requires a `Microsoft Teams Webhook URL`. When an alert is forwarded to an MS Teams Destination, it sends a message to the specified Webhook URL.
 
-The Microsoft Teams Destination is configured via a custom connector with a Webhook URL. First, ensure that your team has the option to add Incoming Webhooks as a connector. Go the `Apps` settings at the bottom left of you Teams client, then select `Connectors` and then `Incoming Webhook`:
+## How to set up Microsoft Teams alert destinations in Panther
 
-![](<../../../.gitbook/assets/msteams1 (9) (7) (1) (1) (11) (1) (1) (12).png>)
+### Configure the Webhook URL in Microsoft Teams
 
-Select the `Add to a team` button and you will be prompted to select a team to add the Incoming Webhook connector to, select the appropriate team and select `Setup a connector`:
+The Microsoft Teams Destination is configured via a custom connector with a Webhook URL. First, ensure that your team has the option to add Incoming Webhooks as a connector.&#x20;
 
-![](<../../../.gitbook/assets/msteams2 (13) (7) (1) (1) (1) (11) (1) (1) (13).png>)
+1. Log in to your Microsoft Teams application.
+2. Navigate to **Apps**. Click **Connectors**, then click **Incoming Webhook**.\
+   ![](../.gitbook/assets/msteams-webhook.png)
+3. Click **Add to a team**.&#x20;
+4. Select a team to add the Incoming Webhook connector to, then click **Setup a connector**.\
+   ![](../.gitbook/assets/msteams-select-group.png)
+5. Click **Configure** next to Incoming Webhook. Configure the name, description, and settings.\
+   ![](../.gitbook/assets/msteams-configure.png)
+6. Enter a name for the Incoming Webhook integration, and optionally upload an image. Click **Create**.\
+   ![](../.gitbook/assets/msteams-name-webhook.png)
+7. On the next page, a Webhook URL is displayed on the screen. Copy the URL and store it in a secure location, as you will need it in the next steps.
+8. Click **Done**.
 
-Select the `Configure` button next to Incoming Webhook, and configure the name, description, and other settings as appropriate:
+### Configure the Microsoft Teams alert destination in Panther
 
-![](<../../../.gitbook/assets/msteams3 (13) (6) (1) (1) (11) (1) (1) (13).png>)
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Integrations > Destinations**. Click **Create New** in the upper right.
+3. Click **Microsoft Teams**.
+4. Fill out the form to configure the Destination:
+   * **Display Name**: Enter a descriptive name.
+   * **Webhook URL**: Enter the Microsoft Teams Webhook URL that you generated in the previous steps of this documentation.
+   * **Severity**: Select the severity level of alerts to send to this Destination.
+   * **Alert Types**: Select the alert types to send to this Destination.\
+     ![](../.gitbook/assets/msteams-panther.png)
+5. Click **Add Destination**.
+6. On the final page, optionally click **Send Test Alert** to test the integration. When you are finished, click **Finish Setup**.
 
-You will be prompted to name the integration, and optionally upload an image to display. After filling out these settings, select the `Create` button:
+## Additional Information on Destinations
 
-![](<../../../.gitbook/assets/msteams4 (13) (5) (1) (1) (11) (1) (1) (13).png>)
-
-You will then be presented with the webhook URL. Copy this out into the Panther Destinations page and select the `Done` button:
-
-![](<../../../.gitbook/assets/msteams5 (12) (5) (1) (1) (11) (1) (1) (12).png>)
-
-Your MS Teams destination is now ready to receive notifications when Policies and Rules send alerts:
-
-![](<../../../.gitbook/assets/msteams6 (12) (4) (1) (1) (1) (11) (1) (1) (12).png>)
+For more information on alert routing order, modifying or deleting destinations, and workflow automation, please see the Panther docs: [Destinations](https://docs.panther.com/destinations).
