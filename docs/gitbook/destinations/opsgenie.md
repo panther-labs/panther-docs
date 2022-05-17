@@ -1,25 +1,44 @@
+---
+description: Configuring OpsGenie as an alert destination in your Panther Console
+---
+
 # OpsGenie
 
-This page will walk you through configuring OpsGenie as a Destination for your Panther alerts.
+## Overview
 
-The OpsGenie Destination requires an `Opsgenie API key`. When an alert is forwarded to an OpsGenie Destination, it creates an incident using the specified API key:
+Destinations are integrations that receive alerts from rules, policies, system health notifications, and rule errors. Panther supports configuring OpsGenie as the destination where you will receive alerts.
 
-![](<../../../.gitbook/assets/opsegenie-panther (7) (7) (8) (1) (1) (1) (3) (1) (1) (7).png>)
+The OpsGenie Destination requires an `Opsgenie API key`. When an alert is forwarded to an OpsGenie Destination, it creates an incident using the specified API key.
 
-To configure an OpsGenie Destination, start by navigating to your team's dashboard by going to the Teams tab and selecting the team to receive the alert:
+## How to set up OpsGenie alert destinations in Panther
 
-![](<../../../.gitbook/assets/opsgenie1 (1) (1) (11) (1) (1) (2).png>)
+### Configure the integration in OpsGenie
 
-After selecting the team you to which you wish to send alerts, select the integrations tab on the left, and then the `Add integration` button:
+1. Log in to your OpsGenie dashboard. Navigate to the **Teams** tab and select the team to receive alerts.
+2. Click Integrations on the left, then click **Add integration**.\
+   ![](../.gitbook/assets/opsgenie-integrations.png)
+3. In the Integrations list, click **API**.\
+   ![](../.gitbook/assets/opsgenie-integrations-list.png)
+4. Configure the name, settings, and permissions for the integration. Check the boxes next to the **Enabled** and **Create and Update Access** permissions.\
+   ![](../.gitbook/assets/opsgenie-settings.png)
+5. Copy the API Key from the configuration settings and store it in a secure location. You will need this in the next steps.
+6. Click **Save Integration**.
 
-![](<../../../.gitbook/assets/opsgenie2 (2) (1) (1) (1) (11) (1) (1) (12).png>)
+### Configure the OpsGenie alert destination in Panther
 
-Next select the `API` integration type from the integration list:
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Integrations > Destinations**. Click **Create New** in the upper right.
+3. Click **OpsGenie**.
+4. Fill out the form to configure the Destination:
+   * **Display Name**: Enter a descriptive name.
+   * **API Key**: Enter the OpsGenie API Key you generated in previous steps of this documentation.
+   * **Region**: Select your region based on where your OpsGenie account is registered.
+   * **Severity**: Select the severity level of alerts to send to this Destination.
+   * **Alert Types**: Select the alert types to send to this Destination.\
+     ![](../.gitbook/assets/opsgenie-panther-console.png)
+5. Click **Add Destination**.
+6. On the final page, optionally click **Send Test Alert** to test the integration. When you are finished, click **Finish Setup**.
 
-![](<../../../.gitbook/assets/opsgenie3 (3) (1) (1) (1) (11) (1) (1) (13).png>)
+## Additional Information on Destinations
 
-After selecting the API integration type, you will be prompted to configure the name, settings, permissions, etc. of the integration. Be sure to leave the `Enabled` and `Create and Update Access` check boxes checked:
-
-![](<../../../.gitbook/assets/opsgenie4 (4) (1) (1) (11) (1) (1) (10).png>)
-
-Copy the API key out of the configuration settings and into the Panther Destinations configuration, and select the `Save Integration` button. Your OpsGenie Destination should now be ready to receive alerts from Panther
+For more information on alert routing order, modifying or deleting destinations, and workflow automation, please see the Panther docs: [Destinations](https://docs.panther.com/destinations).
