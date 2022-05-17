@@ -33,7 +33,9 @@ To create a Scheduled Query:
 
 You will have the option of using a Cron Expression or a period-based frequency scheduler.&#x20;
 
-For the Period radio option, you can enter the number of days and/or minutes after which the SQL query should be run again. For example: setting a period of 0 days and 30 minutes will mean that the query will run every day, every 30 minutes (give or take a few seconds). You will also be asked to set a timeout period in minutes, with a maximum allowed value of 10 minutes. If your query does not complete inside the allowed time window, Panther will automatically cancel it.
+For the Period radio option, you can enter the number of days and/or minutes after which the SQL query should be run again. For example: setting a period of 0 days and 30 minutes will mean that the query will run every day, every 30 minutes (give or take a few seconds).&#x20;
+
+You will also be asked to set a timeout period in minutes, with a maximum allowed value of 10 minutes. If your query does not complete inside the allowed time window, Panther will retry 3 times before automatically canceling it.
 
 {% hint style="warning" %}
 Your company will incur costs on your database back end every time a scheduled query runs. Please make sure that your queries can complete inside the specified timeout period.
