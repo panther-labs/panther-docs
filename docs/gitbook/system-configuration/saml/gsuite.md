@@ -1,59 +1,50 @@
 ---
-description: Integrating GSuite with Panther
+description: Setting up G Suite SSO to log in to the Panther Console
 ---
 
-# GSuite
+# G Suite SSO
 
-First, [deploy](../../quick-start.md) Panther and go to the General Settings page. Note the values for "Audience" and "ACS URL":
+## Overview
 
-![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (1) (1) (11) (1) (1) (22).png>)
+Panther supports integrating with G Suite (now named Google Workspace) as a SAML provider to enable logging in to the Panther Console via SSO.&#x20;
 
-## Create GSuite App
+For more information on features, terminology, and limitations of SSO integrations with the Panther Console, please see the Panther documentation: [SAML/SSO Integration](https://docs.panther.com/system-configuration/saml).
 
-Follow the [GSuite guide for SAML-based SSO](https://support.google.com/a/answer/6087519), which we trace step-by-step below:
+## How to configure SAML SSO to the Panther Console with G Suite
 
-Go to the [Apps Admin console](https://admin.google.com/ac/apps/unified) and select "Add App" -> "Add custom SAML app"
+### Obtain the G Suite SSO parameters from Panther
 
-![](../../.gitbook/assets/gsuite1.png)
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Settings > General**.
+3. Click the SAML Configuration tab.
 
-Enter an application name:
+Keep this browser window open, as you will need the **Audience** and **ACS URL** values in the next steps.
 
-![](../../.gitbook/assets/gsuite2.png)
+![The General Settings page in Panther is open to the SAML Configuration tab, which displays the Audience and ACS URL fields.](../../.gitbook/assets/panther-sso.png)
 
-Download the metadata file and keep this handy.
+### Create the G Suite App
 
-![](../../.gitbook/assets/gsuite3.png)
-
-Leave all the settings on this page as their default values and click "continue."
-
-Configure the ACS URL and Entity ID using the values shown in the Panther General Settings page:
-
-* ACS URL: Use the "ACS Consumer URL" shown in the Panther General Settings
-* Entity ID: Use the "Audience" shown in the Panther General Settings
-
-![](../../.gitbook/assets/gsuite4.png)
-
-Leave the rest of the fields as their defaults and click "continue." Configure the attribute mapping as follows:
-
-* First Name -> "PantherFirstName"
-* Last Name -> "PantherLastName"
-* Primary email -> "PantherEmail"
-
-![](../../.gitbook/assets/gsuite5.png)
-
-Click Finish. Now we need to enable the app: click the down array next to User Access to expand this tab:
-
-![](../../.gitbook/assets/gsuite6.png)
-
-Toggle the app to "On for everyone" (or more selectively assign to OUs if you prefer) and click "save."
-
-![](../../.gitbook/assets/gsuite7.png)
+Follow the [GSuite guide for SAML-based SSO](https://support.google.com/a/answer/6087519) to add a custom SAML app.&#x20;
 
 {% hint style="info" %}
-You are now done configuring GSuite, but it may take up to 24 hours for your changes to propagate. Usually, however, it finishes within a few minutes.
+Note that it may take up to 24 hours for your changes to propagate in Google Workspace.
 {% endhint %}
 
-## Publish the Metadata File
+Make the following modifications to create the SAML app for Panther:
+
+* In the **Service Provider Details** window, enter the ACS URL and Entity ID values you obtained from the Panther Console earlier in this documentation. \
+  ![](../../.gitbook/assets/gsuite-saml.png)
+* On the **Attribute mapping** page, configure the following attribute mappings:
+  * **First Name**: `PantherFirstName`
+  * **Last Name**: `PantherLastName`
+  * **Primary email**: `PantherEmail`\
+    ``![](../../.gitbook/assets/gsuite-mappings.png)``
+
+### Enable the SAML app in Google Workspace
+
+Follow [Google's documentation to turn on the SAML app](https://support.google.com/a/answer/6087519).
+
+### Publish the Metadata File
 
 Panther does not yet support direct uploads of SAML metadata files (we're working on it!)
 
@@ -61,16 +52,20 @@ In the meantime, you will need to publish that metadata file (which shouldn't co
 
 The URL must be HTTPS, and it must point to the public XML metadata document.
 
-## Configure Panther
+### Configure SAML in Panther
 
-From the Panther settings page, enable SAML with a default [Panther role](../rbac.md) of your choice and paste the URL which points to the metadata file that you published.
+1. Navigate back to the [SAML configuration](gsuite.md#obtain-the-g-suite-sso-parameters-from-panther) you started earlier in this documentation.
+2. Next to "Enable SAML", set the toggle to **ON**.&#x20;
+3. In the "Default Role" field, choose the Panther role that your new users will be assigned by default when they first log in via SSO.
+4. In the "Identity Provider URL" field, paste the URL that points to the metadata file you published.
+5. Click **Save Changes**.
 
-Don't forget to switch to "Enabled", click "Save", and then you're done! Now, clicking the "Login with SSO" button will redirect you to GSuite:
+To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (22).png>)
+![The Panther login page shows a "Login with SSO" option](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (22).png>)
 
 {% hint style="info" %}
-Amazon Cognito (which powers Panther's user management) does not yet support IdP-initiated login, meaning you cannot login to Panther from GSuite. The login must be initiated from Panther, the service provider.
+Amazon Cognito (which powers Panther's user management) does not yet support IdP-initiated login, meaning you cannot login to Panther from G Suite. The login must be initiated from Panther, the service provider.
 
-For this reason, the "Test SAML Login" button in the GSuite admin console may not work, but as long as you can login from Panther you have configured it correctly.
+For this reason, the "Test SAML Login" button in the G Suite admin console may not work, but as long as you can login from Panther you have configured it correctly.
 {% endhint %}

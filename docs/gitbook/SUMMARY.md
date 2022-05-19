@@ -141,7 +141,7 @@
 * [System Configuration](system-configuration/README.md)
   * [Role-Based Access Control](system-configuration/rbac.md)
   * [SAML/SSO Integration](system-configuration/saml/README.md)
-    * [GSuite](system-configuration/saml/gsuite.md)
+    * [G Suite SSO](system-configuration/saml/gsuite.md)
     * [Okta](system-configuration/saml/okta.md)
     * [OneLogin](system-configuration/saml/onelogin.md)
     * [Generic](system-configuration/saml/generic.md)
