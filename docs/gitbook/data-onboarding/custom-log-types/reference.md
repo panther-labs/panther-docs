@@ -2,11 +2,18 @@
 
 In this guide, you will find common fields used to build YAML-based schemas when onboarding [Custom Log Types](https://docs.panther.com/data-onboarding/custom-log-types) and [Lookup Table](https://docs.panther.com/enrichment/lookup-tables) schemas.&#x20;
 
+Required fields are in **bold**.
+
 ## LogSchema fields
 
-* **`version`** (`0,`_required_):  The version of the log schema. This field should be set to zero (`0`). Its purpose is to allow backwards compatibility with future versions of the log schema.
-* **`fields`** ([`[]FieldSchema`](reference.md#fieldschema), _required_):  The fields in each _Log Event_.
-* **`parser`** ([`ParserSpec`](reference.md#parserspec)):  Define a parser that will convert non-JSON logs to JSON.
+Each log schema defines the following fields:
+
+* **`version`** (`0,`_required_)
+  * The version of the log schema. This field should be set to zero (`0`). Its purpose is to allow backwards compatibility with future versions of the log schema.
+* **`fields`** ([`[]FieldSchema`](reference.md#fieldschema), _required_) &#x20;
+  * The fields in each _Log Event_.
+* `parser` ([`ParserSpec`](reference.md#parserspec)) &#x20;
+  * Define a parser that will convert non-JSON logs to JSON.
 
 ### Example
 
@@ -28,9 +35,9 @@ fields:
 
 A _ParserSpec_ specifies a parser to use to convert non-JSON input to JSON. Only one of the following fields can be specified:
 
-* **`fastmatch`** (`FastmatchParser{}`): Use `fastmatch` parser
-* **`regex`** (`RegexParser{}`): Use `regex` parser
-* **`csv`** (`CSVParser{}`): Use `csv` parser
+* `fastmatch` (`FastmatchParser{}`): Use `fastmatch` parser
+* `regex` (`RegexParser{}`): Use `regex` parser
+* `csv` (`CSVParser{}`): Use `csv` parser
 
 See the fields for `fastmatch`, `regex`, and `csv` in the tabs below.
 
@@ -39,30 +46,30 @@ See the fields for `fastmatch`, `regex`, and `csv` in the tabs below.
 #### Parser `fastmatch` fields
 
 * **`match`** (_required_, `[]string`): One or more patterns to match log lines against. This field cannot be empty.
-* **`emptyValues`** (`[]string`): Values to consider as `null`.
-* **`expandFields`** (`map[string]string`): Additional fields to be injected by expanding text templates.
-* **`trimSpace`** (`bool`): Trim space surrounding each value.
+* `emptyValues` (`[]string`): Values to consider as `null`.
+* `expandFields` (`map[string]string`): Additional fields to be injected by expanding text templates.
+* `trimSpace` (`bool`): Trim space surrounding each value.
 {% endtab %}
 
 {% tab title="regex" %}
 #### Parser `regex` fields <a href="#parser-regex-fields" id="parser-regex-fields"></a>
 
 * **`match`** (_required_, `[]string`): A pattern to match log lines against (can be split it into parts for documentation purposes). This field cannot be empty.
-* **`patternDefinitions`** (`map[string]string`): Additional named patterns to use in match pattern.
-* **`emptyValues`** (`[]string`): Values to consider as `null`.
-* **`expandFields`** (`map[string]string`): Additional fields to be injected by expanding text templates.
-* **`trimSpace`** (`bool`): Trim space surrounding each value.
+* `patternDefinitions` (`map[string]string`): Additional named patterns to use in match pattern.
+* `emptyValues` (`[]string`): Values to consider as `null`.
+* `expandFields` (`map[string]string`): Additional fields to be injected by expanding text templates.
+* `trimSpace` (`bool`): Trim space surrounding each value.
 {% endtab %}
 
 {% tab title="csv" %}
 #### Parser `csv` <a href="#parser-csv-fields" id="parser-csv-fields"></a>
 
 * **`delimiter`** (_required_, string): A character to use as field delimiter.
-* **`hasHeader`** (bool): Use first row to derive column names (unless `columns` is set also in which case the header is just skipped).
-* **`columns`** (`[]string`, `required(without hasHeader)`, `non-empty`): Names for each column in the CSV file. If not set, the first row is used as a header.
-* **`emptyValues`** (`[]string`): Values to consider as `null`.
-* **`trimSpace`** (`bool`): Trim space surrounding each value.
-* **`expandFields`** (`map[string]string`): Additional fields to be injected by expanding text templates.
+* `hasHeader` (bool): Use first row to derive column names (unless `columns` is set also in which case the header is just skipped).
+* `columns` (`[]string`, `required(without hasHeader)`, `non-empty`): Names for each column in the CSV file. If not set, the first row is used as a header.
+* `emptyValues` (`[]string`): Values to consider as `null`.
+* `trimSpace` (`bool`): Trim space surrounding each value.
+* `expandFields` (`map[string]string`): Additional fields to be injected by expanding text templates.
 {% endtab %}
 {% endtabs %}
 
@@ -70,9 +77,12 @@ See the fields for `fastmatch`, `regex`, and `csv` in the tabs below.
 
 A _FieldSchema_ defines a field and its value. The field is defined by:
 
-* **`name`** (_required_, `String`):  The name of the field.
-* **`required`** (`Boolean`):  If the field is required or not.
-* **`description`** (`String`):  Some text documenting the field.
+* **`name`** (_required_, `String`)&#x20;
+  * The name of the field.
+* `required` (`Boolean`) &#x20;
+  * If the field is required or not.
+* `description` (`String`) &#x20;
+  * Some text documenting the field.
 
 Its value is defined using the fields of a [`ValueSchema`](reference.md#valueschema).
 
@@ -80,7 +90,7 @@ Its value is defined using the fields of a [`ValueSchema`](reference.md#valuesch
 
 A `ValueSchema` defines a value and how it should be processed. Each `ValueSchema` has a `type` field that can be of the following values:
 
-| Value Type  | Description                                                                        |
+| Type Values | Description                                                                        |
 | ----------- | ---------------------------------------------------------------------------------- |
 | `string`    | A string value                                                                     |
 | `int`       | A 32-bit integer number in the range `-2147483648`, `2147483647`                   |
@@ -93,21 +103,21 @@ A `ValueSchema` defines a value and how it should be processed. Each `ValueSchem
 | `object`    | A JSON object of _known_ keys                                                      |
 | `json`      | Any valid JSON value (JSON object, array, number, string, boolean)                 |
 
-The fields of a `ValueSchema` depend on the value of the `type` field.
+The fields of a `ValueSchema` depend on the value of the `type`.
 
 | Type        | Field                       | Value                                     | Description                                                                                     |
 | ----------- | --------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `object`    | **`fields`**  (required)    | [`[]FieldSpec`](reference.md#fieldschema) | An array of `FieldSpec` objects describing the fields of the object.                            |
 | `array`     | **`element`** (required)    | [`ValueSchema`](reference.md#valueschema) | A `ValueSchema` describing the elements of an array.                                            |
 | `timestamp` | **`timeFormat`** (required) | `String`                                  | The format to use for parsing the timestamp. (see [Timestamps](reference.md#timestamps))        |
-| `timestamp` | **`isEventTime`**           | `Boolean`                                 | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_.                      |
-| `timestamp` | **`isExpiration`**          | `Boolean`                                 | (For lookup tables only) A flag to tell Panther to ignore all events after this timestamp       |
-| `string`    | **`indicators`**            | `[]String`                                | Tells Panther to extract indicators from this value (see [Indicators](reference.md#indicators)) |
-| `string`    | **`validate`**              | [`Validation`](reference.md#validation)   | Validation rules for the string value                                                           |
+| `timestamp` | `isEventTime`               | `Boolean`                                 | A flag to tell Panther to use this timestamp as the _Log Event Timestamp_.                      |
+| `timestamp` | `isExpiration`              | `Boolean`                                 | (For lookup tables only) A flag to tell Panther to ignore all events after this timestamp       |
+| `string`    | `indicators`                | `[]String`                                | Tells Panther to extract indicators from this value (see [Indicators](reference.md#indicators)) |
+| `string`    | `validate`                  | [`Validation`](reference.md#validation)   | Validation rules for the string value                                                           |
 
 ### Timestamps
 
-Timestamps are defined by setting the `type` field to `timestamp` and specifying the timestamp format using the `timeFormat` field. Timestamp formats can be either one of the built-in timestamp formats:
+Timestamps are defined by setting the `type` field to `timestamp` and specifying the timestamp format using the `timeFormat` field. Timestamp formats can be one of the built-in timestamp formats:
 
 | timeFormat | Example                       | Description                                                                                                 |
 | ---------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -117,7 +127,7 @@ Timestamps are defined by setting the `type` field to `timestamp` and specifying
 | `unix_us`  | 1649097442000000              | Timestamp expressed in microseconds since UNIX epoch time.                                                  |
 | `unix_ns`  | 1649097442000000000           | Timestamp expressed in nanoseconds since UNIX epoch time.                                                   |
 
-or you can define a custom format by using [strftime](https://strftime.org) notation. For example:
+You can also define a custom format by using [strftime](https://strftime.org) notation. For example:
 
 ```yaml
 # The field is a timestmap using a custom timestamp format like "2020-09-14 14:29:21"
@@ -127,6 +137,8 @@ or you can define a custom format by using [strftime](https://strftime.org) nota
 ```
 
 Timestamp values can be marked with `isEventTime: true` to tell Panther that it should use this timestamp as the `p_event_time` field. It is possible to set `isEventTime` on multiple fields. This covers the cases where some logs have optional or mutually exclusive fields holding event time information. Since there can only be a single `p_event_time` for every _Log Event_, the priority is defined using the order of fields in the schema.
+
+#### Note on Lookup Table timestamp values
 
 Timestamp values in Lookup Table schemas can also be marked with `isExpiration: true`. This is used to tell the Panther Rules Engine to ignore new data if the current time is after this timestamp. These can be useful to "time bound" alerts to independent indicators of compromise (IOCs) added via Lookup Tables, which make for richer alert context.
 
@@ -188,8 +200,6 @@ Values of `string` type can be further restricted by declaring a list of values 
 
 ### Validation by string type
 
-
-
 Values of `string` type can be restricted to match well-known formats. Currently, Panther supports the `ip` and `cidr` formats to require that a string value be a valid IP address or CIDR range. Note that the `ip` and `cidr` validation types can be combined with `allow` or `deny` rules but it is somewhat redundant, for example, if you allow two IP addresses, then adding an `ip` validation will simply ensure that your validation will not include false positives if the IP addresses in your list are not valid.
 
 ```yaml
@@ -215,7 +225,9 @@ Values of `string` type can be restricted to match well-known formats. Currently
 
 ### Embedded JSON values
 
-Sometimes JSON values are delivered 'embedded' in a string. For example the input JSON could be of the form:
+Sometimes JSON values are delivered 'embedded' in a string.&#x20;
+
+For example, the input JSON could be in the following format:
 
 ```javascript
 {
@@ -224,7 +236,7 @@ Sometimes JSON values are delivered 'embedded' in a string. For example the inpu
 }
 ```
 
-To have Panther parse the escaped JSON inside the string you can use an `isEmbeddedJSON: true` flag. This flag is valid for values of type `object`, `array` and `json`.
+To have Panther parse the escaped JSON inside the string, use an `isEmbeddedJSON: true` flag. This flag is valid for values of type `object`, `array` and `json`.
 
 By defining `message` as:
 
@@ -250,13 +262,13 @@ each event will be stored as:
 
 ## Using JSON Schema in an IDE
 
-If your editor/IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below as well to create custom JSON schemas:
+If your editor or IDE supports [JSON Schema](https://json-schema.org/), you can use [this JSON Schema file](https://gist.github.com/alxarch/e87e15b04ab2bcb0d9739d7f3a36b096) for validation and autocompletion. You can also use the resources below to create custom JSON schemas:
 
-### JetBrains
+### JetBrains custom JSON schemas
 
-You can find instructions on how to configure JetBrains IDEs to use custom JSON Schemas [here](https://www.jetbrains.com/help/phpstorm/json.html#ws\_json\_schema\_add\_custom).
+See the [JetBrains documentation](https://www.jetbrains.com/help/phpstorm/json.html#ws\_json\_schema\_add\_custom) for instructions on how to configure JetBrains IDEs to use custom JSON Schemas.
 
-### VSCode
+### VSCode customer JSON schemas
 
-You can find instructions on how to configure VSCode to use JSON Schema [here](https://code.visualstudio.com/Docs/languages/json#\_json-schemas-and-settings).
+See the [VSCode documentation](https://code.visualstudio.com/Docs/languages/json#\_json-schemas-and-settings) for instructions on how to configure VSCode to use JSON Schemas.
 
