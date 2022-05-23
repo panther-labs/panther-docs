@@ -1,78 +1,65 @@
 ---
-description: Integrating OneLogin with Panther
+description: Setting up OneLogin SSO to log in to the Panther Console
 ---
 
-# OneLogin
+# OneLogin SSO
 
-First, go to the General Settings page and copy the values for "Audience" and "ACS URL":
+## Overview
 
-![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (1) (1) (11) (1) (1) (21).png>)
+Panther supports integrating with OneLogin as a SAML provider to enable logging in to the Panther Console via SSO.
 
-You will need these to configure your OneLogin App.
+For more information on features, terminology, and limitations of SSO integrations with the Panther Console, please see the Panther documentation: [SAML/SSO Integration](https://docs.panther.com/system-configuration/saml).
 
-## Create OneLogin App
+## How to configure SAML SSO to the Panther Console with OneLogin
 
-From the OneLogin Admin console, navigate to the Applications page:
+### Obtain the OneLogin SSO parameters from Panther
 
-![](<../../../../.gitbook/assets/onelogin1 (8) (8) (9) (2) (1) (1) (2) (1) (1) (8).png>)
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Settings > General**.
+3. Click the SAML Configuration tab.
 
-Click the "Add App" button on the top right of the page and search for "SAML Test Connector (Advanced):"
+Keep this browser window open, as you will need the **Audience** and **ACS URL** values in the next steps.
 
-![](<../../../../.gitbook/assets/onelogin2 (5) (5) (7) (8) (1) (1) (3) (1) (1) (5).png>)
+![The General Settings page in Panther is open to the SAML Configuration tab, which displays the Audience and ACS URL fields.](../../.gitbook/assets/panther-sso.png)
 
-Fill in the following:
+## Create the OneLogin App
 
-1. Display Name (e.g. "Panther Enterprise")
-2. Logo Icon
-3. Description
+1. Log in to the OneLogin administrative console.
+2. Click the Applications tab, then click Applications in the drop-down menu.&#x20;
+3. Click **Add App** in the upper right side of the page. Search for and select "SAML Test Connector (Advanced)."\
+   ![](../../.gitbook/assets/onelogin-test-connector.png)
+4. Fill in the form:\
+   Note: We recommend that you disable the "visible in portal" option since SAML logins can only be initiated from Panther.
+   * **Display Name**: Add a descriptive name, such as "Panther Console."
+   * **Logo Icon**: Upload a Panther logo to help users quickly identify this app.
+   * **Description**: Add a description of the app.
+5. Click **Save**.
+6. Open your new app's "Configuration" page. Under "Application Details," enter the following:
+   * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
+   * **ACS (Consumer) URL Validator**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
+   * **ACS (Consumer) URL**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
+7. In the Parameters tab, add the attribute mappings for Panther. Check the box next to "Include in SAML assertion" for each attribute.
+   * `PantherFirstName`: `First Name`
+   * `PantherLastName`: `Last Name`
+   * `PantherEmail`: `Email`\
+     ``When you are done, they will appear in the attributes list: \
+     ``![](../../.gitbook/assets/onelogin-saml-attributes.png)``
+8. Click **Save**.
+9. In the SSO tab, set the algorithm to SHA-512.&#x20;
+10. Copy the **Issuer URL** and store it in a secure location. You will need this in the next steps.\
+    ![](../../.gitbook/assets/onelogin-issuer.png)
+11. Save your settings.
 
-{% hint style="info" %}
-We recommend disabling the "visible in portal" button since SAML logins can only be initiated from Panther.
-{% endhint %}
+After you're done, make sure to grant access to the appropriate users and groups.
 
-Click "Save."
+### Configure OneLogin SAML in Panther
 
-Now, open the new application's "Configuration" page and fill in the "Audience" and "ACS Consumer" values found in the Panther General Settings page above:
+1. Navigate back to the [SAML configuration](onelogin.md#obtain-the-g-suite-sso-parameters-from-panther) you started earlier in this documentation.
+2. Next to "Enable SAML", set the toggle to **ON**.&#x20;
+3. In the "Default Role" field, choose the Panther role that your new users will be assigned by default when they first log in via SSO.
+4. In the **Identity Provider URL** field, paste the **Issuer URL** from OneLogin that you obtained in the previous steps of this documentation.
+5. Click **Save Changes**.
 
-![](<../../../../.gitbook/assets/onelogin3 (5) (5) (7) (8) (1) (1) (3) (1) (1) (5).png>)
+To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-In the Parameters tab, add Panther's field mappings:
-
-* `PantherFirstName`: `First Name`
-* `PantherLastName`: `Last Name`
-* `PantherEmail`: `Email`
-
-For each parameter, be sure to also check the "Include in SAML assertion" flag:
-
-![](<../../../../.gitbook/assets/onelogin4-inset (8) (4) (1) (1) (1) (2) (1) (1) (8).png>)
-
-When complete, you should see:
-
-![](<../../../../.gitbook/assets/onelogin4 (8) (8) (9) (5) (1) (1) (2) (1) (1) (8).png>)
-
-Finally, in the "SSO" tab, strengthen the algorithm to SHA-512 and copy the Issuer URL:
-
-![](<../../../../.gitbook/assets/onelogin5 (8) (8) (9) (6) (1) (1) (2) (1) (1) (8).png>)
-
-This is the "Identity provider URL" you will need to give to Panther.
-
-Save your OneLogin App settings.
-
-Don't forget to grant access to the appropriate users or groups!
-
-## Configure Panther
-
-To finalize the SSO configuration in Panther:
-
-1. Navigate to your Panther "General Settings" page
-2. Flip the "Enable SAML" button
-3. Set a default [Panther Role](../rbac.md) of your choice
-4. Paste the OneLogin issuer URL copied above:
-
-![](<../../../../.gitbook/assets/onelogin-panther (2) (1) (1) (3) (1) (1) (7).png>)
-
-Click "Save" and you're done!
-
-Now clicking the "Login with SSO" button will redirect you to your company's OneLogin:
-
-![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (21).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (21).png>)

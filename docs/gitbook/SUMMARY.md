@@ -143,7 +143,7 @@
   * [SAML/SSO Integration](system-configuration/saml/README.md)
     * [G Suite SSO](system-configuration/saml/gsuite.md)
     * [Okta SSO](system-configuration/saml/okta.md)
-    * [OneLogin](system-configuration/saml/onelogin.md)
+    * [OneLogin SSO](system-configuration/saml/onelogin.md)
     * [Generic](system-configuration/saml/generic.md)
   * [Panther Audit Logs (BETA)](system-configuration/panther-audit-logs/README.md)
     * [Querying and Writing Detections for Panther Audit Logs](system-configuration/panther-audit-logs/querying-and-writing-detections-for-panther-audit-logs.md)
