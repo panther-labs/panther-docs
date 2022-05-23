@@ -142,7 +142,7 @@
   * [Role-Based Access Control](system-configuration/rbac.md)
   * [SAML/SSO Integration](system-configuration/saml/README.md)
     * [G Suite SSO](system-configuration/saml/gsuite.md)
-    * [Okta](system-configuration/saml/okta.md)
+    * [Okta SSO](system-configuration/saml/okta.md)
     * [OneLogin](system-configuration/saml/onelogin.md)
     * [Generic](system-configuration/saml/generic.md)
   * [Panther Audit Logs (BETA)](system-configuration/panther-audit-logs/README.md)

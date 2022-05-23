@@ -1,55 +1,70 @@
 ---
-description: Integrating Okta with Panther
+description: Setting up Okta SSO to log in to the Panther Console
 ---
 
-# Okta
+# Okta SSO
 
-First, [deploy](../../quick-start.md) Panther and go to the General Settings page. Note the values for "Audience" and "ACS URL":
+## Overview
 
-![](<../../../../.gitbook/assets/panther-saml-parameters (5) (1) (1) (1) (11) (1) (1) (23).png>)
+Panther supports integrating with Okta as a SAML provider to enable logging in to the Panther Console via SSO.
 
-## Create Okta App
+For more information on features, terminology, and limitations of SSO integrations with the Panther Console, please see the Panther documentation: [SAML/SSO Integration](https://docs.panther.com/system-configuration/saml).
 
-From the Okta admin console, navigate to the Applications tab
+## How to configure SAML SSO to the Panther Console with Okta
 
-![](<../../../../.gitbook/assets/okta1 (8) (8) (4) (1) (1) (2) (1) (1) (8).png>)
+### Obtain the Okta SSO parameters from Panther
 
-Click "Add Application"
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Settings > General**.
+3. Click the SAML Configuration tab.
 
-![](<../../../../.gitbook/assets/okta-new-app (8) (8) (9) (8) (1) (1) (2) (1) (1) (8).png>)
+Keep this browser window open, as you will need the **Audience** and **ACS URL** values in the next steps.
 
-Click "Create New App" and configure "Platform: Web" app and "Sign on method: SAML 2.0"
+![The General Settings page in Panther is open to the SAML Configuration tab, which displays the Audience and ACS URL fields.](../../.gitbook/assets/panther-sso.png)
 
-![](<../../../../.gitbook/assets/okta2 (8) (8) (5) (1) (1) (2) (1) (1) (8).png>)
+### Create the Okta App
 
-Click "Create" and configure the General Settings however you see fit. We recommend:
+1. Log in to your Okta administrative console.
+2. &#x20;Click the **Applications** tab, then click **Add Application**.\
+   ![](../../.gitbook/assets/okta-add-app.png)
+3. On the "Add Application" page, click **Create New App**.
+4. Fill in the form to configure the new app:
+   * **Platform**: Web
+   * **Sign on Method**: SAML 2.0\
+     ![](../../.gitbook/assets/saml-okta.png)
+5. Click **Create**.
+6. Configure the general settings.
+   * **App name**: Add a descriptive name such as "Panther Console."&#x20;
+   * **App logo**: Upload a Panther logo to help users quickly identify this app.
+   * **App visibility**: Configure the visibility of this application for your users.
+7. Click **Next**.&#x20;
+8. In the SAML Settings section, configure the following under GENERAL:
+   * **Single sign on URL**: Enter the **Single sign on URL** you copied from the Panther Console in earlier steps of this documentation.
+   * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
+9. Configure the following under ATTRIBUTE STATEMENTS:
+   * **Name**: `PantherEmail`, **Value**: `user.email`
+   * **Name**: `PantherFirstName`, **Value**: `user.firstName`
+   * **Name**: `PantherLastName`, **Value**: `user.lastName`\
+     ``![](../../.gitbook/assets/okta-saml-settings.png)``
+10. The Group Attribute statements can be left blank. Click **Next**.
+11. Click **Finish**.
+12. On the next screen, navigate to the Settings and locate the "Sign On Methods" section. Copy the **Identity Provider Metadata** link and store it in a secure location. You will need this in the next steps.\
+    ![](../../.gitbook/assets/saml-okta-metadata.png)
 
-![](<../../../../.gitbook/assets/okta3 (8) (8) (6) (1) (1) (1) (2) (1) (1) (8).png>)
+After you're done, make sure to grant access to the appropriate users and groups in the "Assignments" tab.
 
-Click "Next" and configure section 2A, "SAML Settings", as follows:
+### Create an Okta Bookmark app
 
-![](<../../../../.gitbook/assets/okta4 (8) (8) (7) (1) (1) (2) (1) (1) (8).png>)
+Amazon Cognito, which powers Panther's user management, does not support IdP-initiated logins. However, you can simulate an IdP-initiated flow with an Okta Bookmark app, which will allow users to click a tile in Okta to sign in to Panther. To configure a Bookmark app for Panther, follow the instructions in the Okta Help Center: [Simulate an IdP-initiated flow using the Bookmark App](https://help.okta.com/en/prod/Content/Topics/Apps/Apps\_Bookmark\_App.htm).
 
-The "Single sign on URL" and "Audience URI" were copied from the Panther General Settings page earlier. The "Group Attribute Statements" can be left blank (not shown here). Click "Next" and fill out feedback for Okta, linking to this documentation page if you like. Click "Finish."
+### Configure Okta SAML in Panther
 
-Copy the "Identity Provider metadata" link shown on the next screen, under the Settings section of the "Sign On" tab:
+1. Navigate back to the [SAML configuration](okta.md#obtain-the-g-suite-sso-parameters-from-panther) you started earlier in this documentation.
+2. Next to "Enable SAML", set the toggle to **ON**.&#x20;
+3. In the "Default Role" field, choose the Panther role that your new users will be assigned by default when they first log in via SSO.
+4. In the **Identity Provider URL** field, paste the metadata URL from Okta that you obtained in the previous steps of this documentation.
+5. Click **Save Changes**.
 
-![](<../../../../.gitbook/assets/okta-metadata (8) (8) (9) (7) (1) (1) (2) (1) (1) (8).png>)
-
-This is the "Identity provider URL" you will need to give to Panther.
-
-Finally, be sure to grant access to the appropriate people/groups in the "Assignments" tab.
-
-### Create an Okta "Bookmark app"
-
-Amazon Cognito (which powers Panther's user management) does not currently support IdP-initiated logins, meaning you cannot login to Panther directly from Okta. However, you can simulate an IdP-initiated flow with an Okta Bookmark app. With the Bookmark application, end users can click a chiclet in Okta to sign into Panther. To configure a Bookmark app for Panther, follow the instructions in the [Okta docs](https://help.okta.com/en/prod/Content/Topics/Apps/Apps\_Bookmark\_App.htm).
-
-## Configure Panther
-
-From the Panther settings page, enable SAML with a default [Panther role](../rbac.md) of your choice and paste the Okta metadata URL you just copied:
-
-![](<../../../../.gitbook/assets/okta-panther (8) (1) (1) (1) (2) (1) (1) (8).png>)
-
-Click "Save" and then you're done! Now, clicking the "Login with SSO" button will redirect you to Okta:
+To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
 ![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (23).png>)
