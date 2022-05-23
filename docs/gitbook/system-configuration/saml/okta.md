@@ -39,7 +39,7 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
    * **App visibility**: Configure the visibility of this application for your users.
 7. Click **Next**.&#x20;
 8. In the SAML Settings section, configure the following under GENERAL:
-   * **Single sign on URL**: Enter the **Single sign on URL** you copied from the Panther Console in earlier steps of this documentation.
+   * **Single sign on URL**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
    * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
 9. Configure the following under ATTRIBUTE STATEMENTS:
    * **Name**: `PantherEmail`, **Value**: `user.email`
@@ -67,4 +67,4 @@ Amazon Cognito, which powers Panther's user management, does not support IdP-ini
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (23).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (23).png>)

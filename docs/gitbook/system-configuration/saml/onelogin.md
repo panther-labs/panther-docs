@@ -54,7 +54,7 @@ After you're done, make sure to grant access to the appropriate users and groups
 
 ### Configure OneLogin SAML in Panther
 
-1. Navigate back to the [SAML configuration](onelogin.md#obtain-the-g-suite-sso-parameters-from-panther) you started earlier in this documentation.
+1. Navigate back to the [SAML configuration](onelogin.md#obtain-the-onelogin-sso-parameters-from-panther) you started earlier in this documentation.
 2. Next to "Enable SAML", set the toggle to **ON**.&#x20;
 3. In the "Default Role" field, choose the Panther role that your new users will be assigned by default when they first log in via SSO.
 4. In the **Identity Provider URL** field, paste the **Issuer URL** from OneLogin that you obtained in the previous steps of this documentation.
