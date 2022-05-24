@@ -22,7 +22,7 @@ Lookup Tables are associated with one or more log types, connected by foreign ke
 * The name of the selector from the incoming log that matched the Lookup Table
 * The data from the Lookup Table that matched via the Lookup Table's primary key
 
-## How to configure a Lookup Table
+## Configuring a Lookup Table
 
 ### Prerequisites for configuring a Lookup Table
 
@@ -133,7 +133,7 @@ For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right
 
 ![](<../../.gitbook/assets/Screen Shot 2021-11-22 at 4.47.34 PM (1).png>)
 
-## Lookup Table Examples
+## Examples
 
 ### Example for translating 1Password UUIDs into human readable names
 
