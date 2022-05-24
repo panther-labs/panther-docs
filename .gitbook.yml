@@ -51,3 +51,6 @@ redirects:
   data-analytics/lookup-tables/s3-source: ./enrichment/lookup-tables/s3-source.md
   # Gravitational name change to Teleport
   data-onboarding/supported-logs/gravitational: ./data-onboarding/supported-logs/teleport.md
+  # Cloud scanning onboarding moves to index page
+  cloud-scanning/onboarding-cloud-accounts: ./cloud-scanning/README.md
+
