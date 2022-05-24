@@ -4,6 +4,8 @@ description: Alert destinations
 
 # Destinations
 
+## Overview
+
 Destinations are integrations that receive alerts from rules and policies.
 
 By default, alerts are routed based on severity and can dispatch to multiple destinations simultaneously. For example, a single alert might create a Jira ticket, send an email, and create a PagerDuty Incident.
@@ -14,13 +16,15 @@ Destinations can be overridden on a per-rule or per-policy basis by using the de
 AWS destinations require IAM configurations to grant permissions for Panther to publish notifications
 {% endhint %}
 
-## Supported Destinations
+### Supported Destinations
 
 Panther has supported integrations for the following destinations:&#x20;
 
 * [Amazon SNS](sns.md)
 * [Amazon SQS](sqs.md)
 * [Asana](asana.md)
+* [Custom Webhook](custom\_webhook.md)
+  * This destination type is designed to allow Panther to communicate with other third-party integrations, such as ServiceNow or Tines.
 * [Github](https://docs.panther.com/destinations/github)
 * [Jira](https://docs.panther.com/destinations/jira)
 * [Microsoft Teams](https://docs.panther.com/destinations/microsoft-teams)
@@ -28,9 +32,7 @@ Panther has supported integrations for the following destinations:&#x20;
 * [PagerDuty](https://docs.panther.com/destinations/pagerduty)
 * [Slack](https://docs.panther.com/destinations/slack)
 
-You can also use a **Custom Webhook**. This destination type is designed to allow Panther to communicate with other third-party integrations, such as ServiceNow or Tines. Read more in the [Custom Webhook documentation](https://docs.panther.com/destinations/custom\_webhook).
-
-## Routing Order Precedence
+### Routing Order Precedence
 
 Alerts are routed based on the following, from highest precedence to lowest:
 
@@ -39,9 +41,9 @@ Alerts are routed based on the following, from highest precedence to lowest:
 3. **Generated Severity** - Destinations associated with the returned `severity` function defined in the Python body.
 4. **Static Severity** - Default alert routing based on the severity metadata field set for the detection.
 
-## Creating a New Destination
+## How to configure Destinations
 
-To create a destination:
+### Creating a new Destination
 
 1. Log in to your Panther Console.
 2. In the left sidebar click **Integrations > Alert Destinations**.
@@ -53,15 +55,13 @@ To create a destination:
    * Each destination type will have specific configuration options based on the system's API. See the destination-specific setup instructions in the following pages for more details.
 6. Click **Add Destination** to save the configuration.&#x20;
    * You can optionally click **Send test alert** to verify that your destination was configured correctly.
-7. Click Finish Setup.
+7. Click **Finish Setup**.
 
-![](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (3).png>)
+![The final page in the Destination creation process shows a green checkmark and says "Everything looks good!"](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (3).png>)
 
 You are now ready to receive alerts!
 
-## Modifying or Deleting Destinations
-
-To modify or delete an existing destination:
+### Modifying or deleting Destinations
 
 1. Log in to the Panther Console.
 2. In the left sidebar menu, click **Integrations > Alert Destinations**.&#x20;
@@ -69,15 +69,15 @@ To modify or delete an existing destination:
    * In the dropdown menu that appears, click **Delete** to delete the Destination.
    * Click **Edit** to modify the display name, the severity level, and other configurations.&#x20;
 
-![](../.gitbook/assets/example-alert-modify.png)
+![The triple dot icon in the right side of an alert is expanded, and an arrow points to the "Delete" option in the dropdown menu.](../.gitbook/assets/example-alert-modify.png)
 
-## Workflow Automation
+## Workflow Automation&#x20;
 
-The [Custom Webhook](custom\_webhook.md) option is available to provide additional flexibility for any workflow.
+### Destination schema
 
-### Alert Schema
+The alert payload generally takes the following form. For custom webhooks, SNS, SQS, or other workflow automation-heavy Destinations, this is important for defining how you process the alert.
 
-A Custom Webhook will deliver an alert with the following schema:
+For native integrations such as Jira or Slack, this is processed automatically into a form that the Destination can understand.
 
 ```typescript
 {
@@ -96,9 +96,7 @@ A Custom Webhook will deliver an alert with the following schema:
 }
 ```
 
-{% hint style="info" %}
-The [AWSDateTime](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html) scalar type represents a valid extended ISO 8601 DateTime string. In other words, this scalar type accepts datetime strings of the form YYYY-MM-DDThh:mm:ss.sssZ. The field after the seconds field is a nanoseconds field. It can accept between 1 and 9 digits. The seconds and nanoseconds fields are optional (the seconds field must be specified if the nanoseconds field is to be used). The time zone offset is compulsory for this scalar. The time zone offset must either be Z (representing the UTC time zone) or be in the format ±hh:mm:ss. The seconds field in the timezone offset will be considered valid even though it is not part of the ISO 8601 standard.
-{% endhint %}
+The [AWSDateTime](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html) scalar type represents a valid extended ISO 8601 DateTime string. It accepts datetime strings of the form `YYYY-MM-DDThh:mm:ss.sssZ`. The field after the seconds field is a nanoseconds field. It can accept between 1 and 9 digits. The seconds and nanoseconds fields are optional. The time zone offset is compulsory for this scalar. The time zone offset must either be `Z` (representing the UTC time zone) or be in the format `±hh:mm:ss`. The seconds field in the timezone offset will be considered valid even though it is not part of the ISO 8601 standard.
 
 ### Example JSON payload:
 
