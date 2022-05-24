@@ -23,7 +23,7 @@ The latency between an event occurring in AWS and the event being sent to CloudT
 
 In addition to monitoring AWS logs for active security events, incidents, and breaches, we recommend onboarding your AWS environment as a Cloud Account for [Cloud Security Scanning](../../cloud-scanning/). Cloud Security Scanning scans cloud resources in your AWS account to check for potential vulnerabilities. Panther comes with several built-in policies that will alert you to vulnerabilities in your AWS environment.&#x20;
 
-To learn more about how to set up Cloud Security Scanning for AWS, please see the documentation: [Onboarding Cloud Accounts](../../cloud-scanning/onboarding-cloud-accounts.md).
+To learn more about how to set up Cloud Security Scanning for AWS, please see the documentation: [Onboarding Cloud Accounts](broken-reference).
 
 ## Supported AWS log types
 

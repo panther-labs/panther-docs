@@ -1,5 +1,7 @@
 ---
-description: Alert destinations
+description: >-
+  Destinations are integrations that receive alerts from rules and policies in
+  Panther
 ---
 
 # Destinations

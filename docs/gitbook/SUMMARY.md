@@ -75,7 +75,6 @@
   * [Panther Analysis Tool](writing-detections/panther-analysis-tool.md)
   * [Runtime Environment](writing-detections/run-time.md)
 * [Cloud Security Scanning](cloud-scanning/README.md)
-  * [Onboarding Cloud Accounts](cloud-scanning/onboarding-cloud-accounts.md)
   * [Cloud Resource Attributes](cloud-scanning/cloud-resource-attributes/README.md)
     * [AWS](cloud-scanning/cloud-resource-attributes/aws/README.md)
       * [ACM Certificate](cloud-scanning/cloud-resource-attributes/aws/acm-certificate.md)

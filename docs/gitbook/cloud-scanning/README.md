@@ -21,7 +21,11 @@ When adding a new AWS account, Panther runs a baseline scan and models all of th
 
 ## How to use Cloud Security Scanning
 
-### Configure the Cloud Account in Panther
+Onboarding a Cloud Account in Panther will automatically enable Cloud Security Scanning. Panther will scan the resources to check for potential vulnerabilities.
+
+Additionally, we recommend [onboarding your CloudTrail or CloudWatch logs as a log source integration](../data-onboarding/supported-logs/aws.md) so you can configure Detections and receive alerts for active incidents and breaches.
+
+### Onboarding the Cloud Account in Panther
 
 1. Log in to your Panther Console.
 2. In the left sidebar, click **Integrations > Cloud Accounts** then click **Connect an account**.
