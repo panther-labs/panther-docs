@@ -16,7 +16,7 @@ First, you need to create an SQS queue and grant Panther permission to send to i
 
 1. Navigate to the [AWS SQS Console](https://console.aws.amazon.com/sqs/home) and click **Create New Queue** to create a new queue. In the **Name** field, enter a name of the new queue.
 2. In the "Access Policy" section of your new queue's Basic setup options, under "Define who can send messages to the queue," select **Only the specified AWS Accounts, IAM users and roles**.\
-   ![](<../../../.gitbook/assets/sqs2 (9) (3) (1) (1) (11) (1) (1) (1) (17).png>)
+   ![](<../../../.gitbook/assets/sqs2 (9) (3) (1) (1) (11) (1) (1) (17).png>)
 3. In the field below "Only the specified AWS Accounts, IAM users and roles," enter the AWS Account ID from your Panther Console.&#x20;
    * To find your AWS account ID, go to **Settings > General** in the Panther Console. It is located in the footer.\
      ![](../.gitbook/assets/aws-account-id.png)

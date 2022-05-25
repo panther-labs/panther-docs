@@ -59,7 +59,7 @@ Alerts are routed based on the following, from highest precedence to lowest:
    * You can optionally click **Send test alert** to verify that your destination was configured correctly.
 7. Click **Finish Setup**.
 
-![The final page in the Destination creation process shows a green checkmark and says "Everything looks good!"](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (1) (3).png>)
+![The final page in the Destination creation process shows a green checkmark and says "Everything looks good!"](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (3).png>)
 
 You are now ready to receive alerts!
 
@@ -73,9 +73,65 @@ You are now ready to receive alerts!
 
 ![The triple dot icon in the right side of an alert is expanded, and an arrow points to the "Delete" option in the dropdown menu.](../.gitbook/assets/example-alert-modify.png)
 
-## Workflow Automation&#x20;
+## Destination Example
 
-### Destination schema
+The following example demonstrates how to receive an alert to a Destination based on a user's multiple failed login attempts to Okta.
+
+You have configured the following:&#x20;
+
+* Destinations:&#x20;
+  * [Slack](slack.md), configured to receive an alert for rule matches.
+  * Tines (set up via [Custom Webhook](custom\_webhook.md)), configured to receive an alert for rule matches.
+* Log source:&#x20;
+  * Your Panther instance is ingesting [Okta](../data-onboarding/supported-logs/okta.md) logs.
+* Detection:&#x20;
+  *   You created a rule called “Okta User Locked Out,” to alert you when a user is locked out of Okta due to too many failed login attempts:
+
+      ```
+      from panther_base_helpers import deep_get
+      def rule(event):
+          return deep_get(event, 'outcome', 'reason') == 'LOCKED OUT'
+
+      def title(event):
+          return f"{deep_get(event, 'actor', 'alternateId')} is locked out."
+
+      def destinations(event):
+          if deep_get(event, 'actor', 'alternateId') == "username@example.com":
+              return ['dev-alert-destinations', 'tines-okta-user-lock-out']
+          return ['dev-general'] 
+
+      def alert_context(event):
+          return {
+              "actor": deep_get(event, "actor", "displayName"),
+              "id": deep_get(event, "actor", "id")
+          }
+      ```
+  * The `alert_context()` contains the username and the user's Okta ID value.
+
+#### 1. An event occurs
+
+One of your users unsuccessfully attempts to log in to Okta multiple times. Eventually their account is locked out.&#x20;
+
+#### 2. Panther ingests logs and detects an event that matches the rule you configured
+
+As the Okta audit logs stream through your Panther instance, your “Okta User Locked Out” rule detects that a user is locked out. \
+![](../.gitbook/assets/okta-user-lockout.png)
+
+#### 3. The rule match triggers an alert
+
+The detected rule match triggers an alert to your Slack destination and to your Tines destination.
+
+Within a few minutes of the event occurring, the alert appears in the Slack channel you configured as a Destination:&#x20;
+
+![A Slack app posts a Panther alert that says a user is locked out. The alert includes a link to the Panther UI, a Runbook that recommends verifying IPs, a Severity of Low, and Alert Context that includes the "actor" and "id" parameters.](../.gitbook/assets/destination-example.png)
+
+The alert is also sent to Tines via a Custom Webhook you configured as a Destination. Tines receives the values from the `alert_context()` function, and it is set up to automatically unlock the user's Okta account then send a confirmation message in Slack.
+
+![The automated process in Tines shows the sequence of events: Receive Alert from Panther, Wait 10 minutes, Unlock Okta user by ID via HTTP Request, Send Unlock message to Slack via HTTP Request.](../.gitbook/assets/tines-example.png)
+
+## Destination schema&#x20;
+
+### Workflow automation
 
 The alert payload generally takes the following form. For custom webhooks, SNS, SQS, or other workflow automation-heavy Destinations, this is important for defining how you process the alert.
 
@@ -121,3 +177,4 @@ The [AWSDateTime](https://docs.aws.amazon.com/appsync/latest/devguide/scalars.ht
   "version": "CJm9PiaXV0q8U0JhoFmE6L21ou7e5Ek0"
 }
 ```
+

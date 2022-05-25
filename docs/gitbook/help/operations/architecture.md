@@ -21,12 +21,12 @@ Panther can be deployed to any of the following regions:
 
 This diagram provides an overview of the core components of Panther, and how they are connected.
 
-![High level architecture diagram](<../../../../.gitbook/assets/development-arch-diagram (8) (8) (9) (6) (1) (1) (2) (1) (1) (1) (9).png>)
+![High level architecture diagram](<../../../../.gitbook/assets/development-arch-diagram (8) (8) (9) (6) (1) (1) (2) (1) (1) (9).png>)
 
 ### Data Flow Diagram
 
 This diagram shows where and how your data is stored and processed:
 
-![Data flow diagram](<../../../../.gitbook/assets/development-data-flow-diagram (8) (8) (1) (1) (1) (2) (1) (1) (1) (9).png>)
+![Data flow diagram](<../../../../.gitbook/assets/development-data-flow-diagram (8) (8) (1) (1) (1) (2) (1) (1) (9).png>)
 
 The above arrows indicate the direction in which data is transferred, as opposed to the previous diagrams where arrows are indicating the direction that communication is being initiated.
