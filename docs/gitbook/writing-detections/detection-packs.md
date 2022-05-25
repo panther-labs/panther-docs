@@ -74,7 +74,7 @@ To revert to a previous Pack version:
 
 #### Editing Managed Detections
 
-After a pack has been enabled, there are a subset of fields that you can edit:
+After a pack has been enabled, there are a subset of fields that you can manually edit in the Panther Console:
 
 * Enabled / Disabled
 * Severity
@@ -82,7 +82,11 @@ After a pack has been enabled, there are a subset of fields that you can edit:
 * Deduplication Period
 * Destination Override&#x20;
 
-Any changes you make to these fields will be preserved when the pack is updated or reverted to a previous version. All other fields will be greyed out in the UI, and the "Functions and Tests" editor will be read-only. &#x20;
+Any changes you make to these fields in the Panther Console will be preserved when the pack is updated or reverted to a previous version. All other fields will be greyed out in the UI, and the "Functions and Tests" editor will be read-only. &#x20;
+
+{% hint style="info" %}
+Note: For enabled Packs, the above fields can **only** be edited manually in the Panther Console. Editing these fields in the Detection .yml files will not override these values.
+{% endhint %}
 
 
 
