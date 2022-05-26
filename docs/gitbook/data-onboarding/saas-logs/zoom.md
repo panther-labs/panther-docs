@@ -16,7 +16,7 @@ To set up this integration, you will create an OAuth2 app in your Zoom account a
 ### Prerequisites
 
 * To create an OAuth app in Zoom, you need to register the app in the Zoom Marketplace. You can find more details on this process in Zoom's documentation here: [Create an OAuth App](https://marketplace.zoom.us/docs/guides/build/oauth-app/).&#x20;
-* The Zoom user authorizing the integration must have the Admin role and Reports permissions to read [Operations Logs and Sign-in/Sign-out Activity](https://support.zoom.us/hc/en-us/articles/201363213-Getting-started-with-Zoom-reporting#h\_01FM5FHPRMBC5RFJDAZ4FBTPKC).
+* The Zoom user authorizing the integration must have the Admin role and Reports permissions to read [Operations Logs and Sign-in/Sign-out Activity](https://support.zoom.us/hc/en-us/articles/360032748331).
 
 ## Create a new Zoom log source in Panther
 
