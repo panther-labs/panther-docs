@@ -45,7 +45,7 @@ Our User API allows you to:
 * Update a user's information and role
 * Delete users
 
-For more information visit the [User Management](using-the-panther-api/alerts-and-errors-1.md) page.
+For more information visit the [User Management](using-the-panther-api/user-management.md) page.
 
 ### Data Lake Querying
 
