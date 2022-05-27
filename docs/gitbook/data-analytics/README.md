@@ -1,3 +1,7 @@
+---
+description: 'Panther''s Data Analytics: Run queries and search your normalized log data'
+---
+
 # Data Analytics
 
 Panther's Data Analytics allow for freely searching collected and normalized log data using SQL via [Snowflake](https://docs.panther.com/data-analytics/backend/snowflake) and [AWS Athena](https://docs.panther.com/data-analytics/backend/athena).

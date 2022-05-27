@@ -2,7 +2,7 @@
 description: Configuring a Custom Webhook as an alert destination in your Panther Console
 ---
 
-# Custom Webhook
+# Custom Webhook Destination
 
 ## Overview
 
@@ -36,7 +36,7 @@ In the event of a permanent delivery failure, Panther logs and provides workflow
 6. Click **Add Destination**.
 7. On the final page, optionally click **Send Test Alert** to test the integration using a test payload. When you are finished, click **Finish Setup**.
 
-![](<../../../.gitbook/assets/webhook3 (1).png>)
+![](../../../.gitbook/assets/webhook3.png)
 
 ### Custom Webhook Alert Schema
 

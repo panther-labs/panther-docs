@@ -35,6 +35,18 @@ Our alerting API allows you to:
 
 For more information visit the [Alerts & Errors](using-the-panther-api/alerts-and-errors.md) page.
 
+### User Management
+
+Our User API allows you to:
+
+* List users
+* Get a user by ID or by email address
+* Invite new users
+* Update a user's information and role
+* Delete users
+
+For more information visit the [User Management](using-the-panther-api/alerts-and-errors-1.md) page.
+
 ### Data Lake Querying
 
 Our Data Lake API allows you to:

@@ -8,7 +8,7 @@ The Panther API supports the following alerting operations:
 
 See the sections below for GraphQL queries and mutations around certain common operations, as well as end-to-end examples on typical workflows.
 
-## Common Operations
+## Common alerting operations
 
 Below are some of the most common GraphQL operations in Panther. These examples demonstrate how you can use a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
 

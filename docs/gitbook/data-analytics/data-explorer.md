@@ -1,3 +1,7 @@
+---
+description: Use Panther's Data Explorer to view normalized data and perform SQL queries
+---
+
 # Data Explorer
 
 The Data Explorer in your Panther Console is where you can view your normalized Panther data and perform SQL queries (with autocompletion).&#x20;
@@ -23,9 +27,19 @@ You can limit access to the Data Explorer through [Role-Based Access Control](..
 
 #### Preview Table Data
 
-As of Panther versions 1.31 and newer, you can preview example table data without writing SQL. To generate a sample SQL query for that log source, click the eye icon next to the table type:
+You can preview example table data without writing SQL. To generate a sample SQL query for that log source, click the eye icon next to the table type:
 
 ![](../.gitbook/assets/eye-icon-data-explorer.png)
+
+#### Filter Data Explorer results
+
+As of Panther versions 1.35 and newer, you can filter columns from a Result set in Data Explorer without writing SQL.&#x20;
+
+In the upper right corner of the Results table, click **Filter Columns** to select the columns you would like to display in the Results:
+
+![On the header of the Data Explorer's Results table, the "Filter Columns" button appears on the right.](../.gitbook/assets/data-explorer-filter.png)
+
+Note: The filters applied through this mechanism do not apply to the SQL select statement in your query.
 
 ## Macros
 

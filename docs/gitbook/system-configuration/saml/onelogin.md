@@ -62,4 +62,4 @@ After you're done, make sure to grant access to the appropriate users and groups
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (21).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (21).png>)

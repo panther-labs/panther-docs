@@ -6,7 +6,11 @@ This page assumes that you've already [generated an API Token](https://docs.runp
 
 This page contains instructions on how to invoke the API, and common operations and end-to-end examples.&#x20;
 
-For information specific to alerting or data lake operations, please see the documentation pages: [Alerts & Errors](alerts-and-errors.md) | [Data Lake Queries](data-lake-queries.md)
+For information specific to alerting, user management, or data lake operations, please see the documentation pages:&#x20;
+
+* [Alerts & Errors](alerts-and-errors.md)
+* [User Management](alerts-and-errors-1.md) &#x20;
+* [Data Lake Queries](data-lake-queries.md)&#x20;
 
 ## Prerequisites
 

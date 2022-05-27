@@ -33,7 +33,7 @@ Before getting started, note the following constraints:
 1. Log in to your Panther Console.
 2. From the left sidebar menu, click **Detections**. Click on the Detection you want to use in a Data Replay.
 3. In the upper right side of the Detection's details page, click **Edit Rule**. Click the **Functions & Tests** tab and scroll down to the **Data Replay** section.\
-   ![](<../../.gitbook/assets/data-replay-ui (1) (1) (2).png>)
+   ![](<../../.gitbook/assets/data-replay-ui (1).png>)
 4. Under **Data Replay**, select the log types and date range you wish to replay for the Detection. Click **Run Replay**.
    * The estimated run time and data size will be displayed.
    * Note: If you have made any changes to the rule, you must save your changes before started a Replay.
