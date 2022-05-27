@@ -76,6 +76,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - GET_REPLAY
 - GET_REPLAY_ALERT
 - GET_REPLAY_PREVIEW
+- GET_REPORT_SETTING
 - GET_RULE
 - GET_SAML_SETTINGS
 - GET_SAVED_DATA_LAKE_QUERY
