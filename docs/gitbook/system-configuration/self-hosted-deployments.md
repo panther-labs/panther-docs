@@ -53,6 +53,16 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `PythonRuntime`: The python runtime for AWS Lambda functions. The default value is `python3.7`, with allowed values of `python3.7` and `python3.9`.
 * `ReplayProcessorReservedConcurrency`: Reserved concurrency for panther-replay-results-processor Lambda function. The default value is 40, with a minimum value of 0.
 * `SnapshotPollerLambdaMemorySize`: Snapshot Poller (Cloud Security) Lambda memory size in MB. The default value is 1024, with a minimum value of 1024 and a maximum value of 10240.
+* `DatadogAPIKey`: API key for sending observability data to Datadog.&#x20;
+* `DatadogExtensionVersion`: The Datadog lambda extension version. The default value is 22, with allowed values of 21 or 22.
+* `DatadogEnabled`: Enables or disables sending telemetry data to Datadog. The default value is `false`, with allowed values of `true` or `false`.
+* `EnableReports`: Enable viewing reports in the Console. The default value is `false`, with allowed values of `true` or `false`.
+* `AirgapSubnetOneIPRange`: A valid & available IP range in the existing VPC you plan to deploy Panther into. Only takes affect if VpcID is specified. Used by the VPC lambdas. The default value is 172.31.254.0/25 with an allowed pattern of `'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(/([0-9]|[1-2][0-9]|3[0-2]))$'`.
+* `AirgapSubnetTwoIPRange`: A second valid & available IP range in the existing VPC you plan to deploy Panther into, for multiple AZ redundancy. Only takes affect if VpcID is specified. Used by the VPC lambdas. The default value is '172.31.254.128/25' with an allowed pattern of `'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(/([0-9]|[1-2][0-9]|3[0-2]))$'.`
+* `FeatureSandboxedExecFlows`: Tells the detections engine which functions should use the python executor.
+* `EnableIntelligentTiering`: Enable INTELLIGENT\_TIERING on panther manager S3 buckets. The default value is `false`, with allowed values of `true` or `false`.
+* `SlowRuleMaxDuration`: The maximum amount of time allowed for a rule to run before we trigger an alarm. The default is 75ms, with an allowed pattern of `'[-+]?([0-9]`_`(.[0-9]`_`)?[a-z]+)+'`.&#x20;
+* `SnowflakeDDLUpdateConcurrency`: The concurrency used when updating table/view/pipes. The default value is 1, with a minimum value of 1 and a maximum value of 100.
 
 #### Minimize initial configurations
 
