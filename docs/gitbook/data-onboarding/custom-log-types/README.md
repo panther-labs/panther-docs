@@ -59,6 +59,7 @@ Panther allows limited **editing** of _Custom Log Types_. Specifically:
 
 * You _can_ modify the `parser` configuration to fix bugs or add new patterns.
 * You _can_ add new fields to the schema.
+* You _can_ edit, add, or remove all properties of existing fields except the `type`.
 * You _cannot_ rename existing fields.
 * You _cannot_ delete existing fields (doing so would allow renaming in two steps).
 * You _cannot_ change the `type` of an existing field (this includes the element type for `array` fields).
