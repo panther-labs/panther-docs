@@ -119,13 +119,13 @@ The fields of a `ValueSchema` depend on the value of the `type`.
 
 Timestamps are defined by setting the `type` field to `timestamp` and specifying the timestamp format using the `timeFormat` field. Timestamp formats can be one of the built-in timestamp formats:
 
-| timeFormat | Example                       | Description                                                                                                 |
-| ---------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `rfc3339`  | 2022-04-04 17:09:17.386345000 | The most common timestamp format.                                                                           |
-| `unix`     | 1649097448                    | Timestamp expressed in seconds since UNIX epoch time. It can handle fractions of seconds as a decimal part. |
-| `unix_ms`  | 1649097491531                 | Timestamp expressed in milliseconds since UNIX epoch time.                                                  |
-| `unix_us`  | 1649097442000000              | Timestamp expressed in microseconds since UNIX epoch time.                                                  |
-| `unix_ns`  | 1649097442000000000           | Timestamp expressed in nanoseconds since UNIX epoch time.                                                   |
+| timeFormat | Example              | Description                                                                                                 |
+| ---------- | -------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `rfc3339`  | 2022-04-04Τ17:09:17Z | The most common timestamp format.                                                                           |
+| `unix`     | 1649097448           | Timestamp expressed in seconds since UNIX epoch time. It can handle fractions of seconds as a decimal part. |
+| `unix_ms`  | 1649097491531        | Timestamp expressed in milliseconds since UNIX epoch time.                                                  |
+| `unix_us`  | 1649097442000000     | Timestamp expressed in microseconds since UNIX epoch time.                                                  |
+| `unix_ns`  | 1649097442000000000  | Timestamp expressed in nanoseconds since UNIX epoch time.                                                   |
 
 You can also define a custom format by using [strftime](https://strftime.org) notation. For example:
 
