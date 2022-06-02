@@ -263,6 +263,7 @@
     * [Windows Event Logs to S3 via Fluentd](guides/onboarding-with-fluentd/windows-event-logging-via-fluentd.md)
     * [GCP Audit to S3 via Fluentd](guides/onboarding-with-fluentd/gcp-audit-to-s3-via-fluentd.md)
   * [Okta Detections and Queries](guides/okta-detections-and-queries.md)
+  * [Redacting Sensitive Fields With Cribl](guides/redacting-sensitive-fields-with-cribl.md)
   * [Using Lookup Tables: 1Password UUIDs](guides/using-lookup-tables-1password-uuids.md)
 * [Help](help/README.md)
   * [Operations](help/operations/README.md)
