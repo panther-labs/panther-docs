@@ -1,5 +1,5 @@
 ---
-description: Onboarding Google G Suite logs to your Panther Console
+description: Panther supports pulling logs directly from G Suite
 ---
 
 # G Suite
@@ -65,7 +65,7 @@ The steps below can only be performed if your G Suite user has permission to see
      ![](../../.gitbook/assets/gcp-credentials.png)
 3. On the new page, for Application Type, select **Web application** and type in a friendly name e.g. `Panther.`
    * Scroll down to the the section labeled "Authorized redirect URIs." In the **URIs 1** field, paste the redirect URL provided in the source's **Set Credentials** page.\
-     ![](<../../.gitbook/assets/gsuite-oauth (1) (1) (1) (3).png>)
+     ![](<../../.gitbook/assets/gsuite-oauth (1) (1) (1) (1) (2).png>)
 4. Click **Create**
 5. A pop up screen will display the Client ID and Client Secret. **Using a secure method, make note of the ClientID and Client Secret**. You will need to provide them in the Panther Console to pull your reports.
 
@@ -86,7 +86,7 @@ The steps below can only be performed if your G Suite user has permission to see
 9. Enter the Authorization code that you copied into your Panther Console.
 10. Click **Next** and then **Save source**.
 
-## Panther-Built Detections for G Suite
+### Panther-Built Detections for G Suite
 
 The following detections are available for use immediately:&#x20;
 
@@ -115,3 +115,203 @@ The following detections are available for use immediately:&#x20;
 * User Suspended
 
 Please take a look at the files in the [gsuite\_activityevent\_rules](https://github.com/panther-labs/panther-analysis/tree/master/gsuite\_activityevent\_rules) __ and __ [gsuite\_reports\_rules](https://github.com/panther-labs/panther-analysis/tree/master/gsuite\_reports\_rules) repositories to see how these are built.&#x20;
+
+## Supported log types
+
+{% hint style="info" %}
+Required fields in the schema are listed as **"required: true"**  just below the "name" field.
+{% endhint %}
+
+### GSuite.ActivityEvent
+
+Each activity event for a specific account and application such as the Admin console application or the Google Drive application.
+
+Reference: [Google Workspace Documentation on Reports API Activities List.](https://developers.google.com/admin-sdk/reports/v1/reference/activities/list#response)
+
+```yaml
+schema: GSuite.ActivityEvent
+parser:
+    native:
+        name: GSuite.ActivityEvent
+description: Each activity event for a specific account and application such as the Admin console application or the Google Drive application.
+referenceURL: https://developers.google.com/admin-sdk/reports/v1/reference/activities/list#response
+version: 0
+fields:
+    - name: id
+      required: true
+      description: Unique identifier for each activity record.
+      type: object
+      fields:
+        - name: applicationName
+          description: Application name to which the event belongs.
+          type: string
+        - name: customerId
+          description: The unique identifier for a G suite account.
+          type: string
+        - name: time
+          description: Time of occurrence of the activity.
+          type: timestamp
+          timeFormat: rfc3339
+          isEventTime: true
+        - name: uniqueQualifier
+          description: Unique qualifier if multiple events have the same time.
+          type: string
+    - name: actor
+      description: User doing the action.
+      type: object
+      fields:
+        - name: email
+          description: The primary email address of the actor. May be absent if there is no email address associated with the actor.
+          type: string
+          indicators:
+            - email
+        - name: profileId
+          description: The unique G Suite profile ID of the actor. May be absent if the actor is not a G Suite user.
+          type: string
+        - name: callerType
+          description: The type of actor.
+          type: string
+        - name: key
+          description: Only present when callerType is KEY. Can be the consumer_key of the requestor for OAuth 2LO API requests or an identifier for robot accounts.
+          type: string
+    - name: kind
+      required: true
+      description: The type of API resource. For an activity report, the value is reports#activities.
+      type: string
+    - name: ownerDomain
+      description: This is the domain that is affected by the report's event. For example domain of Admin console or the Drive application's document owner.
+      type: string
+      indicators:
+        - domain
+    - name: ipAddress
+      description: IP address of the user doing the action. This is the Internet Protocol (IP) address of the user when logging into G Suite which may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. The API supports IPv4 and IPv6.
+      type: string
+      indicators:
+        - ip
+    - name: type
+      description: Type of event. The G Suite service or feature that an administrator changes is identified in the type property which identifies an event using the eventName property. For a full list of the API's type categories, see the list of event names for various applications above in applicationName.
+      type: string
+    - name: name
+      description: Name of the event. This is the specific name of the activity reported by the API. And each eventName is related to a specific G Suite service or feature which the API organizes into types of events.
+      type: string
+    - name: parameters
+      description: Parameter value pairs for various applications. For more information about eventName parameters, see the list of event names for various applications above in applicationName.
+      type: json
+```
+
+### GSuite.Reports
+
+Contains the activity events for a specific account and application such as the Admin console application or the Google Drive application.
+
+Reference: [Google Workspace Documentation on Reports API Activities List.](https://developers.google.com/admin-sdk/reports/v1/reference/activities/list#response)
+
+```yaml
+schema: GSuite.Reports
+parser:
+    native:
+        name: GSuite.Reports
+description: Contains the activity events for a specific account and application such as the Admin console application or the Google Drive application.
+referenceURL: https://developers.google.com/admin-sdk/reports/v1/reference/activities/list#response
+version: 0
+fields:
+    - name: id
+      required: true
+      description: Unique identifier for each activity record.
+      type: object
+      fields:
+        - name: applicationName
+          description: Application name to which the event belongs.
+          type: string
+        - name: customerId
+          description: The unique identifier for a G suite account.
+          type: string
+        - name: time
+          description: Time of occurrence of the activity.
+          type: timestamp
+          timeFormat: rfc3339
+          isEventTime: true
+        - name: uniqueQualifier
+          description: Unique qualifier if multiple events have the same time.
+          type: string
+    - name: actor
+      description: User doing the action.
+      type: object
+      fields:
+        - name: email
+          description: The primary email address of the actor. May be absent if there is no email address associated with the actor.
+          type: string
+          indicators:
+            - email
+        - name: profileId
+          description: The unique G Suite profile ID of the actor. May be absent if the actor is not a G Suite user.
+          type: string
+        - name: callerType
+          description: The type of actor.
+          type: string
+        - name: key
+          description: Only present when callerType is KEY. Can be the consumer_key of the requestor for OAuth 2LO API requests or an identifier for robot accounts.
+          type: string
+    - name: kind
+      required: true
+      description: The type of API resource. For an activity report, the value is reports#activities.
+      type: string
+    - name: ownerDomain
+      description: This is the domain that is affected by the report's event. For example domain of Admin console or the Drive application's document owner.
+      type: string
+      indicators:
+        - domain
+    - name: ipAddress
+      description: IP address of the user doing the action. This is the Internet Protocol (IP) address of the user when logging into G Suite which may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. The API supports IPv4 and IPv6.
+      type: string
+      indicators:
+        - ip
+    - name: events
+      description: Activity events in the report.
+      type: array
+      element:
+        type: object
+        fields:
+            - name: type
+              description: Type of event. The G Suite service or feature that an administrator changes is identified in the type property which identifies an event using the eventName property. For a full list of the API's type categories, see the list of event names for various applications above in applicationName.
+              type: string
+            - name: name
+              description: Name of the event. This is the specific name of the activity reported by the API. And each eventName is related to a specific G Suite service or feature which the API organizes into types of events.
+              type: string
+            - name: parameters
+              description: Parameter value pairs for various applications. For more information about eventName parameters, see the list of event names for various applications above in applicationName.
+              type: array
+              element:
+                type: object
+                fields:
+                    - name: name
+                      description: The name of the parameter.
+                      type: string
+                    - name: value
+                      description: String value of the parameter.
+                      type: string
+                    - name: intValue
+                      description: Integer value of the parameter.
+                      type: bigint
+                    - name: boolValue
+                      description: Boolean value of the parameter.
+                      type: boolean
+                    - name: multiValue
+                      description: String values of the parameter.
+                      type: array
+                      element:
+                        type: string
+                    - name: multiIntValue
+                      description: Integer values of the parameter.
+                      type: array
+                      element:
+                        type: bigint
+                    - name: messageValue
+                      description: 'Nested parameter value pairs associated with this parameter. Complex value type for a parameter are returned as a list of parameter values. For example, the address parameter may have a value as [{parameter: [{name: city, value: abc}]}]'
+                      type: json
+                    - name: multiMessageValue
+                      description: List of messageValue objects.
+                      type: array
+                      element:
+                        type: json
+```
+

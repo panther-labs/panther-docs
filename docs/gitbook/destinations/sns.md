@@ -15,9 +15,9 @@ Destinations are integrations that receive alerts from rules, policies, system h
 The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS Destination, it publishes a JSON string to that topic.
 
 1. In the AWS [SNS console](https://us-west-2.console.aws.amazon.com/sns/v3/home#/topics), create a new Topic or navigate to the topic you wish to add as a destination. We will be editing its permissions so Panther can publish messages to it:\
-   &#x20;![](<../../../.gitbook/assets/sns1 (7) (1) (1) (1) (11) (1) (1) (16).png>)
+   &#x20;![](<../../../.gitbook/assets/sns1 (7) (1) (1) (1) (11) (1) (1) (1) (16).png>)
 2. After selecting the SNS topic, click **Edit** then scroll down and expand the "Access policy" section: \
-   ![](<../../../.gitbook/assets/sns2 (8) (1) (1) (1) (11) (1) (1) (15).png>)
+   ![](<../../../.gitbook/assets/sns2 (8) (1) (1) (1) (11) (1) (1) (1) (15).png>)
 3.  After expanding the "Access policy" section, add the following statement to the **Statement** block. Be sure to replace the `Resource` field with the ARN of your own SNS Topic, and the `Principal` field with the AWS account ID where Panther is deployed.
 
     ```
@@ -49,7 +49,7 @@ The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS
 ### Optional: Creating Email Notifications
 
 1. In the AWS SNS console, click **Create Subscription** on the topic you just created. The topic ARN should match the topic you created.\
-   &#x20;![](<../.gitbook/assets/image (12).png>)
+   &#x20;![](<../.gitbook/assets/image (2) (2).png>)
 2. Select **Email** in the protocol dropdown menu and enter the email address you would like to receive alerts to.
 3. Click **Create subscription**
 4. Confirm the subscription sent to your email before receiving alerts from this topic.\
