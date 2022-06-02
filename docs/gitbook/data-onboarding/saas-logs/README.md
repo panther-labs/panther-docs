@@ -15,7 +15,7 @@ Panther offers direct integrations to pull in logs from the following service pr
 
 * [Asana](asana.md)
 * [1Password](1password.md)
-* [Atlassian](https://docs.runpanther.io/data-onboarding/saas-logs/atlassian)
+* [Atlassian](atlassian.md)
 * [Box](box.md)
 * [CrowdStrike](crowdstrike.md)
 * [Duo](duo.md)
