@@ -38,7 +38,7 @@ Make the following modifications to create the SAML app for Panther:
   * **First Name**: `PantherFirstName`
   * **Last Name**: `PantherLastName`
   * **Primary email**: `PantherEmail`\
-    ``![](../../.gitbook/assets/gsuite5.png)``
+    ``![](../../.gitbook/assets/gsuite-mappings.png)``
 
 ### Enable the SAML app in Google Workspace
 
