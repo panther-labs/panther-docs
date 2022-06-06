@@ -29,7 +29,7 @@ The various components of the GreyNoise datasets are available via methods on th
 The example below demonstrates calling the `classification` method on the `noise` object we created in the previous example, to determine if the source IP address (`src`) is malicious and if the destination ip (`dest`) is in the RIOT dataset (meaning it is a known safe entity).
 
 ```python
-if noise.classification('src') == malicious:
+if noise.classification('src') == 'malicious':
     return True
 if riot.is_riot('dest'):
     return False

@@ -58,7 +58,7 @@ In this example, the rule has already been modified to detect _Brute Force By IP
     ```
 5.  Modify the Rule Function to retrieve the GreyNoise data and create a GreyNoise noise object:
 
-    ```
+    ```python
     def rule(event):
         global noise
         noise = GetGreyNoiseObject(event)
@@ -68,7 +68,7 @@ In this example, the rule has already been modified to detect _Brute Force By IP
     ```
 6.  At the bottom of the field, replace the `severity(event)` function with the following code:&#x20;
 
-    ```
+    ```python
      def severity(event):   
         if noise.classification("client.ipAddress") == "malicious":
             return "CRITICAL"
@@ -80,7 +80,7 @@ In this example, the rule has already been modified to detect _Brute Force By IP
     * This modification will determine severity based on whether GreyNoise reports that the IP is malicious or benign. In this example, if GreyNoise indicates that the IP is malicious, the alert will be assigned critical severity. If GreyNoise indicates that the IP is benign, the alert will be assigned low severity. If the IP is not classified as malicious or benign, the alert will be assigned medium severity.
 7.  Below that, add the following code to provide the contextual `noise.actor`, `noise.classification`, and `noise.ip_address` GreyNoise information in the delivered alert:
 
-    ```
+    ```python
       def alert_context(event): 
         context ={"message": "No GreyNoise Data Available"}
         if noise.classification:
