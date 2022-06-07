@@ -12,7 +12,7 @@ This feature is available in version 1.27 and newer.
 
 To configure a Lookup Table, follow these steps in your Panther Console:
 
-1. From the left sidebar, click **Enrichment > Lookups.**
+1. From the left sidebar, click **Enrichment > Lookup Tables.**
 2. In the upper right side of the page, click **+** to add a new Lookup Table.\
    ![](../../.gitbook/assets/add-lookup-table.png)
 3. Configure the Lookup Table Basic Information:

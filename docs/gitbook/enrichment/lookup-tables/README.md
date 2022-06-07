@@ -63,7 +63,7 @@ from logs join lookup on logs.selector_field = lookup.key_field
 
 ### View the Lookup Table data with Data Explorer
 
-1. In your Panther Console, navigate to **Enrichment > Lookups** to view your Lookup Tables list.
+1. In your Panther Console, navigate to **Enrichment > Lookup Tables** to view your Lookup Tables list.
 2. Click **...** in the upper right corner of the Lookup Table you wish to view, then click **View In Data Explorer**.\
    ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.18.03 PM.png>)
 
