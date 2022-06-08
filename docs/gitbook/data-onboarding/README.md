@@ -1,4 +1,4 @@
-# Data Onboarding
+# Data Sources & Transports
 
 Panther offers several options to onboard data: SaaS Logs, Data Transports, Cloud Accounts, and Custom Log Types. You can also [request support for a specific log source](https://docs.runpanther.io/data-onboarding#request).&#x20;
 
@@ -13,7 +13,7 @@ Panther leverages two mechanisms to pull logs from SaaS vendors:&#x20;
 * Direct integrations (by querying APIs)
 * AWS EventBridge
 
-For a list of vendors currently supported, see [SaaS Logs](saas-logs/).
+For a list of vendors currently supported, see [SaaS Logs](broken-reference).
 
 ### Data Transports
 

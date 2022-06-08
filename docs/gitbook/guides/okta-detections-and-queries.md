@@ -2,7 +2,7 @@
 
 ## Integration
 
-Panther supports Okta System Log as a native API puller. See the onboarding guide [here](../data-onboarding/saas-logs/okta.md).
+Panther supports Okta System Log as a native API puller. See the onboarding guide [here](broken-reference).
 
 The Okta System Log schema can be found under Analysis -> Schema within the Panther UI or from the [Panther Analysis ](https://github.com/panther-labs/panther-analysis/blob/master/schemas/logs/okta/system\_log.yml)repository on Github.&#x20;
 
