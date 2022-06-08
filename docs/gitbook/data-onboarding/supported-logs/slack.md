@@ -77,7 +77,7 @@ You can create an app for:
 14. In the **App Credentials** section, Copy the **Client ID** and **Client Secret**.
 15. Follow the steps under [Finalize Slack Onboarding in Panther](https://docs.runpanther.io/data-onboarding/saas-logs/slack#finalize) to complete this process.
 
-![](../../.gitbook/assets/slack-setup-page9.png)
+![](<../../.gitbook/assets/slack-setup-page9 (1).png>)
 
 ### How to create a Slack App to pull Access or Integration Logs <a href="#access-logs" id="access-logs"></a>
 
@@ -101,7 +101,7 @@ You can create an app for:
 9. Scroll down to the section titled **Scopes** > **User Token Scopes**. Add the `admin` scope.
 10. In the left sidebar, go to **Settings** > **Basic Information**.
 11. In the **App Credentials** section, Copy the **Client ID** and **Client Secret**.\
-    &#x20;![](<../../.gitbook/assets/slack-setup-page9 (1).png>)
+    &#x20;![](../../.gitbook/assets/slack-setup-page9.png)
 12. Follow the steps under [Finalize Slack Onboarding in Panther](https://docs.runpanther.io/data-onboarding/saas-logs/slack#finalize) to complete this process.
 
 ### Finalize Slack onboarding in Panther <a href="#finalize" id="finalize"></a>

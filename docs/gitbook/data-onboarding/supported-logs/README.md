@@ -1,4 +1,4 @@
-# Built-in Log Types
+# Supported Logs
 
 Panther currently supports 80 security log types across 26 different categories:
 
@@ -55,8 +55,8 @@ Panther currently supports 80 security log types across 26 different categories:
   * [Syslog5424](fluentd.md#fluentd-syslog5424)
 * [GCP](gcp.md)
   * [AuditLog](gcp.md#gcp-auditlog)
-* [GSuite](gsuite.md)
-  * [Reports](gsuite.md#gsuite-reports)
+* [GSuite](broken-reference)
+  * [Reports](broken-reference)
 * [GitLab](gitlab.md)
   * [API](gitlab.md#gitlab-api)
   * [Audit](gitlab.md#gitlab-audit)
@@ -75,12 +75,12 @@ Panther currently supports 80 security log types across 26 different categories:
   * [Security](juniper.md#juniper-security)
 * [Lacework](lacework.md)
   * [Events](lacework.md#lacework-events)
-* [Microsoft365](microsoft365.md)
-  * [Audit.AzureActiveDirectory](microsoft365.md#microsoft-365-audit-azureactivedirectory)
-  * [Audit.Exchange](microsoft365.md#microsoft-365-audit-exchange)
-  * [Audit.General](microsoft365.md#microsoft-365-audit-general)
-  * [Audit.SharePoint](microsoft365.md#microsoft-365-audit-sharepoint)
-  * [DLP.All](microsoft365.md#microsoft-365-dlp-all)
+* [Microsoft365](broken-reference)
+  * [Audit.AzureActiveDirectory](broken-reference)
+  * [Audit.Exchange](broken-reference)
+  * [Audit.General](broken-reference)
+  * [Audit.SharePoint](broken-reference)
+  * [DLP.All](broken-reference)
 * [Nginx](nginx.md)
   * [Access](nginx.md#nginx-access)
 * [OSSEC](ossec.md)

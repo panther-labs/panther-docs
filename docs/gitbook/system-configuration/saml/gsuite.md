@@ -38,7 +38,7 @@ Make the following modifications to create the SAML app for Panther:
   * **First Name**: `PantherFirstName`
   * **Last Name**: `PantherLastName`
   * **Primary email**: `PantherEmail`\
-    ``![](../../.gitbook/assets/gsuite-mappings.png)``
+    ``![](../../.gitbook/assets/gsuite5.png)``
 
 ### Enable the SAML app in Google Workspace
 
@@ -62,7 +62,7 @@ The URL must be HTTPS, and it must point to the public XML metadata document.
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![The Panther login page shows a "Login with SSO" option](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (22).png>)
+![The Panther login page shows a "Login with SSO" option](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (1) (22).png>)
 
 {% hint style="info" %}
 Amazon Cognito (which powers Panther's user management) does not yet support IdP-initiated login, meaning you cannot login to Panther from G Suite. The login must be initiated from Panther, the service provider.
