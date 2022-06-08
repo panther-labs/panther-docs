@@ -28,10 +28,10 @@ To create an API token with permissions to query Okta System Logs, you need to b
 ### Create a new Okta source in Panther
 
 1. Log in to your Panther Console.
-2. Go to **Integrations > Log Sources** from the sidebar menu.
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
 3. Click **Create New.**
-4. Click **Start Source Setup.**
-5. Select **okta.com** from the Okta domain drop down.
+4. Select **Okta** from the list of available log sources. Click **Start Source Setup**.
+5. Select **okta.com** from the Okta domain drop-down.
 6. Fill in the following fields:
    * **Name**: A memorable name for the source e.g. `My Okta logs.`
    * **Okta subdomain**: The name of your Okta domain. Should be in the form `https://my-org.okta.com.`

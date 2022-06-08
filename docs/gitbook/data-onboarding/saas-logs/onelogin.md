@@ -29,17 +29,18 @@ In order for Panther to process your OneLogin logs, you need to configure your O
 ### Create a new OneLogin source in Panther
 
 1. Log in to your Panther Console.
-2. Go to **Integrations** > **Log** **Sources** from the sidebar menu.
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
 3. Click **Create New.**
-4. Select **OneLogin**.
+4. Select **OneLogin** from the list of available log sources.
 5. Select **Amazon EventBridge** from the list of available Data Transports.
-6. In the form, fill in the following fields:
-   * **Name**: A friendly name for the source e.g. `My OneLogin events`
+6. On the **Configure Source** page, fill in the following fields:
+   * **Name**: A memorable name for the source e.g., `My OneLogin events`
    * **Log Types**: Select `OneLogin.Events`
    * **Bus Name**: The field you noted in the previous text (in the form `aws.partner/onelogin.com/US-123456/ffffffffff`)
 7. Click **Continue Setup**.
-   * You will be directed to a confirmation screen where you can set up a log drop-off alarm. This feature sends an error message if logs aren't received within a specified time interval.
-8. Click **Finish Setup**.
+8. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
+   * This feature sends an error message if logs aren't received within a specified time interval.
+9. Click **Finish Setup**.
 
 ### Panther-Built Detections
 

@@ -23,16 +23,15 @@ Panther will query the API every 1 minute. In order for Panther to access the Sl
 ### Create a new Slack Source in Panther
 
 1. Log in to your Panther Console.
-2. Go to **Integrations** > **Log** **Sources** from the sidebar menu.
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
 3. Click **Create New.**
-4. Select **Slack** from the list of available types.
-5. Clock **Start Source Setup**.
-6. Enter a name for the source (e.g. `My Slack logs`) and then select your Slack plan. \
-   ![](../../.gitbook/assets/slack-onboarding.png)
+4. Select **Slack** from the list of available log sources. Click **Start Source Setup**.
+5. On the next screen, enter a memorable name for the source e.g., `My Slack logs`.
+6. Enter a name for the source (e.g. `My Slack logs`) and then select your Slack plan.&#x20;
    * The available log types depend on which plan you are subscribed to. To find your Slack plan, click the name of your Slack workspace at the top left of the Slack app.
 7. Click **Continue Setup**.
-8. On the Set Credentials page, click **Copy Redirect URL** and save it somewhere temporarily, as you will need it in the next steps. \
-   ![](<../../.gitbook/assets/slack-setup-page2 (1).png>)&#x20;
+8. On the **Set Credentials** page, **Copy** the Redirect URL and save it somewhere secure. You will need it in the next steps.\
+
 9. Keep this browser window open while you work through the next steps.
 
 ### Create a new Slack App
@@ -108,11 +107,10 @@ You can create an app for:
 ### Finalize Slack onboarding in Panther <a href="#finalize" id="finalize"></a>
 
 1. Navigate back to the Panther Console.
-2. On the **App Credentials** page, paste the **Client ID** from Slack into the Client ID field and the **Client Secret** from Slack into the Client Secret field.&#x20;
+2. On the **Set Credentials** page, paste the **Client ID** from Slack into the Client ID field and the **Client Secret** from Slack into the Client Secret field.&#x20;
 3. Click **Continue Setup**.&#x20;
-   * The credentials will be stored and encrypted in the Panther backend.
 4. Click **Save Source**.
-5. On the Verify Setup screen, click **Grant Access**.
+5. On the **Verify Setup** screen, click **Grant Access**.
    * You will be redirected to a Slack page to install your app.
    * For Audit Logs, make sure you install it to the **Enterprise Organization** and **not** to a specific workspace!
 6. Click **Allow.**

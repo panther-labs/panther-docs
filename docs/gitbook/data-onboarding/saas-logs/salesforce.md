@@ -57,24 +57,23 @@ To assign permissions to the new user, you must create a new [Permission Set](ht
 ### Step 4: Create a new Salesforce source in Panther
 
 1. Log in to your Panther Console.
-2. Go to **Integrations** > **Log Sources.**
-3. Click **Create New**.
-4. Select **Salesforce** from the list of available sources.
-5. Click **Start Source Setup**.
-6. On the Configure Source page, fill in the form:
-   * Enter a memorable name for the source, e.g. `Salesforce Logs`.
-   * Select the time interval (hourly or daily) in which you want files retrieved from Salesforce&#x20;
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
+3. Click **Create New.**
+4. Select **Salesforce** from the list of available log sources. Click **Start Source Setup**.
+5. On the **Configure Source** page, fill in the following fields:
+   * **Name:** A memorable name for the source e.g., `Salesforce Logs`.
+   * **Time Interval:** Hourly or daily; the interval for which you want files retrieved from Salesforce&#x20;
      * Check with your Salesforce admin to determine how your Salesforce instance is configured and which file interval is supported.
-   * Select which log types you would like to monitor.
-7. Click **Continue Setup**.
-8. Enter the credentials of the account that Panther will use to connect to the Salesforce API:
+   * **Log Types:** Which log types you would like to monitor.
+6. Click **Continue Setup**.
+7. Enter the credentials of the account that Panther will use to connect to the Salesforce API:
    * **Account Username**: Enter your Salesforce account username, e.g., `panther-logs@mycompany.com`.
    * **Account Password**: Enter your Salesforce account password.
    * **Security Token**: Enter the the [Security Token](salesforce.md#retrieve-security-token) that you obtained earlier in this documentation.&#x20;
-9. Click **Continue Setup**.&#x20;
-10. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
-    * This feature sends an error message if logs aren't received within a specified time interval.
-11. Click **Finish Setup**.
+8. Click **Continue Setup**.&#x20;
+9. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
+   * This feature sends an error message if logs aren't received within a specified time interval.
+10. Click **Finish Setup**.
 
 ## Supported log types
 

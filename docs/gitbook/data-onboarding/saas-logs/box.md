@@ -20,17 +20,16 @@ For Panther to access the Box API, you will need to create a new Box App and pro
 ### Step 1: Create a new Box source in Panther
 
 1. Log in to your Panther Console.
-2. Go to **Integrations > Log Sources** from the sidebar menu.
-3. Click **Add Source.**
-4. Select **Box** from the list of available types.
-5. Click **Start Source Setup**.
-6. Enter a memorable name for the source (e.g. `My Box logs`).
-7. Click **Continue Setup**.&#x20;
-8. On the "Set Credentials" page, click **Copy** under Step 1 to copy your redirect URL.\
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
+3. Click **Create New.**
+4. Select **Box** from the list of available log sources. Click **Start Source Setup**.
+5. On the next screen, enter a memorable name for the source e.g., `My Box logs`.
+6. Click **Continue Setup**.&#x20;
+7. On the **Set Credentials** page, click **Copy** under Step 1 to copy your redirect URL.\
    ![](<../../.gitbook/assets/Screen Shot 2022-03-16 at 2.19.06 PM.png>)
-9. **Note:** Before you continue the setup process in your Panther Console, you must create a new app in your Box Developer Console and retrieve the Client ID and Client Secret.
+8. **Note:** Before you continue the setup process in your Panther Console, you must create a new app in your Box Developer Console and retrieve the Client ID and Client Secret.
 
-### Step 2: Create a new Box app
+### Step 2: Create a new Box app in your Box Developer Console
 
 1. In a separate browser tab or window, log in to the [Box Developer Console](https://app.box.com/developers/console).
 2. Click **Create New App.**\
@@ -48,13 +47,16 @@ For Panther to access the Box API, you will need to create a new Box App and pro
 
 1. In the Box Developer console, navigate to the new app you created for Panther. In the Configuration tab, scroll down to the **OAuth 2.0 Credentials** section.\
    ![](../../.gitbook/assets/box-credentials.png)
-2. Copy the **Client ID** and **Client Secret** credentials and paste them into the "Set credentials" screen in your Panther Console.
-   * The Client Secret will be stored and encrypted in Panther's backend.
+2. Copy the **Client ID** and **Client Secret** credentials and paste them into the **Set Credentials** page in your Panther Console.
 3. Click **Continue Setup**.&#x20;
-4. On the Verify Setup page in Panther, click **Grant Access**.
-   * You will be redirected to Box.&#x20;
-5. Click **Grant access to Box.**&#x20;
+4. Click **Grant Access**.
+   * You will be redirected to Box.
+5. Click **Grant Access to Box.**&#x20;
    * You will be redirected back to Panther.
+6. Click **Continue Setup.**
+7. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
+   * This feature sends an error message if logs aren't received within a specified time interval.
+8. Click **Finish Setup**.
 
 ### Panther-Built Detections
 

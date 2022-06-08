@@ -26,21 +26,20 @@ In order for Panther to access the Duo API you need to create a new 'Duo App' an
 
 ### Create a new Duo source in Panther
 
-1. Login to your Panther Console.
-2. Go to **Integrations > Log Sources** from the sidebar menu.
+1. Log in to your Panther Console.
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
 3. Click **Create New.**
-4. Select **Duo** from the list of available types. Click **Start Source Setup**.
-5. Add a memorable name for the source.
-6. Select the type of logs you want to monitor.
-7. Click **Continue Setup.**
-8. Fill in the fields below:
+4. Select **Duo** from the list of available log sources. Click **Start Source Setup**.
+5. On the next screen, enter a memorable name for the source e.g., `My Duo logs` and select the type of logs you want to monitor.
+6. Click **Continue Setup.**
+7. Fill in the fields below:
    * **Integration Key**: The integration key of the Duo app.
    * **Secret Key**: The secret key of the Duo app.
    * **API Hostname**: The API hostname of the Duo app.
-9. Click **Continue Setup.**
-10. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
-    * This feature sends an error message if logs aren't received within a specified time interval.
-11. Click **Finish Setup**.
+8. Click **Continue Setup.**
+9. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
+   * This feature sends an error message if logs aren't received within a specified time interval.
+10. Click **Finish Setup**.
 
 ## Supported log types
 

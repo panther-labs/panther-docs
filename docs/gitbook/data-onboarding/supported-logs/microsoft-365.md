@@ -40,16 +40,16 @@ Panther can pull logs from Microsoft's [Office 365 Management Activity API](http
 ### Step 2: Create a new Microsoft Source in Panther
 
 1. Log in to your Panther Console.
-2. Go to **Integrations** > **Log Sources** from the sidebar menu.
-3. Click **Create New** in the upper right.
-4. Click the tile for **Microsoft**.
-5. Click **Start Source Setup**.
-6. Enter a name for the source (e.g. "Microsoft 365 logs") and select the log types to ingest.&#x20;
-7. Click **Continue Setup**.
-8. On the Credentials page, enter your Tenant ID, Client ID, and Secret ID Value.&#x20;
-9. Click **Continue Setup**.&#x20;
-10. Once Panther verifies your access, a confirmation screen appears. Optionally, you can immediately set up a log drop-off alarm to receive alerts if logs aren't received within a specified time interval.
-11. Click **Finish Setup**.
+2. In the left sidebar menu, click **Integrations** > **Log** **Sources**.
+3. Click **Create New.**
+4. Select **Microsoft** from the list of available log sources. Click **Start Source Setup**.
+5. On the next screen, enter a memorable name for the source e.g., `My Microsoft 365 logs` and select the log types to ingest.&#x20;
+6. Click **Continue Setup**.
+7. On the **Set Credentials** page, enter your Tenant ID, Client ID, and Secret ID Value.&#x20;
+8. Click **Continue Setup**.
+9. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
+   * This feature sends an error message if logs aren't received within a specified time interval.
+10. Click **Finish Setup**.
 
 {% hint style="warning" %}
 After the integration is created, it may take up to 12 hours for the Microsoft API to make data available for the first time.
