@@ -2,7 +2,7 @@
 
 * [Overview](README.md)
 * [Quick Start](quick-start.md)
-* [Data Onboarding](data-onboarding/README.md)
+* [Data Sources & Transports](data-onboarding/README.md)
   * [SaaS Logs](data-onboarding/saas-logs/README.md)
     * [Asana](data-onboarding/saas-logs/asana.md)
     * [1Password](data-onboarding/saas-logs/1password.md)
