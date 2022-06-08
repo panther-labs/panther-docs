@@ -44,7 +44,7 @@ redirects:
   data-onboarding/data-transports/sns: ./data-onboarding/data-transports/sqs/sns.md
   # Cloud-Scanning overhaul
   data-onboarding/setup-cloud-accounts: ./cloud-scanning/README.md
-  resources: ./cloud-scanning/cloud-resource-attributes.md
+  resources: ./cloud-scanning/cloud-resource-attributes/README.md
   # Lookup Tables move
   data-analytics/lookup-tables: ./enrichment/lookup-tables.md
   data-analytics/lookup-tables/file-upload: ./enrichment/lookup-tables/file-upload.md
@@ -53,4 +53,5 @@ redirects:
   data-onboarding/supported-logs/gravitational: ./data-onboarding/supported-logs/teleport.md
   # Cloud scanning onboarding moves to index page (push)
   cloud-scanning/onboarding-cloud-accounts: ./cloud-scanning/README.md
-
+  # Moving SaaS Logs content into Supported Logs 
+  data-onboarding/saas-logs: ./data-onboarding/supported-logs/README.md
