@@ -18,7 +18,7 @@ You can leverage cloud services to push data to Panther from sources such as S3 
 
 ### Supported Logs
 
-Panther supports pulling logs from vendors via direct integrations that query the API and via AWS EventBridge. In addition, Panther supports pushing logs to common Data Transport sources to ingest logs into Panther that are not natively supported. For a full list of supported vendors, see the [Supported Logs](https://docs.panther.com/data-onboarding/supported-logs) source page.
+Panther supports pulling logs from vendors via direct integrations that query the API and via AWS EventBridge. In addition, Panther supports pushing logs to common Data Transport sources to ingest logs that have supported schemas but not a direct API integration. For a full list of supported vendors, see the [Supported Logs](https://docs.panther.com/data-onboarding/supported-logs) page.
 
 #### Cloud Accounts
 
