@@ -8,7 +8,7 @@ description: >-
 
 ## Overview
 
-Panther's Cloud Security Scanning works by scanning AWS accounts, modeling the **Resources** within them, and using **Policies** to detect misconfigurations. Cloud Security Scanning is automatically enabled when you onboarding a Cloud Account to your Panther Console.
+Panther's Cloud Security Scanning works by scanning AWS accounts, modeling the **Resources** within them, and using **Policies** to detect misconfigurations. Cloud Security Scanning is automatically enabled when you onboard a Cloud Account to your Panther Console.
 
 This feature can be used to power your compliance and improve your cloud security posture. Common security misconfigurations detectable by Panther include:
 

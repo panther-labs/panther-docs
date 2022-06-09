@@ -27,8 +27,6 @@ See the sections below for GraphQL queries and mutations around certain common o
 
 Below are some of the most common GraphQL operations in Panther. These examples demonstrate how you can use a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
 
-For more information on what fields and operations exist in the API, please see the [Discovering the Schema documentation](https://docs.runpanther.io/api-beta/discovering-the-schema).
-
 #### Listing Users
 
 ```graphql
