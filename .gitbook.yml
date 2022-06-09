@@ -55,3 +55,7 @@ redirects:
   cloud-scanning/onboarding-cloud-accounts: ./cloud-scanning/README.md
   # Moving SaaS Logs content into Supported Logs 
   data-onboarding/saas-logs: ./data-onboarding/supported-logs/README.md
+  # Panther API docs reorg
+  api-beta/using-the-panther-api: ./api-beta/README.md
+  api-beta/discovering-the-schema: ./api-beta/README.md
+  api-beta/generating-an-api-token: ./api-beta/README.md
