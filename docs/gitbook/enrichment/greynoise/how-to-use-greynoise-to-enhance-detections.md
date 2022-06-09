@@ -23,7 +23,7 @@ To enable GreyNoise data sets:
 5. To verify if the GreyNoise data sets are enabled, from the left sidebar menu, click **Enrichment > Sources.**
    * On this page, you can see Panther-managed enrichment sources (such as GreyNoise). You can also see whether the sources are currently enabled or disabled and when a source’s data was last refreshed.&#x20;
    * In the screen shot below, you can see the four source tables provided by GreyNoise and the time they were last refreshed. Disabled data sets will not be refreshed.\
-     ![](../../.gitbook/assets/enrichment-greynoise.png)
+     ![](<../../.gitbook/assets/image (45).png>)
 
 {% hint style="danger" %}
 GreyNoise data (both Basic and Advanced) is **not** available to view or query in the Data Explorer. The "View in Data Explorer" option is hidden for GreyNoise tables, but may be shown for other Panther managed lookup sources.
@@ -50,7 +50,7 @@ In this example, the rule has already been modified to detect _Brute Force By IP
 1. In the Panther Console, click **Detections** in the left sidebar menu.
 2. Click the `Okta Brute Force By IP` detection.
 3. Click **Edit Rule**, then click the **Functions & Tests** tab.\
-   ![](../../.gitbook/assets/greynoise-okta-detection.png)
+   ![](<../../.gitbook/assets/image (52).png>)
 4.  In the Rule Function section, add the following Python command to import Panther GreyNoise helpers:
 
     ```python

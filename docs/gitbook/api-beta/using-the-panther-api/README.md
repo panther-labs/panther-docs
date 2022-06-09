@@ -9,7 +9,7 @@ This page contains instructions on how to invoke the API, and common operations 
 For information specific to alerting, user management, or data lake operations, please see the documentation pages:&#x20;
 
 * [Alerts & Errors](alerts-and-errors.md)
-* [User Management](user-management.md) &#x20;
+* [User & Role Management](user-management.md) &#x20;
 * [Data Lake Queries](data-lake-queries.md)&#x20;
 
 ## Prerequisites
