@@ -43,7 +43,7 @@
     * [Zeek](data-onboarding/supported-logs/zeek.md)
     * [Zoom](data-onboarding/supported-logs/zoom.md)
     * [Zendesk](data-onboarding/supported-logs/zendesk.md)
-  * [Custom Log Types](data-onboarding/custom-log-types/README.md)
+  * [Custom Logs](data-onboarding/custom-log-types/README.md)
     * [Log Schema Reference](data-onboarding/custom-log-types/reference.md)
     * [Text logs with fastmatch](data-onboarding/custom-log-types/example-fastmatch.md)
     * [Text logs with regular expressions](data-onboarding/custom-log-types/example-regex.md)

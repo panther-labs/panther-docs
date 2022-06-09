@@ -1,21 +1,21 @@
-# Custom Log Types
+# Custom Logs
 
 ## Overview
 
-Panther allows users to define their own log types by adding a _Custom Log Type_ entry. _Custom Log Types_ are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
+Panther allows users to define their own log types by adding a Custom Log entry. Custom Logs are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
 
-* You can use a _Custom Log Type_ when onboarding data through SQS or S3
-* You can write [Rules](../../writing-detections/rules.md) for these _Log Types_.
-* You can query the data in Data Explorer. Panther will create a new table for the _Custom Log Type_, once you onboard a source that uses it.
-* You can query the data through Indicator Search
+* You can use a Custom Log __ when onboarding data through SQS or S3.
+* You can write [Rules](../../writing-detections/rules.md) for Custom Logs.
+* You can query the data in Data Explorer. Panther will create a new table for the Custom Log, once you onboard a source that uses it.
+* You can query the data through Indicator Search.
 
-## Generating a Schema for a Custom Log Type from Sample Logs
+## Generating a schema for a Custom Log from sample Logs
 
 {% hint style="info" %}
 This feature is available in versions 1.25 and above (1.25 only supports uploading JSON files, CSV files are supported in 1.26 and above).
 {% endhint %}
 
-You can generate a schema for a custom log type by uploading sample logs into the Panther UI. To get started, follow these steps:
+You can generate a schema for a Custom Log by uploading sample logs into the Panther UI. To get started, follow these steps:
 
 1. Log in to your Panther account.
 2. On the left sidebar, navigate to **Data > Schemas.**
@@ -41,13 +41,13 @@ You can generate a schema for a custom log type by uploading sample logs into th
 Note that the UI will only display up to 100 logs. This doesn't mean Panther can only infer from 100 logs, Panther will infer from all logs uploaded, this is just a performance characteristic to ensure fast response time when generating a schema.
 {% endhint %}
 
-## Adding a Custom Log Type Manually
+## Adding a Custom Log Manually
 
-You can add a _Custom Log Type_ by navigating to _Data_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
+You can add a Custom Log by navigating to _Data_ -> _Schemas_ and clicking on the 'New Schema' button in the upper right corner.
 
 ![](<../../.gitbook/assets/image (22).png>)
 
-Here you must enter a name for the _Custom Log Type_ (ie `Custom.SampleAPI`) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
+Here you must enter a name for the Custom Log (ie `Custom.SampleAPI`) and write or paste your YAML _Log Schema_ definition. Use the 'Validate Syntax' button at the bottom to verify your schema contains no errors and hit 'Save'.
 
 > Note that the 'Validate Syntax' button only checks the **syntax** of the _Log Schema_. 'Save' might still fail due to name conflicts.
 
@@ -55,7 +55,7 @@ If all went well, you can now navigate to _Log Analysis_ -> _Sources and add eit
 
 ## Editing a Custom Log Type
 
-Panther allows limited **editing** of _Custom Log Types_. Specifically:
+Panther allows limited **editing** of a Custom Log. Specifically:
 
 * You _can_ modify the `parser` configuration to fix bugs or add new patterns.
 * You _can_ add new fields to the schema.
@@ -64,35 +64,35 @@ Panther allows limited **editing** of _Custom Log Types_. Specifically:
 * You _cannot_ delete existing fields (doing so would allow renaming in two steps).
 * You _cannot_ change the `type` of an existing field (this includes the element type for `array` fields).
 
-You can edit a _Custom Log Type_ by clicking on the _Edit_ action in the details page of a _Custom Log Type_. Modify the YAML and click _Update_ to submit your change. _Validate Syntax_ can check the YAML for structural compliance but the rules described above can only be checked on _Update_. The update will be rejected if the rules are not followed.
+You can edit a Custom Log by clicking on the _Edit_ action in the details page of a _Custom Log Type_. Modify the YAML and click _Update_ to submit your change. _Validate Syntax_ can check the YAML for structural compliance but the rules described above can only be checked on _Update_. The update will be rejected if the rules are not followed.
 
-## Disabling a Custom Log Type
+## Disabling a Custom Log
 
-A _Custom Log Type_ can be disabled **if no** _**Source**_ **is using it**.
+A Custom Log can be disabled **if no** _**Source**_ **is using it**.
 
-A disabled _Custom Log Type_ is removed from the listing and its tables are hidden from the Data Explorer view.
+A disabled Custom Log is removed from the listing and its tables are hidden from the Data Explorer view.
 
-Disabling a _Custom Log Type_ does not affect any data already stored in the data lake. All data is still queryable through _Data Explorer_ or _Indicator Search_. Trying to add a log with the same name at a later time, will result in failure due to the name **conflict**.
+Disabling a Custom Log does not affect any data already stored in the data lake. All data is still queryable through _Data Explorer_ or _Indicator Search_. Trying to add a log with the same name at a later time, will result in failure due to the name **conflict**.
 
-You can disable a _Custom Log Type_ by clicking on the _Enable_ toggle in the details page of a _Custom Log Type_. The action will succeed only if the _Custom Log Type_ is not currently in use by any source.
+You can disable a Custom Log by clicking on the _Enable_ toggle in the details page of a _Custom Log Type_. The action will succeed only if the Custom Log is not currently in use by any source.
 
-## Testing a Panther-managed Log Type
+## Testing a Panther-managed Log
 
 {% hint style="info" %}
-This feature is available in versions 1.26 and above
+This feature is available in versions 1.26 and above.
 {% endhint %}
 
 Need to validate that a Panther-managed schema will work against your logs? You can test sample logs against the Panther-managed schema similarly to testing logs against a custom schema/log type (as described above). Follow the steps below:
 
-* Visit the **Schema** page under the **Data** tab
-* Click on a schema labeled as **Panther-managed**
-* Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs
+* Visit the **Schema** page under the **Data** tab.
+* Click on a schema labeled as **Panther-managed.**
+* Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
 ![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;
 
-## Writing a Log Schema for JSON logs
+## Writing a log schema for JSON logs
 
 > You can make use of our `pantherlog` [CLI tool](./#generating-a-schema-from-json-samples) to help you generate your Log Schema
 
@@ -179,7 +179,7 @@ fields:
 
 You can edit the YAML specifications directly in the Panther Console or they can be [prepared offline in your editor/IDE of choice](reference.md#using-json-schema-in-an-ide). For more information on the structure and fields in a _Log Schema_, see the [Log Schema Reference](reference.md).
 
-## Writing a Log Schema for text logs
+## Writing a log schema for text logs
 
 Panther handles logs that are not structured as JSON by using a 'parser' that translates each log line into key/value pairs and feeds it as JSON to the rest of the pipeline. You can define a text parser using the `parser` field of the _Log Schema_. Panther provides the following parsers for non-JSON formatted logs:
 
@@ -193,7 +193,7 @@ Panther handles logs that are not structured as JSON by using a 'parser' that tr
 
 Panther provides a simple CLI tool to help work with Custom Logs feature. The tool is called `pantherlog` and an executable for each platform is provided with the release. The executables can be downloaded from the `panther-community` S3 bucket, see more details on the operations help [page](../../help/operations/#tools).
 
-### Generating a Schema from JSON samples
+### Generating a schema from JSON samples
 
 You can use the tool to generate a schema file out of sample files in [new-line delimited JSON](http://ndjson.org/) format. The tool will scan the provided logs and print the inferred schema to `stdout`.
 
@@ -221,7 +221,7 @@ Note that YAML keys and values are case sensitive.
 Pantherlog CLI example
 {% endembed %}
 
-### Trying out a Schema
+### Trying out a schema
 
 You can use the tool to validate a schema file and use it to parse log files. Note that the events in the log files need to be separated by new line. Processed logs are writen to `stdout` and errors to `stderr`.
 
@@ -237,7 +237,7 @@ The tool can also accept input via `stdin` so it can be used in a pipeline:
 $ cat sample_logs.jsonl | ./pantherlog parse --path schema.yml
 ```
 
-### Running tests for a Schema
+### Running tests for a schema
 
 You can use the tool to run unit tests. You can define unit tests for your Custom Schema in YAML files. To run tests defined in a `schema_tests.yml` file for a custom schema defined in `schema.yml` use:
 
@@ -360,7 +360,7 @@ fields:
 {% endtab %}
 {% endtabs %}
 
-## Uploading Log Schemas with the Panther Analysis Tool
+## Uploading log schemas with the Panther Analysis Tool
 
 If you choose to maintain your log schemas outside of Panther, for example in order to keep them under version control and review changes before updating, you can upload the YAML files programmatically with the [Panther Analysis Tool](../../writing-detections/panther-analysis-tool.md).
 
