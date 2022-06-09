@@ -6,15 +6,15 @@ When creating a rule there is the option to declare `Summary Attributes` (see lo
 
 For example, say we have written a rule to find "Sneaky" traffic hitting our load balancer. This rule runs against the`AWS.ALB` logs. If we pick the Panther standard field `p_any_ip_addresses` and `userAgent`, then when we view an alert we can quickly see the top five values in the matching events. This can significantly speed up alert triage.
 
-![Summary Attributes](../../../.gitbook/assets/rule-with-summary-attributes.png)
+![Summary Attributes](<../../../.gitbook/assets/rule-with-summary-attributes (1).png>)
 
 In this example, the first summary is `p_any_ip_addreses`. Notice that when you click on a bar a `Copy` icon displays. Copying the attribute of interest can be very handy. For example, to paste into [Indicator Search](../data-analytics/indicator-search.md) and view all hits for that attribute in your data lake.
 
-![Alert Summary 1](../../../.gitbook/assets/alert-summary-1.png)
+![Alert Summary 1](<../../../.gitbook/assets/alert-summary-1 (1).png>)
 
 Clicking the arrow above the chart allows you to navigate to the next summary.
 
-![Alert Summary 2](../../../.gitbook/assets/alert-summary-2.png)
+![Alert Summary 2](<../../../.gitbook/assets/alert-summary-2 (1).png>)
 
 The dropdown selector on the right allows you to jump to a particular summary.
 

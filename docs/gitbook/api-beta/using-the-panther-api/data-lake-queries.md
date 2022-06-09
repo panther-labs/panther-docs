@@ -164,7 +164,7 @@ The expected values of `status` and `results` depend on the query's status:
   * `status` will have a value of `succeeded`&#x20;
   * `results` will be populated
 
-All of the above (along with the possible values for `status)` , along with additional fields you are allowed to request can be found in our [Documentation Explorer](../api-playground.md#documentation-explorer) or [GraphQL schema file](../discovering-the-schema.md#downloading-the-graphql-schema-file)).
+All of the above (along with the possible values for `status)` , along with additional fields you are allowed to request can be found in our [Documentation Explorer](../api-playground.md#documentation-explorer) or [GraphQL schema file](broken-reference)).
 
 #### Fetching metadata around a data lake or Indicator Search query
 
