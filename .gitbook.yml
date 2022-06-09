@@ -59,3 +59,6 @@ redirects:
   api-beta/using-the-panther-api: ./api-beta/README.md
   api-beta/discovering-the-schema: ./api-beta/README.md
   api-beta/generating-an-api-token: ./api-beta/README.md
+  api-beta/using-the-panther-api/alerts-and-errors: ./api-beta/operations/alerts-and-errors.md
+  api-beta/using-the-panther-api/user-management: ./api-beta/operations/user-management.md
+  api-beta/using-the-panther-api/data-lake-queries: ./api-beta/operations/data-lake-queries.md
