@@ -38,4 +38,13 @@ To configure a Lookup Table, follow these steps in your Panther Console:
 7. Click **Continue**.
 8. Drag and drop a file or click **Select File** to choose the file of your Lookup Table data to import. The file must be in `.csv` or `.jsonl` format. \
    ![](../../.gitbook/assets/lookup-table-import.png)
-9. After you successfully import a file, click **View in Data Explorer** to **** query that table data or click **Finish Setup** to go back to a list of your custom Lookup Tables.
+9. Click **Finish Setup**. A source setup success page **** will populate.&#x20;
+10. Optionally, next to to _Set an alarm in case this lookup table doesn't receive any data?_, toggle the setting to **YES** to enable an alarm.&#x20;
+    * Fill in the **Number** and **Period** fields to indicate how often Panther should send you this notification.
+    * The alert destinations for this alarm are displayed at the bottom of the page. To configure and customize where your notification is sent, see documentation on [Panther Destinations](../../destinations/).
+
+​![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LgdiSWdyJcXPahGi9Rs-2910905616%2Fuploads%2FoyqgS5R8TnNzpDRtl9e9%2Fimage.png?alt=media\&token=5d8c27d1-ac28-460c-a2f5-bd2c503a49f1)​
+
+{% hint style="info" %}
+**Note:** Notifications generated for a Lookup Table upload failing are accessible in the **System Errors** tab within the **Alerts & Errors** page in the Panther Console.
+{% endhint %}

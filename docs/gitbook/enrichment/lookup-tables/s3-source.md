@@ -8,8 +8,6 @@ This feature is available in version 1.28 and newer.
 
 **Example scenario:** Let's say you want to know what groups and permission levels are associated with the employees at your company. In this scenario, your company has an AWS S3 source with an up-to-date copy of their Active Directory listing that includes groups and permissions information.
 
-
-
 **To configure the Lookup Table, follow these steps in your Panther Console:**
 
 1. From the left sidebar, click **Enrichment > Lookup Tables.**
@@ -46,11 +44,18 @@ This feature is available in version 1.28 and newer.
     4. Enter the **Update Period**, the cadence your S3 source gets updated (defaulted to 1 hour).\
        ![](../../.gitbook/assets/lut-setup-s3.png)
 11. Click **Continue**.
-12. Set Up an IAM Role.&#x20;
-    * Please see the next section, **Creating an IAM Role**, for instructions on the three options available to do this.
-13. After you have set up an IAM role, click **Finish Setup**, and you'll be directed back to the Lookup Tables list page with your new Employee Directory table listed.
+12. Set up an IAM Role.&#x20;
+    * Please see the next section, [**Creating an IAM Role**](s3-source.md#creating-an-iam-role), for instructions on the three options available to do this.
+13. Click **Finish Setup**. A source setup success page **** will populate.&#x20;
+14. Optionally, next to to _Set an alarm in case this lookup table doesn't receive any data?_, toggle the setting to **YES** to enable an alarm.&#x20;
+    * Fill in the **Number** and **Period** fields to indicate how often Panther should send you this notification.
+    * The alert destinations for this alarm are displayed at the bottom of the page. To configure and customize where your notification is sent, see documentation on [Panther Destinations](../../destinations/).
 
-Once the process is complete, please note it will take a few minutes for data to be synced from S3.
+​![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-LgdiSWdyJcXPahGi9Rs-2910905616%2Fuploads%2FoyqgS5R8TnNzpDRtl9e9%2Fimage.png?alt=media\&token=5d8c27d1-ac28-460c-a2f5-bd2c503a49f1)​
+
+{% hint style="info" %}
+**Note:** Notifications generated for a Lookup Table upload failing are accessible in the **System Errors** tab within the **Alerts & Errors** page in the Panther Console.
+{% endhint %}
 
 ### Creating an IAM Role
 
@@ -61,8 +66,6 @@ There are three options for creating an IAM Role to use with your Panther Lookup
 * [Create an IAM role manually](https://docs.runpanther.io/data-analytics/lookup-tables/s3-source#create-an-iam-role-manually).
 
 ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 4.49.50 PM.png>)
-
-
 
 #### Create an IAM role using AWS Console UI
 
@@ -138,5 +141,5 @@ There are three options for creating an IAM Role to use with your Panther Lookup
        ```
 3. On the "Setting up role manually" page in Panther, enter the Role ARN.&#x20;
    * This can be found in the "Outputs" tab of the CloudFormation stack in your AWS account.\
-     ![](../../.gitbook/assets/role-arn.png)
+     ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.03.43 PM.png>)
 4. Click **Finish Setup**, and you will be redirected to the Lookup Tables list page with your new Employee Directory table listed.
