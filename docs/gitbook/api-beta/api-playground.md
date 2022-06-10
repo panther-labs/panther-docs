@@ -4,19 +4,18 @@ Panther offers an API Playground to try out operations. To access the Playground
 
 1. Log in to your Panther Console.
 2. In the lefthand navigation in your Panther account, click **Settings > API Tokens**.
-3. In the **Resources** dropdown, select **API Playground (Dropdown Option)**.&#x20;
+3. In the **Resources** dropdown, select **API Playground**.&#x20;
 
-When you first access the Playground page, you will see an error message such as `api token is invalid` or `error fetching schema`. This is because value of the `X-API-Key` header under **REQUEST HEADERS** is invalid until you enter a valid API Token. After you enter a valid API Token, click the "play" icon in the upper left corner to force the GraphQL query to run.
+After you enter a valid API Token, click the "play" icon in the upper left corner to force your GraphQL query to run.
 
 {% hint style="warning" %}
 Note:
 
-* The autocomplete functionality and the Documentation Explorer (on the right side of the Playground) are enabled after you enter a valid `X-API-Key` request header.
-* If you just issued an API Token, please wait between 30 - 60 seconds for the new token to become available to related distributed AWS services
+* If you just issued an API Token, please wait between 30-60 seconds for the new token to become available to related distributed AWS services.
 * For security purposes, the API Token will **not** persist in the Playground when you refresh the page or navigate to a different page. You will need to re-enter the API Token each time you use the Playground.
 {% endhint %}
 
-![The API Playground default view](../.gitbook/assets/api-playground.png)
+![The API Playground default view](<../.gitbook/assets/Screenshot 2022-06-06 at 3.02.32 PM.png>)
 
 ### Documentation Explorer
 
