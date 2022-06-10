@@ -50,7 +50,7 @@ On this page, you can filter alerts and view the events associated with each ale
 
 ![The Replay Test Summary shows the number of alerts, rule errors, estimated volume processed, and total matched events.](../../.gitbook/assets/replaysummary.png)
 
-Click on an alert for more information. On the alert's page, click the **Details** tab to see which destinations the alerts would have been sent to if the rule was live.&#x20;
+Click on an alert for more information. On the alert's page, click the **Details** tab to see which destinations the alerts would have been sent to if the rule was live. This page also includes the start time, end time, and duration of the replay.
 
 Note: No alerts are sent to their destinations while replaying data.
 
