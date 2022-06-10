@@ -98,7 +98,11 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 
 To parse log files where each line is JSON you have to define a _Log Schema_ that describes the structure of each log entry.
 
-In the example below, the first tab displays the JSON log structure and the second tab shows the Log Schema.
+In the example schemas below, the first tab displays the JSON log structure and the second tab shows the Log Schema.&#x20;
+
+{% hint style="info" %}
+**Note**: Please leverage the **Minified JSON Log Example** when using the `pantherlog` tool or generating a schema within the Panther Console.
+{% endhint %}
 
 {% tabs %}
 {% tab title="JSON Log Example" %}
@@ -174,6 +178,10 @@ fields:
   description: UserAgent header
   type: string
 ```
+{% endtab %}
+
+{% tab title="Minified JSON Log Example" %}
+{"method":"GET","path":"/-/metrics","format":"html","controller":"MetricsController","action":"index","status":200,"params":\[],"remote\_ip":"1.1.1.1","user\_id":null,"username":null,"ua":null,"queue\_duration\_s":null,"correlation\_id":"c01ce2c1-d9e3-4e69-bfa3-b27e50af0268","cpu\_s":0.05,"db\_duration\_s":0,"view\_duration\_s":0.00039,"duration\_s":0.0459,"tag":"test","time":"2019-11-14T13:12:46.156Z"}
 {% endtab %}
 {% endtabs %}
 
