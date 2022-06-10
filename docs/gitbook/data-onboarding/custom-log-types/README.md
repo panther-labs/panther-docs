@@ -2,24 +2,88 @@
 
 ## Overview
 
-Panther allows users to define their own log types by adding a Custom Log entry. Custom Logs are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
+Panther allows users to define their own log types by adding a Custom Log entry. You can generate a Custom Log from data in S3 or from a sample log.
+
+Custom Logs are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
 
 * You can use a Custom Log __ when onboarding data through SQS or S3.
 * You can write [Rules](../../writing-detections/rules.md) for Custom Logs.
 * You can query the data in Data Explorer. Panther will create a new table for the Custom Log, once you onboard a source that uses it.
 * You can query the data through Indicator Search.
 
-## Generating a schema for a Custom Log from sample Logs
+## Generating and testing a data schema for a Custom Log from data in S3 \[BETA]
 
 {% hint style="info" %}
-This feature is available in versions 1.25 and above (1.25 only supports uploading JSON files, CSV files are supported in 1.26 and above).
+This feature is in preview as of the 1.36 release. If you need help in using this feature or have any feedback, be sure to reach out to [Panther Support](mailto:support@panther.io).
 {% endhint %}
+
+You can generate a schema for a custom log from live data streaming from an S3 bucket and then test that schema before publishing.&#x20;
+
+### **View Raw Data from S3**
+
+After onboarding your S3 bucket onto Panther, you can view raw data coming into Panther before processing. To view the raw data and kick off schema inference/testing, proceed with the following:
+
+1. Follow the instructions to [onboard an S3 bucket onto Panther](../data-transports/s3.md) without having a schema in place.
+   * Skip the step where you list schemas and prefixes in the first page of the S3 onboarding wizard.&#x20;
+   * You'll have the opportunity to add schemas and prefixes after the S3 bucket is onboarded.
+2. Once the S3 bucket is successfully onboarded, you'll see a call-to-action to **Attach Schemas** to the bucket in the S3 bucket's Log Source Operations Page and the Log Source Listing Page. Click the **Attach Schemas** button.\
+   ![](<../../.gitbook/assets/custom Logs.png>)&#x20;
+   * **Note:** You may need to wait up to 15 minutes for data to start streaming into Panther.&#x20;
+3. On the schema inference and testing workflow page, **view** the raw data that Panther has received **at the bottom of the screen** .  \
+   &#x20;![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 1.45.35 PM.png>)
+   * This data is displayed from `data-archiver`, a Panther-managed S3 bucket that retains raw logs for up to 30 days for every S3 log source.
+   * If you still do not see data after 15 minutes, ensure that the time picker is set to the appropriate time range that corresponds with the timestamps on the events coming into Panther.
+
+### **Infer a schema from raw data**
+
+Using raw live data coming from S3, you can infer schemas with just a few steps.
+
+1. Once you see data populating in **Raw Events,** you can **filter the raw events** you'd like to infer a schema for by using the time, prefix, or string filter. Filter the raw events by going to the top of the raw events table and **setting the parameters** there.\
+   &#x20;![](<../../.gitbook/assets/Screen Shot 2022-06-10 at 1.59.03 PM.png>)
+2. Click **Infer Schema** to generate a schema.&#x20;
+3. On the **Infer New Schema** modal that pops up, enter the following:
+   * **Prefix:** An existing prefix that was set up prior to inferring the schema or a new prefix.
+     * The prefix you choose will filter data from the corresponding prefix in the S3 bucket to the schema you've inferred.&#x20;
+     * If you don't need to specify a specific prefix, you can use the catch-all prefix that is called `*`.
+   * **Name:** The name of the schema that will map to the table in the data lake once the schema is published.&#x20;
+     * The name will always start with `Custom.` and must have a capital letter after.
+   * **Reference URL**: An optional field that can be used to reference documentation related to the schema.
+   * **Description**: An optional field that can be used to add context to the schema's purpose and design.\
+     ****![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 1.53.59 PM.png>)****
+4. Click **Apply Changes**.
+   * The schema will then be placed in a **Draft** mode until you're ready to publish to production after testing.
+5. Review the schema and its fields by going to the **Schemas** section and clicking on the **schema name**.&#x20;
+   * You'll see the name you attributed to the schema with a **draft** label after the schema is inferred.
+   * Since the schema is in **Draft**, you can change, remove, or add fields as needed.
+
+![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.40.29 PM.png>)
+
+### **Test schema with raw data**
+
+Once your schemas and prefixes are defined, you can proceed to testing the schema configuration against raw data.
+
+1. In the **Test Schemas** section at the top of the screen, **select the date range** of data that you would like to test your schemas against.&#x20;
+   * This date range is specific to testing; it is separate from the date range shown below in the **view raw data/schema inference section.**\
+     ****![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.31.03 PM (1).png>)
+2. Click **Test all Schemas** to begin test.&#x20;
+   * Depending on the time range and amount of data, the test may take a few minutes to complete.
+   * Once the test finishes, the results appear with the amount of matched and unmatched events.&#x20;
+     * **Matched events** represent the number of events that would successfully classify against the schema configuration.&#x20;
+     * **Unmatched events** represent the number of events that would unsuccessfully classify.\
+       ![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.32.49 PM.png>)
+3. Click **View Report** to see a more detailed summary of errors that caused events to unsuccessfully match.&#x20;
+4. **Inspect the errors and the JSON** to decipher what caused the failures. &#x20;
+5. **Navigate back to the draft schema,** make changes as needed, and test the schemas again.\
+   \
+   ![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.46.54 PM.png>)
+
+## Generating a schema for a Custom Log from sample logs
 
 You can generate a schema for a Custom Log by uploading sample logs into the Panther UI. To get started, follow these steps:
 
 1. Log in to your Panther account.
 2. On the left sidebar, navigate to **Data > Schemas.**
-3. At the top right of the page next to the search bar, click **+**.
+3. At the top right of the page next to the search bar, click **Create New**.
 4. On the New Data Schema page, enter a Schema ID, Description, and Reference URL.
    * The Description is meant for content about the table, while the Reference URL can be used to link to internal resources.
 5. Scroll to the bottom of the page where you'll find the option to upload sample log files.
@@ -88,7 +152,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed.**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
 
 &#x20;
 
