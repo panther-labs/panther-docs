@@ -11,10 +11,10 @@ Custom Logs are identified by a `Custom.` prefix in their name and can be used w
 * You can query the data in Data Explorer. Panther will create a new table for the Custom Log, once you onboard a source that uses it.
 * You can query the data through Indicator Search.
 
-## Generating and testing a data schema for a Custom Log from data in S3 \[BETA]
+## Generating and testing a data schema for a Custom Log from data in S3 (BETA)
 
 {% hint style="info" %}
-This feature is in preview as of the 1.36 release. If you need help in using this feature or have any feedback, be sure to reach out to [Panther Support](mailto:support@panther.io).
+This feature is available as an invite-only beta starting with version 1.36. To request access to the feature or share any bug reports or feature requests, please contact your account team.
 {% endhint %}
 
 You can generate a schema for a custom log from live data streaming from an S3 bucket and then test that schema before publishing.&#x20;
