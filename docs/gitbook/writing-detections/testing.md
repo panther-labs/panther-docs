@@ -159,4 +159,4 @@ If you have [Lookup Table(s)](../enrichment/lookup-tables/) configured and creat
 This example is based on the [Account Metadata](../enrichment/lookup-tables/file-upload.md#write-a-detection-using-lookup-table-data) Lookup Table scenario.
 {% endhint %}
 
-![](<../.gitbook/assets/image (4) (1).png>)
+![](<../.gitbook/assets/image (4) (2).png>)

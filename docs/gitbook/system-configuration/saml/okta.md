@@ -26,12 +26,12 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
 
 1. Log in to your Okta administrative console.
 2. &#x20;Click the **Applications** tab, then click **Add Application**.\
-   ![](../../.gitbook/assets/okta-add-app.png)
+   ![](<../../../../.gitbook/assets/okta1 (8) (8) (4) (1) (1) (2) (1) (1) (11).png>)
 3. On the "Add Application" page, click **Create New App**.
 4. Fill in the form to configure the new app:
    * **Platform**: Web
    * **Sign on Method**: SAML 2.0\
-     ![](../../.gitbook/assets/saml-okta.png)
+     ![](<../../../../.gitbook/assets/okta2 (8) (8) (5) (1) (1) (2) (1) (1) (11).png>)
 5. Click **Create**.
 6. Configure the general settings.
    * **App name**: Add a descriptive name such as "Panther Console."&#x20;
@@ -45,11 +45,11 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
    * **Name**: `PantherEmail`, **Value**: `user.email`
    * **Name**: `PantherFirstName`, **Value**: `user.firstName`
    * **Name**: `PantherLastName`, **Value**: `user.lastName`\
-     ``![](../../.gitbook/assets/okta-saml-settings.png)``
+     ``![](<../../../../.gitbook/assets/okta4 (8) (8) (7) (1) (1) (2) (1) (1) (11).png>)``
 10. The Group Attribute statements can be left blank. Click **Next**.
 11. Click **Finish**.
 12. On the next screen, navigate to the Settings and locate the "Sign On Methods" section. Copy the **Identity Provider Metadata** link and store it in a secure location. You will need this in the next steps.\
-    ![](../../.gitbook/assets/saml-okta-metadata.png)
+    ![](<../../../../.gitbook/assets/okta-metadata (8) (8) (9) (7) (1) (1) (2) (1) (1) (11).png>)
 
 After you're done, make sure to grant access to the appropriate users and groups in the "Assignments" tab.
 

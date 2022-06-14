@@ -59,7 +59,7 @@ Contact your Panther representative to get started with a free trial of GreyNois
 
 The following diagram describes the alert lifecycle in Panther, where native enrichment with GreyNoise and Lookup Tables is supported:&#x20;
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 * Alert events are automatically enriched with both custom [Lookup Tables](../lookup-tables/) and native GreyNoise data under the `p_enrichment` field in JSON events.
 * GreyNoise data can be used in detections with [pre-built Python helpers](greynoise-helper-function-usage-and-methods.md) (and `deep_get`) to access enrichment information.

@@ -242,6 +242,7 @@
     * [Data Lake Queries](api-beta/operations/data-lake-queries.md)
   * [API Playground](api-beta/api-playground.md)
 * [Guides](guides/README.md)
+  * [ServiceNow Destination as Custom Webhook](guides/servicenow-destination-as-custom-webhook.md)
   * [CI / CD Onboarding Guide](guides/ci-cd-onboarding-guide.md)
   * [Fluentd Onboarding Guide](guides/onboarding-with-fluentd/README.md)
     * [Getting Started with Fluentd](guides/onboarding-with-fluentd/resource-guide.md)
