@@ -2,11 +2,11 @@
 description: Logs of audited activity within your instance of Panther
 ---
 
-# Panther Audit Logs (BETA)
+# Panther Audit Logs (Beta)
 
 {% hint style="info" %}
 This feature is available in version 1.34 and newer. \
-Panther Audit Logs are currently in public beta. Please share any bug reports and feature requests with your account team.&#x20;
+Panther Audit Logs are currently in public Beta. Please share any bug reports and feature requests with your account team.&#x20;
 {% endhint %}
 
 ## Overview

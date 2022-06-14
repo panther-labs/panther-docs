@@ -1,4 +1,4 @@
-# GreyNoise (BETA)
+# GreyNoise (Beta)
 
 {% hint style="info" %}
 This feature is available in version 1.32 and newer.
@@ -6,7 +6,7 @@ This feature is available in version 1.32 and newer.
 You will need to accept new Terms of Service for Panther and GreyNoise in the Panther Console to use this feature.\
 
 
-Panther's GreyNoise integration is currently in public beta. Please share any bug reports and feature requests with your account team.
+Panther's GreyNoise integration is currently in public Beta. Please share any bug reports and feature requests with your account team.
 {% endhint %}
 
 Panther has partnered with [GreyNoise Intelligence](https://www.greynoise.io/), a cybersecurity platform that collects and analyzes Internet-wide data, to provide integrated threat intelligence to Panther customers.&#x20;

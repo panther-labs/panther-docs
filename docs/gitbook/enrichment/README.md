@@ -4,7 +4,7 @@ description: >-
   Intelligence
 ---
 
-# Enrichment (BETA)
+# Enrichment (Beta)
 
 ## Overview
 
@@ -12,13 +12,13 @@ Panther's Enrichment capabilities allow security teams to cut through background
 
 ## How to use Enrichment features in Panther
 
-### Lookup Tables (BETA)
+### Lookup Tables (Beta)
 
 Lookup Tables allow you to add important context to your detections and alerts for improved investigation workflows. Using Lookup Tables saves time by enhancing detections, reducing alert noise, and speeding up investigations
 
 For setup instructions and examples, see Panther's [Lookup Tables documentation](./#lookup-tables-beta).&#x20;
 
-### GreyNoise Threat Intelligence (BETA)
+### GreyNoise Threat Intelligence (Beta)
 
 GreyNoise helps security analysts save time by revealing which events and alerts they can ignore, by curating data on IPs that saturate security tools with noise. Using GreyNoise can reduce false positives, while helping security teams feel more confident in their ability to protect their organizations.
 

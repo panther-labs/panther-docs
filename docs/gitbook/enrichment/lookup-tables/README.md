@@ -1,9 +1,9 @@
-# Lookup Tables (BETA)
+# Lookup Tables (Beta)
 
 {% hint style="info" %}
 This feature is available in version 1.27 and newer.
 
-Lookup Tables are currently in public beta. Please share any bug reports and feature requests with your account team.
+Lookup Tables are currently in public Beta. Please share any bug reports and feature requests with your account team.
 {% endhint %}
 
 ## Overview

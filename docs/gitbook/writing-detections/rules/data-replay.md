@@ -4,10 +4,10 @@ description: >-
   enabling it.
 ---
 
-# Data Replay (BETA)
+# Data Replay (Beta)
 
 {% hint style="info" %}
-Data Replay is currently in public beta. Please share any bug reports and feature requests with your account team.
+Data Replay is currently in public Beta. Please share any bug reports and feature requests with your account team.
 {% endhint %}
 
 With Panther's Data Replay, rules can be tested against historical log data to preview the outcome of a rule before enabling it.&#x20;
