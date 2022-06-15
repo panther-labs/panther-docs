@@ -4,7 +4,7 @@ description: >-
   querying
 ---
 
-# Panther API (BETA)
+# Panther API (Beta)
 
 ## Overview
 
@@ -16,7 +16,7 @@ Panther offers a public GraphQL-over-HTTP API, meaning you can write GraphQL que
 
 ## How to use Panther's API
 
-## Step 1: Creating an API Token
+### Step 1: Creating an API Token
 
 1. Log in to your Panther Console.
 2. Navigate to **Settings > API Tokens.**
@@ -29,7 +29,7 @@ You will see a success screen that displays the value of the API Token. Please n
 
 ![](../.gitbook/assets/api-token-success.png)
 
-### Testing the API Token
+#### Testing the API Token
 
 {% hint style="info" %}
 There may be a propagation delay of 30 to 60 seconds after adding an API Token.&#x20;
@@ -49,7 +49,7 @@ For additional ways to discover the schema, see [Discovering the Schema.](./#ste
 
 
 
-## Step 2: Invoking the API
+### Step 2: Invoking the API
 
 #### Prerequisites
 
@@ -63,7 +63,7 @@ To invoke the API using an HTTP curl operation, you will need the following info
 * A GraphQL query
   * The GraphQL query differs from use case to use case. Please refer to our [schema discoverability page](https://docs.runpanther.io/api-beta/discovering-the-schema) or our [common operations](./#common-operations) for more on this topic.
 
-### Invoking the API
+#### Invoking the API
 
 There are two ways to invoke a GraphQL-over-HTTP API:
 
@@ -239,7 +239,7 @@ query PantherVersion {
 }
 ```
 
-## Step 3: Discovering the Schema
+### Step 3: Discovering the Schema
 
 There are three options to discover the GraphQL schema:
 

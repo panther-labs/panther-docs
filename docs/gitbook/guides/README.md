@@ -14,7 +14,19 @@ If you find these guides useful and have a specific request for additional conte
 
 ## Panther Guides
 
-#### Onboarding
+#### Detections and Queries
+
+{% content-ref url="okta-detections-and-queries.md" %}
+[okta-detections-and-queries.md](okta-detections-and-queries.md)
+{% endcontent-ref %}
+
+#### Enrichment
+
+{% content-ref url="using-lookup-tables-1password-uuids.md" %}
+[using-lookup-tables-1password-uuids.md](using-lookup-tables-1password-uuids.md)
+{% endcontent-ref %}
+
+#### Third-Party Tools
 
 {% content-ref url="ci-cd-onboarding-guide.md" %}
 [ci-cd-onboarding-guide.md](ci-cd-onboarding-guide.md)
@@ -24,19 +36,11 @@ If you find these guides useful and have a specific request for additional conte
 [onboarding-with-fluentd](onboarding-with-fluentd/)
 {% endcontent-ref %}
 
-#### Detections and Queries
-
-{% content-ref url="okta-detections-and-queries.md" %}
-[okta-detections-and-queries.md](okta-detections-and-queries.md)
+{% content-ref url="github-actions-onboarding-guide.md" %}
+[github-actions-onboarding-guide.md](github-actions-onboarding-guide.md)
 {% endcontent-ref %}
 
-#### Lookup Tables
-
-{% content-ref url="using-lookup-tables-1password-uuids.md" %}
-[using-lookup-tables-1password-uuids.md](using-lookup-tables-1password-uuids.md)
+{% content-ref url="redacting-sensitive-fields-with-cribl.md" %}
+[redacting-sensitive-fields-with-cribl.md](redacting-sensitive-fields-with-cribl.md)
 {% endcontent-ref %}
-
-
-
-
 
