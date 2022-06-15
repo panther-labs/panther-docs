@@ -32,6 +32,7 @@ Panther has supported integrations for the following destinations:&#x20;
 * [Microsoft Teams](https://docs.panther.com/destinations/microsoft-teams)
 * [OpsGenie](https://docs.panther.com/destinations/opsgenie)
 * [PagerDuty](https://docs.panther.com/destinations/pagerduty)
+* [ServiceNow (via Custom Webhook)](servicenow-destination-custom-webhook.md#overview)
 * [Slack](https://docs.panther.com/destinations/slack)
 
 ### Routing Order Precedence
