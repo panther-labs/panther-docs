@@ -18,7 +18,7 @@ For SaaS customers who wish to share data between the Panther SaaS Snowflake acc
 
 For SaaS customers who wish to access their SaaS configuration to use the data in BI reporting, but do not have their own corporate Snowflake account, our support team can provision special access roles for your use.&#x20;
 
-### Bring Your Own Snowflake
+### Bring Your Own Snowflake (BYOSF)
 
 If you are an existing Snowflake customer, Panther can be configured to use one of your own Snowflake accounts. We call this Bring Your Own Snowflake (BYOSF).&#x20;
 
