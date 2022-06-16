@@ -58,6 +58,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - GET_CUSTOM_SCHEMA
 - GET_DATA_LAKE_DATABASE
 - GET_DATA_LAKE_QUERY
+- GET_DATA_LAKE_QUERY_SUMMARY
 - GET_DATA_LAKE_TABLE
 - GET_DATA_MODEL
 - GET_DETECTION_FILTER
@@ -123,6 +124,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - SEND_TEST_ALERT
 - SIGN_IN
 - STOP_REPLAY
+- SUMMARIZE_DATA_LAKE_QUERY
 - SUPPRESS_POLICY
 - SYNC_LOOKUP_TABLE_DATA
 - TEST_CUSTOM_SCHEMA
