@@ -246,6 +246,7 @@
   * [CI / CD Onboarding Guide](guides/ci-cd-onboarding-guide.md)
   * [Fluentd Onboarding Guide](guides/onboarding-with-fluentd/README.md)
     * [Getting Started with Fluentd](guides/onboarding-with-fluentd/resource-guide.md)
+    * [General log forwarding via Fluentd](guides/onboarding-with-fluentd/general-log-forwarding-via-fluentd.md)
     * [MacOS System Logs to S3 via Fluentd](guides/onboarding-with-fluentd/macos-system-logs-to-s3-via-fluentd.md)
     * [Syslog to S3 via Fluentd](guides/onboarding-with-fluentd/syslog-to-s3-via-fluentd.md)
     * [Windows Event Logs to S3 via Fluentd](guides/onboarding-with-fluentd/windows-event-logging-via-fluentd.md)

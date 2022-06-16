@@ -27,7 +27,7 @@ After onboarding your S3 bucket onto Panther, you can view raw data coming into 
    * Skip the step where you list schemas and prefixes in the first page of the S3 onboarding wizard.&#x20;
    * You'll have the opportunity to add schemas and prefixes after the S3 bucket is onboarded.
 2. Once the S3 bucket is successfully onboarded, you'll see a call-to-action to **Attach Schemas** to the bucket in the S3 bucket's Log Source Operations Page and the Log Source Listing Page. Click the **Attach Schemas** button.\
-   ![](<../../.gitbook/assets/custom Logs (1).png>)&#x20;
+   ![](<../../.gitbook/assets/custom Logs.png>)&#x20;
    * **Note:** You may need to wait up to 15 minutes for data to start streaming into Panther.&#x20;
 3. On the schema inference and testing workflow page, **view** the raw data that Panther has received **at the bottom of the screen** .  \
    &#x20;![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 1.45.35 PM.png>)
@@ -152,7 +152,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed.**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;
 

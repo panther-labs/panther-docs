@@ -23,7 +23,7 @@ All roles (including the default ones above) are fully customizable by any user 
 
 When you create or edit a role, you are shown the following screen:
 
-![Role Edit](<../../../.gitbook/assets/rbac-role-edit (7) (7) (8) (1) (1) (3) (1) (1) (2) (7).png>)
+![Role Edit](<../../../.gitbook/assets/rbac-role-edit (7) (7) (8) (1) (1) (3) (1) (1) (7).png>)
 
 {% hint style="info" %}
 * Permission changes will not take effect until the affected user refreshes the browser where they are logged in to Panther or signs out and back in to Panther.
