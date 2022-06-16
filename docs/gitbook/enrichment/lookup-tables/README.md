@@ -114,17 +114,18 @@ The Panther rules engine will take the looked up matches and append that data to
 Example:
 
 ```json
-{
-    'p_enrichment': {
-        'account_metadata': {
-            'recipientAccountId': {
-                'accountID': '90123456', 
-                'isProduction': 'False', 
-                'email': 'dev.account@example.com', 
-                }
-            }
-        }
+ {
+  "p_enrichment": {
+      "account_metadata": {
+          "recipientAccountId": {
+              "accountID": "90123456", 
+              "isProduction": false, 
+              "email": "dev.account@example.com"
+              }
+          }
+      }
 }
+
 ```
 
 ### Detection Testing
