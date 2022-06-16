@@ -120,8 +120,8 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - PUT_CUSTOM_SCHEMA
 - RESET_USER_PASSWORD
 - RETRY_ALERT_DELIVERY
-- SIGN_IN
 - SEND_TEST_ALERT
+- SIGN_IN
 - STOP_REPLAY
 - SUPPRESS_POLICY
 - SYNC_LOOKUP_TABLE_DATA
