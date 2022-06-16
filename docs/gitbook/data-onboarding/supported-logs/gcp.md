@@ -2,7 +2,7 @@
 description: Connecting GCP logs to your Panther Console
 ---
 
-# GCP
+# GCP Logs
 
 ## Overview
 
@@ -29,10 +29,6 @@ Required fields in the table are in **bold.**
 ### GCP.AuditLog
 
 Cloud Audit Logs maintains three audit logs for each Google Cloud project, folder, and organization: Admin Activity, Data Access, and System Event. Google Cloud services writes audit log entries to these logs to help answer the questions of "who did what, where, and when?" within your Google Cloud resources.
-
-{% hint style="warning" %}
-**Note:** This functionality is for Panther Enterprise customers only.
-{% endhint %}
 
 Reference: [GCP Documentation on Cloud Audit Logs. ](https://cloud.google.com/logging/docs/audit)
 
