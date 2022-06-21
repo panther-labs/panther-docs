@@ -62,7 +62,7 @@
   * [Global Helper Functions](writing-detections/globals.md)
   * [Triaging Alerts](writing-detections/triaging-alerts.md)
   * [Report Mapping](writing-detections/report-mapping.md)
-  * [Panther Analysis Tool](writing-detections/panther-analysis-tool.md)
+  * [Panther Developer Workflows](writing-detections/panther-analysis-tool.md)
   * [Runtime Environment](writing-detections/run-time.md)
 * [Cloud Security Scanning](cloud-scanning/README.md)
   * [Cloud Resource Attributes](cloud-scanning/cloud-resource-attributes/README.md)

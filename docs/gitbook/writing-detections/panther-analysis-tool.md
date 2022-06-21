@@ -1,14 +1,26 @@
-# Panther Analysis Tool
+---
+description: >-
+  Workflows outside of the Panther Console that you can use to interact with
+  your Panther account
+---
 
-The `panther_analysis_tool` (PAT) is an [open source](https://github.com/panther-labs/panther\_analysis\_tool) utility for testing, packaging, and deploying Panther detections from source code.
+# Panther Developer Workflows
 
-It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within CI/CD pipelines.
+## Overview
+
+Panther Developer Workflows are workflows that you can use outside of the Panther Console to interact with your Panther account. This page describes how to use the Panther Analysis Tool (PAT) to test and upload locally managed Detections, and how to optionally integrate with a CI/CD setup.
+
+For information on using the Panther API, please see the [Panther API documentation](../api-beta/).
+
+## Using the Panther Analysis Tool
+
+The `panther_analysis_tool` (PAT) is an [open source](https://github.com/panther-labs/panther\_analysis\_tool) utility for testing, packaging, and deploying Panther detections from source code. It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within [CI/CD pipelines](https://docs.panther.com/guides/ci-cd-onboarding-guide).
 
 For additional information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#readme).
 
-## Installation
+### Installing PAT
 
-PAT is installable with a Python package into your current environment:
+To install PAT, run this command:
 
 ```bash
 pip3 install panther_analysis_tool
@@ -16,104 +28,118 @@ pip3 install panther_analysis_tool
 
 For information on updating the version, please see the [Github page](https://github.com/panther-labs/panther\_analysis\_tool#updating-versions).
 
-## File Organization
+### Delete Rules, Policies, or Saved Queries with PAT
+
+While `panther_analysis_tool upload --path <directory>` will upload everything from `<directory>`, it will not delete anything in your Panther instance if you simply remove a local file from `<directory>`. Instead, you can use the `panther_analysis_tool delete` command to explicitly delete detections from your Panther instance.\
+\
+To delete a specific detection, you can run the following command:
+
+```
+panther_analysis_tool delete --analysis-id MyRuleId
+```
+
+This will interactively ask you for a confirmation before it deletes the detection. If you would like to delete without confirming, you can use the following command:
+
+```
+panther_analysis_tool delete --analysis-id MyRuleId --no-confirm
+```
+
+For more information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#delete-rules-policies-or-saved-queries-from-a-panther-deployment).&#x20;
+
+### Running Tests with PAT
+
+Use the Panther Analysis Tool to load the defined specification files and evaluate unit tests locally:
+
+```bash
+panther_analysis_tool test --path <folder-name>
+```
+
+To filter rules or policies based on certain attributes:
+
+```bash
+panther_analysis_tool test --path <folder-name> --filter RuleID=Category.Behavior.MoreInfo
+```
+
+### Uploading to Panther
 
 {% hint style="info" %}
-It's best practice to create a fork of Panther's [open source](https://github.com/panther-labs/panther-analysis) analysis repository.
+**Panther SaaS customers**: Please file a support ticket to gain upload access to your Panther environment.
 {% endhint %}
 
-To get started, navigate to the locally checked out copy of your custom detections.
+Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.
 
-We recommend creating folders based on log/resource type, such as `suricata_rules` or `aws_s3_policies`. Use the open source [Panther Analysis](https://github.com/panther-labs/panther-analysis) packs as a reference.
+To upload your analysis packs to your Panther Console, run the following command:
 
-Each analysis consists of:
+```bash
+panther_analysis_tool upload --path <path-to-your-rules> --out tmp
+```
 
-* A Python file containing your detection/audit logic
-* A valid YAML or JSON specification file containing attributes of the detection.&#x20;
+Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
+
+## Writing Detections locally
+
+Writing Detections locally means creating Python and metadata files that define a Panther Detection on your own machine. After writing Detections locally, you upload the files to your Panther Console (typically via the Panther Analysis Tool) to control your Detection content.&#x20;
+
+In Panther, there are three core Detection types:&#x20;
+
+* **Real-Time Rules** that analyze data as soon as it's sent to Panther
+* **Scheduled Rules** that run after a SQL query has been executed
+* **Policies** that detect insecure cloud resources
+
+### File setup
+
+Each detection consists of:
+
+* A Python file (a file with a `.py` extension) containing your detection/audit logic
+* A YAML or JSON specification file (a file with a `.yml` or `.json` extension) containing metadata attributes of the detection.&#x20;
   * By convention, we give this file the same name as the Python file.
 
-## Writing Rules
+We recommend creating folders based on log/resource type to group your detections, such as `suricata_rules` or `aws_s3_policies`. You can use the open source [Panther Analysis](https://github.com/panther-labs/panther-analysis) repo as a reference.
+
+We also recommend managing these files in a version control system (VCS). Most commonly we see GitHub or GitLab for this, which are managed git providers.
+
+{% hint style="info" %}
+It's best practice to create a fork of Panther's [open source](https://github.com/panther-labs/panther-analysis) analysis repository, but you can also create your own repo from scratch.
+{% endhint %}
+
+### Writing real-time and scheduled rules locally
 
 Rules are Python functions to detect suspicious behaviors. Returning a value of `True` indicates suspicious activity, which triggers an alert.
 
-First, [write your rule](rules.md) and save it (in your folder of choice) as `my_new_rule.py`:
+1.  [Write your rule](rules.md) and save it (in your folder of choice) as `my_new_rule.py`:\
+    def rule(event):
 
-```python
-def rule(event):
-  return 'prod' in event.get('hostName')
-```
+    ```
+    def rule(event):  
+      return 'prod' in event.get('hostName')
+    ```
+2.  Create a metadata file using the template below:
 
-Then, create a specification file using the template below:
+    ```
+    AnalysisType: rule
+    DedupPeriodMinutes: 60 # 1 hour
+    DisplayName: Example Rule to Check the Format of the Spec
+    Enabled: true
+    Filename: my_new_rule.py
+    RuleID: Type.Behavior.MoreContext
+    Severity: High
+    LogTypes:
+      - LogType.GoesHere
+    Reports:
+      ReportName (like CIS, MITRE ATT&CK):
+        - The specific report section relevant to this rule
+    Tags:
+      - Tags
+      - Go
+      - Here
+    Description: >
+      This rule exists to validate the CLI workflows of the Panther CLI
+    Runbook: >
+      First, find out who wrote this the spec format, then notify them with feedback.
+    Reference: https://www.a-clickable-link-to-more-info.com
+    ```
 
-```
-AnalysisType: rule
-DedupPeriodMinutes: 60 # 1 hour
-DisplayName: Example Rule to Check the Format of the Spec
-Enabled: true
-Filename: my_new_rule.py
-RuleID: Type.Behavior.MoreContext
-Severity: High
-LogTypes:
-  - LogType.GoesHere
-Reports:
-  ReportName (like CIS, MITRE ATT&CK):
-    - The specific report section relevant to this rule
-Tags:
-  - Tags
-  - Go
-  - Here
-Description: >
-  This rule exists to validate the CLI workflows of the Panther CLI
-Runbook: >
-  First, find out who wrote this the spec format, then notify them with feedback.
-Reference: https://www.a-clickable-link-to-more-info.com
-```
-
-When this rule is uploaded, each of the fields you would normally populate in the UI will be auto-filled.
-
-### Rule Specification Reference
-
-Required fields are in **bold**.
-
-A complete list of rule specification fields:
-
-| Field Name           | Description                                                                                                                                                 | Expected Value                                                               |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, or global                                                                                                | `rule`                                                                       |
-| **`Enabled`**        | Whether this rule is enabled                                                                                                                                | Boolean                                                                      |
-| **`FileName`**       | The path (with file extension) to the python rule body                                                                                                      | String                                                                       |
-| **`RuleID`**         | The unique identifier of the rule                                                                                                                           | String                                                                       |
-| **`LogTypes`**       | The list of logs to apply this rule to                                                                                                                      | List of strings                                                              |
-| **`Severity`**       | What severity this rule is                                                                                                                                  | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
-| `Description`        | A brief description of the rule                                                                                                                             | String                                                                       |
-| `DedupPeriodMinutes` | The time period (in minutes) during which similar events of an alert will be grouped together                                                               | `15`,`30`,`60`,`180` (3 hours),`720` (12 hours), or `1440` (24 hours)        |
-| `DisplayName`        | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set.                                                      | String                                                                       |
-| `OutputIds`          | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings                                                              |
-| `Reference`          | The reason this rule exists, often a link to documentation                                                                                                  | String                                                                       |
-| `Reports`            | A mapping of framework or report names to values this rule covers for that framework                                                                        | Map of strings to list of strings                                            |
-| `Runbook`            | The actions to be carried out if this rule returns an alert, often a link to documentation                                                                  | String                                                                       |
-| `SummaryAttributes`  | A list of fields that alerts should summarize.                                                                                                              | List of strings                                                              |
-| `Threshold`          | How many events need to trigger this rule before an alert will be sent.                                                                                     | Integer                                                                      |
-| `Tags`               | Tags used to categorize this rule                                                                                                                           | List of strings                                                              |
-| `Tests`              | Unit tests for this rule.                                                                                                                                   | List of maps                                                                 |
-
-### Scheduled Query Specification Reference
-
-Required fields are in **bold**.
-
-A complete list of scheduled query specification fields:
-
-| Field Name           | Description                                                                                                                                          | Expected Value    |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, scheduled query, or global.                                                                       | `scheduled_query` |
-| **`QueryName`**      | A friendly name to show in the UI.                                                                                                                   | String            |
-| **`Enabled`**        | Whether this rule is enabled.                                                                                                                        | Boolean           |
-| `Tags`               | Tags used to categorize this rule.                                                                                                                   | List of strings   |
-| `Description`        | A brief description of the rule.                                                                                                                     | String            |
-| **`Query`**          | A query that can run on any backend. If this field is specified, you should not specify a SnowflakeQuery or a AthenaQuery.                           | String            |
-| **`SnowflakeQuery`** | A query specifically for a snowflake backend.                                                                                                        | String            |
-| **`AthenaQuery`**    | A query specifically for Athena.                                                                                                                     | String            |
-| **`Schedule`**       | The schedule that this this query should run. Can be expressed as a cron or in rate minutes. Note that cron and rate minutes are mutually exclusive. | Map               |
+When this rule is uploaded, each of the fields you would normally populate in the UI will be auto-filled. See [Rule Specification Reference](panther-analysis-tool.md#rule-specification-reference) below for a complete list of required and optional fields.
 
 ### Rule Tests
 
@@ -133,64 +159,41 @@ Tests:
       }
 ```
 
-{% hint style="info" %}
-Try to cover as many test cases as possible, including both true and false positives.
-{% endhint %}
+We recommend running as many test cases as possible, including both true and false positives.
 
-## Writing Policies
+
+
+### Writing Policies locally
 
 Policies are Python functions to detect misconfigured cloud infrastructure. Returning a value of `True` indicates this resource is valid and properly configured. Returning `False` indicates a policy failure, which triggers an alert.
 
-First, [write your policy](policies.md) and save it (in your folder of choice) as `my_new_policy.py`:
+1.  [Write your policy](policies.md) and save it (in your folder of choice) as `my_new_policy.py`:\
+    def polcy(resource):
 
-```python
-def polcy(resource):
-  return resource['Region'] != 'us-east-1'
-```
+    ```
+    def polcy(resource):  
+      return resource['Region'] != 'us-east-1'
+    ```
+2.  Create a specification file using the template below:
 
-Then, create a specification file using the template below:
+    ```
+    AnalysisType: policy
+    Enabled: true
+    Filename: my_new_policy.py
+    PolicyID: Category.Type.MoreInfo
+    ResourceType:
+      - Resource.Type.Here
+    Severity: Info|Low|Medium|High|Critical
+    DisplayName: Example Policy to Check the Format of the Spec
+    Tags:
+      - Tags
+      - Go
+      - Here
+    Runbook: Find out who changed the spec format.
+    Reference: https://www.link-to-info.io
+    ```
 
-```
-AnalysisType: policy
-Enabled: true
-Filename: my_new_policy.py
-PolicyID: Category.Type.MoreInfo
-ResourceType:
-  - Resource.Type.Here
-Severity: Info|Low|Medium|High|Critical
-DisplayName: Example Policy to Check the Format of the Spec
-Tags:
-  - Tags
-  - Go
-  - Here
-Runbook: Find out who changed the spec format.
-Reference: https://www.link-to-info.io
-```
-
-### Policy Specification Reference
-
-Required fields are in **bold**.
-
-A complete list of policy specification fields:
-
-| Field Name                  | Description                                                                                           | Expected Value                                                               |
-| --------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **`AnalysisType`**          | Indicates whether this specification is defining a policy or a rule                                   | `policy`                                                                     |
-| **`Enabled`**               | Whether this policy is enabled                                                                        | Boolean                                                                      |
-| **`FileName`**              | The path (with file extension) to the python policy body                                              | String                                                                       |
-| **`PolicyID`**              | The unique identifier of the policy                                                                   | String                                                                       |
-| **`ResourceTypes`**         | What resource types this policy will apply to                                                         | List of strings                                                              |
-| **`Severity`**              | What severity this policy is                                                                          | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
-| `ActionDelaySeconds`        | How long (in seconds) to delay auto-remediations and alerts, if configured                            | Integer                                                                      |
-| `AutoRemediationID`         | The unique identifier of the auto-remediation to execute in case of policy failure                    | String                                                                       |
-| `AutoRemediationParameters` | What parameters to pass to the auto-remediation, if one is configured                                 | Map                                                                          |
-| `Description`               | A brief description of the policy                                                                     | String                                                                       |
-| `DisplayName`               | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String                                                                       |
-| `Reference`                 | The reason this policy exists, often a link to documentation                                          | String                                                                       |
-| `Reports`                   | A mapping of framework or report names to values this policy covers for that framework                | Map of strings to list  of strings                                           |
-| `Runbook`                   | The actions to be carried out if this policy fails, often a link to documentation                     | String                                                                       |
-| `Tags`                      | Tags used to categorize this policy                                                                   | List of strings                                                              |
-| `Tests`                     | Unit tests for this policy.                                                                           | List of maps                                                                 |
+See the [Policy Specification Reference](panther-analysis-tool.md#policy-specification-reference) below for a complete list of required and optional fields.
 
 ### Policy Tests
 
@@ -252,11 +255,9 @@ Tests:
       }
 ```
 
-{% hint style="info" %}
-The value of `Resource` can be a JSON object copied directly from the Policies > Resources explorer.
-{% endhint %}
+The value of Resource can be a JSON object copied directly from the Policies > Resources explorer.
 
-## Unit Test Mocking
+### Policy and rule unit test mocking
 
 Both policy and rule tests support unit test mocking. In order to configure mocks for a particular test case, add the `Mocks` key to your test case. The `Mocks` key is used to define a list of functions you want to mock, and the value that should be returned when that function is called. Multiple functions can be mocked in a single test. For example, if we have a rule test and want to mock the function `get_counter` to always return a `1` and the function `geoinfo_from_ip` to always return a specific set of geo IP info, we could write our unit test like this:
 
@@ -286,21 +287,89 @@ Tests:
 
 Mocking allows us to emulate network calls without requiring API keys or network access in our CI/CD pipeline, and without muddying the state of external tracking systems (such as the panther KV store).
 
-## Running Tests
+## Data Models
 
-Use the Panther Analysis Tool to load the defined specification files and evaluate unit tests locally:
+To add a new data model using the `panther_analysis_tool:`
 
-```bash
-panther_analysis_tool test --path <folder-name>
+1.  Create your DataModel specification file (e.g. `data_models/aws_cloudtrail_datamodel.yml`):
+
+    ```
+    AnalysisType: datamodel
+    LogTypes: 
+      - AWS.CloudTrail
+    DataModelID: AWS.CloudTrail
+    Filename: aws_cloudtrail_data_model.py
+    Enabled: true
+    Mappings:
+      - Name: actor_user
+        Path: $.userIdentity.userName
+      - Name: event_type
+        Method: get_event_type
+      - Name: source_ip
+        Path: sourceIPAddress
+      - Name: user_agent
+        Path: userAgent
+    ```
+2.  If any `Method`s are defined, create an associated Python file (`data_models/aws_cloudtrail_datamodel.py`):\
+    **Note**: The Filename specification field is required if a Method is defined in a mapping. If Method is not used in any Mappings, no Python file is required.
+
+    ```
+    from panther_base_helpers import deep_get
+    def get_event_type(event):
+        if event.get('eventName') == 'ConsoleLogin' and deep_get(event, 'userIdentity', 'type') == 'IAMUser':
+            if event.get('responseElements', {}).get('ConsoleLogin') == 'Failure':
+                return "failed_login"
+            if event.get('responseElements', {}).get('ConsoleLogin') == 'Success':
+                return "successful_login"
+        return None
+
+    ```
+3. Use this data model in a rule by:
+   1. Adding the LogType under the Rule specification `LogType` field&#x20;
+   2. Adding the LogType to all the Rule's `Test` cases, in the `p_log_type` field
+   3. Leveraging the `event.udm()` method in the Rule's python logic:
+
+```
+AnalysisType: rule
+DedupPeriodMinutes: 60
+DisplayName: DataModel Example Rule
+Enabled: true
+Filename: my_new_rule.py
+RuleID: DataModel.Example.Rule
+Severity: High
+LogTypes:
+  # Add LogTypes where this rule is applicable
+  # and a Data Model exists for that LogType
+  - AWS.CloudTrail
+Tags:
+  - Tags
+Description: >
+  This rule exists to validate the CLI workflows of the Panther CLI
+Runbook: >
+  First, find out who wrote this the spec format, then notify them with feedback.
+Tests:
+  - Name: test rule
+    ExpectedResult: true
+    # Add the LogType to the test specification in the 'p_log_type' field
+    Log: {
+      "p_log_type": "AWS.CloudTrail"
+    }
 ```
 
-To filter rules or policies based on certain attributes:
+```python
+def rule(event):
+    # filter events on unified data model field
+    return event.udm('event_type') == 'failed_login'
 
-```bash
-panther_analysis_tool test --path <folder-name> --filter RuleID=Category.Behavior.MoreInfo
+
+def title(event):
+    # use unified data model field in title
+    return '{}: User [{}] from IP [{}] has exceeded the failed logins threshold'.format(
+        event.get('p_log_type'), event.udm('actor_user'),
+        event.udm('source_ip'))
 ```
 
-## Globals
+## Globals locally
 
 Global functions allow common logic to be shared across either rules or policies. To declare them as code, add them into the `global_helpers` folder with a similar pattern to rules and policies.
 
@@ -339,40 +408,94 @@ def policy(resource):
   return acmecorp.matches_internal_naming(resource['Name'])
 ```
 
-## Uploading to Panther
+## Specification Reference
 
-{% hint style="info" %}
-**Panther SaaS customers**: Please file a support ticket to gain upload access to your Panther environment.
-{% endhint %}
+Required fields are in **bold**.
 
-Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.
+### Rule Specification Reference
 
-To upload your analysis packs to your Panther Console, run the following command:
+A complete list of rule specification fields:
 
-```bash
-panther_analysis_tool upload --path <path-to-your-rules> --out tmp
-```
+| Field Name           | Description                                                                                                                                                 | Expected Value                                                               |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, or global                                                                                                | `rule`                                                                       |
+| **`Enabled`**        | Whether this rule is enabled                                                                                                                                | Boolean                                                                      |
+| **`FileName`**       | The path (with file extension) to the python rule body                                                                                                      | String                                                                       |
+| **`RuleID`**         | The unique identifier of the rule                                                                                                                           | String                                                                       |
+| **`LogTypes`**       | The list of logs to apply this rule to                                                                                                                      | List of strings                                                              |
+| **`Severity`**       | What severity this rule is                                                                                                                                  | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
+| `Description`        | A brief description of the rule                                                                                                                             | String                                                                       |
+| `DedupPeriodMinutes` | The time period (in minutes) during which similar events of an alert will be grouped together                                                               | `15`,`30`,`60`,`180` (3 hours),`720` (12 hours), or `1440` (24 hours)        |
+| `DisplayName`        | A friendly name to show in the UI and alerts. The `RuleID` will be displayed if this field is not set.                                                      | String                                                                       |
+| `OutputIds`          | Static destination overrides. These will be used to determine how alerts from this rule are routed, taking priority over default routing based on severity. | List of strings                                                              |
+| `Reference`          | The reason this rule exists, often a link to documentation                                                                                                  | String                                                                       |
+| `Reports`            | A mapping of framework or report names to values this rule covers for that framework                                                                        | Map of strings to list of strings                                            |
+| `Runbook`            | The actions to be carried out if this rule returns an alert, often a link to documentation                                                                  | String                                                                       |
+| `SummaryAttributes`  | A list of fields that alerts should summarize.                                                                                                              | List of strings                                                              |
+| `Threshold`          | How many events need to trigger this rule before an alert will be sent.                                                                                     | Integer                                                                      |
+| `Tags`               | Tags used to categorize this rule                                                                                                                           | List of strings                                                              |
+| `Tests`              | Unit tests for this rule.                                                                                                                                   | List of maps                                                                 |
 
-Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
+### Policy Specification Reference
 
-## Delete Rules, Policies, or Saved Queries
+Required fields are in **bold**.
 
-While `panther_analysis_tool upload --path <directory>` will upload everything from `<directory>`, it will not delete anything in your Panther instance if you simply remove a local file from `<directory>`. Instead, you can use the `panther_analysis_tool delete` command to explicitly delete detections from your Panther instance.\
-\
-To delete a specific detection, you can run the following command:
+A complete list of policy specification fields:
 
-```
-panther_analysis_tool delete --analysis-id MyRuleId
-```
+| Field Name                  | Description                                                                                           | Expected Value                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **`AnalysisType`**          | Indicates whether this specification is defining a policy or a rule                                   | `policy`                                                                     |
+| **`Enabled`**               | Whether this policy is enabled                                                                        | Boolean                                                                      |
+| **`FileName`**              | The path (with file extension) to the python policy body                                              | String                                                                       |
+| **`PolicyID`**              | The unique identifier of the policy                                                                   | String                                                                       |
+| **`ResourceTypes`**         | What resource types this policy will apply to                                                         | List of strings                                                              |
+| **`Severity`**              | What severity this policy is                                                                          | One of the following strings: `Info`, `Low`, `Medium`, `High`, or `Critical` |
+| `ActionDelaySeconds`        | How long (in seconds) to delay auto-remediations and alerts, if configured                            | Integer                                                                      |
+| `AutoRemediationID`         | The unique identifier of the auto-remediation to execute in case of policy failure                    | String                                                                       |
+| `AutoRemediationParameters` | What parameters to pass to the auto-remediation, if one is configured                                 | Map                                                                          |
+| `Description`               | A brief description of the policy                                                                     | String                                                                       |
+| `DisplayName`               | What name to display in the UI and alerts. The `PolicyID` will be displayed if this field is not set. | String                                                                       |
+| `Reference`                 | The reason this policy exists, often a link to documentation                                          | String                                                                       |
+| `Reports`                   | A mapping of framework or report names to values this policy covers for that framework                | Map of strings to list  of strings                                           |
+| `Runbook`                   | The actions to be carried out if this policy fails, often a link to documentation                     | String                                                                       |
+| `Tags`                      | Tags used to categorize this policy                                                                   | List of strings                                                              |
+| `Tests`                     | Unit tests for this policy.                                                                           | List of maps                                                                 |
 
-This will interactively ask you for a confirmation before it deletes the detection. If you would like to delete without confirming, you can use the following command:
 
-```
-panther_analysis_tool delete --analysis-id MyRuleId --no-confirm
-```
 
-For more information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#delete-rules-policies-or-saved-queries-from-a-panther-deployment).&#x20;
+### Scheduled Query Specification Reference
 
-## Pack Source
+Required fields are in **bold**.
 
-See the [Detection Packs documentation](https://docs.runpanther.io/writing-detections/detection-packs) for details on using `panther_analysis_tool` with detection packs and pack sources.
+A complete list of scheduled query specification fields:
+
+| Field Name           | Description                                                                                                                                          | Expected Value    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, scheduled query, or global.                                                                       | `scheduled_query` |
+| **`QueryName`**      | A friendly name to show in the UI.                                                                                                                   | String            |
+| **`Enabled`**        | Whether this rule is enabled.                                                                                                                        | Boolean           |
+| `Tags`               | Tags used to categorize this rule.                                                                                                                   | List of strings   |
+| `Description`        | A brief description of the rule.                                                                                                                     | String            |
+| **`Query`**          | A query that can run on any backend. If this field is specified, you should not specify a SnowflakeQuery or a AthenaQuery.                           | String            |
+| **`SnowflakeQuery`** | A query specifically for a snowflake backend.                                                                                                        | String            |
+| **`AthenaQuery`**    | A query specifically for Athena.                                                                                                                     | String            |
+| **`Schedule`**       | The schedule that this this query should run. Can be expressed as a cron or in rate minutes. Note that cron and rate minutes are mutually exclusive. | Map               |
+
+### Data Model Specification Reference
+
+Required fields are in **bold**.
+
+A complete list of DataModel specification fields:
+
+
+
+| Field Name         | Description                                                                                              | Expected Value            |
+| ------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------- |
+| **`AnalysisType`** | Indicates whether this specification is defining a rule, policy, data model, or global                   | `datamodel`               |
+| **`DataModelID`**  | The unique identifier of the data model                                                                  | String                    |
+| `DisplayName`      | What name to display in the UI and alerts. The `DataModelID` will be displayed if this field is not set. | String                    |
+| **`Enabled`**      | Whether this data model is enabled                                                                       | Boolean                   |
+| `FileName`         | The path (with file extension) to the python DataModel body                                              | String                    |
+| **`LogTypes`**     | What log types this policy will apply to                                                                 | Singleton List of strings |
+| **`Mappings`**     | Mapping from source field name or method to unified data model field name                                | List of Maps              |
+
