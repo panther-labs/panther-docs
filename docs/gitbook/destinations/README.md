@@ -26,7 +26,7 @@ Panther has supported integrations for the following destinations:&#x20;
 * [Amazon SQS](sqs.md)
 * [Asana](asana.md)
 * [Custom Webhook](custom\_webhook.md)
-  * This destination type is designed to allow Panther to communicate with other third-party integrations, such as ServiceNow or Tines.
+  * This destination type is designed to allow Panther to communicate with other third-party integrations, such as Tines, TheHive, or SOCless.
 * [Github](https://docs.panther.com/destinations/github)
 * [Jira](https://docs.panther.com/destinations/jira)
 * [Microsoft Teams](https://docs.panther.com/destinations/microsoft-teams)
