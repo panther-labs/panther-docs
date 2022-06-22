@@ -2,7 +2,7 @@
 description: Panther supports pulling logs directly from Slack
 ---
 
-# Slack
+# Slack Logs
 
 ## Overview
 
@@ -84,8 +84,8 @@ You can create an app for:
 1. [Sign in to the Slack workspace](https://slack.com/workspace-signin) belonging to the Enterprise Grid you want to monitor.&#x20;
    * You must sign in as an **owner** of the organization.
 2. On the screen displaying all the workspaces in your Enterprise Grid, click **Launch in Slack** on the workspace you want to monitor.&#x20;
-3.  Go to [Slack apps](https://api.slack.com/apps) and click **Create New App**.\
-    ![](../../.gitbook/assets/slack-new-app.png)
+3.  Go to [Slack apps](https://api.slack.com/apps) and click **Create New App**, then click **from scratch**.\
+    ![](<../../.gitbook/assets/slack-new-app (1).png>)
 
     * Enter an **App Name** e.g. `Panther monitoring`.
     * Select the workspace where you previously signed in.
