@@ -16,9 +16,11 @@ For information on using the Panther API, please see the [Panther API documentat
 
 The `panther_analysis_tool` (PAT) is an [open source](https://github.com/panther-labs/panther\_analysis\_tool) utility for testing, packaging, and deploying Panther detections from source code. It's designed for developer-centric workflows such as managing your Panther analysis packs programmatically or within [CI/CD pipelines](https://docs.panther.com/guides/ci-cd-onboarding-guide).
 
-For additional information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#readme).
-
 ### Installing PAT
+
+#### Installing with pip
+
+First, ensure you have [Python 3](https://docs.python-guide.org/starting/install3/osx/) installed.
 
 To install PAT, run this command:
 
@@ -26,9 +28,58 @@ To install PAT, run this command:
 pip3 install panther_analysis_tool
 ```
 
-For information on updating the version, please see the [Github page](https://github.com/panther-labs/panther\_analysis\_tool#updating-versions).
+#### Building from source
 
-### Delete Rules, Policies, or Saved Queries with PAT
+If you'd prefer instead to run from source for development reasons, first setup your environment:
+
+```
+$ make install
+$ pipenv run -- pip3 install -e .
+```
+
+#### Updating the version
+
+You can use the following utility script to update the version number in relevant files if a new release is being created:
+
+```
+cd bin/
+./version_bump.py 0.10.9  #replace with the new version you are releasing
+```
+
+If you would rather use the `panther_analysis_tool` outside of the virtual environment, install it directly:
+
+```
+$ make deps
+$ pip3 install -e .
+```
+
+### PAT configuration file
+
+PAT will read options from a configuration file called `.panther_settings.yml` located in your working directory. An example configuration file is included in this repo: [example\_panther\_config.yml](https://github.com/panther-labs/panther\_analysis\_tool/blob/master/example\_panther\_config.yml). It contains example syntax for supported options.
+
+Note that options in the configuration file override options passed on the command line. For example if you set `minimum_tests: 2` in the configuration file and `--minimum-tests 1` on the command line, the minimum number of tests will be 2.
+
+### PAT commands and usage
+
+#### Uploading your analysis packs to Panther
+
+{% hint style="info" %}
+**Panther SaaS customers**: Please file a support ticket to gain upload access to your Panther environment.
+{% endhint %}
+
+Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.
+
+To upload your analysis packs to your Panther Console, run the following command:
+
+```bash
+panther_analysis_tool upload --path <path-to-your-rules> --out tmp
+```
+
+Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
+
+
+
+#### Deleting Rules, Policies, or Saved Queries with PAT
 
 While `panther_analysis_tool upload --path <directory>` will upload everything from `<directory>`, it will not delete anything in your Panther instance if you simply remove a local file from `<directory>`. Instead, you can use the `panther_analysis_tool delete` command to explicitly delete detections from your Panther instance.\
 \
@@ -44,9 +95,9 @@ This will interactively ask you for a confirmation before it deletes the detecti
 panther_analysis_tool delete --analysis-id MyRuleId --no-confirm
 ```
 
-For more information, please see the [README on the PAT Github page](https://github.com/panther-labs/panther\_analysis\_tool#delete-rules-policies-or-saved-queries-from-a-panther-deployment).&#x20;
 
-### Running Tests with PAT
+
+#### Running Tests with PAT
 
 Use the Panther Analysis Tool to load the defined specification files and evaluate unit tests locally:
 
@@ -60,21 +111,132 @@ To filter rules or policies based on certain attributes:
 panther_analysis_tool test --path <folder-name> --filter RuleID=Category.Behavior.MoreInfo
 ```
 
-### Uploading to Panther
 
-{% hint style="info" %}
-**Panther SaaS customers**: Please file a support ticket to gain upload access to your Panther environment.
-{% endhint %}
 
-Make sure to configure your environment with valid AWS credentials prior to running the command below. This command will upload based on the exported value of `AWS_REGION`.
+#### Available commands
 
-To upload your analysis packs to your Panther Console, run the following command:
+```
+$ panther_analysis_tool -h
 
-```bash
-panther_analysis_tool upload --path <path-to-your-rules> --out tmp
+
+usage: panther_analysis_tool [-h] [--version] [--debug] {release,test,upload,delete,test-lookup-table,zip} ...
+
+Panther Analysis Tool: A command line tool for managing Panther policies and rules.
+
+positional arguments:
+  {release,test,upload,delete,test-lookup-table,zip}
+    release             Create release assets for repository containing panther detections. Generates a file called panther-analysis-all.zip and optionally generates panther-analysis-all.sig
+    test                Validate analysis specifications and run policy and rule tests.
+    upload              Upload specified policies and rules to a Panther deployment.
+    delete              Delete policies, rules, or saved queries from a Panther deployment
+    test-lookup-table   Validate a Lookup Table spec file.
+    zip                 Create an archive of local policies and rules for uploading to Panther.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --debug
 ```
 
-Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
+####
+
+#### Filtering PAT commands
+
+The `test`, `zip`, and `upload` commands all support filtering. Filtering works by passing the `--filter` argument with a list of filters specified in the format `KEY=VALUE1,VALUE2`. The keys can be any valid field in a policy or rule. When using a filter, only anaylsis that matches each filter specified will be considered.&#x20;
+
+For example, the following command will test only items with the AnalysisType of policy AND the severity of High:
+
+```
+panther_analysis_tool test --path tests/fixtures/valid_policies --filter AnalysisType=policy Severity=High
+[INFO]: Testing analysis packs in tests/fixtures/valid_policies
+
+AWS.IAM.BetaTest
+	[PASS] Root MFA not enabled fails compliance
+	[PASS] User MFA not enabled fails compliance
+```
+
+The following command will test items with the AnalysisType policy OR rule, AND the severity High:
+
+```
+panther_analysis_tool test --path tests/fixtures/valid_policies --filter AnalysisType=policy,rule Severity=High
+[INFO]: Testing analysis packs in tests/fixtures/valid_policies
+
+AWS.IAM.BetaTest
+	[PASS] Root MFA not enabled fails compliance
+	[PASS] User MFA not enabled fails compliance
+
+AWS.CloudTrail.MFAEnabled
+	[PASS] Root MFA not enabled fails compliance
+	[PASS] User MFA not enabled fails compliance
+```
+
+When writing policies or rules that refer to the `global` analysis types, be sure to include them in your filter. You can include an empty string as a value in a filter, and it will mean the filter is only applied if the field exists.&#x20;
+
+The following command will return an error, because the policy in question imports a global but the global does not have a severity so it is excluded by the filter:
+
+```
+panther_analysis_tool test --path tests/fixtures/valid_policies --filter AnalysisType=policy,global Severity=Critical
+[INFO]: Testing analysis packs in tests/fixtures/valid_policies
+
+AWS.IAM.MFAEnabled
+	[ERROR] Error loading module, skipping
+
+Invalid: tests/fixtures/valid_policies/example_policy.yml
+	No module named 'panther'
+
+[ERROR]: [('tests/fixtures/valid_policies/example_policy.yml', ModuleNotFoundError("No module named 'panther'"))]
+```
+
+For this query to work as expected, you need to allow for the severity field to be absent:
+
+```
+panther_analysis_tool test --path tests/fixtures/valid_policies --filter AnalysisType=policy,global Severity=Critical,""
+[INFO]: Testing analysis packs in tests/fixtures/valid_policies
+
+AWS.IAM.MFAEnabled
+	[PASS] Root MFA not enabled fails compliance
+	[PASS] User MFA not enabled fails compliance
+```
+
+Filters work for the `zip` and `upload` commands in the exact same way they work for the `test` command.
+
+In addition to filtering, you can set a minimum number of unit tests with the `--minimum-tests` flag. Detections that don't have the minimum number of tests will be considered failing, and if `--minimum-tests` is set to 2 or greater it will also enforce that at least one test must return True and one must return False.
+
+In the example below, even though the rules passed all their tests, they're still considered failing because they do not have the correct test coverage:
+
+```
+panther_analysis_tool test --path tests/fixtures/valid_policies --minimum-tests 2
+% panther_analysis_tool test --path okta_rules --minimum-tests 2
+[INFO]: Testing analysis packs in okta_rules
+
+Okta.AdminRoleAssigned
+	[PASS] Admin Access Assigned
+
+Okta.BruteForceLogins
+	[PASS] Failed login
+
+Okta.GeographicallyImprobableAccess
+	[PASS] Non Login
+	[PASS] Failed Login
+
+--------------------------
+Panther CLI Test Summary
+	Path: okta_rules
+	Passed: 0
+	Failed: 3
+	Invalid: 0
+
+--------------------------
+Failed Tests Summary
+	Okta.AdminRoleAssigned
+		['Insufficient test coverage, 2 tests required but only 1 found.', 'Insufficient test coverage: expected at least one passing and one failing test.']
+
+	Okta.BruteForceLogins
+		['Insufficient test coverage, 2 tests required but only 1 found.', 'Insufficient test coverage: expected at least one passing and one failing test.']
+
+	Okta.GeographicallyImprobableAccess
+		['Insufficient test coverage: expected at least one passing and one failing test.']
+```
 
 ## Writing Detections locally
 
@@ -286,6 +448,32 @@ Tests:
 ```
 
 Mocking allows us to emulate network calls without requiring API keys or network access in our CI/CD pipeline, and without muddying the state of external tracking systems (such as the panther KV store).
+
+
+
+### Customizing Detections
+
+To manage custom detections, you can create a private fork of the [Panther Analysis Github repo](https://github.com/panther-labs/panther-analysis). Upon [tagged releases](https://github.com/panther-labs/panther-analysis/releases), you can pull upstream changes from this public repo.
+
+For instructions on forking a repo, see [Github's documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
+#### Getting Updates
+
+When you want to pull in the latest changes from the repository, perform the following steps from your private repo:
+
+```
+# add the public repository as a remote
+git remote add panther-upstream git@github.com:panther-labs/panther-analysis.git
+
+# Pull in the latest changes
+# Note: You may need to use the `--allow-unrelated-histories`
+#       flag if you did not maintain the history originally
+git pull panther-upstream master
+
+# Push the latest changes up to your forked repo and merge them
+git push
+
+```
 
 ## Data Models
 
