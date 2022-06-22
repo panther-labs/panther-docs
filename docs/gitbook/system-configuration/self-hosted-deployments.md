@@ -63,6 +63,7 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `EnableIntelligentTiering`: Enable INTELLIGENT\_TIERING on panther manager S3 buckets. The default value is `false`, with allowed values of `true` or `false`.
 * `SlowRuleMaxDuration`: The maximum amount of time allowed for a rule to run before we trigger an alarm. The default is 75ms, with an allowed pattern of `'[-+]?([0-9]`_`(.[0-9]`_`)?[a-z]+)+'`.&#x20;
 * `SnowflakeDDLUpdateConcurrency`: The concurrency used when updating table/view/pipes. The default value is 1, with a minimum value of 1 and a maximum value of 100.
+* `EnableAlertsGSIThree`: Feature flag to enable third month partition GSI. The default value is `false`, with allowed values of `true` or `false`.
 
 #### Minimize initial configurations
 
