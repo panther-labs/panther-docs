@@ -2,7 +2,7 @@
 description: Panther supports pulling logs directly from 1Password
 ---
 
-# 1Password Logs
+# 1Password
 
 ## Overview
 

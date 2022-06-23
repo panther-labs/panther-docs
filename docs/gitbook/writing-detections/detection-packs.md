@@ -1,18 +1,24 @@
+---
+description: Use Packs to group detections and enable updates via the Panther Console
+---
+
 # Detection Packs
+
+## Overview
 
 Packs are used to logically group detections as well as enable detection updates via the Panther UI. Panther-provided packs are defined in this open source repository: `panther-labs/panther-analysis`.
 
-A single pack can group any number of detections, queries, global helpers, and data models. For example, one of the provided Detections Packs, `Panther Universal Detections`, groups all the rules that rely on data models and all of their dependencies.
+A single pack can group any number of Detections, Queries, Global Helpers, Data Models, and Lookup Tables. For example, one of the provided Detections Packs, `Panther Universal Detections`, groups all the rules that rely on Data Models and all of their dependencies.
 
-Updates to detections in these packs are tracked automatically by the Panther backend. When a new update for a detection pack is available in the `panther-analysis` repository, the Packs page in your Panther Console under **Analysis > Packs** will display an _Update available_ flag next to the relevant items.
+Updates to detections in these Packs are tracked automatically by the Panther backend. When a new update for a Detection Pack is available in the `panther-analysis` repository, the Packs page in your Panther Console under **Detections > Packs** will display an _Update available_ flag next to the relevant items.
 
-Detections that are part of an enabled detection pack will be labeled as `MANAGED`, and detections that are not part of a detection pack will be labeled as `UNMANAGED`.
+Detections that are part of an enabled Detection Pack will be labeled as `MANAGED`, and detections that are not part of a Detection Pack will be labeled as `UNMANAGED`.
 
 {% hint style="warning" %}
 Note: The process is **not** recommended if you are using a Git-Based workflow and uploading detections with Panther Analysis Tool. Doing so may result in unexpected behavior**.**&#x20;
 {% endhint %}
 
-## Panther Built-In Detection Packs
+### Panther Built-In Detection Packs
 
 Panther provides several Detection Packs by default. There are packs that group all of the Panther-provided detections related to a particular log source, as well as Detection Packs that are grouped on a particular focus (e.g., generic rules that leverage unified data models or a core set of detections for AWS.) Some popular examples include:
 
@@ -22,9 +28,11 @@ Panther provides several Detection Packs by default. There are packs that group 
 | Panther Core AWS Pack | Group of the most critical and high value detections pertinent to the AWS environment |
 | Panther Okta Pack     | Group of all Panther created detections for Okta                                      |
 
-## Viewing Detection Packs
+## How to use Detection Packs
 
-You can view a list of Panther-provided detection packs in your Panther Console under **Analysis > Packs**.
+### Viewing Detection Packs
+
+You can view a list of Panther-provided Detection Packs in your Panther Console under **Detections > Packs**.
 
 ![List Packs](../.gitbook/assets/pack-list.png)
 
@@ -34,14 +42,14 @@ Click on a Pack to view its details, including a description, the enabled status
 
 
 
-## Enable and Disable Detection Pack
+### Enabling and disabling Detection Pack
 
 Packs can be disabled or enabled in your Panther Console. If you enable a pack, all the detections in the pack will be enabled. If you would like to disable a single or multiple detections within it, you can do this on a one-by-one basis without having to disable the entire pack. When you update a pack that has disabled detections, the detections will be updated but they will stay disabled.
 
 To enable or disable a Pack:
 
 1. Log in to your Panther Console.
-2. Navigate to **Analysis > Packs**.
+2. Navigate to **Detections > Packs**.
 3. Toggle the **Enabled** slider on or off.
 
 ![Enable Pack From List](../.gitbook/assets/pack-list-enable.png)
@@ -50,14 +58,14 @@ The **Enabled** slider also appears on Pack detail pages:
 
 ![Enable Pack From Details](../.gitbook/assets/pack-details-enable.png)
 
-## Update or Rollback Detection Pack
+### Update or Rollback Detection Pack
 
-New updates to detection packs are periodically released to the `panther-analysis` repository. These updates are automatically detected by Panther, and the pack overview page will show an _Update Available_ flag next to relevant packs.
+New updates to Detection Packs are periodically released to the `panther-analysis` repository. These updates are automatically detected by Panther, and the pack overview page will show an _Update Available_ flag next to relevant packs.
 
 To update pack detections:
 
 1. Log in to your Panther Console.
-2. Navigate to **Analysis > Packs**.
+2. Navigate to **Detections > Packs**.
 3. Select the version in the "Version" dropdown menu then click **Update Pack**.
 
 ![Update Pack](../.gitbook/assets/pack-update.png)
@@ -72,9 +80,9 @@ To revert to a previous Pack version:
 
 ## Managing Detections with Packs
 
-#### Editing Managed Detections
+### Editing Managed Detections
 
-After a pack has been enabled, there are a subset of fields that you can manually edit in the Panther Console:
+After a Pack has been enabled, there are a subset of fields that you can manually edit in the Panther Console:
 
 * Enabled / Disabled
 * Severity
@@ -102,7 +110,7 @@ You can make changes to the editable fields in the Panther Console:
 
 ![](../.gitbook/assets/UpdateButton.jpg)
 
-#### Cloning and editing a managed detection
+### Cloning and editing a managed detection
 
 If a rule or policy included in a Detection Pack does not fit your needs, you can clone it and then customize the cloned copy of the Detection Pack:
 
@@ -127,7 +135,7 @@ Pack Sources provide a way to configure custom Github sources for Detection Pack
 * Ensure that your release is finalized, and not in a draft state
 * Ensure that your release is named according to [SemVer format](https://semver.org/), and the tag of the release must be the same as the name of the release
 * Ensure that the artifact of the release is named `panther-analysis-all.zip` (and a corresponding `panther-analysis-all.sig` if you are signing your release)&#x20;
-* Ensure that your `panther-analysis-all.zip` contains at least one Pack Manifest file ([see section on Pack Manifests below](detection-packs.md#undefined))
+* Ensure that your `panther-analysis-all.zip` contains at least one Pack Manifest file ([see section on Pack Manifests below](detection-packs.md#pack-manifests) for more information)
 
 ![](<../.gitbook/assets/Screen Shot 2022-04-05 at 4.15.00 PM.png>)
 
@@ -186,7 +194,7 @@ In this example entry to add to the key policy, the account ID should be replace
 
 ### Managing Pack Sources
 
-To Add a pack source:
+**To Add a pack source**:
 
 1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**, then click the Detection Pack Sources tab.
@@ -196,7 +204,7 @@ To Add a pack source:
 
 ![](<../.gitbook/assets/Screen Shot 2022-03-29 at 10.16.36 AM.png>)
 
-To modify the `kmsKey` or `AccessToken` fields for a pack source:
+**To modify the `kmsKey` or `AccessToken` fields for a pack source**:
 
 1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**, then click the Detection Pack Sources tab.
@@ -206,7 +214,7 @@ To modify the `kmsKey` or `AccessToken` fields for a pack source:
 
 
 
-To Delete a pack source:
+**To Delete a pack source**:
 
 1. Log in to your Panther Console.
 2. Navigate to **Analysis > Packs**, then click the Detection Pack Sources tab.
@@ -220,7 +228,7 @@ Deleting a Pack Source will delete the packs originating from it, along with all
 
 ### Creating a Github Release - Panther Analysis Tool
 
-The `panther_analysis_tool` can streamline the process of creating an appropriate Github release, with or without an associated signature file.
+The `panther_analysis_tool` (PAT) can streamline the process of creating an appropriate Github release, with or without an associated signature file.
 
 To generate the release assets, use the `release` command.
 
