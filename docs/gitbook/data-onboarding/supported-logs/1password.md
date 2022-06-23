@@ -19,8 +19,8 @@ In order to set up 1Password as a log source in Panther, you'll need to authoriz
 
 1. [Sign in](https://start.1password.com/signin) to your 1Password account, then click **Integrations** in the sidebar.
 2. Click **Directory** at the top of the page.
-3. Scroll down to the "Data Streaming" section then click **Panther**. \
-   ![](<../../.gitbook/assets/Panther Docs.png>)
+3. Scroll down to the "Events Reporting" section then click **Other**. \
+   ![](../../.gitbook/assets/1pw-other.png)
 4. Enter a **System Name** for the integration, then click **Add Integration**.
 5. Enter a name for the bearer token and choose token expiration.&#x20;
 6. Select the following two event types to which the token has access: `ItemUsage` and `SignInAttempts`**.**
