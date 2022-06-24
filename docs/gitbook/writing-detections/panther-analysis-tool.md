@@ -59,9 +59,9 @@ PAT will read options from a configuration file called `.panther_settings.yml` l
 
 Note that options in the configuration file override options passed on the command line. For example if you set `minimum_tests: 2` in the configuration file and `--minimum-tests 1` on the command line, the minimum number of tests will be 2.
 
-### PAT commands and usage
+### PAT commands and usage <a href="#uploading-to-panther" id="uploading-to-panther"></a>
 
-#### Uploading your analysis packs to Panther
+#### Uploading packages to Panther directly
 
 {% hint style="info" %}
 **Panther SaaS customers**: Please file a support ticket to gain upload access to your Panther environment.
@@ -77,7 +77,23 @@ panther_analysis_tool upload --path <path-to-your-rules> --out tmp
 
 Analysis with the same ID are overwritten. Additionally, locally deleted rules/policies will not automatically be deleted in the database and must be removed manually. We recommend setting the Enabled property to false instead of deleting policies or rules for CLI driven workflows.
 
+#### Creating a package to upload to the Panther Console
 
+To create a package for uploading manually to the Panther Console, run the following command:
+
+```
+$ panther_analysis_tool zip --path tests/fixtures/valid_policies/ --out tmp
+[INFO]: Testing analysis packs in tests/fixtures/valid_policies/
+
+AWS.IAM.MFAEnabled
+	[PASS] Root MFA not enabled fails compliance
+	[PASS] User MFA not enabled fails compliance
+
+[INFO]: Zipping analysis packs in tests/fixtures/valid_policies/ to tmp
+[INFO]: <current working directory>/tmp/panther-analysis-2020-03-23T12-48-18.zip
+```
+
+####
 
 #### Deleting Rules, Policies, or Saved Queries with PAT
 
