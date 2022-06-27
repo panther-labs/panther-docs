@@ -25,33 +25,44 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
 ### Create the Okta App
 
 1. Log in to your Okta administrative console.
-2. &#x20;Click the **Applications** tab, then click **Add Application**.\
-   ![](<../../../../.gitbook/assets/okta1 (8) (8) (4) (1) (1) (2) (1) (1) (11).png>)
-3. On the "Add Application" page, click **Create New App**.
-4. Fill in the form to configure the new app:
-   * **Platform**: Web
-   * **Sign on Method**: SAML 2.0\
-     ![](<../../../../.gitbook/assets/okta2 (8) (8) (5) (1) (1) (2) (1) (1) (11).png>)
-5. Click **Create**.
-6. Configure the general settings.
-   * **App name**: Add a descriptive name such as "Panther Console."&#x20;
+2.  &#x20;Click the **Applications** tab, then click **Create App Integration**.
+
+    ![](<../../.gitbook/assets/Screen Shot 2022-06-24 at 10.52.46 AM.png>)
+3. Within the "Create a new app integration" modal, fill in the form to configure the new app:
+   * **Sign on Method**: Select SAML 2.0\
+     ![](<../../.gitbook/assets/image (19).png>)
+4. Click **Next**.
+5. Configure the general settings:
+   * **App name**: Add a memorable name such as "Panther Console."&#x20;
    * **App logo**: Upload a Panther logo to help users quickly identify this app.
    * **App visibility**: Configure the visibility of this application for your users.
-7. Click **Next**.&#x20;
-8. In the SAML Settings section, configure the following under GENERAL:
-   * **Single sign on URL**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
-   * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
-9. Configure the following under ATTRIBUTE STATEMENTS:
+6. Click **Next**.&#x20;
+7.  In the _SAML Settings_ section, configure the following under **General**:
+
+    * **Single sign on URL**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
+    * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
+
+    ![](<../../.gitbook/assets/image (36).png>)
+8. Configure the following under **Attribute Statements**:
    * **Name**: `PantherEmail`, **Value**: `user.email`
    * **Name**: `PantherFirstName`, **Value**: `user.firstName`
    * **Name**: `PantherLastName`, **Value**: `user.lastName`\
-     ``![](<../../../../.gitbook/assets/okta4 (8) (8) (7) (1) (1) (2) (1) (1) (11).png>)``
-10. The Group Attribute statements can be left blank. Click **Next**.
-11. Click **Finish**.
-12. On the next screen, navigate to the Settings and locate the "Sign On Methods" section. Copy the **Identity Provider Metadata** link and store it in a secure location. You will need this in the next steps.\
-    ![](<../../../../.gitbook/assets/okta-metadata (8) (8) (9) (7) (1) (1) (2) (1) (1) (11).png>)
+     ``![](<../../.gitbook/assets/image (53).png>)``
+9. The Group Attribute statements can be left blank. Click **Next**.
+10. Click **Finish**.
+11. On the next screen, navigate to **SAML Setup** along the right-hand side of the screen.
 
-After you're done, make sure to grant access to the appropriate users and groups in the "Assignments" tab.
+    ![](<../../.gitbook/assets/Screen Shot 2022-06-24 at 11.12.08 AM.png>)
+12. Click **View SAML setup instructions** which will open up a new browser tab.
+13. Copy the **Identity Provider Single Sign-On URL**. Okta displays the URL in the following format:
+
+    * https://\[OKTA\_ACCT].[okta.com/app/\[OKTA\_APP\_STR\]/\[APP\_ID\]/sso/saml](http://okta.com/app/\[OKTA\_APP\_STR]/\[APP\_ID]/sso/saml)
+
+    Adjust the URL as follows in order to use it with Panther:
+
+    * https://\[OKTA\_ACCT].[okta.com/app/\[APP\_ID\]/sso/saml/metadata](http://okta.com/app/\[APP\_ID]/sso/saml/metadata)
+    * Copy this URL as you will need it in the following steps.
+14. Grant access to the appropriate users and groups in the **Assignments tab**.
 
 ### Create an Okta Bookmark app
 

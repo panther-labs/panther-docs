@@ -82,7 +82,7 @@ To start onboarding data, navigate to **Integrations** > **Log Sources** and cli
 
 Here you will be able to choose from a list of services we currently support (or select **Custom Onboarding** on the left to view the available transport methods.)
 
-![](.gitbook/assets/image.png)
+![](<.gitbook/assets/image (1).png>)
 
 The most common data source methods are ingesting data from an Amazon S3 bucket or directly pulling the logs from a supported SaaS service. For more information on each transport method visit the links below:&#x20;
 
