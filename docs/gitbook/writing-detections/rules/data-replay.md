@@ -25,6 +25,7 @@ Before getting started, note the following constraints:
 * Time range is configurable but must be within the last 30 days
 * Time range must be older than 24 hours
 * Replay must complete in under an hour
+* Access to the `panther-kv-store` is blocked to prevent polluting production data
 * Lookup Tables are blocked to prevent modifying production data from a replay
 * Network calls from within a rule are blocked
 
