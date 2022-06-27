@@ -22,6 +22,7 @@ version: 0
 parser:
   csv:
     delimiter: ','
+    hasHeader: true
 fields:
 - name: action
   type: string

@@ -1,17 +1,25 @@
+---
+description: Map detections to compliance frameworks in Panther
+---
+
 # Report Mapping
 
-{% hint style="info" %}
-This feature is available in version 1.25 and newer.
-{% endhint %}
+Panther supports the ability to map rules, policies, and scheduled rules to compliance frameworks for the purposes of tracking coverage against that framework.&#x20;
 
-Panther supports the ability to map rules, policies, and scheduled rules to compliance frameworks for the purposes of tracking coverage against that framework. To map a detection to a framework, follow the steps below:
+Version 1.37 and newer allows you to directly map your Detection against the MITRE ATT\&CK Matrix. To learn how to assign Tactic and Technique combos to your Detections, see the documentation: [MITRE ATT\&CK Matrix](mitre-attack.md).
 
-* Whether you're creating a new detection or editing an existing detection, you should be able to view the **"Report Mapping"** tab in the detection creation/edit form.
-* Enter the framework name in the **"report key"** field and then the specific framework requirement name (e.g. 1.2.1) in the **"report values"** field. You can enter multiple report values by entering in a comma.
+**To map a detection to a framework**:
 
-![](<../.gitbook/assets/Screen Shot 2021-11-08 at 9.53.47 PM.png>)
+1. Log in to the Panther Console.
+2. In the left sidebar, click **Detections > All Detections**. Click the three dots icon in the upper right side of a Detection to view its details.
+3. Click the Report Mapping tab.
+4. Under Report Mapping:
+   * Enter the framework name into the Report Key field.&#x20;
+   * Enter the specific framework requirement name into the Report Values field.
+     * You can enter multiple report values separated by a comma.\
+       ![](../.gitbook/assets/report-map.png)
+5. Click **Update** in the upper right corner.
 
-* Once completed, you can **Save** or **Update** the detection which will save the report mapping.
-* You can then view the report mapping in the **Detection Details** page (see below).
+You can view the report mapping in the **Detection Details** page:
 
 ![](<../.gitbook/assets/Screen Shot 2021-11-08 at 10.00.16 PM.png>)

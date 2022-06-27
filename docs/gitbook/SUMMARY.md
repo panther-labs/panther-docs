@@ -37,7 +37,7 @@
     * [Salesforce Logs](data-onboarding/supported-logs/salesforce.md)
     * [Sophos Logs](data-onboarding/supported-logs/sophos.md)
     * [Slack Logs](data-onboarding/supported-logs/slack.md)
-    * [Snyk Logs](data-onboarding/supported-logs/snyk.md)
+    * [Snyk Logs](data-onboarding/supported-logs/snyk-logs.md)
     * [Suricata Logs](data-onboarding/supported-logs/suricata.md)
     * [Syslog Logs](data-onboarding/supported-logs/syslog.md)
     * [Teleport Logs](data-onboarding/supported-logs/teleport.md)
