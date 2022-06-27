@@ -26,14 +26,14 @@ Follow GitHub's documentation on [generating a Personal Access Token](https://do
 
 1. Log in to your Github account using your service account (or any developer service account that has access to the repo)
 2. Navigate to **Settings > Developer settings**:\
-   ![](<../../../.gitbook/assets/github1 (11) (1) (1) (11) (1) (1) (13).png>)
+   ![](<../../../.gitbook/assets/github1 (11) (1) (1) (11) (1) (1) (1) (13).png>)
 3. On the Developer Settings page, Click **Personal access tokens** on the left. Click **Generate new token**.\
-   ![](<../../../.gitbook/assets/github2 (10) (1) (1) (11) (1) (1) (13).png>)
+   ![](<../../../.gitbook/assets/github2 (10) (1) (1) (11) (1) (1) (1) (13).png>)
 4. Fill out the form to configure your token. Select the `repo` permissions checkbox.&#x20;
    * Note: GitHub does not support granular permissions for creating Issues. If this level of access is a concern, consider [creating a dedicated Issue tracking repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-an-issues-only-repository).
 5. Click **Generate Token**. Copy the token and store it in a secure location, as you will need it in the next steps.
    * Note: GitHub does not allow you to view the token again. If you lose access to this token, you will need to generate a new one.\
-     ![](<../../../.gitbook/assets/github3 (9) (12) (6) (1) (1) (1) (11) (1) (1) (15).png>)
+     ![](<../../../.gitbook/assets/github3 (9) (12) (6) (1) (1) (1) (11) (1) (1) (1) (15).png>)
 
 ### Configure the Github Destination in Panther
 

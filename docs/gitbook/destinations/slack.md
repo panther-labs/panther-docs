@@ -15,12 +15,12 @@ Destinations are integrations that receive alerts from rules, policies, system h
 1. Log in to your [Slack Workspace](https://api.slack.com/) as an administrator.
 2. Navigate to [Your Slack Apps](https://api.slack.com/apps), and click Create New App.
    * Enter an App Name and choose your Development Slack Workspace.\
-     ![](<../../../.gitbook/assets/slack1 (9) (7) (1) (1) (1) (11) (1) (1) (15).png>)
+     ![](<../../../.gitbook/assets/slack1 (9) (7) (1) (1) (1) (11) (1) (1) (1) (15).png>)
 3. Click **Create App**.
 4. Authorize access to your new app and enable it for the appropriate channel.\
-   ![](<../../../.gitbook/assets/slack2 (13) (7) (1) (1) (1) (11) (1) (1) (16).png>)
+   ![](<../../../.gitbook/assets/slack2 (13) (7) (1) (1) (1) (11) (1) (1) (1) (16).png>)
 5. Click **Incoming Webhooks**. Next to **Activate Incoming Webhooks,** switch the toggle to **On.**\
-   ****![](<../../../.gitbook/assets/slack3 (13) (6) (1) (1) (1) (11) (1) (1) (16).png>)****
+   ****![](<../../../.gitbook/assets/slack3 (13) (6) (1) (1) (1) (11) (1) (1) (1) (16).png>)****
 6. Scroll down and click **Add New Webhook to Workspace**.
 7. On the next page, a **Webhook URL** is displayed. Copy the Webhook URL and store it in a secure location, as you will need it in the next steps.
 
