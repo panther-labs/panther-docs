@@ -6,6 +6,7 @@ Panther Audit Logs is a feature available in versions 1.34 and newer.
 
 Below you'll find a list of all the available actions that Panther tracks as part of its audit logs:
 
+- ADD_MITRE_REPORT_MAPPING
 - CANCEL_DATA_LAKE_QUERY
 - CANCEL_LOG_SOURCE_JOB
 - CHECK_LOOKUP_TABLE_IMPORT_STATUS
@@ -58,6 +59,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - GET_CUSTOM_SCHEMA
 - GET_DATA_LAKE_DATABASE
 - GET_DATA_LAKE_QUERY
+- GET_DATA_LAKE_QUERY_SUMMARY
 - GET_DATA_LAKE_TABLE
 - GET_DATA_MODEL
 - GET_DETECTION_FILTER
@@ -121,8 +123,10 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - RESET_USER_PASSWORD
 - RETRY_ALERT_DELIVERY
 - SEND_TEST_ALERT
+- SEND_USER_FEEDBACK
 - SIGN_IN
 - STOP_REPLAY
+- SUMMARIZE_DATA_LAKE_QUERY
 - SUPPRESS_POLICY
 - SYNC_LOOKUP_TABLE_DATA
 - TEST_CUSTOM_SCHEMA
