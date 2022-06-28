@@ -43,7 +43,7 @@ If you do not see the log source you want within the list at **Integrations > Lo
 5. Enter the **Log Source** name you want to request and the **use case** it will address.
 6. Click **Create Request**.
 
-![](<../.gitbook/assets/image (12) (1) (1).png>)
+![](<../.gitbook/assets/image (12) (3).png>)
 
 ## Configuring event threshold alarms
 

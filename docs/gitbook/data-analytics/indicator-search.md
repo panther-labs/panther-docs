@@ -1,6 +1,6 @@
 # Indicator Search
 
-Use Indicator Search to run quick investigations on [common indicators](panther-fields.md#indicator-fields) across various data sources. Indicator Search eliminates the need to run SQL searches to answer quick questions about suspicious activity and presents results in a simple visualization.
+Use Indicator Search to run quick investigations on [common indicators](panther-fields.md#indicator-fields) across various data sources. Indicator Search removes the need to write SQL to answer common questions about suspicious activity and presents results in a simple visualization.
 
 The Indicator Search is designed to be easy to use:
 

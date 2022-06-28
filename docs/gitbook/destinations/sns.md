@@ -49,7 +49,7 @@ The SNS Destination requires a `Topic ARN`. When an alert is forwarded to an SNS
 ### Optional: Creating Email Notifications
 
 1. In the AWS SNS console, click **Create Subscription** on the topic you just created. The topic ARN should match the topic you created.\
-   &#x20;![](<../.gitbook/assets/image (12) (2) (1).png>)
+   &#x20;![](<../.gitbook/assets/image (12) (1) (1).png>)
 2. Select **Email** in the protocol dropdown menu and enter the email address you would like to receive alerts to.
 3. Click **Create subscription**
 4. Confirm the subscription sent to your email before receiving alerts from this topic.\

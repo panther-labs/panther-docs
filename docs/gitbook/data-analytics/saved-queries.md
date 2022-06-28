@@ -12,7 +12,7 @@ Once a query is saved, it will be available to all users with Data Explorer perm
 
 In the Saved Query screen you can search for queries either by using the time selector to look for queries modified in a time window, say the last 24 hours. You can also use the search box to search the queries by name, by their description, by part of their SQL code, or by up to 100 tags.
 
-Clicking on the name of the saved query should take you directly to data explorer, where you can run your query.
+Clicking on the name of the saved query should take you directly to Data Explorer, where you can run your query.
 
 Clicking on the More Options Menu (the ellipsis to the far right of the query name) you can also choose to edit the query metadata (i.e. change the tags, description or schedule queries).
 

@@ -35,7 +35,7 @@ Panther supports pulling logs directly from CrowdStrike events by integrating wi
    * **SQS Url**: The URL for the CrowdStrike-managed SQS queue, previously copied.
    * **AWS Access Key**, **AWS Access Secret**: The AWS access key and secret, previously copied.\
      \
-     ![](<../../.gitbook/assets/image (24) (1) (1).png>)\
+     ![](<../../.gitbook/assets/image (24) (2).png>)\
 
 6. Click **Continue Setup.**
 7. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
