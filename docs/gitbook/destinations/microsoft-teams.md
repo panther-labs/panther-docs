@@ -18,14 +18,14 @@ The Microsoft Teams Destination is configured via a custom connector with a Webh
 
 1. Log in to your Microsoft Teams application.
 2. Navigate to **Apps**. Click **Connectors**, then click **Incoming Webhook**.\
-   ![](../.gitbook/assets/msteams-webhook.png)
+   ![](<../../../.gitbook/assets/msteams1 (9) (7) (1) (1) (11) (1) (1) (15).png>)
 3. Click **Add to a team**.&#x20;
 4. Select a team to add the Incoming Webhook connector to, then click **Setup a connector**.\
-   ![](../.gitbook/assets/msteams-select-group.png)
+   ![](<../../../.gitbook/assets/msteams2 (13) (7) (1) (1) (1) (11) (1) (1) (16).png>)
 5. Click **Configure** next to Incoming Webhook. Configure the name, description, and settings.\
-   ![](../.gitbook/assets/msteams-configure.png)
+   ![](<../../../.gitbook/assets/msteams3 (13) (6) (1) (1) (11) (1) (1) (16).png>)
 6. Enter a name for the Incoming Webhook integration, and optionally upload an image. Click **Create**.\
-   ![](../.gitbook/assets/msteams-name-webhook.png)
+   ![](<../../../.gitbook/assets/msteams4 (13) (5) (1) (1) (11) (1) (1) (16).png>)
 7. On the next page, a Webhook URL is displayed on the screen. Copy the URL and store it in a secure location, as you will need it in the next steps.
 8. Click **Done**.
 
