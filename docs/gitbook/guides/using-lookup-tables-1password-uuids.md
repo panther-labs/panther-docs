@@ -1,4 +1,10 @@
+---
+description: Using Panther's Lookup Tables to translate 1Password UUIDs to friendly names
+---
+
 # Using Lookup Tables: 1Password UUIDs
+
+## Overview
 
 By default, 1Password logs do not contain human readable values for objects such as vaults and login credentials. Instead, each object is referenced by a Universally Unique Identifier (UUID). You can use [Lookup Tables](https://docs.runpanther.io/data-analytics/lookup-tables) in Panther to translate the UUIDs to friendly names. We recommend using Command Line Interface (CLI), but it is also possible to use the API.
 
@@ -8,15 +14,13 @@ For more information on Lookup Tables, please see Panther's documentation: [Look
 
 In the following example, we extracted a list of 1Password items and their associated UUIDs via CLI, then created a Lookup Table to translate the UUIDs into their human-readable friendly names.&#x20;
 
-**Prerequisites**:
+### **Prerequisites**:
 
 * An existing 1Password log source with data being ingested to your Panther account&#x20;
 * The Command Line utility jq installed
 * The [1Password command-line tool](https://1password.com/downloads/command-line/) is installed
 
-
-
-**Obtaining a list of 1Password items with their associated UUIDs**
+## **Obtaining a list of 1Password items with their associated UUIDs**
 
 1. Log in to 1Password via CLI.
 2.  Use the following function to extract a list of 1Password items including their associated UUIDs and save it to a JSON file called _1password\_lookup.json_:\
@@ -33,7 +37,7 @@ Note that you will need to create a schema using this 1password\_lookup.json in 
 For more information on creating a schema, see [Generating a Schema for a Custom Log Type from Sample Logs](../data-onboarding/custom-log-types/#generating-a-schema-for-a-custom-log-type-from-sample-logs)
 {% endhint %}
 
-**Creating a Lookup Table in Panther**
+## **Creating a Lookup Table in Panther**
 
 1. Log in to your Panther Console. In the left-hand navigation, click **Enrichment > Lookup Tables**.
 2. In the upper right, click **+** to create a new Lookup Table.
@@ -55,7 +59,9 @@ Now that you've created a Lookup Table, you can write detections based on the ad
 
 
 
-**Obtaining data for a detection**&#x20;
+## **Writing a Detection**
+
+### **Obtaining data for a detection**&#x20;
 
 1. Log in to your Panther account, and in the left-side navigation, click **Data Explorer**.&#x20;
 2. Write a new query to extract the first 10 lines of your OnePassword items: `select * from your_company_logs.public.onepassword_itemusage limit 10`
@@ -68,14 +74,14 @@ In the example below, we are writing a detection based on the name given to a sp
 
 
 
-**Writing a Detection**
+### **Writing the Detection**
 
 1. In the left-side navigation of your Panther account, click **Detections**.&#x20;
 2. On the Detections page, click **+** in the upper right to create a new Detection.&#x20;
 3. At the top of the page, click **Rule**.&#x20;
 4. In the Log Type field, choose "OnePasswordItems."
 5. Under “Functions & Tests”, click **Create Test**. Paste in the JSON text you copied from Data Explorer.&#x20;
-6. Click **Enrich Test Data** and verify that the title is listed as a friendly name under the `p.enrichment` field:\
+6. Click **Enrich Test Data** and verify that the title is listed as a friendly name under the `p_enrichment` field:\
    ![](../.gitbook/assets/1pw-login-title-encrichment.png)
 7.  In the text box labeled “Rule Function”, paste in the following:\
     `from panther_base_helpers import deep_get`
