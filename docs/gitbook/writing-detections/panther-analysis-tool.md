@@ -4,11 +4,13 @@ description: >-
   your Panther account
 ---
 
-# Panther Developer Workflows
+# Panther Developer Workflows: Detections
 
 ## Overview
 
-Panther Developer Workflows are workflows that you can use outside of the Panther Console to interact with your Panther account, such as the Panther API, Panther Analysis Tool, and CI/CD workflows. This page describes how to use the Panther Analysis Tool (PAT) to test and upload locally managed Detections, and how to optionally integrate with a CI/CD setup.
+Panther Developer Workflows are workflows that you can use outside of the Panther Console to interact with your Panther account, such as the Panther API, Panther Analysis Tool, and CI/CD workflows.&#x20;
+
+This page describes how to use the Panther Analysis Tool (PAT) to test and upload locally managed Detections, and how to optionally integrate with a CI/CD setup.
 
 For information on using the Panther API, please see the [Panther API documentation](../api-beta/).
 
