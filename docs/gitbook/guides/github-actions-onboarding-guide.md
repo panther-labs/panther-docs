@@ -136,7 +136,7 @@ Before finalizing GitHub Actions with Panther, please reach out to Panther's Sup
                      aws-region: us-west-2 # Replace with AWS region your Panther instance is in 
                  - name: Download panther_analysis_tool
                    run: pip3 install panther_analysis_tool
-                 - name: Loop through folders ending in _rules and upload to papaya-oarfish 
+                 - name: Loop through folders ending in _rules and upload to your Panther instance 
                    run: |
                      for dir in detections/*; do
                        if [[ "$dir" =~ .*_rules.* ]]; then
