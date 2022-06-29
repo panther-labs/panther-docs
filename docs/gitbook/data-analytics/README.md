@@ -34,7 +34,7 @@ Panther's Scheduled Queries allow you to use SQL queries as opposed to streaming
 
 ### Query History
 
-The Query History page displays the last 30 days of SQL queries run through the Panther UI. Clicking on the query name will send you to the data explorer where you can see the results and rerun the query. For more information, see [Query History](query-history.md).
+The Query History page displays the last 30 days of SQL queries run through the Panther Console. Clicking on the query name will send you to the Data Explorer where you can see the results and rerun the query. For more information, see [Query History](query-history.md).
 
 ### Example Queries
 
