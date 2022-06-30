@@ -238,6 +238,10 @@ query adminRole {
 
 #### Creating a new Role
 
+{% hint style="warning" %}
+**Note:** The permission `UserModify` provides full admin access to the Panther platform. Use discretion when assigning this permission to new roles.
+{% endhint %}
+
 ```graphql
 mutation createRole {
   createRole(input: {
