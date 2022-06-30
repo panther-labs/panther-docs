@@ -6,7 +6,7 @@ description: Use Packs to group detections and enable updates via the Panther Co
 
 ## Overview
 
-Packs are used to logically group detections as well as enable detection updates via the Panther UI. Panther-provided packs are defined in this open source repository: `panther-labs/panther-analysis`.
+Packs are used to logically group detections as well as enable detection updates via the Panther Console. Panther-provided packs are defined in this open source repository: [`panther-labs/panther-analysis`](https://github.com/panther-labs/panther-analysis).
 
 A single pack can group any number of Detections, Queries, Global Helpers, Data Models, and Lookup Tables. For example, one of the provided Detections Packs, `Panther Universal Detections`, groups all the rules that rely on Data Models and all of their dependencies.
 
@@ -15,7 +15,7 @@ Updates to detections in these Packs are tracked automatically by the Panther ba
 Detections that are part of an enabled Detection Pack will be labeled as `MANAGED`, and detections that are not part of a Detection Pack will be labeled as `UNMANAGED`.
 
 {% hint style="warning" %}
-Note: The process is **not** recommended if you are using a Git-Based workflow and uploading detections with Panther Analysis Tool. Doing so may result in unexpected behavior**.**&#x20;
+Note: Managing Detections via the Panther Console is **not** recommended if you are already using a Git-Based workflow to manage and upload detections with Panther Analysis Tool. Managing detections via both methods simultaneously may result in unexpected behavior**.**&#x20;
 {% endhint %}
 
 ### Panther Built-In Detection Packs
@@ -90,7 +90,7 @@ After a Pack has been enabled, there are a subset of fields that you can manuall
 * Deduplication Period
 * Destination Override&#x20;
 
-Any changes you make to these fields in the Panther Console will be preserved when the pack is updated or reverted to a previous version. All other fields will be greyed out in the UI, and the "Functions and Tests" editor will be read-only. &#x20;
+Any changes you make to these fields in the Panther Console will be preserved when the pack is updated or reverted to a previous version. All other fields will be greyed out in the Panther Console, and the "Functions and Tests" editor will be read-only. &#x20;
 
 {% hint style="info" %}
 Note: For enabled Packs, the above fields can **only** be edited manually in the Panther Console. Editing these fields in the Detection .yml files will not override these values.

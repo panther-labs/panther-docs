@@ -1,12 +1,12 @@
 ---
-description: How to interpret and triage alerts within the Panther UI
+description: How to interpret and triage alerts within the Panther Console
 ---
 
 # Triaging Alerts
 
-## Viewing alerts in the Panther UI
+## Viewing alerts in the Panther Console
 
-When in the Panther UI, you can view all alerts in the **Alerts & Errors** section located in the left column of the UI. When in the section, you'll see three tabs that represent different alert categories:
+When in the Panther Console, you can view all alerts in the **Alerts & Errors** section located in the left column of the Console. When in the section, you'll see three tabs that represent different alert categories:
 
 * **Alerts**: Rule matches, policy matches, and scheduled rule matches alert types that represent events that were matched with enabled detections.&#x20;
 * **Detection errors:** Rule error and scheduled rule error alert types represent detection errors generated due to either incorrect code or permissions issues, a rule returns an error, and does not complete its run successfully.
@@ -14,7 +14,7 @@ When in the Panther UI, you can view all alerts in the **Alerts & Errors** secti
 
 The **Alerts** page will default to listing alerts by latest to oldest. You can use the filter to narrow the listing view on a specific set of alerts.
 
-## Triaging alerts in the Panther UI
+## Triaging alerts in the Panther Console
 
 There are several options for triaging alerts in Panther:
 
