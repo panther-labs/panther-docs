@@ -60,12 +60,12 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `AirgapSubnetOneIPRange`: A valid & available IP range in the existing VPC you plan to deploy Panther into. Only takes affect if VpcID is specified. Used by the VPC lambdas. The default value is 172.31.254.0/25 with an allowed pattern of `'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(/([0-9]|[1-2][0-9]|3[0-2]))$'`.
 * `AirgapSubnetTwoIPRange`: A second valid & available IP range in the existing VPC you plan to deploy Panther into, for multiple AZ redundancy. Only takes affect if VpcID is specified. Used by the VPC lambdas. The default value is '172.31.254.128/25' with an allowed pattern of `'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(/([0-9]|[1-2][0-9]|3[0-2]))$'.`
 * `FeatureSandboxedExecFlows`: Tells the detections engine which functions should use the python executor.
-* `EnableIntelligentTiering`: Enable INTELLIGENT\_TIERING on panther manager S3 buckets. The default value is `false`, with allowed values of `true` or `false`.
+* `EnableIntelligentTiering`: Enable INTELLIGENT\_TIERING on Panther manager S3 buckets. The default value is `false`, with allowed values of `true` or `false`.
 * `SlowRuleMaxDuration`: The maximum amount of time allowed for a rule to run before we trigger an alarm. The default is 75ms, with an allowed pattern of `'[-+]?([0-9]`_`(.[0-9]`_`)?[a-z]+)+'`.&#x20;
 * `SnowflakeDDLUpdateConcurrency`: The concurrency used when updating table/view/pipes. The default value is 1, with a minimum value of 1 and a maximum value of 100.
 * `EnableAlertsGSIThree`: Feature flag to enable third month partition GSI. The default value is `false`, with allowed values of `true` or `false`.
-
-#### Minimize initial configurations
+* `EnableFips`: Use FIPS endpoints for AWS services in US regions. If enabled, may degrade performance. Ignored for Snowflake backends. The default value is `false`, with allowed values of `true` or `false`.
+* `SnowflakeRBACSecretARN`: ARN pointing at the AWS secret with config and creds for the PANTHER\_RBAC Snowflake user. The default value is `''` with an allowed pattern of `'^(arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z]{2}-[a-z]{4,9}-[1-9]:[0-9]{12}:secret:\S+)?$'`.
 
 Panther has a number of other configuration options besides the ones listed above. We recommend not setting any of these parameters on the first deployment of Panther. If any step of the initial deployment fails, the entire deployment will fail and rollback deleting all infrastructure. After you complete the initial deployment of Panther, you can update the stack with different root parameters. Then if any of these settings cause a deployment failure, Panther will simply roll back to the previous settings without needing an entire fresh deployment. This includes parameters like the snowflake and custom domain configuration parameters.
 
