@@ -51,7 +51,7 @@ def rule(event):
 ```
 
 {% hint style="info" %}
-The key-values are temporarily stored in `panther-kv-store` DynamoDB table.
+The key-value pairs are temporarily stored in a`panther-kv-store` DynamoDB table.
 {% endhint %}
 
 ## String Sets
