@@ -50,6 +50,10 @@ def rule(event):
     return False
 ```
 
+{% hint style="info" %}
+The key-values are temporarily stored in `panther-kv-store` DynamoDB table.
+{% endhint %}
+
 ## String Sets
 
 To keep track of sets of strings, use the following functions:
@@ -87,4 +91,3 @@ def rule(event):
 
     return False
 ```
-
