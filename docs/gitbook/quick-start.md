@@ -15,7 +15,11 @@ This guide will walk you through:
 * Your initial login and how to invite other users to your Panther Console
 * Setting up a destination where you will receive alerts&#x20;
 * Onboarding logs you want to monitor
-* Setting up detections to alert you against common security threats&#x20;
+* Setting up detections to alert you against common security threats
+
+{% hint style="success" %}
+Panther's [Glossary](help/glossary.md) introduces common cloud-native, security, and Panther-specific terminology. Refer to the Glossary for extra context and clarity on terms found throughout this Quick Start and the greater Documentation site.
+{% endhint %}
 
 ## Overview
 
@@ -36,6 +40,10 @@ The Panther Console is Panther's web-based UI where Panther admins manage their 
 #### Panther Developer Workflows
 
 Panther Developer Workflows are non-console workflows you can use to interact with your Panther account, including CI/CD, API, and the Panther Analysis Tool (PAT).&#x20;
+
+### Glossary
+
+Panther's [Glossary](help/glossary.md) introduces common cloud-native, security, and Panther-specific terminology. Refer to the Glossary for extra context and clarity on terms found throughout the Documentation site.
 
 ## Getting Started in Panther
 
@@ -99,8 +107,6 @@ If the log source you want to ingest is not natively supported yet, visit the [C
 After following the onboarding steps, your data will begin to be ingested into Panther. Your logs will be checked against the built-in Python detections and will be searchable within the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer). You can now query [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search) for investigations on common indicators for your various data sources.
 
 ![](<.gitbook/assets/image (6) (1).png>)
-
-
 
 ### Set Up Detections and Cloud Compliance
 

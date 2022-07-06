@@ -16,11 +16,11 @@ Each detection type is written in Python and sends alerts to detect suspicious b
 
 Panther detections can be created and managed in two different ways:
 
-* In the Panther Console by navigating to **Detections** in the left-side navigation. These can be supplemented with Panther-managed detections from [Packs](https://docs.runpanther.io/writing-detections/detection-packs).
-* Using CLI workflows with the [Panther Analysis Tool](https://docs.runpanther.io/writing-detections/panther-analysis-tool).
-  * Learn more about managing Panther detections using a Continuous Integration and Continuous Deployment workflow in [our CI/CD Guide](https://docs.runpanther.io/guides/ci-cd-onboarding-guide).
+* In the Panther Console by navigating to **Detections** in the left-side navigation. These can be supplemented with Panther-managed detections from [Packs](detection-packs.md).
+* Using CLI workflows with the [Panther Analysis Tool.](panther-analysis-tool.md#using-the-panther-analysis-tool)
+  * Learn more about managing Panther detections using a Continuous Integration and Continuous Deployment workflow in [our CI/CD Guide](../guides/ci-cd-onboarding-guide.md).
 
-We do not recommend using both the Console and Panther Analysis Tool to manage detections because of complexity and potential issues. We also do not recommend the use of Detection Packs by customers using CLI workflows.
+We do not recommend using both the Panther Console and Panther Analysis Tool to manage detections because of complexity and potential issues. We also do not recommend the use of Detection Packs by customers using CLI workflows.
 
 ## Alert Severities
 
