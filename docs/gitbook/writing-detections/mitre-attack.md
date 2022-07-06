@@ -20,7 +20,7 @@ Here you will see the number of techniques covered out of the total and the numb
 
 When clicking into a Technique, you will see the Detections or Log Sources that are applicable. Please note the following:
 
-* Panther Managed Detections are automatically assigned to applicable Tactic and Technique combos.
+* Panther Managed Detections are automatically assigned to applicable Tactic and Technique combos as long as you are using the latest version.
 * CrowdStrike as a Log Source is automatically assigned to applicable Tactic and Technique combos.
 * You are able to assign enabled or disabled Detections that have log sources that you have not yet onboarded.&#x20;
 
