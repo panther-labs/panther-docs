@@ -8,12 +8,12 @@ description: >-
 
 ### A
 
-#### **alert**
+#### **Alert**
 
 > * A brief and human-readable event that correlated to a programmed alarm rule to provide information about data breaches, exploits, or malicious behaviors.
 > * The event triggered by Panther after the criteria on your rule, policy, or query is met. See [Triaging Alerts](../writing-detections/triaging-alerts.md) for more information.
 
-#### **alert destination**
+#### **Alert Destination**
 
 > * A designated location where a security alert is sent after being created.
 > * Your selected services(s) where Panther alerts are sent, such as Jira, Slack, or PagerDuty. See [Destinations](../destinations/) for more information.
@@ -27,22 +27,21 @@ description: >-
 
 #### **CI/CD (continuous integration/continuous deployment)**
 
-> Continuous integration means work is constantly merged back into a central location, and generally includes automated testing for safety purposes. Continuous deployment or delivery means work is constantly deployed into production.
->
-> See Panther's [CI/CD Onboarding Guide](../guides/ci-cd-onboarding-guide.md) for information on managing detections with a CI/CD workflow.
+> * Continuous integration means work is constantly merged back into a central location, and generally includes automated testing for safety purposes. Continuous deployment or delivery means work is constantly deployed into production.
+> * See Panther's [CI/CD Onboarding Guide](../guides/ci-cd-onboarding-guide.md) for information on managing detections with a CI/CD workflow.
 
 #### **CLI (command line interface)**
 
 > * A term for tools that you interact with from a command line, shell, virtual terminal, or similar interface.
 > * In Panther’s context, CLI refers to tools like [`panther_analysis_tool`](../writing-detections/panther-analysis-tool.md) and `pantherlog`, which are distributed by Panther and executed by customers locally on their own machines.
 
-#### **cloud-native**
+#### **Cloud-Native**
 
 > Cloud-native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach.&#x20;
 >
 > **Source:** [CNCF](https://github.com/cncf/toc/blob/main/DEFINITION.md)
 
-#### **custom webhook**
+#### **Custom Webhook**
 
 > * Also known as web callbacks; a lightweight API that enables one system to forward data to another system when a specific event occurs.
 > * Panther’s [custom webhook](../destinations/custom\_webhook.md) alert destination allows you to deliver alerts to selected third-party platforms that accept webhooks.
@@ -53,7 +52,7 @@ description: >-
 
 > [Data Explorer](../data-analytics/data-explorer.md) is a Panther tool where you can view your normalized data, select rule matches, perform SQL queries, search standard fields across data, load or schedule queries, and download sharable results in a CSV file.
 
-#### **deduplication**
+#### **Deduplication**
 
 > In Panther, [deduplication](../writing-detections/rules.md#how-rules-work) refers to the process of grouping suspicious events together into a single alert to prevent receiving duplicate alerts for the same behavior that may have multiple indicators. Any event that triggers a detection is grouped together with other events that triggered the same detection and subsequent deduplication string within the designated deduplication period. This is controlled by two aspects:
 >
@@ -102,7 +101,7 @@ description: >-
 
 ### **L**
 
-#### **log normalization**
+#### **Log Normalization**
 
 > Log normalization parses and normalizes your uploaded logs for IOC (indicator of compromise) fields like domains and IPs to support efficient and effective analysis, searches, and correlations across all log types.
 
@@ -118,7 +117,7 @@ description: >-
 
 ### **P**
 
-#### **panther-analysis repo**
+#### **Panther-analysis repo**
 
 > A [public Github repository](https://github.com/panther-labs/panther-analysis) of all detections developed by Panther including rules, policies, and scheduled rules.
 
@@ -142,12 +141,11 @@ description: >-
 
 ### **S**
 
-#### **schema**
+#### **Schema**
 
-> * Also known as structured data; a markup language used to more clearly provide information to search engines.
 > * Schemas inform Panther of how to normalize data for downstream services like the detection engine and tables in the data lake.
 
-#### **security data lake**
+#### **Security Data Lake**
 
 > Also known as a data lake or SDL. A centralized repository aimed at maintaining and managing all log or other data sources relevant to an organization’s security posture. An SDL can ingest data from myriad sources and can integrate with other security analytics tools to provide a single place for security data to be housed, searched**,** and utilized.
 
