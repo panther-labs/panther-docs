@@ -26,10 +26,12 @@ This is the structure of `p_enrichment` fields:
 
 ```yaml
 'p_enrichment': {
-      <name of lookup table>: {
-        <key in log that matched>: <matching row looked up>,
-		<key in log that matched>: <matching row looked up>
-	  },
+    <name of lookup table1>: {
+        <name of selector>: {
+	    <lookup key>: <lookup value>,
+	    ...
+	}
+    }
 }
 ```
 
