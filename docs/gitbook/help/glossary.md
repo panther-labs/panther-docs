@@ -144,7 +144,6 @@ description: >-
 
 #### **schema**
 
-> * Also known as structured data; a markup language used to more clearly provide information to search engines.
 > * Schemas inform Panther of how to normalize data for downstream services like the detection engine and tables in the data lake.
 
 #### **security data lake**
