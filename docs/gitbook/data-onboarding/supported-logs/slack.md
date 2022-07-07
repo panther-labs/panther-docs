@@ -45,7 +45,9 @@ You can create an app for:
 
 ### How to create a Slack App to pull Audit Logs <a href="#audit-logs" id="audit-logs"></a>
 
-Follow the instructions below to create a Slack app that pulls Audit Logs into your Panther account. If you want to pull in Access or Integration logs, please see the next section: [How to create a Slack App to pull Access or Integration logs](slack.md#access-logs).
+Follow the instructions below to create a Slack app that pulls Audit Logs into your Panther account. The Audit Logs API is available to **Slack Enterprise Grid** customers **only**.
+
+If you want to pull in Access or Integration logs, please see the next section: [How to create a Slack App to pull Access or Integration logs](slack.md#access-logs).
 
 1. [Sign in to the Slack workspace](https://slack.com/workspace-signin) belonging to the Enterprise grid you want to monitor.&#x20;
    * You must sign in as an **owner** of the organization.
@@ -82,6 +84,10 @@ Follow the instructions below to create a Slack app that pulls Audit Logs into y
 ![](../../.gitbook/assets/slack-setup-page9.png)
 
 ### How to create a Slack App to pull Access or Integration Logs <a href="#access-logs" id="access-logs"></a>
+
+The Access Logs and Integration Logs API is available in all Slack paid plans.&#x20;
+
+If you want to pull in Audit logs, please see the previous section: [How to create a Slack App to pull Audit Logs](slack.md#audit-logs).
 
 1. [Sign in to the Slack workspace](https://slack.com/workspace-signin) you want to monitor.&#x20;
    * You must sign in as an **owner** of the organization.
