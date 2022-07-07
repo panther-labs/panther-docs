@@ -45,6 +45,8 @@ You can create an app for:
 
 ### How to create a Slack App to pull Audit Logs <a href="#audit-logs" id="audit-logs"></a>
 
+Follow the instructions below to create a Slack app that pulls Audit Logs into your Panther account. If you want to pull in Access or Integration logs, please see the next section: [How to create a Slack App to pull Access or Integration logs](slack.md#access-logs).
+
 1. [Sign in to the Slack workspace](https://slack.com/workspace-signin) belonging to the Enterprise grid you want to monitor.&#x20;
    * You must sign in as an **owner** of the organization.
 2. On the screen displaying all the workspaces in your Enterprise Grid, click **Launch in Slack** on the workspace you want to monitor.&#x20;
@@ -81,9 +83,9 @@ You can create an app for:
 
 ### How to create a Slack App to pull Access or Integration Logs <a href="#access-logs" id="access-logs"></a>
 
-1. [Sign in to the Slack workspace](https://slack.com/workspace-signin) belonging to the Enterprise Grid you want to monitor.&#x20;
+1. [Sign in to the Slack workspace](https://slack.com/workspace-signin) you want to monitor.&#x20;
    * You must sign in as an **owner** of the organization.
-2. On the screen displaying all the workspaces in your Enterprise Grid, click **Launch in Slack** on the workspace you want to monitor.&#x20;
+2. On the screen displaying your workspaces, click **Launch in Slack** on the workspace you want to monitor.&#x20;
 3.  Go to [Slack apps](https://api.slack.com/apps) and click **Create New App**, then click **from scratch**.\
     ![](<../../.gitbook/assets/slack-new-app (1).png>)
 
@@ -92,7 +94,7 @@ You can create an app for:
 
     ![](../../.gitbook/assets/create-slack-app.png)
 4. Click **Create App**.
-   * The App will be created in the selected workspace and later you will be able to monitor the entire Enterprise Grid organization.
+   * The App will be created in the selected workspace.
 5. In the left sidebar menu, click **OAuth & Permissions**.
 6. Scroll down to the **Redirect URLs** section.
 7. Click **Add** and enter the **Redirect URL** that you copied from the Panther Console in the previous section of this documentation.\
