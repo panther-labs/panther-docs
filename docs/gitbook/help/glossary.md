@@ -133,6 +133,12 @@ description: >-
 
 > Non-Panther Console workflows you can use to interact with your Panther account, including CI/CD, API, Panther Log Tool, and the Panther Analysis Tool (PAT).
 
+#### Pretty print
+
+> In JSON, pretty printing includes **** proper line breaks, indentation, white space, and overall structure.
+>
+> **Source:** [Datagy](https://datagy.io/python-pretty-print-json/)
+
 ### **R**
 
 #### **RBAC (role-based access control)**
