@@ -14,7 +14,7 @@ Consider using [Global helpers](https://docs.panther.com/writing-detections/glob
 
 ### How Lookup Tables work
 
-![](../../.gitbook/assets/Panther\_LUT1\_Diagram.png)
+![](../../.gitbook/assets/Docs\_LockupTable\_Diagram.png)
 
 Your [configured Lookup Tables](./#how-to-configure-a-lookup-table) are associated with one or more log types, connected by foreign key fields called Selectors. Data enrichment begins prior to log events received by the detections engine, thus every incoming log event with a match in your Lookup Table will be enriched. If a match is found, a `p_enrichment` field is appended to the event and accessed within a detection using a `deep_get`. The `p_enrichment` fields will contain:
 
