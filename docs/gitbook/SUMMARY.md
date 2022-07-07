@@ -84,6 +84,7 @@
       * [EC2 Volume](cloud-scanning/cloud-resource-attributes/aws/ec2-volume.md)
       * [EC2 VPC](cloud-scanning/cloud-resource-attributes/aws/ec2-vpc.md)
       * [ECS Cluster](cloud-scanning/cloud-resource-attributes/aws/ecs-cluster.md)
+      * [EKS Cluster](cloud-scanning/cloud-resource-attributes/aws/ecs-cluster-1.md)
       * [ELBV2 Application Load Balancer](cloud-scanning/cloud-resource-attributes/aws/elbv2-application-load-balancer.md)
       * [GuardDuty Detector](cloud-scanning/cloud-resource-attributes/aws/guardduty-detector.md)
       * [GuardDuty Detector Meta](cloud-scanning/cloud-resource-attributes/aws/guardduty-detector-meta.md)
