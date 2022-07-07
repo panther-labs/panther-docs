@@ -5,7 +5,7 @@ description: >-
   (CI/CD).
 ---
 
-# CI / CD Onboarding Guide
+# CI/CD Onboarding Guide
 
 ## Overview
 
@@ -20,7 +20,7 @@ The process outlined in this guide will use Github, Github Actions, and CircleCI
 
 ### Creating Account and Repository
 
-If you haven’t done so already, create a repository to contain the detections that have been created “in house”. We will be using CircleCI
+If you haven’t done so already, create a repository to contain the detections that have been created “in house”. We will be using CircleCI.
 
 If you do not currently use CircleCI for other projects, you can [create a free account](https://circleci.com/signup) by “Signing up with Github” which will authorize CircleCI to your Github account.&#x20;
 
