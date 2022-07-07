@@ -64,7 +64,7 @@ Panther needs an IAM Role to have the ability to scan resources from your AWS ac
 
 #### Creating an IAM role manually or with other automation
 
-If you wish to create an IAM role via some other mechanism, ensure it has the naming standard and permissions documented in [Panther’s provided templates](./#creating-an-iam-role-using-a-cloudformation-or-terraform-template-file).
+If you wish to create an IAM role via some other mechanism, ensure it has the naming standard and permissions documented in [Panther’s provided templates](https://github.com/panther-labs/panther-auxiliary/blob/main/cloudformation/panther-cloudsec-iam.yml).
 
 1. On the "Set Up an IAM role" page, click the link that says **I want to set everything up on my own**.
 2. Create the required IAM role. You may create the required IAM role manually or through your own automation.
