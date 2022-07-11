@@ -16,12 +16,12 @@ CloudWatch Logs enables teams to centralize logs from systems, applications, and
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `KmsKeyId` | `String` | The Amazon Resource Name \(ARN\) of the CMK to use when encrypting log data. |
-| `MetricFilterCount` | `Int` | The number of metric filters. |
-| `RetentionInDays` | `Int` | The number of days to retain the log events in the specified log group. If this value is `null`, logs are kept forever. |
-| `StoredBytes` | `Int` | The number of bytes stored in the log group. |
+| Field               | Type      | Description                                                                                                             |
+| ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `KmsKeyId`          | `String`  | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.                                              |
+| `MetricFilterCount` | `Integer` | The number of metric filters.                                                                                           |
+| `RetentionInDays`   | `Integer` | The number of days to retain the log events in the specified log group. If this value is `null`, logs are kept forever. |
+| `StoredBytes`       | `Integer` | The number of bytes stored in the log group.                                                                            |
 
 ```javascript
 {
@@ -39,4 +39,3 @@ CloudWatch Logs enables teams to centralize logs from systems, applications, and
     "TimeCreated": "2019-01-01T00:00:00.000Z"
 }
 ```
-
