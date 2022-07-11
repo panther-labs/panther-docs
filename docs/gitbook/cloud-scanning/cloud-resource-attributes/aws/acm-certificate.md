@@ -14,7 +14,8 @@ description: >-
 
 For ACM Certificates, the resource ID is the ARN as shown here:
 
-`arn:aws:acm:us-east-1:123456789012:certificate/11111111-1111-1111-1111-111111111111`
+\
+`arn:aws:acm:us-east-1:123456789012:certificate/12345678-12ab-34cd-56ef-12345678`
 
 ## Background
 
@@ -24,14 +25,31 @@ The [ACM Certificate](https://docs.aws.amazon.com/acm/latest/userguide/acm-overv
 
 The following table describes the Fields you can use:
 
-| Field | Type | Description |  |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `CertificateAuthorityArn` | `String` | The Amazon Resource Name to the [Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) |  |  |  |  |
-| `DomainValidationOptions` | `List` | Validation information of each domain name that occurs as a result of the `RequestCertificate` request |  |  |  |  |
-| `FailureReason` | `String` | The reason the certificate request failed |  |  |  |  |
-| `NotAfter` | `String` | The time after which the certificate is not valid |  |  |  |  |
-| `NotBefore` | `String` | The time before which the certificate is not valid |  |  |  |  |
-| `Status` | `String` | \`PENDING\_VALIDATION | ISSUED | INACTIVE EXPIRED | VALIDATION\_TIMED\_OUT | REVOKED FAILED\` |
+| Field                     | Type        | Description                                                                                                                                                                                                |
+| ------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CertificateAuthorityArn` | `String`    | The Amazon Resource Name to the [Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html)                                                                                         |
+| `DomainName`              | `String`    | Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with an ACM certificate.                                                                                              |
+| `DomainValidationOptions` | `List`      | Validation information of each domain name that occurs as a result of the `RequestCertificate` request                                                                                                     |
+| `ExtendedKeyUsages`       | `List`      | The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension |
+| `FailureReason`           | `String`    | The reason the certificate request failed                                                                                                                                                                  |
+| `InUseBy`                 | `List`      | A list of ARNs for the Amazon Web Services resources that are using the certificate                                                                                                                        |
+| `IssuedAt`                | `Timestamp` | The time at which the certificate was issued. This value exists only when the certificate type is AMAZON\_ISSUED                                                                                           |
+| `Issuer`                  | `String`    | The name of the certificate authority that issued and signed the certificate                                                                                                                               |
+| `KeyAlgorithm`            | `String`    | The algorithm that was used to generate the public-private key pair.                                                                                                                                       |
+| `KeyUsages`               | `List`      | The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate                                                                                                        |
+| `NotAfter`                | `Timestamp` | The time after which the certificate is not valid                                                                                                                                                          |
+| `NotBefore`               | `Timestamp` | The time before which the certificate is not valid                                                                                                                                                         |
+| `Options`                 | `Map`       | Value that specifies whether to add the certificate to a transparency log                                                                                                                                  |
+| `RenewalEligibility`      | `String`    | Specifies whether the certificate is eligible for renewal                                                                                                                                                  |
+| `RenewalSummary`          | `String`    | Contains information about the status of [ACM's managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate                                                    |
+| `RevocationReason`        | `String`    | The reason the certificate was revoked                                                                                                                                                                     |
+| `RevokedAt`               | `Timestamp` | The time at which the certificate was revoked                                                                                                                                                              |
+| `Serial`                  | `String`    | The serial number of the certificate                                                                                                                                                                       |
+| `SignatureAlgorithm`      | `String`    | The algorithm that was used to sign the certificate                                                                                                                                                        |
+| `Status`                  | `String`    | The status of the certificate                                                                                                                                                                              |
+| `Subject`                 | `String`    | The name of the entity that is associated with the public key contained in the certificate                                                                                                                 |
+| `SubjectAlternativeNames` | `List`      | One or more domain names (subject alternative names) included in the certificate                                                                                                                           |
+| `Type`                    | `String`    | The source of the certificate                                                                                                                                                                              |
 
 ## Example
 
@@ -122,4 +140,3 @@ The following table describes the Fields you can use:
 ## References
 
 * [ACM Concepts](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html)
-
