@@ -156,7 +156,204 @@ optional arguments:
   --debug
 ```
 
-####
+#### Available sub commands
+
+{% tabs %}
+{% tab title="release" %}
+```
+$ panther_analysis_tool release -h
+usage: panther_analysis_tool release [-h] [--aws-profile AWS_PROFILE]
+                                     [--filter KEY=VALUE [KEY=VALUE ...]]
+                                     [--ignore-files IGNORE_FILES [IGNORE_FILES ...]]
+                                     [--kms-key KMS_KEY]
+                                     [--minimum-tests MINIMUM_TESTS]
+                                     [--out OUT] [--path PATH] [--skip-tests]
+                                     [--skip-disabled-tests]
+                                     [--available-destination AVAILABLE_DESTINATION]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --aws-profile AWS_PROFILE
+                        The AWS profile to use when updating the AWS Panther
+                        deployment.
+  --filter KEY=VALUE [KEY=VALUE ...]
+  --ignore-files IGNORE_FILES [IGNORE_FILES ...]
+                        Relative path to files in this project to be ignored
+                        by panther-analysis tool, space separated. Example
+                        ./foo.yaml ./bar/baz.yaml
+  --kms-key KMS_KEY     The key id to use to sign the release asset.
+  --minimum-tests MINIMUM_TESTS
+                        The minimum number of tests in order for a detection
+                        to be considered passing. If a number greater than 1
+                        is specified, at least one True and one False test is
+                        required.
+  --out OUT             The path to store output files.
+  --path PATH           The relative path to Panther policies and rules.
+  --skip-tests
+  --skip-disabled-tests
+  --available-destination AVAILABLE_DESTINATION
+                        A destination name that may be returned by the
+                        destinations function. Repeat the argument to define
+                        more than one name.
+
+```
+{% endtab %}
+
+{% tab title="test" %}
+```
+$ panther_analysis_tool test -h   
+usage: panther_analysis_tool test [-h] [--filter KEY=VALUE [KEY=VALUE ...]]
+                                  [--minimum-tests MINIMUM_TESTS]
+                                  [--path PATH]
+                                  [--ignore-extra-keys IGNORE_EXTRA_KEYS]
+                                  [--ignore-files IGNORE_FILES [IGNORE_FILES ...]]
+                                  [--skip-disabled-tests]
+                                  [--available-destination AVAILABLE_DESTINATION]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --filter KEY=VALUE [KEY=VALUE ...]
+  --minimum-tests MINIMUM_TESTS
+                        The minimum number of tests in order for a detection
+                        to be considered passing. If a number greater than 1
+                        is specified, at least one True and one False test is
+                        required.
+  --path PATH           The relative path to Panther policies and rules.
+  --ignore-extra-keys IGNORE_EXTRA_KEYS
+                        Meant for advanced users; allows skipping of extra
+                        keys from schema validation.
+  --ignore-files IGNORE_FILES [IGNORE_FILES ...]
+                        Relative path to files in this project to be ignored
+                        by panther-analysis tool, space separated. Example
+                        ./foo.yaml ./bar/baz.yaml
+  --skip-disabled-tests
+  --available-destination AVAILABLE_DESTINATION
+                        A destination name that may be returned by the
+                        destinations function. Repeat the argument to define
+                        more than one name.
+
+```
+{% endtab %}
+
+{% tab title="upload" %}
+```
+$ panther_analysis_tool upload -h
+usage: panther_analysis_tool upload [-h] [--max-retries MAX_RETRIES]
+                                    [--aws-profile AWS_PROFILE]
+                                    [--filter KEY=VALUE [KEY=VALUE ...]]
+                                    [--minimum-tests MINIMUM_TESTS]
+                                    [--out OUT] [--path PATH] [--skip-tests]
+                                    [--skip-disabled-tests]
+                                    [--ignore-extra-keys IGNORE_EXTRA_KEYS]
+                                    [--ignore-files IGNORE_FILES [IGNORE_FILES ...]]
+                                    [--available-destination AVAILABLE_DESTINATION]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --max-retries MAX_RETRIES
+                        Retry to upload on a failure for a maximum number of
+                        times
+  --aws-profile AWS_PROFILE
+                        The AWS profile to use when updating the AWS Panther
+                        deployment.
+  --filter KEY=VALUE [KEY=VALUE ...]
+  --minimum-tests MINIMUM_TESTS
+                        The minimum number of tests in order for a detection
+                        to be considered passing. If a number greater than 1
+                        is specified, at least one True and one False test is
+                        required.
+  --out OUT             The path to store output files.
+  --path PATH           The relative path to Panther policies and rules.
+  --skip-tests
+  --skip-disabled-tests
+  --ignore-extra-keys IGNORE_EXTRA_KEYS
+                        Meant for advanced users; allows skipping of extra
+                        keys from schema validation.
+  --ignore-files IGNORE_FILES [IGNORE_FILES ...]
+                        Relative path to files in this project to be ignored
+                        by panther-analysis tool, space separated. Example
+                        ./foo.yaml ./bar/baz.yaml
+  --available-destination AVAILABLE_DESTINATION
+                        A destination name that may be returned by the
+                        destinations function. Repeat the argument to define
+                        more than one name.
+```
+{% endtab %}
+
+{% tab title="delete" %}
+```
+$ panther_analysis_tool delete -h
+usage: panther_analysis_tool delete [-h] [--no-confirm] [--athena-datalake]
+                                    [--aws-profile AWS_PROFILE]
+                                    [--analysis-id ANALYSIS_ID [ANALYSIS_ID ...]]
+                                    [--query-id QUERY_ID [QUERY_ID ...]]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --no-confirm          Skip manual confirmation of deletion
+  --athena-datalake     Instance DataLake is backed by Athena
+  --aws-profile AWS_PROFILE
+                        The AWS profile to use when updating the AWS Panther
+                        deployment.
+  --analysis-id ANALYSIS_ID [ANALYSIS_ID ...]
+                        Space separated list of Rule or Policy IDs
+  --query-id QUERY_ID [QUERY_ID ...]
+                        Space separated list of Saved Queries
+
+```
+{% endtab %}
+
+{% tab title="test-lookup-table" %}
+```
+panther_analysis_tool test-lookup-table -h
+usage: panther_analysis_tool test-lookup-table [-h]
+                                               [--aws-profile AWS_PROFILE]
+                                               --path PATH
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --aws-profile AWS_PROFILE
+                        The AWS profile to use when updating the AWS Panther
+                        deployment.
+  --path PATH           The relative path to a lookup table input file.
+
+```
+{% endtab %}
+
+{% tab title="zip" %}
+```
+$ panther_analysis_tool zip -h
+usage: panther_analysis_tool zip [-h] [--filter KEY=VALUE [KEY=VALUE ...]]
+                                 [--ignore-files IGNORE_FILES [IGNORE_FILES ...]]
+                                 [--minimum-tests MINIMUM_TESTS] [--out OUT]
+                                 [--path PATH] [--skip-tests]
+                                 [--skip-disabled-tests]
+                                 [--available-destination AVAILABLE_DESTINATION]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --filter KEY=VALUE [KEY=VALUE ...]
+  --ignore-files IGNORE_FILES [IGNORE_FILES ...]
+                        Relative path to files in this project to be ignored
+                        by panther-analysis tool, space separated. Example
+                        ./foo.yaml ./bar/baz.yaml
+  --minimum-tests MINIMUM_TESTS
+                        The minimum number of tests in order for a detection
+                        to be considered passing. If a number greater than 1
+                        is specified, at least one True and one False test is
+                        required.
+  --out OUT             The path to store output files.
+  --path PATH           The relative path to Panther policies and rules.
+  --skip-tests
+  --skip-disabled-tests
+  --available-destination AVAILABLE_DESTINATION
+                        A destination name that may be returned by the
+                        destinations function. Repeat the argument to define
+                        more than one name.
+
+```
+{% endtab %}
+{% endtabs %}
 
 #### Filtering PAT commands
 
