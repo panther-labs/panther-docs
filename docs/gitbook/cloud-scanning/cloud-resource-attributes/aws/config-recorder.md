@@ -22,10 +22,11 @@ This resource represents an AWS Config Recorder in a single region.
 
 ## Fields
 
-| Field | Description |
-| :--- | :--- |
-| `RecordingGroup` | Settings on the configuration recorder's group |
-| `Status` | Indicates whether this recorder is enabled, its name, and the most recent timestamps of certain events. |
+| Field            |          | Description                                                                                             |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `RecordingGroup` | `Map`    | Settings on the configuration recorder's group.                                                         |
+| `RoleARN`        | `String` | The IAM role used to describe the Amazon Web Services resources associated with the account.            |
+| `Status`         | `Map`    | Indicates whether this recorder is enabled, its name, and the most recent timestamps of certain events. |
 
 ## Example
 
@@ -56,4 +57,3 @@ This resource represents an AWS Config Recorder in a single region.
     "TimeCreated": null
 }
 ```
-
