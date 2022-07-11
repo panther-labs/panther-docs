@@ -133,6 +133,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - TEST_LOG_SCHEMA_WITH_RAW_DATA
 - TEST_POLICY
 - TEST_RULE
+- UPDATE_ALERT_ASSIGNEE
 - UPDATE_ALERT_DESTINATION
 - UPDATE_ALERT_STATUS
 - UPDATE_API_TOKEN
