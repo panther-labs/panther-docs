@@ -20,12 +20,18 @@ This resource represents a snapshot of an AWS EC2 Volume.
 
 ## Fields
 
-| Field | Type | Description |  |  |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `Attachments` | `List` | What devices this volume is attached to |  |  |  |  |  |
-| `Encrypted` | `Bool` | Indicates whether the volume is encrypted |  |  |  |  |  |
-| `KmsKeyId` | `String` | The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) that was used to protect the volume encryption key for the volume |  |  |  |  |  |
-| `State` | `String` | The volume state\`creating | available | in-use | deleting | deleted | error\` |
+| Field              | Type      | Description                                                                                                                                                            |
+| ------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Attachments`      | `List`    | What devices this volume is attached to                                                                                                                                |
+| `AvailabilityZone` | `String`  | The Availability Zone for the volume.                                                                                                                                  |
+| `Encrypted`        | `Bool`    | Indicates whether the volume is encrypted                                                                                                                              |
+| `Iops`             | `Integer` | The number of I/O operations per second (IOPS).                                                                                                                        |
+| `KmsKeyId`         | `String`  | The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the volume encryption key for the volume |
+| `Size`             | `Integer` | The size of the volume, in GiBs.                                                                                                                                       |
+| `SnapshotId`       | `String`  | The snapshot from which the volume was created.                                                                                                                        |
+| `VolumeType`       | `String`  | The volume type.                                                                                                                                                       |
+| `Snapshots`        | `List`    | A list with a snapshot description.                                                                                                                                    |
+| `State`            | `String`  | The volume state.                                                                                                                                                      |
 
 ```javascript
 {
@@ -80,4 +86,3 @@ This resource represents a snapshot of an AWS EC2 Volume.
     "VolumeType": "gp2"
 }
 ```
-

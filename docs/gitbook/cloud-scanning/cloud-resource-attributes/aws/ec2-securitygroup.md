@@ -20,10 +20,13 @@ This resource represents a snapshot of an AWS EC2 VPC SecurityGroup.
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `IpPermissions` | `List` | Inbound IP permissions |
-| `IpPermissionsEgress` | `List` | Outbound \(egress\) IP permissions |
+| Field                 | Type     | Description                                                               |
+| --------------------- | -------- | ------------------------------------------------------------------------- |
+| `Description`         | `String` | The description of the security group.                                    |
+| `IpPermissions`       | `List`   | Inbound IP permissions                                                    |
+| `IpPermissionsEgress` | `List`   | Outbound (egress) IP permissions                                          |
+| `OwnerId`             | `String` | The Amazon Web Services account ID of the owner of the network interface. |
+| `VpcId`               | `String` | The ID of the VPC.                                                        |
 
 ## Example
 
@@ -80,4 +83,3 @@ This resource represents a snapshot of an AWS EC2 VPC SecurityGroup.
     "VpcId": "vpc-1"
 }
 ```
-

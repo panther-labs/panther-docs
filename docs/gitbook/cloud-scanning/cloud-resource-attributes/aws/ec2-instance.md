@@ -16,10 +16,51 @@ This resource represents a snapshot of an AWS EC2 Instance.
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `BlockDeviceMappings` | `List` | Lists what block devices are attached |
-| `NetworkInterfaces` | `Map` | Detailed information about the instance's network configuration |
+| Field                                   | Type      | Description                                                                             |
+| --------------------------------------- | --------- | --------------------------------------------------------------------------------------- |
+| AmiLaunchIndex                          | `Integer` | The AMI launch index.                                                                   |
+| Architecture                            | `String`  | The architecture of the image.                                                          |
+| BlockDeviceMappings                     | `List`    | Any block device mapping entries for the instance.                                      |
+| CapacityReservationId                   | `String`  | The ID of the Capacity Reservation.                                                     |
+| CapacityReservationSpecification        | `Map`     | Information about the Capacity Reservation targeting option.                            |
+| ClientToken                             | `String`  | The provided token when the instance launched.                                          |
+| CpuOptions                              | `Map`     | The CPU options for the instance.                                                       |
+| EbsOptimized                            | `Boolean` | Whether the instance is optimized for Amazon EBS I/O.                                   |
+| ElasticGpuAssociations                  | `List`    | The Elastic GPU associated with the instance.                                           |
+| ElasticInferenceAcceleratorAssociations | `List`    | The elastic inference accelerator associated with the instance.                         |
+| EnaSupport                              | `Boolean` | Whether enhanced networking with ENA is enabled.                                        |
+| HibernationOptions                      | `Map`     | Whether the instance is enabled for Amazon Web Services Nitro Enclaves.                 |
+| Hypervisor                              | `String`  | The hypervisor type of the instance.                                                    |
+| IamInstanceProfile                      | `Map`     | The IAM instance profile associated with the instance.                                  |
+| ImageId                                 | `String`  | The ID of the AMI used to launch the instance.                                          |
+| InstanceLifecycle                       | `String`  | Whether this is a Spot Instance or a Scheduled Instance.                                |
+| InstanceType                            | `String`  | The instance type.                                                                      |
+| KernelId                                | `String`  | The kernel associated with this instance.                                               |
+| KeyName                                 | `String`  | The name of the key pair, if this instance was launched with an associated key pair.    |
+| Licenses                                | `String`  | The license configurations for the instance.                                            |
+| MetadataOptions                         | `List`    | The metadata options for the instance.                                                  |
+| Monitoring                              | `Map`     | The monitoring for the instance.                                                        |
+| NetworkInterfaces                       | `List`    |                                                                                         |
+| Placement                               | `Map`     | The location where the instance launched, if applicable.                                |
+| Platform                                | `String`  | The instance operating system.                                                          |
+| PrivateDnsName                          | `String`  | The private DNS hostname name assigned to the instance.                                 |
+| PrivateIpAddress                        | `String`  | The private IPv4 address assigned to the instance.                                      |
+| ProductCodes                            | `List`    | The product codes attached to this instance.                                            |
+| PublicDnsName                           | `String`  | The public DNS name assigned to the instance.                                           |
+| PublicIpAddress                         | `String`  | The public IP address.                                                                  |
+| RamdiskId                               | `String`  | The RAM disk associated with this instance.                                             |
+| RootDeviceName                          | `String`  | The device name of the root device volume.                                              |
+| RootDeviceType                          | `String`  | The root device type used by the AMI.                                                   |
+| SecurityGroups                          | `List`    | The security groups for the instance.                                                   |
+| SourceDestCheck                         | `Boolean` | Whether source/destination checking is enabled.                                         |
+| SpotInstanceRequestId                   | `String`  | The ID of the Spot Instance request.                                                    |
+| SriovNetSupport                         | `String`  | Whether enhanced networking with the Intel 82599 Virtual Function interface is enabled. |
+| State                                   | `Map`     | The current state of the instance.                                                      |
+| StateReason                             | `Map`     | The reason for the most recent state transition.                                        |
+| StateTransitionReason                   | `String`  | The reason for the most recent state transition.                                        |
+| SubnetId                                | `String`  | The ID of the subnet in which the instance is running.                                  |
+| VirtualizationType                      | `String`  | The virtualization type of the instance.                                                |
+| VpcId                                   | `String`  | The ID of the VPC in which the instance is running.                                     |
 
 ## Example
 
@@ -160,4 +201,3 @@ This resource represents a snapshot of an AWS EC2 Instance.
     "VpcId": "vpc-1"
 }
 ```
-

@@ -20,10 +20,13 @@ This resource represents a snapshot of an AWS EC2 VPC NetworkACL.
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `Entries` | `List` | Individual Network ACL rules to allow or block traffic |
-| `IsDefault` | `Bool` | Whether this Network ACL is the default Network ACL for its associated VPC |
+| Field          | Type     | Description                                                                |
+| -------------- | -------- | -------------------------------------------------------------------------- |
+| `Associations` | `List`   | An association between a network ACL and a subnet.                         |
+| `Entries`      | `List`   | Individual Network ACL rules to allow or block traffic                     |
+| `IsDefault`    | `Bool`   | Whether this Network ACL is the default Network ACL for its associated VPC |
+| `OwnerId`      | `String` | The Amazon Web Services account ID of the owner of the network interface.  |
+| `VpcId`        | `String` | The ID of the VPC.                                                         |
 
 ## Example
 
@@ -79,4 +82,3 @@ This resource represents a snapshot of an AWS EC2 VPC NetworkACL.
     "VpcId": "vpc-1"
 }
 ```
-

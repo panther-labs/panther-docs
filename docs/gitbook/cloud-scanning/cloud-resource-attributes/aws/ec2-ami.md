@@ -20,12 +20,28 @@ EC2 AMIs contain information required to launch an instance.
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `ImageOwnerAlias` | `String` | The AWS account alias or the AWS account ID of the AMI owner |
-| `OwnerId` | `String` | The AWS account ID of the image owner. |
-| `Public` | `Bool` | Indicates whether the image has public launch permissions |
-| `State` | `String` | The current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance |
+| Field                 | Type      | Description                                                                                                                           |
+| --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `Architecture`        | `String`  | The architecture of the image.                                                                                                        |
+| `BlockDeviceMappings` | `List`    | Any block device mapping entries.                                                                                                     |
+| `Description`         | `String`  | The description of the AMI that was provided during image creation.                                                                   |
+| `EnaSupport`          | `Boolean` |                                                                                                                                       |
+| `Hypervisor`          | `String`  | The hypervisor type of the image.                                                                                                     |
+| `ImageLocation`       | `String`  | The location of the AMI.                                                                                                              |
+| `ImageOwnerAlias`     | `String`  | The AWS account alias or the AWS account ID of the AMI owner                                                                          |
+| `ImageType`           | `String`  | The type of image.                                                                                                                    |
+| `KernelId`            | `String`  | The kernel associated with the image,                                                                                                 |
+| `OwnerId`             | `String`  | The AWS account ID of the image owner.                                                                                                |
+| `Platform`            | `String`  | The instance operating system.                                                                                                        |
+| `ProductCodes`        | `List`    | Any product codes associated with the AMI.                                                                                            |
+| `Public`              | `Boolean` | Indicates whether the image has public launch permissions                                                                             |
+| `RamdiskId`           | `String`  | The RAM disk associated with the image.                                                                                               |
+| `RootDeviceName`      | `String`  | The device name of the root device volume (for example, /dev/sda1).                                                                   |
+| `RootDeviceType`      | `String`  | The type of root device used by the AMI.                                                                                              |
+| `SriovNetSupport`     | `String`  | Whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.                                               |
+| `State`               | `String`  | The current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance |
+| `StateReason`         | `Map`     | The reason for the state change.                                                                                                      |
+| `VirtualizationType`  | `String`  | The type of virtualization of the AMI.                                                                                                |
 
 ```javascript
 {
@@ -75,4 +91,3 @@ EC2 AMIs contain information required to launch an instance.
     "VirtualizationType": "hvm"
 }
 ```
-
