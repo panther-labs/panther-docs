@@ -16,10 +16,22 @@ The [CloudTrail](https://aws.amazon.com/cloudtrail/) resource represents the sys
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `EventSelectors` | `List` | The collection of management and data event settings across each CloudTrail in each region |
-| `Status` | `Map` | CloudTrail [status](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html) of last events. |
+| Field                        | Type      | Description                                                                                                                 |
+| ---------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `CloudWatchLogsLogGroupArn`  | `String`  | An Amazon Resource Name that represents the log group to which CloudTrail logs will be delivered.                           |
+| `CloudWatchLogsRoleArn`      | `String`  | The role for the CloudWatch Logs endpoint to assume to write to a user's log group.                                         |
+| `HasCustomEventSelectors`    | `Boolean` | Specifies if the trail has custom event selectors.                                                                          |
+| `HomeRegion`                 | `String`  | The region in which the trail was created.                                                                                  |
+| `IncludeGlobalServiceEvents` | `Boolean` | Boolean to include Amazon Web Services API calls from Amazon Global Services.                                               |
+| `IsMultiRegionTrail`         | `Boolean` | Whether the trail exists only in one region or exists in all regions.                                                       |
+| `IsOrganizationTrail`        | `Boolean` | Whether the trail is an organization trail.                                                                                 |
+| `KmsKeyId`                   | `String`  | The KMS key ID that encrypts the logs delivered by CloudTrail.                                                              |
+| `LogFileValidationEnabled`   | `Boolean` | Whether log file validation is enabled.                                                                                     |
+| `S3BucketName`               | `String`  | The name of the Amazon S3 bucket into which CloudTrail delivers the trail files.                                            |
+| `S3KeyPrefix`                | `String`  | The Amazon S3 key prefix that comes after the name of the S3 bucket.                                                        |
+| `SnsTopicARN`                | `String`  | The ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.                    |
+| `EventSelectors`             | `List`    | The collection of management and data event settings across each CloudTrail in each region                                  |
+| `Status`                     | `Map`     | CloudTrail [status](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API\_GetTrailStatus.html) of last events. |
 
 ## Example
 
@@ -79,4 +91,3 @@ The [CloudTrail](https://aws.amazon.com/cloudtrail/) resource represents the sys
     "TimeCreated": null
 }
 ```
-
