@@ -16,10 +16,24 @@ This resource represents a snapshot of an AWS DynamoDB Table.
 
 ## Fields
 
-| Field | Description |
-| :--- | :--- |
-| `SSEDescription` | Details how and if server side encryption is configured |
-| `AutoScalingDescriptions` | Details on how dynamically adjusting provisioned throughput capacity in response to traffic patterns is configured |
+| Field                     | Type      | Description                                                                                                                                    |
+| ------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AttributeDefinitions`    | `List`    | Attributes that describe the key schema for the table and indexes.                                                                             |
+| `BillingModeSummary`      | `Map`     | The details for the read/write capacity mode.                                                                                                  |
+| `GlobalSecondaryIndexes`  | `List`    | The global secondary indexes.                                                                                                                  |
+| `ItemCount`               | `Integer` | The number of items in the specified table.                                                                                                    |
+| `KeySchema`               | `List`    | The primary key structure for the table.                                                                                                       |
+| `LatestStreamArn`         | `String`  | The ARN that uniquely identifies the latest stream for this table.                                                                             |
+| `LatestStreamLabel`       | `String`  | A timestamp, in ISO 8601 format, for this stream.                                                                                              |
+| `LocalSecondaryIndexes`   | `List`    | One or more local secondary indexes on the table.                                                                                              |
+| `ProvisionedThroughput`   | `Map`     | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases. |
+| `RestoreSummary`          | `Map`     | Details for the restore.                                                                                                                       |
+| `SSEDescription`          | `Map`     | The description of the server-side encryption status on the specified table.                                                                   |
+| `StreamSpecification`     | `Map`     | The current DynamoDB Streams configuration for the table.                                                                                      |
+| `TableSizeBytes`          | `Integer` | The total size of the specified table, in bytes.                                                                                               |
+| `TableStatus`             | `String`  | The current state of the table                                                                                                                 |
+| `AutoScalingDescriptions` | `List`    | Details on how dynamically adjusting provisioned throughput capacity in response to traffic patterns is configured                             |
+| `TimeToLiveDescription`   | `Map`     | The description of the Time to Live (TTL) status on the specified table.                                                                       |
 
 ## Example
 
@@ -103,4 +117,3 @@ This resource represents a snapshot of an AWS DynamoDB Table.
     }
 }
 ```
-

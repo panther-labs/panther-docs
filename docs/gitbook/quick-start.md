@@ -17,10 +17,6 @@ This guide will walk you through:
 * Onboarding logs you want to monitor
 * Setting up detections to alert you against common security threats
 
-{% hint style="success" %}
-Panther's [Glossary](help/glossary.md) introduces common cloud-native, security, and Panther-specific terminology. Refer to the Glossary for extra context and clarity on terms found throughout this Quick Start and the greater Documentation site.
-{% endhint %}
-
 ## Overview
 
 ### Overview Video
