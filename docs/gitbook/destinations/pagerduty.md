@@ -14,12 +14,12 @@ Destinations are integrations that receive alerts from rules, policies, system h
 
 1. Log in to your PagerDuty account.
 2. Navigate to the Service Directory configuration page then click **+New Service**.\
-   ![](<../../../.gitbook/assets/pagerduty1 (6) (1) (1) (11) (1) (1) (10) (13).png>)
+   ![](<../../../.gitbook/assets/pagerduty1 (6) (1) (1) (11) (1) (1) (13).png>)
 3. Fill out the form on the service configuration page.
    * For Integration Type, choose **Use our API directly**.\
-     ![](<../../../.gitbook/assets/pagerduty2 (7) (1) (1) (11) (1) (1) (10) (13).png>)
+     ![](<../../../.gitbook/assets/pagerduty2 (7) (1) (1) (11) (1) (1) (13).png>)
 4. You will be redirected to the Integrations page for that service. On this page, copy out the Integration Key and store it in a secure location. You will need this in the next steps.\
-   ![](<../../../.gitbook/assets/pagerduty3 (8) (1) (1) (11) (1) (1) (10) (13).png>)
+   ![](<../../../.gitbook/assets/pagerduty3 (8) (1) (1) (11) (1) (1) (13).png>)
 
 ### Configure the PagerDuty alert destination in Panther
 

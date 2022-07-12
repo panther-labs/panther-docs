@@ -6,14 +6,15 @@ description: Use Panther's Data Explorer to view normalized data and perform SQL
 
 The Data Explorer in your Panther Console is where you can view your normalized Panther data and perform SQL queries (with autocompletion).&#x20;
 
-In the Data Explorer, you can:
+In Data Explorer, you can:
 
 * Browse collected log data, rule matches, and search standard fields across all data
-* Save, tag and load your queries&#x20;
+* Save, tag, and load your queries&#x20;
 * Create [scheduled queries](scheduled-queries.md) to run through the rule engine
 * Share results with your team through a shareable link
 * Select entire rows of JSON to use in the rule engine as unit tests
-* Download results in a CSV\
+* Download results in a CSV
+* Preview table data, filter results, and summarize columns without SQL\
 
 
 **To access the Data Explorer**:
@@ -21,7 +22,7 @@ In the Data Explorer, you can:
 1. Log in to your Panther Console.
 2. In the left sidebar, click **Data > Data Explorer**.
 
-![](<../.gitbook/assets/data-explorer (1).png>)
+![](<../.gitbook/assets/Data Explorer dashboard.png>)
 
 You can limit access to the Data Explorer through [Role-Based Access Control](../system-configuration/rbac.md) (RBAC).
 
@@ -41,6 +42,24 @@ In the upper right corner of the Results table, click **Filter Columns** to sele
 
 Note: The filters applied through this mechanism do not apply to the SQL select statement in your query.
 
+#### Summarize column data
+
+As of Panther versions 1.38 and newer, you can generate a summary (frequency count) of a column from a Result set in Data Explorer without writing SQL.
+
+On the column that your want to generate a summary for, click the down arrow and then **Summarize** to display summary results in a separate tab.
+
+![On the column header for clientIp, the Summarize option appears on clicking the down arrow](<../.gitbook/assets/image (36).png>)
+
+You can also generate a summary for the first time after a query is executed by switching to the **Summarize** tab and selecting a column from the dropdown.
+
+![In the Summarize tab, the type-ahead dropdown allows selecting a column to summarize ](<../.gitbook/assets/image (8).png>)
+
+The summary results for a selected column are displayed in the Summary tab, with the option to sort results by highest count or lowest count first (default is the highest count first).
+
+![row\_count represents the frequency of each unique clientIp in the result set](<../.gitbook/assets/image (24).png>)
+
+In addition to the `row_count` value, the summary also displays `first_seen` and `last_seen` values if the result data contains the `p_event_time` [standard field](panther-fields.md).
+
 ## Macros
 
 All the tables in our supported backend databases (Athena and Snowflake) are partitioned by event time to allow for better performance when querying using a time filter. However, the partition technologies are different across the backends, and using them efficiently can make for unwieldy SQL code if written by hand. To make things even easier, we have created a number of macros that will be expanded into full expressions when sent to the database, so that you don't have to worry about writing complicated expressions.
@@ -49,7 +68,7 @@ All the tables in our supported backend databases (Athena and Snowflake) are par
 
 ### Time range filter: p\_occurs\_between
 
-`p_occurs_between(startTime, endTime [, tableAlias])`
+`p_occurs_between(startTime, endTime, [tableAlias])`
 
 `startTime - correctly formatted time expression, indicating start of search window`
 
