@@ -21,11 +21,11 @@ ServiceNow permissions to create a Scripted Rest API require a user with the **w
 
 1. In the ServiceNow console, click the **All** tab in the upper left-hand corner.&#x20;
 2. Expand the **System Web Services** and **Scripted Web Services** navigations, then click on **Scripted REST APIs.**\
-   ****<img src="../.gitbook/assets/image (51).png" alt="" data-size="original">``
+   ****<img src="../.gitbook/assets/image (51) (1).png" alt="" data-size="original">``
 3. Click **New** in the upper right-hand corner.&#x20;
 4. Select a Name and an ID, for example, `Panther Incident Creation` and `panther_incident_creation`, respectively.\
    \
-   ![](<../.gitbook/assets/image (42).png>)
+   ![](<../.gitbook/assets/image (42) (2).png>)
 5. Click **Submit**.
 6. On the Scripted Rest API's page, search for the name you just created. Click the **hyperlinked name.**
 7. Near the bottom of the page, click the **Resources tab.** Click **** the **New** button in the right-hand corner.
@@ -129,4 +129,4 @@ Click the **Test Alert** button to generate an alert and send to ServiceNow; the
 
 Once the alert is received by ServiceNow, an incident should be created in ServiceNow Incident table:
 
-![](<../.gitbook/assets/image (6).png>)
+![](<../.gitbook/assets/image (6) (1).png>)

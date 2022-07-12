@@ -48,7 +48,7 @@ As of Panther versions 1.38 and newer, you can generate a summary (frequency cou
 
 On the column that your want to generate a summary for, click the down arrow and then **Summarize** to display summary results in a separate tab.
 
-![On the column header for clientIp, the Summarize option appears on clicking the down arrow](<../.gitbook/assets/image (36).png>)
+![On the column header for clientIp, the Summarize option appears on clicking the down arrow](<../.gitbook/assets/image (36) (1).png>)
 
 You can also generate a summary for the first time after a query is executed by switching to the **Summarize** tab and selecting a column from the dropdown.
 
@@ -56,7 +56,7 @@ You can also generate a summary for the first time after a query is executed by 
 
 The summary results for a selected column are displayed in the Summary tab, with the option to sort results by highest count or lowest count first (default is the highest count first).
 
-![row\_count represents the frequency of each unique clientIp in the result set](<../.gitbook/assets/image (24).png>)
+![row\_count represents the frequency of each unique clientIp in the result set](<../.gitbook/assets/image (24) (1).png>)
 
 In addition to the `row_count` value, the summary also displays `first_seen` and `last_seen` values if the result data contains the `p_event_time` [standard field](panther-fields.md).
 

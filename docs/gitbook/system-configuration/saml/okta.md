@@ -42,7 +42,7 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
     * **Single sign on URL**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
     * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
 
-    ![](<../../.gitbook/assets/image (36) (1).png>)
+    ![](<../../.gitbook/assets/image (36) (2).png>)
 8. Configure the following under **Attribute Statements**:
    * **Name**: `PantherEmail`, **Value**: `user.email`
    * **Name**: `PantherFirstName`, **Value**: `user.firstName`
@@ -78,4 +78,4 @@ Amazon Cognito, which powers Panther's user management, does not support IdP-ini
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (23).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (10) (23).png>)

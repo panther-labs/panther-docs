@@ -11,46 +11,42 @@ Custom Logs are identified by a `Custom.` prefix in their name and can be used w
 * You can query the data in Data Explorer. Panther will create a new table for the Custom Log, once you onboard a source that uses it.
 * You can query the data through Indicator Search.
 
-## Generating and testing a data schema for a Custom Log from data in S3 (BETA)
-
-{% hint style="info" %}
-This feature is available as an invite-only beta starting with version 1.36. To request access to the feature or share any bug reports or feature requests, please contact your account team.
-{% endhint %}
+## Generating and testing a data schema for a Custom Log from data in S3
 
 You can generate a schema for a custom log from live data streaming from an S3 bucket and then test that schema before publishing.&#x20;
 
-### **View Raw Data from S3**
+### **View raw data from S3**
 
 After onboarding your S3 bucket onto Panther, you can view raw data coming into Panther before processing. To view the raw data and kick off schema inference/testing, proceed with the following:
 
 1. Follow the instructions to [onboard an S3 bucket onto Panther](../data-transports/s3.md) without having a schema in place.
    * Skip the step where you list schemas and prefixes in the first page of the S3 onboarding wizard.&#x20;
    * You'll have the opportunity to add schemas and prefixes after the S3 bucket is onboarded.
-2. Once the S3 bucket is successfully onboarded, you'll see a call-to-action to **Attach Schemas** to the bucket in the S3 bucket's Log Source Operations Page and the Log Source Listing Page. Click the **Attach Schemas** button.\
-   ![](<../../.gitbook/assets/custom Logs.png>)&#x20;
-   * **Note:** You may need to wait up to 15 minutes for data to start streaming into Panther.&#x20;
+2. Once the S3 bucket is successfully onboarded, you'll see two options to attach schemas in the S3 bucket's Log Source Operations Page. Click **Start** on the 2nd option to start generating a schema from your raw events.\
+   ![](<../../.gitbook/assets/image (24).png>) \
+
+   * **Note:** This option is only made available when data is imported**.** You may need to wait up to 15 minutes for data to start streaming into Panther.&#x20;
 3. On the schema inference and testing workflow page, **view** the raw data that Panther has received **at the bottom of the screen** .  \
-   &#x20;![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 1.45.35 PM.png>)
+   ![](<../../.gitbook/assets/image (38).png>)
    * This data is displayed from `data-archiver`, a Panther-managed S3 bucket that retains raw logs for up to 30 days for every S3 log source.
-   * If you still do not see data after 15 minutes, ensure that the time picker is set to the appropriate time range that corresponds with the timestamps on the events coming into Panther.
 
 ### **Infer a schema from raw data**
 
 Using raw live data coming from S3, you can infer schemas with just a few steps.
 
 1. Once you see data populating in **Raw Events,** you can **filter the raw events** you'd like to infer a schema for by using the time, prefix, or string filter. Filter the raw events by going to the top of the raw events table and **setting the parameters** there.\
-   &#x20;![](<../../.gitbook/assets/Screen Shot 2022-06-10 at 1.59.03 PM.png>)
+   ![](<../../.gitbook/assets/image (12).png>)
 2. Click **Infer Schema** to generate a schema.&#x20;
 3. On the **Infer New Schema** modal that pops up, enter the following:
-   * **Prefix:** An existing prefix that was set up prior to inferring the schema or a new prefix.
-     * The prefix you choose will filter data from the corresponding prefix in the S3 bucket to the schema you've inferred.&#x20;
-     * If you don't need to specify a specific prefix, you can use the catch-all prefix that is called `*`.
-   * **Name:** The name of the schema that will map to the table in the data lake once the schema is published.&#x20;
+   * **Schema Name:** The name of the schema that will map to the table in the data lake once the schema is published.&#x20;
      * The name will always start with `Custom.` and must have a capital letter after.
-   * **Reference URL**: An optional field that can be used to reference documentation related to the schema.
-   * **Description**: An optional field that can be used to add context to the schema's purpose and design.\
-     ****![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 1.53.59 PM.png>)****
-4. Click **Apply Changes**.
+   *   **Prefix:** Use an existing prefix that was set up prior to inferring the schema or a new prefix.
+
+       * The prefix you choose will filter data from the corresponding prefix in the S3 bucket to the schema you've inferred.&#x20;
+       * If you don't need to specify a specific prefix, you can leave this field empty to use the catch-all prefix that is called `*`.
+
+       ![](<../../.gitbook/assets/image (5).png>)
+4. Click **Infer Schema**.
    * The schema will then be placed in a **Draft** mode until you're ready to publish to production after testing.
 5. Review the schema and its fields by going to the **Schemas** section and clicking on the **schema name**.&#x20;
    * You'll see the name you attributed to the schema with a **draft** label after the schema is inferred.
@@ -62,20 +58,19 @@ Using raw live data coming from S3, you can infer schemas with just a few steps.
 
 Once your schemas and prefixes are defined, you can proceed to testing the schema configuration against raw data.
 
-1. In the **Test Schemas** section at the top of the screen, **select the date range** of data that you would like to test your schemas against.&#x20;
-   * This date range is specific to testing; it is separate from the date range shown below in the **view raw data/schema inference section.**\
-     ****![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.31.03 PM (1).png>)
-2. Click **Test all Schemas** to begin test.&#x20;
-   * Depending on the time range and amount of data, the test may take a few minutes to complete.
-   * Once the test finishes, the results appear with the amount of matched and unmatched events.&#x20;
+1. In the **Test Schemas** section at the top of the screen, click on the **Run Test** button. \
+   ****![](<../../.gitbook/assets/image (31).png>)****
+2. On the Test Schemas modal that pops up, select the **Time Period** you would like to test your schemas against and click on the **Start Test** button.\
+   ![](<../../.gitbook/assets/image (39).png>)
+   * Depending on the time range and amount of data, the test may take a few minutes to complete.\
+     ![](<../../.gitbook/assets/image (36).png>)
+   * Once the test is started, the results appear with the amount of matched and unmatched events.
      * **Matched events** represent the number of events that would successfully classify against the schema configuration.&#x20;
-     * **Unmatched events** represent the number of events that would unsuccessfully classify.\
-       ![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.32.49 PM.png>)
-3. Click **View Report** to see a more detailed summary of errors that caused events to unsuccessfully match.&#x20;
-4. **Inspect the errors and the JSON** to decipher what caused the failures. &#x20;
-5. **Navigate back to the draft schema,** make changes as needed, and test the schemas again.\
+     * **Unmatched events** represent the number of events that would unsuccessfully classify.
+3. **Inspect the errors and the JSON** to decipher what caused the failures. &#x20;
+4. **Navigate back to the draft schema,** make changes as needed, and test the schemas again.\
    \
-   ![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 5.46.54 PM.png>)
+   ![](<../../.gitbook/assets/image (6).png>)
 
 ## Generating a schema for a Custom Log from sample logs
 
@@ -152,7 +147,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed.**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png>)
 
 &#x20;
 
