@@ -42,7 +42,7 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
     * **Single sign on URL**: Enter the **ACS URL** you copied from the Panther Console in earlier steps of this documentation.
     * **Audience**: Enter the **Audience** you copied from the Panther Console in earlier steps of this documentation.
 
-    ![](<../../.gitbook/assets/image (36) (2).png>)
+    ![](<../../.gitbook/assets/image (36).png>)
 8. Configure the following under **Attribute Statements**:
    * **Name**: `PantherEmail`, **Value**: `user.email`
    * **Name**: `PantherFirstName`, **Value**: `user.firstName`

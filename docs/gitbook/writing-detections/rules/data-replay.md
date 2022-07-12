@@ -37,7 +37,7 @@ Before getting started, note the following constraints:
    ![](<../../.gitbook/assets/data-replay-ui (1) (1) (1) (1) (1) (2) (2).png>)
 4. Under **Data Replay**, select the log types and date range you wish to replay for the Detection. Click **Run Replay**.
    * The estimated run time and data size will be displayed.
-   * Note: If you have made any changes to the rule, you must save your changes before started a Replay.
+   * Note: If you have made any changes to the rule, you must save your changes before starting a Replay.
 
 As the Replay is processing, the progress will be displayed. You can exit this page at any time without cancelling the Replay.&#x20;
 
