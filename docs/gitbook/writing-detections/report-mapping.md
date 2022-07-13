@@ -17,7 +17,7 @@ Version 1.37 and newer allows you to directly map your Detection against the MIT
    * Enter the framework name into the Report Key field.&#x20;
    * Enter the specific framework requirement name into the Report Values field.
      * You can enter multiple report values separated by a comma.\
-       ![](../.gitbook/assets/report-map.png)
+       ![](<../.gitbook/assets/Screen Shot 2021-11-08 at 9.53.47 PM.png>)
 5. Click **Update** in the upper right corner.
 
 You can view the report mapping in the **Detection Details** page:

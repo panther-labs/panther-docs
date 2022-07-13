@@ -141,5 +141,5 @@ There are three options for creating an IAM Role to use with your Panther Lookup
        ```
 3. On the "Setting up role manually" page in Panther, enter the Role ARN.&#x20;
    * This can be found in the "Outputs" tab of the CloudFormation stack in your AWS account.\
-     ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.03.43 PM.png>)
+     ![](../../.gitbook/assets/role-arn.png)
 4. Click **Finish Setup**, and you will be redirected to the Lookup Tables list page with your new Employee Directory table listed.

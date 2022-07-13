@@ -78,7 +78,7 @@ from logs join lookup on logs.selector_field = lookup.key_field
 
 1. In your Panther Console, navigate to **Enrichment > Lookup Tables** to view your Lookup Tables list.
 2. Click **...** in the upper right corner of the Lookup Table you wish to view, then click **View In Data Explorer**.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 5.18.03 PM.png>)
+   ![](../../.gitbook/assets/view-in-de.png)
 
 For more information on using Data Explorer, please see the documentation: [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer).
 
@@ -145,7 +145,7 @@ Example:
 
 For rules that use `p_enrichment`, click **Enrich Test Data** in the upper right side of the JSON code editor to populate it with your Lookup Table data. This allows you to test a Python function with an event that contains `p_enrichment.`
 
-![](<../../.gitbook/assets/image (8).png>)
+![](<../../.gitbook/assets/image (8) (1).png>)
 
 ## Lookup Table Examples
 

@@ -42,12 +42,12 @@ For more information on creating a schema, see [Generating a Schema for a Custom
 1. Log in to your Panther Console. In the left-hand navigation, click **Enrichment > Lookup Tables**.
 2. In the upper right, click **+** to create a new Lookup Table.
 3. On the Lookup Table Basic Information page, add a Lookup Name, and optionally a description and reference. \
-   ![](<../.gitbook/assets/1pw-lookup-table-basic-info (1).jpg>)
+   ![](../.gitbook/assets/1pw-lookup-table-basic-info.jpg)
    * In this example, the Lookup Name is “1Password Translation” and the Description is “Translates 1Password UUIDs to human readable names.”&#x20;
    * The Reference field is generally used to store a hyperlink to a related internal resource.
 4. Click **Continue**.&#x20;
 5. On the Associated Log Types page, select the Log Type **OnePassword.ItemUsage**. Under Selectors, add `item_uuid`. \
-   &#x20;![](<../.gitbook/assets/1pw-log-type (1).png>)
+   &#x20;![](../.gitbook/assets/1pw-log-type.png)
 6. Click **Continue**.&#x20;
 7. On the Table Schema page, add the schema you created based on your 1Password JSON file. For the Primary Key Name, select `uuid`.&#x20;
    * If you have not created a schema yet, please follow the documentation here to create one before moving on to the next step: [Generating a Schema for a Custom Log Type from Sample Logs](https://docs.runpanther.io/data-onboarding/custom-log-types#generating-a-custom-log-type-from-sample-logs).

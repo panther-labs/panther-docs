@@ -99,4 +99,4 @@ From these results, you can pivot to the specific logs where activity is indicat
 
 The Panther standard fields can be used in rules. For example, this rule triggers when any GuardDuty alert is on a resource tagged as 'critical':
 
-![Example Panther Rule](<../../../.gitbook/assets/panther-fields (7) (7) (9) (2) (1) (1) (3) (1) (1) (2) (7).png>)
+![Example Panther Rule](<../../../.gitbook/assets/panther-fields (7) (7) (9) (2) (1) (1) (3) (1) (1) (1) (7).png>)
