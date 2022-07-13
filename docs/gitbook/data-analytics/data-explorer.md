@@ -78,7 +78,7 @@ All the tables in our supported backend databases (Athena and Snowflake) are par
 
 **Note**: Please ensure that your time expression can be parsed by the database backend your team is using. Some expressions that work in Snowflake (i.e. `2021-01-21T11:15:54.346Z`) will not be accepted as valid timestamps by Athena. The default safe time format should probably look similar to this `2021-01-02 15:04:05.000` and is assumed to be in the UTC time zone.
 
-The macro p\_occurs\_between() takes a start time, an end time and optionally a table alias (in case you want to use the macro across one or multiple tables in a join) and filters the result set to those events in the time range, using the correct partition (minimizing I/O and speeding up the query).
+The macro `p_occurs_between()` takes a start time, an end time and optionally a table alias (in case you want to use the macro across one or multiple tables in a join) and filters the result set to those events in the time range, using the correct partition (minimizing I/O and speeding up the query).
 
 The following Snowflake command contains a macro:
 
@@ -127,7 +127,7 @@ limit 1000
 
 `tableAlias - optional parameter, allows passing through a table alias to the filter`
 
-The macro p\_occurs\_since() takes a positive integer number of seconds and optionally a table alias (in case you want to use the macro across one or multiple tables in a join), and filters the result set down to those events from the current time offset by the specified number of seconds, using the correct partition or cluster key (minimizing I/O and speeding up the query).
+The macro `p_occurs_since()` takes a positive integer number of seconds and optionally a table alias (in case you want to use the macro across one or multiple tables in a join), and filters the result set down to those events from the current time offset by the specified number of seconds, using the correct partition or cluster key (minimizing I/O and speeding up the query).
 
 For convenience, we have added additional time parts that can be used:
 
@@ -135,7 +135,7 @@ For convenience, we have added additional time parts that can be used:
 * `m, min, minute, minutes` — macro adds specified minutes to offset
 * `h, hr, hrs, hour, hours` — macro adds specified hours to offset
 * `d, day, days` — macro adds specified days to offset
-* `w, wk, week, weeks` — macro adds specified number of weeks to offset
+* `w, wk, week, weeks` — macro adds a specified number of weeks to offset
 * if no suffix is detected, the macro will proceed as before and default to seconds
 
 #### Examples:

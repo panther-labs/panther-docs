@@ -2,12 +2,12 @@
 
 ## Functions
 
-Panther Detections contain several Python3 functions that control the analysis logic, generated alert title, event grouping, routing of alerts, and metadata overrides.
+Panther Detections contain several Python3 functions that control the analysis logic, generated alert title, event grouping, routing of alerts, and metadata overrides. These functions are referred to as auxiliary functions and are applicable to both rules and policies.
 
-Rules are very customizable and can import from standard Python libraries or [global helpers](globals.md). Additional functions, variables, or classes may also be defined outside of the functions defined below for advanced use or cleaner code.  Starting in version 1.24, these auxiliary functions will also be available to policies.
+Rules are customizable and can import from standard Python libraries or [global helpers](globals.md). Additional functions, variables, or classes may also be defined outside of the functions defined below for advanced use or cleaner code.
 
 {% hint style="info" %}
-Read [Runtime Environment](run-time.md) to learn more about the available libraries and how to add custom or third-party ones. 
+Read [Runtime Environment](run-time.md) to learn more about the available libraries and how to add custom or third-party ones.&#x20;
 {% endhint %}
 
 Each function listed below takes a single argument of `event` (for rules) or `resource` (for policies).
