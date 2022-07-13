@@ -102,7 +102,7 @@ If the log source you want to ingest is not natively supported yet, visit the [C
 
 After following the onboarding steps, your data will begin to be ingested into Panther. Your logs will be checked against the built-in Python detections and will be searchable within the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer). You can now query [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search) for investigations on common indicators for your various data sources.
 
-![](<.gitbook/assets/image (6) (1) (1).png>)
+![](<.gitbook/assets/image (6) (1).png>)
 
 ### Set Up Detections and Cloud Compliance
 

@@ -147,7 +147,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed.**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png>)
 
 &#x20;
 

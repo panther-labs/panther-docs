@@ -22,7 +22,7 @@ Panther supports pulling logs directly from CrowdStrike events by integrating wi
 3. Click **Create new credentials** under the **FDR AWS S3 Credentials and SQS Queue** section.
 4. Copy down the Client ID, Secret ID, and SQS URL for the next steps.
 
-![](<../../.gitbook/assets/image (5) (1) (1).png>)
+![](<../../.gitbook/assets/image (5) (1).png>)
 
 ### Step 2: Create a New CrowdStrike Source in Panther
 
@@ -35,7 +35,7 @@ Panther supports pulling logs directly from CrowdStrike events by integrating wi
    * **SQS Url**: The URL for the CrowdStrike-managed SQS queue, previously copied.
    * **AWS Access Key**, **AWS Access Secret**: The AWS access key and secret, previously copied.\
      \
-     ![](<../../.gitbook/assets/image (24) (1) (1) (1) (1).png>)\
+     ![](<../../.gitbook/assets/image (24) (1) (1).png>)\
 
 6. Click **Continue Setup.**
 7. You will be directed to a confirmation screen where you can set up a log drop-off alarm.
