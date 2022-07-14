@@ -102,7 +102,7 @@ If the log source you want to ingest is not natively supported yet, visit the [C
 
 After following the onboarding steps, your data will begin to be ingested into Panther. Your logs will be checked against the built-in Python detections and will be searchable within the [Data Explorer](https://docs.runpanther.io/data-analytics/data-explorer). You can now query [Indicator Search](https://docs.runpanther.io/data-analytics/indicator-search) for investigations on common indicators for your various data sources.
 
-![](<.gitbook/assets/image (6) (1).png>)
+![](<.gitbook/assets/image (6) (1) (1).png>)
 
 ### Set Up Detections and Cloud Compliance
 
@@ -111,3 +111,11 @@ Panther comes with built-in detections that alert against common security events
 * Onboard AWS accounts for [cloud security scans](https://docs.panther.com/cloud-scanning).
 * Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs.
 * Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.panther.com/cloud-scanning/cloud-resource-attributes).
+
+### Next Steps: Plan your Panther onboarding
+
+Once you're up and running in the Panther Console, it's time to make the most of everything Panther has to offer. We have created a checklist to help you plan your full onboarding and track feature adoption.\
+\
+This guided checklist, _Success Schema: Enable, Configure and Detect with Panther_, will walk you through planning and completing your Panther onboarding.
+
+[View and download the Success Schema onboarding checklist here](https://panther.com/success-schema-pdf).
