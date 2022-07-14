@@ -23,6 +23,10 @@ description: >-
 > * A connection between computers or applications, which defines a specific set of rules for how they communicate and interact with one another.
 > * [Panther's GraphQL API](../api-beta/) is used for alert, role, and user management, and data lake querying.
 
+#### Auxiliary Functions
+
+> Python functions that control analysis logic, generated alert title, event grouping, routing of alerts, and metadata overrides for [Panther's Detections](../writing-detections/#detection-types). These functions are applicable to both [Rules](../writing-detections/rules.md) and [Policies](../writing-detections/policies.md).
+
 ### **C**
 
 #### **CI/CD (continuous integration/continuous deployment)**
