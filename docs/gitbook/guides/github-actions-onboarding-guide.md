@@ -25,7 +25,7 @@ Before finalizing GitHub Actions with Panther, please reach out to Panther's Sup
 
 1. Navigate to the GitHub repository where you would like to set up automation.
 2. Within the GitHub repository, navigate to **Actions.**\
-   ****<img src="../.gitbook/assets/Screen Shot 2022-06-14 at 8.51.10 AM.png" alt="" data-size="original">****
+   ****<img src="../.gitbook/assets/Screen Shot 2022-06-14 at 8.51.10 AM (1).png" alt="" data-size="original">****
 3. Click **New Workflow**.\
    ![](<../.gitbook/assets/Screen Shot 2022-06-14 at 9.43.19 AM.png>)
 4. Click the button that says _**set up a workflow yourself →**._\
@@ -109,11 +109,11 @@ Before finalizing GitHub Actions with Panther, please reach out to Panther's Sup
                  run: pip3 install panther_analysis_tool
                - name: Run unit tests within the Detections folder
                  run: |
-         	  for dir in detections/*; do
-         	    if [[ "$dir" =~ .*_rules.* ]]; then
-         	      panther_analysis_tool test
-         	    fi
-         	  done
+                   for dir in detections/*; do
+                     if [[ "$dir" =~ .*_rules.* ]]; then
+                       panther_analysis_tool test
+                     fi
+                   done
          ```
 
 
@@ -144,7 +144,7 @@ Before finalizing GitHub Actions with Panther, please reach out to Panther's Sup
                        fi
                      done
                  - name: Upload custom schemas to Panther Console
-           	run: panther_analysis_tool update-custom-schemas --path schemas/
+                   run: panther_analysis_tool update-custom-schemas --path schemas/
 
            ```
 

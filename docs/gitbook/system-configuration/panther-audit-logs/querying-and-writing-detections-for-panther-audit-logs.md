@@ -66,10 +66,10 @@ In this article, we'll cover how to write a detection that alerts when a detecti
 
 1. Log in to your Panther Console.
 2. In the left sidebar, click **Detections**. On the Detections page, click **Create New**.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-04-18 at 12.50.13 PM (1).png>)
+   ![](../../.gitbook/assets/create-detection.png)
 3. In your new Detection, click the "Rule Settings" tab then fill in the form fields.&#x20;
    * For **Log Types**, select `Panther.Audit`.\
-     ![](<../../.gitbook/assets/Screen Shot 2022-04-18 at 12.50.55 PM.png>)
+     ![](../../.gitbook/assets/audit-log-type.png)
 4. Click the "Functions & Tests" tab. Enter Python code for your rule.
    *   For example, you can enter the following code to be alerted when a Detection is deleted:&#x20;
 
@@ -130,7 +130,7 @@ In these steps, you will generate test data against the action you wrote a Detec
    * If no results are returned, wait a few minutes and retry.
 4. Copy the JSON object in Data Explorer representing this log. Navigate back to the audit log Detection you defined, then paste the JSON object into the Test text editor.
 5. Click **Run Test**. Verify that the Detections runs as expected and the alert title appears as expected. \
-   ![](<../../.gitbook/assets/Screen Shot 2022-04-18 at 3.55.16 PM.png>)
+   ![](../../.gitbook/assets/audit-detection-test.png)
 6. Click **Save** in the upper right side of the page.
 
 You have now written a detection using Panther audit logs!
