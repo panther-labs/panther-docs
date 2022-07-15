@@ -62,3 +62,6 @@ redirects:
   api-beta/using-the-panther-api/alerts-and-errors: ./api-beta/operations/alerts-and-errors.md
   api-beta/using-the-panther-api/user-management: ./api-beta/operations/user-management.md
   api-beta/using-the-panther-api/data-lake-queries: ./api-beta/operations/data-lake-queries.md
+  # System Config template updates
+  system-configuration/configuring-custom-domains: ./system-configuration/self-hosted-deployments/configuring-custom-domains.md
+  system-configuration/run-time: ./system-configuration/self-hosted-deployments/run-time.md
