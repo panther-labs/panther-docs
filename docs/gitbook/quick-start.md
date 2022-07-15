@@ -112,7 +112,7 @@ Panther comes with built-in detections that alert against common security events
 * Write [rules](https://docs.runpanther.io/writing-detections/rules) based on internal business logic or monitoring needs.
 * Write [policies](https://docs.runpanther.io/writing-detections/policies) for supported [AWS resource types](https://docs.panther.com/cloud-scanning/cloud-resource-attributes).
 
-### Next Steps: Plan your Panther onboarding
+## Next Steps: Plan your Panther onboarding
 
 Once you're up and running in the Panther Console, it's time to make the most of everything Panther has to offer. We have created a checklist to help you plan your full onboarding and track feature adoption.\
 \

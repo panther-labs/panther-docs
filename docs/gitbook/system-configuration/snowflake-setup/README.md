@@ -2,7 +2,7 @@
 
 Panther is configured to write processed log data to an AWS-based [Snowflake](https://www.snowflake.com) database cluster.&#x20;
 
-Integrating Panther with Snowflake enables Panther data to be used with your Business Intelligence tools to make dashboards tailored to you operations. In addition, you can join Panther data (e.g., Panther alerts) to your business data, enabling assessment of your security posture with respect to your organization.
+Integrating Panther with Snowflake enables Panther data to be used with your Business Intelligence tools to make dashboards tailored to your operations. In addition, you can join Panther data (e.g., Panther alerts) to your business data, enabling assessment of your security posture with respect to your organization.
 
 For example, you can tally alerts by organizational division (e.g., Human Resources) or by infrastructure (e.g., Development, Test, Production).
 
@@ -83,4 +83,4 @@ ALTER USER PANTHERACCOUNTADMIN SET DISABLED = FALSE
 
 ### Customer-managed Snowflake Integration
 
-For customer-managed Snowflake connection options see [this page](customer-managed-snowflake.md).
+For customer-managed Snowflake connection options, see [this page](customer-managed-snowflake.md).

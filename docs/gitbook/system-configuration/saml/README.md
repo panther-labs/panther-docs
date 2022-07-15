@@ -1,22 +1,22 @@
 # SAML/SSO Integration
 
-Panther can be integrated with SAML providers like OneLogin, Okta, and others to enable users to log in via SSO to the administrative dashboard.
+Panther can be integrated with SAML providers like OneLogin, Okta, and others to enable users to log in via SSO to the Panther Console.
 
 ## Guides
 
 Follow these step-by-step guides to enable SAML integration with one of the following:
 
-* [GSuite](gsuite.md)
+* [G Suite](gsuite.md)
 * [OneLogin](onelogin.md)
 * [Okta](okta.md)
 * [Other](generic.md)
 
 ## Terminology
 
-* **Identity Provider (IdP)**: **** The system that provides authentication credentials, such as OneLogin, Okta, and others
-* **Security Assertion Markup Language (SAML)**: An open standard for exchanging authentication credentials
-* **Service Provider (SP)**: The system that receives authentication credentials. In this case, Panther Enterprise
-* **Single Sign-On (SSO)**: A central hub that allows users to share one login session with multiple services. In this context, synonymous with a SAML IdP
+* **Identity Provider (IdP)**: **** The system that provides authentication credentials, such as OneLogin, Okta, and others.
+* **Security Assertion Markup Language (SAML)**: An open standard for exchanging authentication credentials.
+* **Service Provider (SP)**: The system that receives authentication credentials. In this case, Panther Enterprise.
+* ****[**Single Sign-On (SSO)**](../../help/glossary.md#sso-single-sign-on): A central hub that allows users to share one login session with multiple services. In this context, synonymous with a SAML IdP.
 
 ## Features
 
