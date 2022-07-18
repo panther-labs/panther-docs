@@ -34,3 +34,16 @@ By default, the bulk selector will select everything on the current page. If you
 {% hint style="info" %}
 The "**Select all Alerts that match this search"** option is available in versions 1.26 and above. Once a mass action is performed using this option, note that there may be a slight delay in the mass action being completed depending on the number of alerts being triaged. Be sure to refresh the page to see the final results of the mass action.
 {% endhint %}
+
+## Alert Severities
+
+We recommend following these guidelines to define alert severity levels:
+
+| Severity   | Exploitability | Description                        | Examples                                                                                                                           |
+| ---------- | -------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `Info`     | None           | No risk, simply informational      | Gaining operational awareness.                                                                                                     |
+| `Low`      | Difficult      | Little to no risk if exploited     | Non-sensitive information leaking such as system time and OS versions.                                                             |
+| `Medium`   | Difficult      | Moderate risk if exploited         | Expired credentials, missing protection against accidental data loss, encryption settings, best practice settings for audit tools. |
+| `High`     | Moderate       | Very damaging if exploited         | Large gaps in visibility, directly vulnerable infrastructure, misconfigurations directly related to data exposure.                 |
+| `Critical` | Easy           | Causes extreme damage if exploited | Public data/systems available, leaked access keys.                                                                                 |
+

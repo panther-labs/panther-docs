@@ -7,7 +7,7 @@ Panther Detections contain several Python3 functions that control the analysis l
 Rules are customizable and can import from standard Python libraries or [global helpers](globals.md). Additional functions, variables, or classes may also be defined outside of the functions defined below for advanced use or cleaner code.
 
 {% hint style="info" %}
-Read [Runtime Environment](run-time.md) to learn more about the available libraries and how to add custom or third-party ones.&#x20;
+Read [Runtime Environment](broken-reference) to learn more about the available libraries and how to add custom or third-party ones.&#x20;
 {% endhint %}
 
 Each function listed below takes a single argument of `event` (for rules) or `resource` (for policies).

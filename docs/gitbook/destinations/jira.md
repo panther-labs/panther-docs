@@ -16,7 +16,7 @@ When an alert is forwarded to a Jira Destination, a bug, story, or task is creat
 
 1. Log in to your Atlassian account and navigate to the [API Token management page](https://id.atlassian.com/manage/api-tokens).&#x20;
 2. Click **Create API Token**, add a descriptive label, and click **Create**:\
-   ![](<../../../.gitbook/assets/jira-key1 (1).png>)
+   ![](<../../../.gitbook/assets/jira-key1 (1) (1).png>)
 3. Click **Copy** and store the token in a secure location.
    * Note: The token is sensitive information and you will not be able to view the token again.
 

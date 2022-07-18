@@ -1,9 +1,3 @@
----
-description: >-
-  How to best configure your Panther instance with integrations, alerts,
-  notifications, and more
----
-
 # System Configuration
 
 ## Overview
