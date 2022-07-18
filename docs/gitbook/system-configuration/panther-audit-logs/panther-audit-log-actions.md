@@ -121,6 +121,7 @@ Below you'll find a list of all the available actions that Panther tracks as par
 - LIST_USER_ROLES
 - PUT_CUSTOM_SCHEMA
 - RESET_USER_PASSWORD
+- RESOLVE_SOURCE_ALARM
 - RETRY_ALERT_DELIVERY
 - SEND_TEST_ALERT
 - SEND_USER_FEEDBACK
