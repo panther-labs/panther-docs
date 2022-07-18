@@ -65,3 +65,5 @@ redirects:
   # System Config template updates
   system-configuration/configuring-custom-domains: ./system-configuration/self-hosted-deployments/configuring-custom-domains.md
   system-configuration/run-time: ./system-configuration/self-hosted-deployments/run-time.md
+  # Writing Detections template updates
+  writing-detections/mitre-attack: ./writing-detections/report-mapping/mitre-attack.md
