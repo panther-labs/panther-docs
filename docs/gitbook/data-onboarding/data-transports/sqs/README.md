@@ -4,6 +4,10 @@ description: Onboarding SQS Logs as a Data Transport log source in the Panther C
 
 # SQS Source
 
+{% hint style="info" %}
+SQS has a max message size is 256KB a scalability limit of 10K SQS messages per minute. If you're expecting to send messages bigger than this, consider using S3 instead.
+{% endhint %}
+
 The steps below will setup an SQS queue and will give you permissions to send data to that queue. Panther will pull events from that queue and will allow you to write rules and run queries on the processed data.
 
 ## Step 1: Choose SQS source
