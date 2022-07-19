@@ -2,13 +2,13 @@
 
 ## Overview
 
-Panther allows users to define their own log types by adding a Custom Log entry. You can generate a Custom Log from data in S3 or from a sample log.
+Panther allows users to define their own log types by creating a Custom Schema. You can generate a Custom Schema from live data in S3, our pantherlog CLI tool, or sample data uploaded into the Panther Console.
 
-Custom Logs are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
+Custom Schemas are identified by a `Custom.` prefix in their name and can be used wherever a 'native' _Log Type_ is used:
 
-* You can use a Custom Log __ when onboarding data through SQS or S3.
-* You can write [Rules](../../writing-detections/rules.md) for Custom Logs.
-* You can query the data in Data Explorer. Panther will create a new table for the Custom Log, once you onboard a source that uses it.
+* You can use a Custom Schema __ when onboarding data through S3, SQS or GCS.
+* You can write [Rules](../../writing-detections/rules.md) for Custom Schemas.
+* You can query the data in Data Explorer. Panther will create a new table for the Custom Schema once you onboard a source that uses it.
 * You can query the data through Indicator Search.
 
 {% hint style="info" %}
@@ -151,7 +151,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed.**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;
 
