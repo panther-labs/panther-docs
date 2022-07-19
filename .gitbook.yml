@@ -67,4 +67,4 @@ redirects:
   system-configuration/run-time: ./system-configuration/self-hosted-deployments/run-time.md
   # Writing Detections template updates
   writing-detections/mitre-attack: ./writing-detections/report-mapping/mitre-attack.md
-  writing-detections/run-time: ./system-configuration/self-hosted-deployments/run-time
+  writing-detections/run-time: ./system-configuration/self-hosted-deployments/run-time.md
