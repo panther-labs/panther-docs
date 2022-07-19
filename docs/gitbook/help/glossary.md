@@ -45,6 +45,11 @@ description: >-
 >
 > **Source:** [CNCF](https://github.com/cncf/toc/blob/main/DEFINITION.md)
 
+#### **Cron**
+
+> * A time-based scheduler that executes one or more commands at specific dates and times.
+> * In Panther's context, a Cron Expression is used to set a defined interval while running [Scheduled Rules](glossary.md#scheduled-rule) or [Scheduled Queries](glossary.md#scheduled-query).
+
 #### **Custom Webhook**
 
 > * Also known as web callbacks; a lightweight API that enables one system to forward data to another system when a specific event occurs.
@@ -137,6 +142,12 @@ description: >-
 
 > Non-Panther Console workflows you can use to interact with your Panther account, including CI/CD, API, Panther Log Tool, and the Panther Analysis Tool (PAT).
 
+#### Policy
+
+> Panther's [Policies](../writing-detections/policies.md) are Python functions that scan and evaluate cloud infrastructure configurations to identify misconfigurations and subsequently generate alerts. Policies specifically apply to cloud resources, whereas [Rules](glossary.md#rule) apply to security logs.
+
+
+
 #### Pretty print
 
 > In JSON, pretty printing includes **** proper line breaks, indentation, white space, and overall structure.
@@ -149,7 +160,22 @@ description: >-
 
 > An authorization method that assigns access based on user roles and user permissions.
 
+#### Rule
+
+> Panther's [Rules](../writing-detections/rules.md) are Python functions for detecting suspicious security log activity and generating alerts.
+>
+> * Real-time rules, simply known as Rules, are used to analyze a point-in-time (single log)
+> * [Scheduled rules](glossary.md#scheduled-rule) are used to analyze aggregated or statistical data sets (many logs)
+
 ### **S**
+
+#### **Scheduled Rule**
+
+> Panther's [Scheduled Rules](../data-analytics/scheduled-queries.md#create-a-scheduled-rule) are a detection executed against a [Scheduled Query](glossary.md#scheduled-query) data set and are used to investigate smaller subsets of data.
+
+#### **Scheduled Query**
+
+> Panther's time-based SQL queries that allow you to pull data on a recurring basis. A Scheduled Query is always associated with at least one [Scheduled Rule](glossary.md#scheduled-rule).
 
 #### **Schema**
 
