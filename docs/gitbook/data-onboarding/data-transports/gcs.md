@@ -1,38 +1,52 @@
 ---
 description: >-
-  Pull logs from Google Cloud Storage (GCS) within Google Cloud Platform (GCP)
-  to use as a Data Transport log source in the Panther Console
+  Onboarding Google Cloud Storage (GCS) as a Data Transport log source in the
+  Panther Console
 ---
 
 # Google Cloud Storage (GCS) Source
 
-After you configure this integration, Panther will pull log data directly from Google Cloud Storage (GCS) buckets. You can then write rules and run queries on the processed data.
+## Overview
 
-Panther requires certain configurations in Google Cloud Platform (GCP) to authenticate and pull logs. A bucket and a subscription for a topic set up with notifications are required. Panther will ingest new files through [Pub/Sub notifications](https://cloud.google.com/pubsub).&#x20;
+With Google Cloud Storage (GCS) as a log source, Panther can pull log data directly from GCS buckets, write rules, and run queries on this processed data.
 
-## Set up the GCS source in Panther
+### Prerequisites
 
-1. Log in to your Panther Console.
-2. On the left sidebar navigation, click **Integrations > Log Sources**.
-3. Click **Add New Source**.
-4. On the left side, click the **Custom Onboarding** tab, then click **Select** next to Google Cloud Storage.\
+Panther requires certain configurations within Google Cloud Platform (GCP) to authenticate and pull logs. A bucket and a subscription for a topic set up with notifications are required. Panther ingests new files through [Pub/Sub notifications](https://cloud.google.com/pubsub).&#x20;
+
+## How to connect GCS as a Data Transport log source in Panther
+
+1. In the Panther Console, click **Integrations > Log Sources**.
+2. Click **Create New**.
+3. On the left side of the page, click **Custom Onboarding**.&#x20;
+4. On the Google Cloud Storage tile, click **Select**.\
    ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.48.04 AM.png>)
-5. Enter a descriptive name for the source and select the log types you will use, then click **Continue Setup**.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.50.45 AM.png>)
-6. On the "Infrastructure & Credentials" page, follow the instructions on screen to create the infrastructure component with a Terraform template.\
-   ![](../../.gitbook/assets/terraform-gcs.png)
-   * Alternatively, you can [follow the documentation](https://docs.panther.com/data-onboarding/data-transports/gcs#configuring-the-integration-in-google-cloud-platform-gcp) to complete this process manually.
-7. Upload your JSON key file, then enter the GCS bucket name and the Pub/Sub subscription ID.
-   * The subscription ID can be found in the **Subscriptions** section of your Google Cloud account.
+5. On the "Configure your source" page, fill in the fields:
+   * **Name**: Enter a memorable name for the GCS log source.
+   * **Log Types**: Select the Log Types Panther should use to parse your GCS logs. **Note:** At least one Log Type must be selected from the dropdown menu.\
+     ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.50.45 AM.png>)
+6. Click **Continue Setup.**
+7. On the "Infrastructure & Credentials" page, follow Steps 1 and 2 to create the infrastructure component with a Terraform template. **Note:** You can also [follow our alternative documentation](gcs.md#configuring-the-integration-in-google-cloud-platform-gcp) to complete the infrastructure components process manually.
+   * Step 1: Download and complete the Terraform template
+     * Download the **Terraform Template.**
+     * Fill out the fields in the `production.tfvars` file with your configuration.
+     * Initialize a working directory containing Terraform configuration files by running the Terraform Command schema provided.
+     * Copy the corresponding **Terraform of gcloud command schema** provided and run it in your CLI.
+     * Generate a JSON keyfile by replacing the value for your service account email\
+       in the gcloud command code listed.
+       * You can find the key file in the output of the Terraform run.
+   * Step 2: Provide pulling configuration & JSON Keyfile
+     * Drag and drop or upload the JSON key into the correct field in Step 2.
+     * Paste in your **GCS Bucket Nam**e and **Pub/Sub Subscription ID,** found in the **Subscriptions** section of your Google Cloud account.\
+       \
+       ![](<../../.gitbook/assets/Infrastructure and credentials page.png>)\
+
 8. Click **Continue Setup**.&#x20;
-   * The message "Everything looks good" will appear at the top of the screen.&#x20;
 9. Click **Finish Setup**.
 
-Panther will now start processing the new files that arrive to your GCS bucket.
+#### Configuring your integration manually in Google Cloud Platform (GCP)&#x20;
 
-## Configuring the Integration in Google Cloud Platform (GCP)&#x20;
-
-If you choose to create the infrastructure components manually rather than using a Terraform template during the GCP setup in the Panther Console, follow the instructions below.
+If you choose to create the infrastructure components manually rather than using a Terraform template during the GCS setup above, follow the instructions below.
 
 1. Log in to your Google Cloud console.
 2. Determine which bucket Panther will pull logs from.
@@ -43,11 +57,11 @@ If you choose to create the infrastructure components manually rather than using
 4. [Configure the bucket to send notifications](https://cloud.google.com/storage/docs/reporting-changes) for new files to the topic you created.&#x20;
    * You can create a notification using the `gcloud` CLI tool with the following command format:\
      `gsutil notification create -t $TOPIC_NAME -e OBJECT_FINALIZE -f json gs://$BUCKET_NAME`
-   * Note: Panther only requires the `OBJECT_FINALIZE` type.
-5. [Create a subscription](https://cloud.google.com/pubsub/docs/admin#pubsub\_create\_pull\_subscription-gcloud) to be used with the topic you created. Note that this subscription should not be used by any service other than Panther.
+   * **Note:** Panther only requires the `OBJECT_FINALIZE` type.
+5. [Create a subscription](https://cloud.google.com/pubsub/docs/admin#pubsub\_create\_pull\_subscription-gcloud) to be used with the topic you created. **Note:** This subscription should not be used by any service other than Panther.
    * You can create a subscription using the `gcloud` CLI tool with the following command format:\
      `gcloud pubsub subscriptions create $SUBSCRIPTION_ID --topic $TOPIC_ID --topic-project $PROJECT_ID`
-6. [Create a new Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and take note of the account email address. Panther will use this identity to be able to access the infrastructure created for this integration.&#x20;
+6. [Create a new Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and take note of the account email address. Panther will use this to be able to access the infrastructure created for this GCS integration.&#x20;
    *   The following permissions are required for the project where the Pub/Sub subscription and topic lives:\
 
 
@@ -57,13 +71,13 @@ If you choose to create the infrastructure components manually rather than using
        |                          `pubsub.subscriptions.consume`                         | `pubsub/subscriber` | _subscription-name_ |
        |                            `pubsub.subscriptions.get`                           |   `pubsub/viewer`   | _subscription-name_ |
        |                           `monitoring.timeSeries.list`                          | `monitoring/viewer` |       project       |
-   * Note: You can set conditions or IAM policies on permissions for specific resources. This can be done either in the IAM page of the service account (as seen in the example screenshot) or in the specific resource's page:\
+   * **Note:** You can set conditions or IAM policies on permissions for specific resources. This can be done either in the IAM page of the service account (as seen in the example screenshot below) or in the specific resource's page.\
      ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.37.08 AM.png>)
 7. [Generate a JSON key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for the service account, which will be used in Panther to authenticate to the GCP infrastructure.&#x20;
-   * You can create a JSON key file using the `gcloud` CLI tool with the following command format: \
+   * You can create a JSON key file using the gcloud CLI tool with the following command format: \
      `gcloud iam service-accounts keys create $KEYFILE_PATH --iam-account=$SERVICE_ACCOUNT_EMAIL`
 
-## Viewing Collected Logs
+## View collected logs
 
-After log sources are configured, you can search your data in Data Explorer. For more information and for example queries, please see the [Data Explorer documentation](https://docs.runpanther.io/data-analytics/data-explorer).
+After GCS log sources are fully configured, you can search your data in Data Explorer. For more information and for example queries, please see the documentation on [Data Explorer](../../data-analytics/data-explorer.md).
 

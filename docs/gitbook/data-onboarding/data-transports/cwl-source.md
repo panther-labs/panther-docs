@@ -1,7 +1,5 @@
 ---
-description: >-
-  Onboarding CloudWatch Logs as a Data Transport log source in the Panther
-  Console
+description: Onboarding CloudWatch as a Data Transport log source in the Panther Console
 ---
 
 # CloudWatch Logs Source
