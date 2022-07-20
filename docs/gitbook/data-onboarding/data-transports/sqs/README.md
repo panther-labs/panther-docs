@@ -4,35 +4,50 @@ description: Onboarding SQS Logs as a Data Transport log source in the Panther C
 
 # SQS Source
 
+## Overview
+
+The steps below enable you to set up an SQS source and give you permissions to send data to that queue. Panther pulls events from that queue and allows you to write rules and run queries on the processed data.
+
 {% hint style="info" %}
-SQS has a max message size is 256KB a scalability limit of 10K SQS messages per minute. If you're expecting to send messages bigger than this, consider using S3 instead.
+SQS has a max message size of 256KB and a scalability limit of 10K SQS messages per minute. If you expect to send messages bigger than this, consider using S3 instead.
 {% endhint %}
 
-The steps below will setup an SQS queue and will give you permissions to send data to that queue. Panther will pull events from that queue and will allow you to write rules and run queries on the processed data.
+## How to onboard SQS logs into Panther
 
-## Step 1: Choose SQS source
+### Step 1: Choose SQS source
 
-Log in to your Panther Console and click Integrations on the left sidebar menu. Click **Log Sources** > **Add Source** > **Data Transport** > **SQS Queue**
+1. Log in to your Panther Console and click **Integrations > Log Sources** in the left sidebar menu.
+2. Click **Create New.**
+3. On the left-hand sidebar, click **Custom Onboarding**.&#x20;
+4. On the AWS SQS Queue tile, click **Select**.
 
-![](<../../../../../.gitbook/assets/image (4) (1).png>)
+![](<../../../.gitbook/assets/SQS Queue box.png>)
 
-### Step 2: Enter the source details
+### Step 2: Configure your source details
 
-|           Field          | Required? | Description                                                                                                                                                                             |
-| :----------------------: | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|          `Name`          | `Yes`     | Friendly name of the source                                                                                                                                                             |
-|        `Log Types`       | `Yes`     | The list of Log Types that you are going to send to this SQS queue                                                                                                                      |
-| `Allowed Principal ARNs` | `No`      | The ARNs of the AWS principals that will be allowed to publish messages to the SQS queue e.g. `arn:aws:iam::012345678912:root` or `arn:aws:iam::012345678912:role/Test-*`               |
-|   `Allowed Source ARNs`  | `No`      | The ARNs of the AWS resources (S3 buckets, SNS topics, etc) that can publish messages to that SQS queue e.g. `arn:aws:sns:us-east-1:012345678912:my-topic` or `arn:aws:s3:::my-bucket*` |
+1.  On the "Configure your source" page, fill in the fields as follows:
 
-![](<../../../../../.gitbook/assets/sqs-page2 (5) (5) (7) (7) (1) (1) (3) (1) (1) (1) (1) (5).png>)
+    * **Name**: Enter a memorable name for your source.
+    * **Log Types**: From the drop-down, select all log types that you are going to send to your SQS queue.
+    * Optional - **Allowed AWS Principal ARNs**: List all ARNs of the AWS principals that will be allowed to publish messages to your SQS queue.
+    * Optional - **Allowed Source ARNs:** List all ARNs of the AWS resources (SNS topics, S3 buckets, etc.) that can publish messages to your SQS queue.
 
-Note that if none of **Allowed Principal ARNs** and **Allowed Source ARNs** properties are set, only Principals of the AWS account where Panther is deployed will be able to publish messages to the queue. Click **Continue Setup**.
+    ****\
+    **Note**: If none of **Allowed AWS Principal ARNs** and **Allowed Source ARNs** properties are set, only Principals of the AWS account where Panther is deployed will be able to publish messages to the queue.\
+    \
+    ![](<../../../.gitbook/assets/config source.png>)\
 
-### Step 2: Create the SQS queue
+2. Click **Continue Setup**.
+3. On the final "Verify Setup" confirmation page, **toggle** the alarm button to "Yes" if you would like Panther to send you an alert in case your source does not produce any events.
+   * **Edit** the time period fields "Number" and "Period" to select your alert interval.
+   * **Note:** To create new or modify existing alert destinations, see [Destinations](../../../destinations/).
+4.  To view your newly created source, click **View Log Source**.
 
-Click **Save Source**. Panther will create an SQS queue and will allow the ARNs specified above to publish messages to it. The SQS queue URL will be display in the next page
+    * Manage your AWA SQS source here for data and events processed, overall health, source schemas, alarm configuration, etc.\
 
-![](<../../../../../.gitbook/assets/sqs-page3 (5) (5) (7) (8) (1) (1) (3) (1) (1) (1) (1) (5).png>)
 
-You are all done! You can now start sending messages to the SQS queue.
+    ![](<../../../.gitbook/assets/panther test SQS source .png>)
+
+## View Collected Logs
+
+After SQS log sources are configured, you can search your data in Data Explorer. For more information and for example queries, please see the [Data Explorer documentation](https://docs.runpanther.io/data-analytics/data-explorer).
