@@ -1,8 +1,8 @@
 ---
-description: Panther supports pulling logs directly from Atlassian.
+description: Panther supports pulling logs directly from Atlassian
 ---
 
-# Atlassian
+# Atlassian Logs
 
 ## Overview
 

@@ -1,8 +1,8 @@
 ---
-description: Connecting Sophos logs in your Panther Console
+description: Connecting Sophos logs to your Panther Console
 ---
 
-# Sophos
+# Sophos Logs
 
 ## Overview
 

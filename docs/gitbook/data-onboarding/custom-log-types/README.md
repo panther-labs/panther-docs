@@ -26,13 +26,14 @@ After onboarding your S3 bucket onto Panther, you can view raw data coming into 
 1. Follow the instructions to [onboard an S3 bucket onto Panther](../data-transports/s3.md) without having a schema in place.
    * Skip the step where you list schemas and prefixes in the first page of the S3 onboarding wizard.&#x20;
    * You'll have the opportunity to add schemas and prefixes after the S3 bucket is onboarded.
-2. Once the S3 bucket is successfully onboarded, you'll see two options to attach schemas in the S3 bucket's Log Source Operations Page. Click **Start** on the 2nd option to start generating a schema from your raw events.\
-   ![](<../../.gitbook/assets/image (24).png>) \
+2. Once the S3 bucket is successfully onboarded, you'll see a call-to-action to **Attach Schemas** to the bucket in the S3 bucket's Log Source Operations Page and the Log Source Listing Page. Click the **Attach Schemas** button. \
+   ![](<../../.gitbook/assets/image (46).png>)\
 
-   * **Note:** This option is only made available when data is imported**.** You may need to wait up to 15 minutes for data to start streaming into Panther.&#x20;
+   * **Note:** You may need to wait up to 15 minutes for data to start streaming into Panther.&#x20;
 3. On the schema inference and testing workflow page, **view** the raw data that Panther has received **at the bottom of the screen** .  \
-   ![](<../../.gitbook/assets/image (38).png>)
+   &#x20;![](<../../.gitbook/assets/Screen Shot 2022-06-09 at 1.45.35 PM.png>)
    * This data is displayed from `data-archiver`, a Panther-managed S3 bucket that retains raw logs for up to 30 days for every S3 log source.
+   * If you still do not see data after 15 minutes, ensure that the time picker is set to the appropriate time range that corresponds with the timestamps on the events coming into Panther.
 
 ### **Infer a schema from raw data**
 
@@ -151,7 +152,7 @@ Need to validate that a Panther-managed schema will work against your logs? You 
 * Click on a schema labeled as **Panther-managed.**
 * Once in the schema details page, scroll to the bottom of the page where you'll be able to upload logs.
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.05.48 PM (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 &#x20;
 

@@ -1,8 +1,8 @@
 ---
-description: Connecting Osquery logs in your Panther Console
+description: Connecting Osquery logs to your Panther Console
 ---
 
-# Osquery
+# Osquery Logs
 
 ## Overview
 

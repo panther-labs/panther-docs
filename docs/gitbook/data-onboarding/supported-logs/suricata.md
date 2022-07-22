@@ -1,8 +1,8 @@
 ---
-description: Connecting Suricata logs in your Panther Console
+description: Connecting Suricata logs to your Panther Console
 ---
 
-# Suricata
+# Suricata Logs
 
 ## Overview
 

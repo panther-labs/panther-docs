@@ -1,8 +1,8 @@
 ---
-description: Onboarding Teleport logs to your Panther Console
+description: Connecting Teleport logs to your Panther Console
 ---
 
-# Teleport
+# Teleport Logs
 
 ## Overview
 

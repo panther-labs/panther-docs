@@ -1,8 +1,8 @@
 ---
-description: Connect Juniper logs into your Panther Console
+description: Connecting Juniper logs to your Panther Console
 ---
 
-# Juniper
+# Juniper Logs
 
 ## Overview
 

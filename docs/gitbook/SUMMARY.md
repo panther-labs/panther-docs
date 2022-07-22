@@ -19,6 +19,7 @@
     * [Cisco Umbrella Logs](data-onboarding/supported-logs/ciscoumbrella.md)
     * [Cloudflare Logs](data-onboarding/supported-logs/cloudflare.md)
     * [CrowdStrike Logs](data-onboarding/supported-logs/crowdstrike.md)
+    * [Dropbox Logs](data-onboarding/supported-logs/dropbox.md)
     * [Duo Security Logs](data-onboarding/supported-logs/duo.md)
     * [Fastly Logs](data-onboarding/supported-logs/fastly.md)
     * [Fluentd Logs](data-onboarding/supported-logs/fluentd.md)

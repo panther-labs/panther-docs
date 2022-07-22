@@ -1,8 +1,8 @@
 ---
-description: Connecting Zeek logs in your Panther Console
+description: Connecting Zeek logs to your Panther Console
 ---
 
-# Zeek
+# Zeek Logs
 
 ## Overview
 

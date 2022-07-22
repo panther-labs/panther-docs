@@ -1,8 +1,8 @@
 ---
-description: Connecting Syslog logs in your Panther Console
+description: Connecting Syslog logs to your Panther Console
 ---
 
-# Syslog
+# Syslog Logs
 
 ## Overview
 

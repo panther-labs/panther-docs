@@ -1,8 +1,8 @@
 ---
-description: Connecting OSSEC logs in your Panther Console
+description: Connecting OSSEC logs to your Panther Console
 ---
 
-# OSSEC
+# OSSEC Logs
 
 ## Overview
 
