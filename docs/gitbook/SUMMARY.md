@@ -27,6 +27,7 @@
     * [Github Logs](data-onboarding/supported-logs/github.md)
     * [GitLab Logs](data-onboarding/supported-logs/gitlab.md)
     * [G Suite Logs](data-onboarding/supported-logs/gsuite.md)
+    * [JAMF Pro Logs](data-onboarding/supported-logs/jamfpro.md)
     * [Juniper Logs](data-onboarding/supported-logs/juniper.md)
     * [Lacework Logs](data-onboarding/supported-logs/lacework.md)
     * [Microsoft 365 Logs](data-onboarding/supported-logs/microsoft365.md)
