@@ -16,6 +16,14 @@ The process outlined in this guide will use Github, Github Actions, and CircleCI
 * Create a CI workflow that runs the Python Black linter on your codebase and executes all unit tests defined for rules.
 * Maintain a fork of the [Panther-Analysis](https://github.com/panther-labs/panther-analysis) repository, where all of Panther’s built-in detections are stored, maintained, and updated.
 
+### Prerequisites
+
+You need to request access to the Panther-managed AWS account in order to upload directly to your Panther Console. For direct access, we provide you with a `panther_cli_role` which allows use of the [`panther_analysis_tool`](../help/glossary.md#panther-analysis-tool-pat) to upload detections, custom schemas, and more to your Panther Console. Please reach out to the [Panther support team](../help/) to get access to this role.
+
+{% hint style="info" %}
+Using GitHub Actions? If so, there is a more convenient way to grant upload access to your Panther Console via OpenID Connect (OIDC). For more information on using OIDC with GitHub Actions, see our [GitHub Actions Onboarding Guide](github-actions-onboarding-guide.md).
+{% endhint %}
+
 ## Setting up CircleCI
 
 ### Creating Account and Repository

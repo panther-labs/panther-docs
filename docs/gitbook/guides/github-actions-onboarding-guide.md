@@ -15,11 +15,15 @@ You can configure GitHub Actions to automate testing, customize detections, and 
 * Uploading the schemas and detections to your Panther Console
 * Customizing your GitHub Actions workflow to fit your organization's needs
 
-## Configure **GitHub Actions for Panther**
-
 ### Prerequisites
 
-Before finalizing GitHub Actions with Panther, please reach out to Panther's Support team to get your Panther Console set up with the `PantherAnalysisFederatedCDRole` needed to assume the role directly using the GitHub OIDC provider.&#x20;
+Before finalizing GitHub Actions with Panther, please reach out to [Panther's Support team](../help/) to get your Panther Console set up with the `PantherAnalysisFederatedCDRole` needed to directly use the GitHub OpenID Connect (OIDC) provider.&#x20;
+
+{% hint style="info" %}
+This guide explains how to upload to your Panther Console via GitHub Actions using OIDC. This is the recommended method if you are using GitHub Actions. You can also upload to your Panther Console directly via a `panther_cli_role` obtained from [our Support team](../help/). For more information, see our [CI/CD Onboarding Guide](ci-cd-onboarding-guide.md).&#x20;
+{% endhint %}
+
+## Configure **GitHub Actions for Panther**
 
 ### **Build a GitHub workflow to test schemas, detections, and upload to Panther**
 
