@@ -249,7 +249,7 @@ There are three options to discover the GraphQL schema:
 
 #### Option 1: Downloading the GraphQL schema file
 
-You can download the latest version of the GraphQL schema file [here](https://panther-community-us-east-1.s3.amazonaws.com/v1.29.0/graphql/schema.public.graphql).
+You can download the latest version of the GraphQL schema file [here](https://panther-community-us-east-1.s3.amazonaws.com/v1.39.0/graphql/schema.public.graphql).
 
 #### Option 2: Using the GraphQL Playground
 

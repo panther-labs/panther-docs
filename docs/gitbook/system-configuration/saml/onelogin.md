@@ -27,7 +27,7 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
 1. Log in to the OneLogin administrative console.
 2. Click the Applications tab, then click Applications in the drop-down menu.&#x20;
 3. Click **Add App** in the upper right side of the page. Search for and select "SAML Test Connector (Advanced)."\
-   ![](<../../../../.gitbook/assets/onelogin2 (5) (5) (7) (8) (1) (1) (3) (1) (1) (2) (8).png>)
+   ![](<../../../../.gitbook/assets/onelogin2 (5) (5) (7) (8) (1) (1) (3) (1) (1) (1) (2) (4) (9).png>)
 4. Fill in the form:\
    Note: We recommend that you disable the "visible in portal" option since SAML logins can only be initiated from Panther.
    * **Display Name**: Add a descriptive name, such as "Panther Console."
@@ -43,11 +43,11 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
    * `PantherLastName`: `Last Name`
    * `PantherEmail`: `Email`\
      ``When you are done, they will appear in the attributes list: \
-     ``![](<../../../../.gitbook/assets/onelogin4 (8) (8) (9) (5) (1) (1) (2) (1) (1) (10) (11).png>)``
+     ``![](<../../../../.gitbook/assets/onelogin4 (8) (8) (9) (5) (1) (1) (2) (1) (1) (1) (10) (12) (12).png>)``
 8. Click **Save**.
 9. In the SSO tab, set the algorithm to SHA-512.&#x20;
 10. Copy the **Issuer URL** and store it in a secure location. You will need this in the next steps.\
-    ![](<../../../../.gitbook/assets/onelogin5 (8) (8) (9) (6) (1) (1) (2) (1) (1) (10) (11).png>)
+    ![](<../../../../.gitbook/assets/onelogin5 (8) (8) (9) (6) (1) (1) (2) (1) (1) (1) (10) (12) (12).png>)
 11. Save your settings.
 
 After you're done, make sure to grant access to the appropriate users and groups.
@@ -62,4 +62,4 @@ After you're done, make sure to grant access to the appropriate users and groups
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (10) (21).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (1) (10) (12) (22).png>)

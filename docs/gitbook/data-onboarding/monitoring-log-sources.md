@@ -76,7 +76,7 @@ To access the log source's raw data:
 1. Log in to the Panther Console.
 2. In the left sidebar menu, click **Integrations > Log Sources**.
 3. Click **...** in the upper right side of a source in the list. In the dropdown menu that appears, click **Schema Configuration**.\
-   ![](<../.gitbook/assets/Screenshot 2022-04-14 at 6.02.33 PM.png>)
+   ![](../.gitbook/assets/raw-data-schema.png)
 
 In the Schema Configuration, you can view events for a specific time range. Optionally, you can limit results by applying filters for the S3 key prefix and a search string to match each event.
 
