@@ -31,6 +31,7 @@
     * [Juniper Logs](data-onboarding/supported-logs/juniper.md)
     * [Lacework Logs](data-onboarding/supported-logs/lacework.md)
     * [Microsoft 365 Logs](data-onboarding/supported-logs/microsoft365.md)
+    * [Microsoft Graph Logs (Beta)](data-onboarding/supported-logs/microsoftgraph.md)
     * [Nginx Logs](data-onboarding/supported-logs/nginx.md)
     * [Okta Logs](data-onboarding/supported-logs/okta.md)
     * [OneLogin Logs](data-onboarding/supported-logs/onelogin.md)

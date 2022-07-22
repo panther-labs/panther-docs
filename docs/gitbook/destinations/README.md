@@ -60,7 +60,7 @@ Alerts are routed based on the following, from highest precedence to lowest:
    * You can optionally click **Send test alert** to verify that your destination was configured correctly.
 7. Click **Finish Setup**.
 
-![The final page in the Destination creation process shows a green checkmark and says "Everything looks good!"](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (1) (1) (3).png>)
+![The final page in the Destination creation process shows a green checkmark and says "Everything looks good!"](<../../../.gitbook/assets/readme-test (3) (3) (5) (6) (1) (1) (3) (1) (1) (3).png>)
 
 You are now ready to receive alerts!
 

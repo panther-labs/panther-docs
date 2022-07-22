@@ -107,6 +107,8 @@ If you do not see a needed source listed as supported, you can either define you
   * [Audit.General](https://docs.panther.com/data-onboarding/supported-logs/microsoft365#microsoft365.audit.general)
   * [Audit.SharePoint](https://docs.panther.com/data-onboarding/supported-logs/microsoft365#microsoft365.audit.sharepoint)
   * [DLP.All](https://docs.panther.com/data-onboarding/supported-logs/microsoft365#microsoft365.dlp.all)
+* [Microsoft Graph (Beta)](microsoftgraph.md)
+  * [SecurityAlert](microsoftgraph.md#microsoftgraph.securityalert)
 * [Nginx](nginx.md)
   * [Access](https://docs.panther.com/data-onboarding/supported-logs/nginx#nginx.access)
 * [Okta](okta.md)
