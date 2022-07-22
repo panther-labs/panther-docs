@@ -64,6 +64,8 @@ If you do not see a needed source listed as supported, you can either define you
   * [UserIdentity](https://docs.panther.com/data-onboarding/supported-logs/crowdstrike#crowdstrike.useridentity)
   * [UserInfo](https://docs.panther.com/data-onboarding/supported-logs/crowdstrike#crowdstrike.userinfo)
   * [UserLogonLogoff](https://docs.panther.com/data-onboarding/supported-logs/crowdstrike#crowdstrike.userlogonlogoff)
+* [Dropbox](dropbox.md)
+  * [TeamEvent](dropbox.md#dropbox.teamevent)
 * [Duo](duo.md)
   * [Administrator](https://docs.panther.com/data-onboarding/supported-logs/duo#duo.administrator)
   * [Authentication](https://docs.panther.com/data-onboarding/supported-logs/duo#duo.authentication)
