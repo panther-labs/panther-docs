@@ -590,5 +590,3 @@ fields:
               type: boolean
 
 ```
-
-###

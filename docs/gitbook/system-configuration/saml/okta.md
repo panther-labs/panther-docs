@@ -27,7 +27,7 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
 1. Log in to your Okta administrative console.
 2.  &#x20;Click the **Applications** tab, then click **Create App Integration**.
 
-    ![](<../../.gitbook/assets/Screen Shot 2022-06-24 at 10.52.46 AM.png>)
+    ![](<../../.gitbook/assets/Screen Shot 2022-06-24 at 10.52.46 AM (1).png>)
 3. Within the "Create a new app integration" modal, fill in the form to configure the new app:
    * **Sign on Method**: Select SAML 2.0\
      ![](<../../.gitbook/assets/image (19).png>)
@@ -47,7 +47,7 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
    * **Name**: `PantherEmail`, **Value**: `user.email`
    * **Name**: `PantherFirstName`, **Value**: `user.firstName`
    * **Name**: `PantherLastName`, **Value**: `user.lastName`\
-     ``![](<../../.gitbook/assets/image (53) (1).png>)``
+     ``![](<../../.gitbook/assets/image (53).png>)``
 9. The Group Attribute statements can be left blank. Click **Next**.
 10. Click **Finish**.
 11. On the next screen, navigate to **SAML Setup** along the right-hand side of the screen.
@@ -78,4 +78,4 @@ Amazon Cognito, which powers Panther's user management, does not support IdP-ini
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (23).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (1) (10) (12) (24).png>)
