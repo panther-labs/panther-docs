@@ -4,10 +4,6 @@ description: Panther API user and role management operations
 
 # User & Role Management
 
-{% hint style="info" %}
-User and Role API operations are available in version 1.36 and newer.
-{% endhint %}
-
 The Panther API supports the following user operations:
 
 * List users

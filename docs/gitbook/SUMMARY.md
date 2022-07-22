@@ -246,6 +246,7 @@
     * [Alerts & Errors](api-beta/operations/alerts-and-errors.md)
     * [User & Role Management](api-beta/operations/user-management.md)
     * [Data Lake Queries](api-beta/operations/data-lake-queries.md)
+    * [Metrics](api-beta/operations/metrics.md)
   * [API Playground](api-beta/api-playground.md)
 * [Guides](guides/README.md)
   * [CI/CD Onboarding Guide](guides/ci-cd-onboarding-guide.md)
