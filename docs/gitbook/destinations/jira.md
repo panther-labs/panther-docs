@@ -16,7 +16,7 @@ When an alert is forwarded to a Jira Destination, a bug, story, or task is creat
 
 1. Log in to your Atlassian account and navigate to the [API Token management page](https://id.atlassian.com/manage/api-tokens).&#x20;
 2. Click **Create API Token**, add a descriptive label, and click **Create**:\
-   ![](<../../../.gitbook/assets/jira-key1 (1) (1).png>)
+   ![](<../../../.gitbook/assets/jira-key1 (1).png>)
 3. Click **Copy** and store the token in a secure location.
    * Note: The token is sensitive information and you will not be able to view the token again.
 
@@ -44,9 +44,9 @@ When an alert is forwarded to a Jira Destination, a bug, story, or task is creat
 
 ## Alert Context Formatting
 
-In Panther 1.38 and above, the `alert_context` payload is JSON [pretty printed](../help/glossary.md#pretty-print) using JIRA's native formatting. Additionally, there's a new Rule ID field that parses the Panther rule ID for better automation support.
+In Panther 1.38 and newer, the `alert_context` payload is JSON [pretty printed](../help/glossary.md#pretty-print) using JIRA's native formatting. Additionally, Panther `Rule ID` and `Alert ID` fields are surfaced in the ticket’s description for better automation support.
 
-![](<../.gitbook/assets/image (49).png>)
+![](<../.gitbook/assets/jira destinations ss.png>)
 
 ## Additional Information on Destinations
 

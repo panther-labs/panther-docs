@@ -12,7 +12,7 @@ The Indicator Search is designed to be easy to use:
 * Find additional indicators in the Data Explorer and perform another search to gain additional context about the attack.
 * Continue to pivot through your data to map the entire attacker footprint.
 
-![Indicator Search](<../../../.gitbook/assets/indicator-search (5) (5) (7) (6) (1) (1) (3) (1) (1) (1) (2) (4) (6).png>)
+![Indicator Search](<../../../.gitbook/assets/indicator-search (5) (5) (7) (6) (1) (1) (3) (1) (1) (1) (1) (5).png>)
 
 As with all of our features, access to the Indicator Search can be limited through our [Role-Based Access Control](../system-configuration/rbac.md) system.
 

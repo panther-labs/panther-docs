@@ -51,7 +51,7 @@ Once your account has been provisioned, you will receive an invitation email fro
 
 After the initial console login with the provided credentials, you will need to update your password and set up MFA.
 
-![Login Screen](<.gitbook/assets/image (40).png>)
+![Login Screen](<.gitbook/assets/image (40) (1).png>)
 
 ### Inviting Users
 

@@ -21,7 +21,7 @@ In order to set up Snyk as a log source in Panther, you'll need to authorize Pan
 
 1. Go to the **General Account Settings** in [your Snyk account](https://app.snyk.io/account).
 2. In the KEY field, **click to show** select and copy the value in that field. Store this in a secure location, as you will need it in the next steps.\
-   ![](<../../.gitbook/assets/image (12) (1) (1) (2) (1) (1) (1).png>)
+   ![](<../../.gitbook/assets/image (12) (1) (1) (2) (1) (1).png>)
 
 
 

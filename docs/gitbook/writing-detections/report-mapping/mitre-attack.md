@@ -16,7 +16,7 @@ Panther supports the ability to map rules, policies, and scheduled rules to fram
 
 Here you will see the number of techniques covered out of the total and the number of active analytics. Each Tactic is represented as a row, and a square represents each technique.
 
-![](<../../.gitbook/assets/Screen Shot 2022-06-15 at 10.54.44 AM.png>)
+![](<../../.gitbook/assets/Screen Shot 2022-06-15 at 10.54.44 AM (1).png>)
 
 When clicking into a Technique, you will see the Detections or Log Sources that are applicable. Please note the following:
 

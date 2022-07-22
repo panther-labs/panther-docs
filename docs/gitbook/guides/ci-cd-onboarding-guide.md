@@ -32,11 +32,11 @@ If you haven’t done so already, create a repository to contain the detections 
 
 If you do not currently use CircleCI for other projects, you can [create a free account](https://circleci.com/signup) by “Signing up with Github” which will authorize CircleCI to your Github account.&#x20;
 
-![](../.gitbook/assets/screen-shot-2021-09-09-at-12.32.35-pm.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-09 at 12.32.35 PM.png>)
 
 Once signed in click “Projects” on the left side, find the project containing the repository and click “Set Up Project”&#x20;
 
-![](../.gitbook/assets/screen-shot-2021-09-09-at-12.32.47-pm.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-09 at 12.32.47 PM.png>)
 
 {% hint style="info" %}
 NOTE: In this screenshot we’re using a fork of panther-analysis, you’ll want to select the project containing your in-house detections. If you are using this guide only to enable CI/CD for a fork of panther-analysis (discussed in more detail in the following section) select that project.&#x20;
@@ -46,17 +46,17 @@ NOTE: In this screenshot we’re using a fork of panther-analysis, you’ll want
 
 After clicking “Set Up Project” for the desired project, you will be presented with two options. &#x20;
 
-![](../.gitbook/assets/screen-shot-2021-09-09-at-12.32.55-pm.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-09 at 12.32.55 PM.png>)
 
 Configuration for CircleCI jobs is found in the root directory of the repository under .circleci/config.yaml. If one exists already, select the second option. If not then you can select the first option and be taken to an in-browser editor to create one. If you would prefer to create your own job from scratch the documentation from CircleCI can be found [here](https://circleci.com/docs/).  A great example of a CI job for Panther rules can be found in our public panther-analysis repository [here](https://github.com/panther-labs/panther-analysis/blob/master/.circleci/config.yml). This can be edited to fit your organization's needs.
 
 Once the configuration is in place, the CI job should run automatically.  You can return to the dashboard and see the status of your job.
 
-![](../.gitbook/assets/screen-shot-2021-09-09-at-12.33.03-pm.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-09 at 12.33.03 PM.png>)
 
 Going forward this job will run every time a new pull request is created, or a new commit pushed to a branch.   You will see the status of the CI job at the bottom of your pull request with it’s status and a “details” link that can be clicked to see detailed output from the job.
 
-![](../.gitbook/assets/screen-shot-2021-09-09-at-12.33.10-pm.png)
+![](<../.gitbook/assets/Screen Shot 2021-09-09 at 12.33.10 PM.png>)
 
 ### Uploading Detections to Panther
 
@@ -74,7 +74,7 @@ First you will need to create environment variables within the Project Settings 
 
 ![](../.gitbook/assets/config.jpg)
 
-![](<../.gitbook/assets/image (3) (1) (2) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (2).png>)
 
 &#x20;After the environment variables have been created, you'll need to add the lines below to your CircleCI configuration in the `panther-analysis` repo.
 

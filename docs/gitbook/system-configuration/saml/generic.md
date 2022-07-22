@@ -49,6 +49,6 @@ Keep this browser window open, as you will need the **Audience** and **ACS URL**
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (1) (10) (12) (22).png>)
+![](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (1) (1) (21).png>)
 
 For examples, see the [OneLogin SSO](onelogin.md) and [Okta SSO ](okta.md)integration guides.
