@@ -25,5 +25,7 @@ Keep a note of the SQS Queue URL that Panther creates for your SQS Source.
 3. Select your SNS topic.&#x20;
    * A user who does not own the queue must create a subscription.
 4. Click on **Create Subscription.**
-5. Fill in the Details section, making sure to select **Enable Raw Delivery**.
+5. Fill in the Details section.
+   * Make sure to select **Enable Raw Delivery**.
+   * For the ARN in Endpoint, use this format: `arn:aws:sqs:<region>:<account id>:<queue name>`.
 6. When the subscription has been created, navigate back to your Panther Console to see your SNS topic messages begin to populate.
