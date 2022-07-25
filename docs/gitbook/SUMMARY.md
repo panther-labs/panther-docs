@@ -145,7 +145,7 @@
     * [Panther Audit Log Actions](system-configuration/panther-audit-logs/panther-audit-log-actions.md)
   * [System Health Notifications](system-configuration/system-health-notifications/README.md)
     * [Configuring System Health Notification Alarms](system-configuration/system-health-notifications/configuring-system-health-notification-alarms.md)
-    * [Log Classification Error](system-configuration/system-health-notifications/log-classification-error.md)
+    * [Log Processing Errors](system-configuration/system-health-notifications/log-classification-error.md)
     * [Alert Delivery Failure](system-configuration/system-health-notifications/alert-delivery-failure.md)
     * [Cloud Security Scanning Failure](system-configuration/system-health-notifications/cloud-security-scanning-failure.md)
   * [Snowflake Integration](system-configuration/snowflake-setup/README.md)
