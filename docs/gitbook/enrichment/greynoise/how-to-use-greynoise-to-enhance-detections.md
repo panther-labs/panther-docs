@@ -15,10 +15,10 @@ To enable GreyNoise data sets:
 1. Log in to your Panther Console.
 2. From the left sidebar menu, click **Analysis > Packs**.
    * On this page, you can see built-in packs available for both [GreyNoise Basic and GreyNoise Advanced](basic-vs.-advanced.md). Packs are disabled by default, so to use GreyNoise data you will need to enable them first.\
-     ![](<../../.gitbook/assets/image (44) (1) (1).png>)
+     ![](<../../.gitbook/assets/image (44) (1).png>)
 3. On the right side of the tile labeled `GreyNoise Basic`, click the toggle to enable the pack.&#x20;
 4. Click **Continue** in the dialog that appears.\
-   ![](<../../.gitbook/assets/image (5) (1) (1) (1).png>)
+   ![](<../../.gitbook/assets/image (5) (2).png>)
    * If you'd like to make additional changes through CI/CD with the [panther\_analysis\_tool](../../writing-detections/panther-analysis-tool.md), please contact your Panther representative for more information.
 5. To verify if the GreyNoise data sets are enabled, from the left sidebar menu, click **Enrichment > Sources.**
    * On this page, you can see Panther-managed enrichment sources (such as GreyNoise). You can also see whether the sources are currently enabled or disabled and when a source’s data was last refreshed.&#x20;

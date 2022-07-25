@@ -25,7 +25,7 @@ ServiceNow permissions to create a Scripted Rest API require a user with the **w
 3. Click **New** in the upper right-hand corner.&#x20;
 4. Select a Name and an ID, for example, `Panther Incident Creation` and `panther_incident_creation`, respectively.\
    \
-   ![](<../.gitbook/assets/image (12) (2) (1).png>)
+   ![](<../.gitbook/assets/image (42) (2).png>)
 5. Click **Submit**.
 6. On the Scripted Rest API's page, search for the name you just created. Click the **hyperlinked name.**
 7. Near the bottom of the page, click the **Resources tab.** Click **** the **New** button in the right-hand corner.
@@ -116,7 +116,7 @@ The schema provided above maps the alert payload from Panther to the relevant fi
 3. Click the **Send Test Alert** button to make sure everything works correctly.
    * A test event should now exist in your ServiceNow Incidents table.\
      \
-     &#x20;![](<../.gitbook/assets/image (5) (1) (2) (1) (1).png>)
+     &#x20;![](<../.gitbook/assets/test event in ServiceNow.png>)
 4. Click **Finish Setup.**
 
 ### Example

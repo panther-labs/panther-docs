@@ -455,35 +455,35 @@ Failed Tests Summary
 
 ## Writing Detections locally
 
-Writing Detections locally means creating Python and metadata files that define a Panther Detection on your own machine. After writing Detections locally, you upload the files to your Panther Console (typically via the Panther Analysis Tool) to control your Detection content.&#x20;
+Writing Detections locally means creating Python and metadata files that define a Panther Detection on your own machine. After writing Detections locally, you upload the files to your Panther instance (typically via the [Panther Analysis Tool](panther-analysis-tool.md#using-the-panther-analysis-tool)) to control your Detection content.&#x20;
 
 In Panther, there are three core Detection types:&#x20;
 
 * **Real-Time Rules** that analyze data as soon as it's sent to Panther
-* **Scheduled Rules** that run after a SQL query has been executed
+* **Scheduled Rules** that run after a Scheduled Query has been executed
 * **Policies** that detect insecure cloud resources
 
 ### File setup
 
 Each detection consists of:
 
-* A Python file (a file with a `.py` extension) containing your detection/audit logic
+* A Python file (a file with a `.py` extension) containing your detection/audit logic&#x20;
 * A YAML or JSON specification file (a file with a `.yml` or `.json` extension) containing metadata attributes of the detection.&#x20;
   * By convention, we give this file the same name as the Python file.
 
 We recommend creating folders based on log/resource type to group your detections, such as `suricata_rules` or `aws_s3_policies`. You can use the open source [Panther Analysis](https://github.com/panther-labs/panther-analysis) repo as a reference.
 
-We also recommend managing these files in a version control system (VCS). Most commonly we see GitHub or GitLab for this, which are managed git providers.
+We also recommend managing these files in a version control system (VCS). Most commonly we see GitHub or GitLab used, which are managed git providers.
 
 {% hint style="info" %}
-It's best practice to create a fork of Panther's [open source](https://github.com/panther-labs/panther-analysis) analysis repository, but you can also create your own repo from scratch.
+It's best practice to create a fork of Panther's [open-source analysis repository](https://github.com/panther-labs/panther-analysis), but you can also create your own repo from scratch.
 {% endhint %}
 
 ### Writing real-time and scheduled rules locally
 
 Rules are Python functions to detect suspicious behaviors. Returning a value of `True` indicates suspicious activity, which triggers an alert.
 
-1.  [Write your rule](rules.md) and save it (in your folder of choice) as `my_new_rule.py`:\
+1.  [Write your Rule](rules.md) and save it (in your folder of choice) as `my_new_rule.py`:\
     def rule(event):
 
     ```
@@ -537,8 +537,6 @@ Tests:
 ```
 
 We recommend running as many test cases as possible, including both true and false positives.
-
-
 
 ### Writing Policies locally
 
@@ -664,8 +662,6 @@ Tests:
 
 Mocking allows us to emulate network calls without requiring API keys or network access in our CI/CD pipeline, and without muddying the state of external tracking systems (such as the panther KV store).
 
-
-
 ### Customizing Detections
 
 To manage custom detections, you can create a private fork of the [Panther Analysis Github repo](https://github.com/panther-labs/panther-analysis). Upon [tagged releases](https://github.com/panther-labs/panther-analysis/releases), you can pull upstream changes from this public repo.
@@ -689,6 +685,50 @@ git pull panther-upstream master
 git push
 
 ```
+
+## Writing Scheduled Queries locally
+
+Writing [Scheduled Queries](../help/glossary.md#scheduled-query) locally means creating metadata files that define SQL queries on your own machine. Upload the files to your Panther instance (typically via the [Panther Analysis Tool](../help/glossary.md#panther-analysis-tool-pat)) to control your Scheduled Query content.
+
+### File setup
+
+Each saved query consists of:
+
+* A YAML file (`.yml` or `.json` extension) containing metadata attributes of the Scheduled Query.&#x20;
+
+You can use the open-source [Panther Analysis](https://github.com/panther-labs/panther-analysis) repo as a reference.
+
+We also recommend managing these files in a version control system (VCS). Most commonly we see GitHub or GitLab used, which are managed git providers.
+
+{% hint style="info" %}
+It's best practice to create a fork of Panther's [open-source analysis repository](https://github.com/panther-labs/panther-analysis), but you can also create your own repo from scratch.
+{% endhint %}
+
+### Writing Scheduled Queries locally
+
+Write your [Scheduled Query](../data-analytics/scheduled-queries.md) and save it in your folder of choice as `new-scheduled-query.yml`:\
+def rule(event):
+
+* Create a metadata file using the template below:
+
+```
+AnalysisType: scheduled_query
+QueryName: ScheduledQuery_Example
+Description: Example of a scheduled query for PAT
+Enabled: true
+Query:
+  - Your query appears here
+SnowflakeQuery:
+  - Same query appears here
+Tags:
+  - Your tags   
+Schedule:
+  CronExpression: "0 0 29 2 *"
+  RateMinutes: 0
+  TimeoutMinutes: 2
+```
+
+When your Scheduled Query is uploaded, each of the fields you would normally populate in the UI will be auto-filled. See [Scheduled Query Specification Reference](panther-analysis-tool.md#scheduled-query-specification-reference) below for a complete list of required and optional fields.
 
 ## Data Models
 
@@ -872,17 +912,19 @@ Required fields are in **bold**.
 
 A complete list of scheduled query specification fields:
 
-| Field Name           | Description                                                                                                                                          | Expected Value    |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| **`AnalysisType`**   | Indicates whether this analysis is a rule, policy, scheduled query, or global.                                                                       | `scheduled_query` |
-| **`QueryName`**      | A friendly name to show in the UI.                                                                                                                   | String            |
-| **`Enabled`**        | Whether this rule is enabled.                                                                                                                        | Boolean           |
-| `Tags`               | Tags used to categorize this rule.                                                                                                                   | List of strings   |
-| `Description`        | A brief description of the rule.                                                                                                                     | String            |
-| **`Query`**          | A query that can run on any backend. If this field is specified, you should not specify a SnowflakeQuery or a AthenaQuery.                           | String            |
-| **`SnowflakeQuery`** | A query specifically for a snowflake backend.                                                                                                        | String            |
-| **`AthenaQuery`**    | A query specifically for Athena.                                                                                                                     | String            |
-| **`Schedule`**       | The schedule that this this query should run. Can be expressed as a cron or in rate minutes. Note that cron and rate minutes are mutually exclusive. | Map               |
+| Field Name           | Description                                                                                                                                                                                                                                                                                                                             | Expected Value    |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **`AnalysisType`**   | Indicates whether this analysis is a Rule, Policy, Scheduled Query, or global.                                                                                                                                                                                                                                                          | `scheduled_query` |
+| **`QueryName`**      | A friendly name to show in the UI.                                                                                                                                                                                                                                                                                                      | String            |
+| **`Enabled`**        | Whether this rule is enabled.                                                                                                                                                                                                                                                                                                           | Boolean           |
+| `Tags`               | Tags used to categorize this rule.                                                                                                                                                                                                                                                                                                      | List of strings   |
+| `Description`        | A brief description of the rule.                                                                                                                                                                                                                                                                                                        | String            |
+| **`Query`**          | A query that can run on any backend. If this field is specified, you should not specify a SnowflakeQuery or a AthenaQuery.                                                                                                                                                                                                              | String            |
+| **`SnowflakeQuery`** | A query specifically for a Snowflake backend.                                                                                                                                                                                                                                                                                           | String            |
+| **`AthenaQuery`**    | A query specifically for Athena.                                                                                                                                                                                                                                                                                                        | String            |
+| **`Schedule`**       | <p>The schedule that this query should run. Expressed with a CronExpression or in Rate Minutes. TimeoutMinutes is required to release the query if it takes longer than expected. Note that cron and rate minutes are mutually exclusive. </p><pre><code>CronExpression: "0 0 29 2 *"
+  RateMinutes: 0
+  TimeoutMinutes: 2</code></pre> | Map               |
 
 ### Data Model Specification Reference
 
