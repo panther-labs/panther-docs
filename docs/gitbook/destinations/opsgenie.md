@@ -16,11 +16,11 @@ The OpsGenie Destination requires an `Opsgenie API key`. When an alert is forwar
 
 1. Log in to your OpsGenie dashboard. Navigate to the **Teams** tab and select the team to receive alerts.
 2. Click Integrations on the left, then click **Add integration**.\
-   ![](<../../../.gitbook/assets/opsgenie2 (2) (1) (1) (1) (11) (1) (1) (15).png>)
+   ![](<../../../.gitbook/assets/opsgenie2 (2) (1) (1) (1) (11) (1) (1) (1) (1) (15).png>)
 3. In the Integrations list, click **API**.\
-   ![](<../../../.gitbook/assets/opsgenie3 (3) (1) (1) (1) (11) (1) (1) (16).png>)
+   ![](<../../../.gitbook/assets/opsgenie3 (3) (1) (1) (1) (11) (1) (1) (1) (1) (16).png>)
 4. Configure the name, settings, and permissions for the integration. Check the boxes next to the **Enabled** and **Create and Update Access** permissions.\
-   ![](<../../../.gitbook/assets/opsgenie4 (4) (1) (1) (11) (1) (1) (13).png>)
+   ![](<../../../.gitbook/assets/opsgenie4 (4) (1) (1) (11) (1) (1) (1) (1) (13).png>)
 5. Copy the API Key from the configuration settings and store it in a secure location. You will need this in the next steps.
 6. Click **Save Integration**.
 

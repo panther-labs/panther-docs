@@ -94,18 +94,26 @@ The Panther CloudFormation stack has a number of configurable deployment paramet
 * `PythonRuntime`: The python runtime for AWS Lambda functions. The default value is `python3.7`, with allowed values of `python3.7` and `python3.9`.
 * `ReplayProcessorReservedConcurrency`: Reserved concurrency for panther-replay-results-processor Lambda function. The default value is 40, with a minimum value of 0.
 * `SnapshotPollerLambdaMemorySize`: Snapshot Poller (Cloud Security) Lambda memory size in MB. The default value is 1024, with a minimum value of 1024 and a maximum value of 10240.
-* `DatadogAPIKey`: API key for sending observability data to Datadog.&#x20;
+* `DatadogAPIKey`: API key for sending observability data to Datadog.
+* `DatadogAPIKeySecretArn`: Secrets Manager arn for API key for sending observability data to Datadog. The default value is `"`, with an allowed pattern of `'^(arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z]{2}-[a-z]{4,9}-[1-9]:[0-9]{12}:secret:\S+)?$'`.
+* `DatadogAppKeySecretArn`: Secrets Manager arn for App key for setting up AWS Integration for Datadog. The default value is `"`, with an allowed pattern of `'^(arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z]{2}-[a-z]{4,9}-[1-9]:[0-9]{12}:secret:\S+)$'.`
 * `DatadogExtensionVersion`: The Datadog lambda extension version. The default value is 22, with allowed values of 21 or 22.
 * `DatadogEnabled`: Enables or disables sending telemetry data to Datadog. The default value is `false`, with allowed values of `true` or `false`.
 * `EnableReports`: Enable viewing reports in the Console. The default value is `false`, with allowed values of `true` or `false`.
 * `AirgapSubnetOneIPRange`: A valid & available IP range in the existing VPC you plan to deploy Panther into. Only takes affect if VpcID is specified. Used by the VPC lambdas. The default value is 172.31.254.0/25 with an allowed pattern of `'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(/([0-9]|[1-2][0-9]|3[0-2]))$'`.
 * `AirgapSubnetTwoIPRange`: A second valid & available IP range in the existing VPC you plan to deploy Panther into, for multiple AZ redundancy. Only takes affect if VpcID is specified. Used by the VPC lambdas. The default value is '172.31.254.128/25' with an allowed pattern of `'^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(/([0-9]|[1-2][0-9]|3[0-2]))$'.`
-* `FeatureSandboxedExecFlows`: Tells the detections engine which functions should use the python executor.
+* `FeatureSandboxedExecFlows`: Tells the detections engine which functions should use the Python executor. The default value is `'test-rule'`.
 * `EnableIntelligentTiering`: Enable INTELLIGENT\_TIERING on Panther manager S3 buckets. The default value is `false`, with allowed values of `true` or `false`.
-* `SlowRuleMaxDuration`: The maximum amount of time allowed for a rule to run before we trigger an alarm. The default is 75ms, with an allowed pattern of `'[-+]?([0-9]`_`(.[0-9]`_`)?[a-z]+)+'`.&#x20;
 * `SnowflakeDDLUpdateConcurrency`: The concurrency used when updating table/view/pipes. The default value is 1, with a minimum value of 1 and a maximum value of 100.
 * `EnableAlertsGSIThree`: Feature flag to enable third month partition GSI. The default value is `false`, with allowed values of `true` or `false`.
 * `EnableFips`: Use FIPS endpoints for AWS services in US regions. If enabled, may degrade performance. Ignored for Snowflake backends. The default value is `false`, with allowed values of `true` or `false`.
 * `SnowflakeRBACSecretARN`: ARN pointing at the AWS secret with config and creds for the PANTHER\_RBAC Snowflake user. The default value is `''` with an allowed pattern of `'^(arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z]{2}-[a-z]{4,9}-[1-9]:[0-9]{12}:secret:\S+)?$'`.
+* `EnableNewNavigation`: Enable the new navigation page grouping in the UI. The default value is `false`, with allowed values of `true` or `false`.
+* `DynamoDBCloudtrailEnabled`: Enables/disables data access logging for specific DynamoDB tables. The default value is `false`, with allowed values of `true` or `false`.
+* `SegmentEnvironment`: Segment environment type - leave blank to disable the Segment integration. The default value is `prod`, with allowed values of `''`, `dev`, `staging`, or `prod`. Note: Ensure the write key is defined for the env you choose.
+* `SlowRuleMaxUtilization`: The maximum amount of time allowed for a rule to run before we trigger an alarm. The default value is 50, with a minvalue of 1.
+* `EnableAlertAssignees`: Enables/disables the ability to assign alerts to users. The default value is `false`, with allowed values of `true` or `false`.
+* `EnableMicrosoftGraphPuller`: Enables/disables the Microsoft Graph Puller feature. The default value is `false`, with allowed values of `true` or `false`.
+* `Segment`: This write key can only send data to Segment. It cannot read, pull, or edit any data. The dev is `6hqUUfPShNwNGgBM7CaDCybyP4Zq0QoI` and the staging and prod values are both `"`.
 
 Panther has a number of other configuration options besides the ones listed above. We recommend not setting any of these parameters on the first deployment of Panther. If any step of the initial deployment fails, the entire deployment will fail and rollback deleting all infrastructure. After you complete the initial deployment of Panther, you can update the stack with different root parameters. Then if any of these settings cause a deployment failure, Panther will simply roll back to the previous settings without needing an entire fresh deployment. This includes parameters like the snowflake and custom domain configuration parameters.

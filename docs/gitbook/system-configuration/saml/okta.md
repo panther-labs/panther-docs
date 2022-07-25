@@ -78,4 +78,4 @@ Amazon Cognito, which powers Panther's user management, does not support IdP-ini
 
 To test your setup, go to your Panther sign-in page and click **Login with SSO**.
 
-![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (23).png>)
+![The Panther login page displays a "Login with SSO" button at the bottom.](<../../../../.gitbook/assets/panther-login-sso (6) (1) (1) (1) (11) (1) (1) (1) (1) (23).png>)
