@@ -1,5 +1,5 @@
 ---
-description: Panther supports 90+ security log types across 33 different categories
+description: Panther supports 100+ security log types across 36 different categories
 ---
 
 # Supported Logs
