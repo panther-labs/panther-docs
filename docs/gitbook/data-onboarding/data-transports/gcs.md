@@ -20,7 +20,7 @@ Panther requires certain configurations within Google Cloud Platform (GCP) to au
 2. Click **Create New**.
 3. On the left side of the page, click **Custom Onboarding**.&#x20;
 4. On the Google Cloud Storage tile, click **Select**.\
-   ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.48.04 AM.png>)
+   ![](<../../.gitbook/assets/gcs no beta.png>)
 5. On the "Configure your source" page, fill in the fields:
    * **Name**: Enter a memorable name for the GCS log source.
    * **Log Types**: Select the Log Types Panther should use to parse your GCS logs. **Note:** At least one Log Type must be selected from the dropdown menu.\
