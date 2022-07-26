@@ -109,9 +109,9 @@ The only required function is `def rule(event)`, but other functions make your A
 
 ```python
 def rule(event): 
-if event.get("Something"): 
-return True 
-return False
+    if event.get("Something"): 
+        return True 
+    return False
 ```
 
 `return True` triggers an alert, while `return False` does not trigger an alert.
@@ -153,12 +153,12 @@ def rule(event):
 \
 `def rule(event):`&#x20;
 
-`return event['field'] == 'value'`
+&#x20;   `return event['field'] == 'value'`
 {% endhint %}
 
 Reference: [Safely Accessing Event Fields](https://docs.panther.com/writing-detections/rules#safely-accessing-event-fields)
 
-
+####
 
 #### Accessing nested fields safely
 
@@ -315,7 +315,7 @@ Example: If you have a list of IP addresses that you would like to add to your a
 ALLOW_IP = {'192.0.0.1', '192.0.0.2', '192.0.0.3'}
 
 def rule(event):
-	return event.get("ip_address") not in ALLOW_IP
+    return event.get("ip_address") not in ALLOW_IP
 
 ```
 
@@ -359,8 +359,8 @@ ADMIN_PATTERN = re.compile(r"[aA]dministrator")
 def rule(event):
     # using the deep_get function we can pull out the nested value under the "privilegeGranted" field
     value_to_search = deep_get(event, "debugContext", "debugData", "privilegeGranted")
-		# finally we use the regex object we created earlier to check against our value
-		# if there is a match, "True" is returned
+            # finally we use the regex object we created earlier to check against our value
+        # if there is a match, "True" is returned 
     return (bool(ADMIN_PATTERN.search(value_to_search, default="")))
 
 ```
