@@ -29,7 +29,7 @@ This guide explains how to upload to your Panther Console via GitHub Actions usi
 
 1. Navigate to the GitHub repository where you would like to set up automation.
 2. Within the GitHub repository, navigate to **Actions.**\
-   ****<img src="../.gitbook/assets/Screen Shot 2022-06-14 at 8.51.10 AM (1).png" alt="" data-size="original">****
+   ****<img src="../.gitbook/assets/Screen Shot 2022-06-14 at 8.51.10 AM.png" alt="" data-size="original">****
 3. Click **New Workflow**.\
    ![](<../.gitbook/assets/Screen Shot 2022-06-14 at 9.43.19 AM.png>)
 4. Click the button that says _**set up a workflow yourself →**._\
