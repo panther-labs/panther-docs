@@ -6,10 +6,6 @@ description: >-
 
 # Monitoring Log Sources
 
-{% hint style="info" %}
-This feature is available in version 1.33 and newer.
-{% endhint %}
-
 ## Overview
 
 Once a log source is onboarded in Panther, you can monitor data processing metrics and the log source's health in the log source's operations page. You can also attach new schemas and view raw data associated with the log source.
@@ -47,11 +43,11 @@ You can learn more about these error types in the documentation: [System Health 
 
 ### Viewing or editing log source schemas
 
-On the left side of the log source's operations page, click the **Health** tab to see all schemas that are parsing and normalizing the data coming from this source.&#x20;
+On the left side of the log source's operations page, click the **Schemas** tab to see all schemas that are parsing and normalizing the data coming from this source.&#x20;
 
 If you are looking at a custom log source that uses a Data Transport, you will be able to add or remove schemas here.&#x20;
 
-![](../.gitbook/assets/log-source-schemas.png)
+![](<../.gitbook/assets/viewing schemas.png>)
 
 #### View in Data Explorer&#x20;
 
