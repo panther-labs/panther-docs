@@ -8,6 +8,10 @@ description: Connecting JAMF Pro logs to your Panther Console
 
 Panther supports ingesting JAMF Pro logs via Amazon Web Services (AWS) S3 as a [Data Transport](../data-transports/).
 
+{% hint style="info" %}
+**Note:** A [JAMF Premium Cloud add-on](https://resources.jamf.com/documents/products/documentation/jamf-premium-cloud.pdf) is required to connect JAMF Pro logs to Panther.
+{% endhint %}
+
 ## How to onboard JAMF Pro logs to Panther
 
 To connect these logs into Panther:
