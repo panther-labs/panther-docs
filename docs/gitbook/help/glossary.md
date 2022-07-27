@@ -11,7 +11,7 @@ description: >-
 #### **Alert**
 
 > * A brief and human-readable event that correlated to a programmed alarm rule to provide information about data breaches, exploits, or malicious behaviors.
-> * The event triggered by Panther after the criteria on your rule, policy, or query is met. See [Triaging Alerts](../writing-detections/triaging-alerts.md) for more information.
+> * The event triggered by Panther after the criteria on your rule, policy, or query is met. See [Triaging Alerts](../writing-detections/triaging-alerts/) for more information.
 
 #### **Alert Destination**
 

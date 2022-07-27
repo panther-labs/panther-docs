@@ -67,7 +67,7 @@ To copy the log event to be used in [Unit Tests](https://docs.panther.com/writin
 4. Fill out the required Basic Info as follows:
    * **Enabled:** Toggle the button in the right-hand corner to "On."
    * **Name**: **** Enter a memorable name for your new detection.
-   * **Severity**: **** Select a [detection severity](triaging-alerts.md#alert-severities) from the drop-down options.
+   * **Severity**: **** Select a [detection severity](triaging-alerts/#alert-severities) from the drop-down options.
    * The lower right-hand drop-down menu differs depending on the detection type you chose:
      * **Rule:** Select the applicable Log Types.
      * **Policy:** Select the applicable Resource Types.
@@ -595,6 +595,6 @@ Panther's alert summaries instantly indicate `Who,` `What`, `Where` information 
 
 <summary>Triaging Alerts</summary>
 
-The Panther Console has a navigation section called **Alerts & Errors** where you can interpret and triage alerts. Triaging is grouped into three sub-sections: alerts, detection errors, or system errors. Triage label options include: open, invalid, resolved, or triaged. For more information, see [Triaging Alerts](triaging-alerts.md).
+The Panther Console has a navigation section called **Alerts & Errors** where you can interpret and triage alerts. Triaging is grouped into three sub-sections: alerts, detection errors, or system errors. Triage label options include: open, invalid, resolved, or triaged. For more information, see [Triaging Alerts](triaging-alerts/).
 
 </details>
