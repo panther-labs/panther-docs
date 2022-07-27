@@ -67,7 +67,7 @@
   * [Report Mapping](writing-detections/report-mapping/README.md)
     * [MITRE ATT\&CK® Matrix](writing-detections/report-mapping/mitre-attack.md)
   * [Panther Developer Workflows: Detections](writing-detections/panther-analysis-tool.md)
-  * [Triaging Alerts](writing-detections/triaging-alerts/README.md)
+  * [Triaging Alerts](writing-detections/triaging-alerts.md)
     * [Alert Runbooks](writing-detections/triaging-alerts/alert-runbooks/README.md)
       * [Built-in Policies](writing-detections/triaging-alerts/alert-runbooks/built-in-policies/README.md)
         * [AWS CloudTrail Is Enabled In All Regions](writing-detections/triaging-alerts/alert-runbooks/built-in-policies/aws-cloudtrail-enabled-in-all-regions.md)

@@ -27,7 +27,7 @@ Once an alert is triaged, it'll disappear from the default view of the alert lis
 
 If performing bulk triaging on groups of alerts, you can use the bulk select option (pictured below).
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 10.52.57 PM.png>)
+![](<../.gitbook/assets/Screen Shot 2021-12-02 at 10.52.57 PM.png>)
 
 By default, the bulk selector will select everything on the current page. If you'd like to select everything within the filtered results (beyond the first page), you can select **Select all Alerts that match this search.** This will select everything within the filtered results.
 

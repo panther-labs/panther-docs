@@ -67,7 +67,7 @@ To copy the log event to be used in [Unit Tests](https://docs.panther.com/writin
 4. Fill out the required Basic Info as follows:
    * **Enabled:** Toggle the button in the right-hand corner to "On."
    * **Name**: **** Enter a memorable name for your new detection.
-   * **Severity**: **** Select a [detection severity](triaging-alerts/#alert-severities) from the drop-down options.
+   * **Severity**: **** Select a [detection severity](triaging-alerts.md#alert-severities) from the drop-down options.
    * The lower right-hand drop-down menu differs depending on the detection type you chose:
      * **Rule:** Select the applicable Log Types.
      * **Policy:** Select the applicable Resource Types.
@@ -120,6 +120,10 @@ For more templates, see the [panther\_analysis repo on Github](https://github.co
 
 ### Detection writing best practices
 
+#### Casing for event fields
+
+Lookups for event fields are not case sensitive. `event.get("Event_Type")` or `event.get("event_type")` will return the same result.
+
 #### Understanding top level fields and nested fields
 
 Top-level fields represent the parent fields in a nested data structure. For example, a record may contain a field called `user` under which there are other fields such as `ip_address`. In this case, `user` is the top-level field, and `ip_address` is a nested field underneath it.
@@ -142,9 +146,9 @@ In the example below, if the field exists, the value of the field will be return
 
 ```python
 def rule(event):
-		if event.get('field')
-	    return event.get('field')
-		return False
+    if event.get('field')
+        return event.get('field')
+    return False
 ```
 
 {% hint style="warning" %}
@@ -178,14 +182,16 @@ JSON CloudTrail root activity:
 
 ```json
 { 	
-        "eventVersion": "1.05",
- 	"userIdentity": { 	
- 	"type": "Root", 	
- 	"principalId": "1111", 	
- 	"arn": "arn:aws:iam::123456789012:root", 	
- 	"accountId": "123456789012", 		
-        "userName": "root" }, 	
- ... }
+       "eventVersion": "1.05",
+       "userIdentity": { 	
+               "type": "Root", 	
+               "principalId": "1111", 	
+               "arn": "arn:aws:iam::123456789012:root", 	
+               "accountId": "123456789012", 		
+               "userName": "root" 
+               }, 	
+        ... 
+ }
 ```
 
 Here is how you could check that value safely with `deep_get`:
@@ -225,30 +231,25 @@ For example, you can create an alert based on HTTP response status codes:
 ```python
 # returns True if 'status_code' equals 404
 def rule(event):
-    return event.get("status_code") == 404
+    if event.get("status_code"):
+        return event.get("status_code") == 404
+    else:
+        return False
 
 # returns True if 'status_code' greater than 400
 def rule(event):
-    return event.get("status_code") > 400
-
-# returns True if 'status_code' less than 200
-def rule(event):
-    return event.get("status_code") < 200
-
-# returns True if 'status_code' greater than or equal to 500
-def rule(event):
-    return event.get("status_code") >= 500
-
-# returns True if 'status_code' less than or equal to 499
-def rule(event):
-    return event.get("status_code") <= 499
-
-# returns True if 'status_code' is between 500 and 511
-def rule(event):
-    return 500 <= event.get("status_code") <= 511
+    if event.get("status_code"):
+        return event.get("status_code") > 404
+    else:
+        return False
 ```
 
-Reference: [box\_access\_granted.py](https://github.com/panther-labs/panther-analysis/blob/master/box\_rules/box\_access\_granted.py)
+
+
+Reference:&#x20;
+
+* [box\_access\_granted.py](https://github.com/panther-labs/panther-analysis/blob/master/box\_rules/box\_access\_granted.py)
+* [Python Operators](https://www.w3schools.com/python/python\_operators.asp)
 
 #### **Using the Universal Data Model**
 
@@ -286,8 +287,8 @@ from panther_base_helpers import deep_get
 
 def rule(event):
     return (event.get("eventName") == "ConsoleLogin" and
-		        deep_get(event, "userIdentity", "type") == "Root" and
-		        deep_get(event, "responseElements", "ConsoleLogin") == "Success")
+            deep_get(event, "userIdentity", "type") == "Root" and
+	    deep_get(event, "responseElements", "ConsoleLogin") == "Success")
 ```
 
 The `or` keyword is a logical operator and is used to combine conditional statements. When using `or`, either of the statements may be true: \
@@ -359,8 +360,8 @@ ADMIN_PATTERN = re.compile(r"[aA]dministrator")
 def rule(event):
     # using the deep_get function we can pull out the nested value under the "privilegeGranted" field
     value_to_search = deep_get(event, "debugContext", "debugData", "privilegeGranted")
-            # finally we use the regex object we created earlier to check against our value
-        # if there is a match, "True" is returned 
+    # finally we use the regex object we created earlier to check against our value
+    # if there is a match, "True" is returned 
     return (bool(ADMIN_PATTERN.search(value_to_search, default="")))
 
 ```
@@ -595,6 +596,6 @@ Panther's alert summaries instantly indicate `Who,` `What`, `Where` information 
 
 <summary>Triaging Alerts</summary>
 
-The Panther Console has a navigation section called **Alerts & Errors** where you can interpret and triage alerts. Triaging is grouped into three sub-sections: alerts, detection errors, or system errors. Triage label options include: open, invalid, resolved, or triaged. For more information, see [Triaging Alerts](triaging-alerts/).
+The Panther Console has a navigation section called **Alerts & Errors** where you can interpret and triage alerts. Triaging is grouped into three sub-sections: alerts, detection errors, or system errors. Triage label options include: open, invalid, resolved, or triaged. For more information, see [Triaging Alerts](triaging-alerts.md).
 
 </details>
