@@ -2,7 +2,7 @@
 
 This page provides help for common issues you may encounter with Panther deployment or usage.
 
-Don't see what you're looking for? [Contact support](./)
+Don't see what you're looking for? Search for answers in [Panther's Knowledge Base (KB)](https://help.panther.com) or [contact support](./).
 
 ## Deployment
 

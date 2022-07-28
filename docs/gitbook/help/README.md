@@ -1,5 +1,5 @@
 ---
-description: Helpful Panther resources
+description: Get help on issues or questions you have while using Panther
 ---
 
 # Help
@@ -13,6 +13,10 @@ This page helps provide resources for questions and issues with using Panther.&#
 If you don't find the answer you need below, contact the Support Team via your team's Panther Slack channel or [email Panther's Support Team directly](mailto:support@panther.io).
 
 ## Helpful Panther resources&#x20;
+
+### Panther's Knowledge Base (KB)
+
+Panther's KB at [help.panther.com](https://help.panther.com/) contains articles that answer frequently asked questions and help you resolve common errors and issues. You can navigate through the topics on the home page, or you can use the search bar in the KB to find the information you need.
 
 ### Getting started with Panther
 

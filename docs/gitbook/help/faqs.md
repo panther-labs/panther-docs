@@ -6,6 +6,8 @@ description: Commonly asked questions about using Panther.
 
 ## General Questions
 
+Don't see what you're looking for on this page? Search for answers in [Panther's Knowledge Base (KB)](https://help.panther.com).&#x20;
+
 ### How do I get started with using Panther?
 
 Panther's [Quick Start](../quick-start.md) documentation helps you get started with logging in, inviting users to your Panther Console, onboarding the logs you want to monitor, setting up [Alert destinations](glossary.md#alert-destination), and configuring [Detections](../writing-detections/) to alert for common security threats.
