@@ -7,13 +7,13 @@ The Panther API supports the following data lake operations:
 * Executing an Indicator Search query&#x20;
 * Canceling any currently-running query
 * Fetching the details of any previously executed query
-* Listing all currently-running or previously-executed queries with optional filters
+* Listing all currently running or previously-executed queries with optional filters
 
-See the sections below for GraphQL queries and mutations around certain common operations, as well as end-to-end examples on typical workflows.
+See the sections below for GraphQL queries, mutations, and end-to-end workflow examples around core data lake query operations.
 
-## Common Operations
+## Common Data Lake query operations
 
-Below are some of the most common GraphQL operations in Panther. These examples demonstrate how you can use a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
+Below are some of the most common GraphQL Data Lake query operations in Panther. These examples demonstrate the documents you have to send using a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.
 
 #### Database Entities
 
@@ -292,7 +292,7 @@ query ListDataLakeQueries {
 {% endtab %}
 {% endtabs %}
 
-## End-to-end Examples
+## End-to-end examples
 
 Below, we will build on the [Common Operations](data-lake-queries.md#common-operations) examples to showcase an end-to-end flow.
 

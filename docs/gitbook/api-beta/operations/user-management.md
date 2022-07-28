@@ -4,7 +4,7 @@ description: Panther API user and role management operations
 
 # User & Role Management
 
-The Panther API supports the following user operations:
+The Panther API supports the following user and role operations:
 
 * List users
 * Get a user by ID or by email address
@@ -17,11 +17,11 @@ The Panther API supports the following user operations:
 * Update a role's information and permissions
 * Delete roles
 
-See the sections below for GraphQL queries and mutations around certain common operations.
+See the sections below for GraphQL queries, mutations, and end-to-end workflow examples around core user and role management operations.
 
-## Common user operations
+## Common user and role management operations
 
-Below are some of the most common GraphQL operations in Panther. These examples demonstrate how you can use a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
+Below are some of the most common GraphQL user and role management operations in Panther. These examples demonstrate the documents you have to send using a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
 
 #### Listing Users
 
@@ -291,7 +291,7 @@ mutation deleteRole {
 }
 ```
 
-## End-to-End Examples
+## End-to-end examples
 
 Below, we will build on the [Common Operations](user-management.md#common-operations) examples to showcase an end-to-end flow.
 

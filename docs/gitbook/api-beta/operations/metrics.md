@@ -13,11 +13,13 @@ The Panther API provides the following user metric operations:
 * Total number of bytes & events that Panther ingested and/or processed over a specific time period
 * Breakdown of alerts that were generated for each Severity type over a specific time period
 
-See the sections below for GraphQL queries around the core operations.
+See the sections below \
+\
+See the sections below for GraphQL queries, mutations, and end-to-end workflow examples around core metrics operations.
 
-## Common Metrics Operations
+## Common metrics operations
 
-Below are the core GraphQL operations for metrics in Panther. These examples demonstrate the documents you have to send using a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
+Below are some of the most common GraphQL metrics operations in Panther. These examples demonstrate the documents you have to send using a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
 
 **Metrics Query**
 
@@ -75,7 +77,7 @@ query GetMetrics {
 The `breakdown` field is only useful for charts that use time as their X-axis. It produces a map of timestamps -> values as a "breakdown" of the `value` field to its constituents.
 {% endhint %}
 
-### End-to-End Examples
+### End-to-end examples
 
 Below, we build on the operations from the [Core Operations](metrics.md#core-operations) examples to showcase an end-to-end use case flow.
 

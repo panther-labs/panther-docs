@@ -6,11 +6,11 @@ The Panther API supports the following alerting operations:
 * Fetching the details of a particular alert
 * Updating the status of one or more alerts
 
-See the sections below for GraphQL queries and mutations around certain common operations, as well as end-to-end examples on typical workflows.
+See the sections below for GraphQL queries, mutations, and end-to-end workflow examples around core alert and error operations.
 
-## Common alerting operations
+## Common alert and error operations
 
-Below are some of the most common GraphQL operations in Panther. These examples demonstrate how you can use a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
+Below are some of the most common GraphQL alert and error operations in Panther. These examples demonstrate the documents you have to send using a GraphQL client (or `curl`) to make a call to Panther's GraphQL API.&#x20;
 
 #### Listing your Alerts
 
@@ -113,7 +113,7 @@ mutation UpdateAlertStatus {
   }
 ```
 
-## End-to-end Examples
+## End-to-end examples
 
 Below, we will build on the [Common Operations](alerts-and-errors.md#common-operations) examples to showcase an end-to-end flow.
 
