@@ -197,3 +197,45 @@ LogTypes:
   - Logtype.With.DataModel
   - Another.Logtype.With.DataModel
 ```
+
+## Using Data Models with Enrichment
+
+Panther provides a built-in method on the event object called `event.udm_path`. It returns the original path that was used for the Data Model.\
+\
+In the example of `AWS.VPCFlow` logs, using `event.udm_path('destination_ip')` will return `'dstAddr'`, since this is the path defined in the Data Model for that log type.\
+\
+The following example uses `event.udm_path`:
+
+```python
+from panther_base_helpers import deep_get
+
+def rule(event):
+    return True
+
+def title(event):
+    return event.udm_path('destination_ip')
+
+def alert_context(event):
+    enriched_data = deep_get(event, 'p_enrichment', 'lookup_table_name', event.udm_path('destination_ip'))
+    return {'enriched_data':enriched_data}
+```
+
+This test case was used:
+
+```json
+  {   
+    "p_log_type": "AWS.VPCFlow",
+    "dstAddr": "1.1.1.1",
+    "p_enrichment": {
+       "lookup_table_name": {
+         "dstAddr": {
+            "datakey": "datavalue"
+       }
+      }
+     }
+    }
+```
+
+The test case returned the following alert:\
+\
+![](<../.gitbook/assets/Mock Testing.png>)
