@@ -48,7 +48,8 @@ For example: `aws codebuild start-build --project-name panther-pulumi`
 
 We recommend not skipping minor versions of Panther while upgrading, but upgrading to the most recent patch version instead. Here are the most recent patch versions of Panther that we recommend upgrading to:
 
-* `v1.38.1`
+* `v1.39.7`
+* `v1.38.5`
 * `v1.37.11`
 * `v1.36.0`
 * `v1.35.7`
