@@ -20,31 +20,36 @@ Panther requires certain configurations within Google Cloud Platform (GCP) to au
 2. Click **Create New**.
 3. On the left side of the page, click **Custom Onboarding**.&#x20;
 4. On the Google Cloud Storage tile, click **Select**.\
-   ![](<../../.gitbook/assets/gcs no beta.png>)
+   ![](<../../.gitbook/assets/gcs no beta.png>)\
+   _In the image above, the blue Select button is circled on the tile labeled Google Cloud Storage._
 5. On the "Configure your source" page, fill in the fields:
-   * **Name**: Enter a memorable name for the GCS log source.
+   * **Name**: Enter a descriptive name for the GCS log source.
    * **Log Types**: Select the Log Types Panther should use to parse your GCS logs. **Note:** At least one Log Type must be selected from the dropdown menu.\
      ![](<../../.gitbook/assets/Screen Shot 2022-01-26 at 11.50.45 AM.png>)
 6. Click **Continue Setup.**
-7. On the "Infrastructure & Credentials" page, follow Steps 1 and 2 to create the infrastructure component with a Terraform template. **Note:** You can also [follow our alternative documentation](gcs.md#configuring-the-integration-in-google-cloud-platform-gcp) to complete the infrastructure components process manually.
-   * Step 1: Download and complete the Terraform template
-     * Download the **Terraform Template.**
-     * Fill out the fields in the `production.tfvars` file with your configuration.
-     * Initialize a working directory containing Terraform configuration files by running the Terraform Command schema provided.
-     * Copy the corresponding **Terraform of gcloud command schema** provided and run it in your CLI.
-     * Generate a JSON keyfile by replacing the value for your service account email\
-       in the gcloud command code listed.
-       * You can find the key file in the output of the Terraform run.
-   * Step 2: Provide pulling configuration & JSON Keyfile
-     * Drag and drop or upload the JSON key into the correct field in Step 2.
-     * Paste in your **GCS Bucket Nam**e and **Pub/Sub Subscription ID,** found in the **Subscriptions** section of your Google Cloud account.\
-       \
-       ![](<../../.gitbook/assets/Infrastructure and credentials page.png>)\
+7. On the "Infrastructure & Credentials" page, follow the steps to create the infrastructure component with a Terraform template. If you do not want to use a Terraform Template, you can follow our alternative documentation to [complete the infrastructure components process manually](gcs.md#alternative-to-terraform-template-configuring-your-integration-manually-in-google-cloud-platform-gcp).
+   1. Download and complete the Terraform template
+      * Download the **Terraform Template.**
+      * Fill out the fields in the `production.tfvars` file with your configuration.
+      * Initialize a working directory containing Terraform configuration files by running the Terraform Command schema provided.
+      * Copy the corresponding **Terraform of gcloud command schema** provided and run it in your CLI.
+      * Generate a JSON keyfile by replacing the value for your service account email\
+        in the gcloud command code listed.
+        * You can find the key file in the output of the Terraform run.
+   2. Provide pulling configuration & JSON Keyfile
+      * Drag and drop or upload the JSON key into the correct field in Step 2.
+      * Paste in your **GCS Bucket Nam**e and **Pub/Sub Subscription ID,** found in the **Subscriptions** section of your Google Cloud account.\
+        \
+        ![](<../../.gitbook/assets/Infrastructure and credentials page.png>)\
 
 8. Click **Continue Setup**.&#x20;
-9. Click **Finish Setup**.
+9. On the final "Verify Setup" confirmation page, toggle **** the alarm button to **YES** if you would like Panther to send you an alert in case your source does not produce any events.
+   * Edit the time period fields "Number" and "Period" to select your alert interval.
+   * Note: **** To create new or modify existing alert destinations, see [Destinations](../../destinations/).
 
-#### Configuring your integration manually in Google Cloud Platform (GCP)&#x20;
+###
+
+### Alternative to Terraform template: Configuring your integration manually in Google Cloud Platform (GCP)&#x20;
 
 If you choose to create the infrastructure components manually rather than using a Terraform template during the GCS setup above, follow the instructions below.
 

@@ -16,8 +16,10 @@ Follow the steps below to enable secure access for Panther to pull security logs
 
 1. Log in to your Panther Console and click **Integrations** on the left sidebar menu.&#x20;
 2. Click **Log Sources** > **Create New Source**.&#x20;
-3. On the left side of the page, click **Custom Onboarding**. Click **Select** in the tile for AWS CloudWatch Logs.\
-   ![](<../../.gitbook/assets/onboard-cloudwatch (2).png>)
+3.  On the left side of the page, click **Custom Onboarding**. Click **Select** in the tile for AWS CloudWatch Logs.\
+    ![](<../../.gitbook/assets/onboard-cloudwatch (2).png>)
+
+    _The image above shows a red arrow branching off "Custom Onboarding" to point at the Select button next to AWS CloudWatch Logs._
 4. On the "Configure your source" page, fill in the fields:
    * **Name**: Enter a Friendly name of the CloudWatch logs source
    * **Log Group Name**: Enter the unique name of the CloudWatch logs group
@@ -75,7 +77,7 @@ More details on this process can be found in the [AWS Cloudwatch Logs documentat
 
 If you have opted in for Panther-managed notifications in step 2, click **Finish Setup**. Your S3 source is ready to ingest data and a success page is shown. Optionally, you can configure a log drop-off alarm to be alerted if this source stops processing events within a specified time interval.
 
-![](<../../.gitbook/assets/image (30).png>)
+![There is a message that says "Everything looks good!" at the top. The middle of the page displays the option "Set an alarm in case this source does not process any events?" and the toggle is set to YES. The alert's configured destinations are displayed. There is a blue Finish Setup button at the bottom.](../../.gitbook/assets/s3-finish-setup.png)
 
 ## Viewing Collected Logs
 

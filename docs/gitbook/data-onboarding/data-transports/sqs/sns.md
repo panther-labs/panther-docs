@@ -12,7 +12,7 @@ The steps below enable you to onboard an SNS source into Panther. You will be ab
 
 ### Step 1: Set up your SQS source
 
-Follow the guidance on [setting up an SQS source](./), making sure to add the ARN of your SNS topic to the list of `Allowed Source ARNs`.
+Follow the Panther documentation on [setting up an SQS source](./) in Panther, making sure to add the ARN of your SNS topic to the list of `Allowed Source ARNs`.
 
 {% hint style="info" %}
 Keep a note of the SQS Queue URL that Panther creates for your SQS Source.
