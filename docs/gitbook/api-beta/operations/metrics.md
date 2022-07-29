@@ -79,7 +79,7 @@ The `breakdown` field is only useful for charts that use time as their X-axis. I
 
 ### End-to-end examples
 
-Below, we build on the operations from the [Core Operations](metrics.md#core-operations) examples to showcase an end-to-end use case flow.
+Below, we build on the operations from the [Common Operations](metrics.md#common-metrics-operations) examples to showcase an end-to-end use case flow.
 
 #### **Fetch Panther's log metrics**
 

@@ -2,11 +2,7 @@
 description: Logs of audited activity within your instance of Panther
 ---
 
-# Panther Audit Logs (Beta)
-
-{% hint style="info" %}
-Panther Audit Logs are currently in public Beta. Please share any bug reports and feature requests with your account team.&#x20;
-{% endhint %}
+# Panther Audit Logs
 
 ## Overview
 
