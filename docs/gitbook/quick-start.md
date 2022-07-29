@@ -35,6 +35,8 @@ You can manage your account and workflows in the Panther Console or using Panthe
 
 The Panther Console is Panther's web-based UI where Panther admins manage their account.&#x20;
 
+Check out the [Overview video](quick-start.md#overview-video) above or the [Panther Product Tour](https://panther.com/product-tour/) for a preview of the Panther Console.
+
 #### Panther Developer Workflows
 
 Panther Developer Workflows are non-console workflows you can use to interact with your Panther account, including CI/CD, API, and the Panther Analysis Tool (PAT).&#x20;
